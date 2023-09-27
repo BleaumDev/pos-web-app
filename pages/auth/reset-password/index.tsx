@@ -47,7 +47,7 @@ const ResetPassword = () => {
           </Stack>
         </AuthCardBody>
         <CardFooter mt="-2em">
-          <Link href="/auth/login" style={{ width: '100%' }}>
+          <Link href="/auth/congratulation" style={{ width: '100%' }}>
             <Button
               w="full"
               styledVariant="blue"
