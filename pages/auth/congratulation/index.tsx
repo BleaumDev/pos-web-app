@@ -1,4 +1,4 @@
-import { Box, CardFooter } from '@chakra-ui/react';
+import { Box, CardFooter, Link } from '@chakra-ui/react';
 import AuthLayout from '@lib/components/Auth/auth-layout';
 import { AuthCard, AuthCardHeader } from '@lib/components/Auth/card';
 import Button from '@lib/components/base/button';
@@ -21,14 +21,16 @@ const ForgetPassword = () => {
         </AuthCardHeader>
 
         <CardFooter mt="-2em">
-          <Button
-            w="full"
-            styledVariant="blue"
-            fontSize={{ base: '12px', md: '20px ' }}
-            fontWeight="400"
-          >
-            Go to Login
-          </Button>
+          <Link href="/auth/login" style={{ width: '100%' }}>
+            <Button
+              w="full"
+              styledVariant="blue"
+              fontSize={{ base: '12px', md: '20px ' }}
+              fontWeight="400"
+            >
+              Go to Login
+            </Button>
+          </Link>
         </CardFooter>
       </AuthCard>
     </AuthLayout>
