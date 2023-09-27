@@ -13,10 +13,11 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { theme } from 'styles/theme';
 
 import { persistor, store } from '../redux/store';
-import LoginPage from './auth/login';
 
 const App = ({
-  pageProps: { session },
+  Component,
+
+  pageProps: { session, ...pageProps },
 }: AppProps<{ session: Session; dehydratedState: unknown }>) => {
   return (
     <>
@@ -28,7 +29,7 @@ const App = ({
           <Provider store={store}>
             <Suspense fallback={<div>Loading...</div>}>
               <PersistGate persistor={persistor}>
-                <LoginPage />
+                <Component {...pageProps} />
               </PersistGate>
             </Suspense>
           </Provider>

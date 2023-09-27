@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'Gilroy-Regular';
+  src: url(../assets/fonts/Gilroy-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Gilroy-Medium';
+  src: url(../assets/fonts/Gilroy-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Gilroy-MediumItalic';
+  src: url(../assets/fonts/Gilroy-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Gilroy-Bold';
+  src: url(../assets/fonts/Gilroy-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Gilroy-ExtraBold';
+  src: url(../assets/fonts/Gilroy-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: 'Gilroy-Black';
+  src: url(../assets/fonts/Gilroy-Black.ttf);
+}
+
+/* ///..Primary Font-family../ */
+
+.primary-font-regular {
+  font-family: 'Gilroy-Regular' !important;
+  font-weight: 400 !important;
+}
+.primary-font-regular-italic {
+  font-family: 'Gilroy-MediumItalic' !important;
+  font-weight: 400 !important;
+}
+
+.primary-font-medium {
+  font-family: 'Gilroy-Medium' !important;
+  font-weight: 500 !important;
+}
+
+.primary-font-semibold {
+  font-family: 'Gilroy-Bold' !important;
+  font-weight: 600 !important;
+}
+
+.primary-font-extraBold {
+  font-family: 'Gilroy-ExtraBold' !important;
+  font-weight: 700 !important;
+}
+
+.primary-font-Black {
+  font-family: 'Gilroy-Black' !important;
+  font-weight: 900 !important;
+}
+
+
+.css-1ydjfm6[data-checked]{
+  background: linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%) !important;
+  border-color:  #192837 !important;
+}
+
