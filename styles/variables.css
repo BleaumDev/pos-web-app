@@ -1,3 +1,8 @@
+body{
+  background: #E9F0F8 !important;
+  margin: 0px !important;
+  padding: 0px !important;
+}
 @font-face {
   font-family: 'Gilroy-Regular';
   src: url(../assets/fonts/Gilroy-Regular.ttf);
@@ -65,3 +70,19 @@
   border-color:  #192837 !important;
 }
 
+#img_col{
+  padding: 0px !important;
+}
+.text-center{
+  display: flex;
+  justify-content: center;
+
+}
+.css-1al47nc{
+  height: 80px;
+}
+.pag-button{
+      cursor: pointer;
+    width: 50px;
+    margin: 6px;
+}
