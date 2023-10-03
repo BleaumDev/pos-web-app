@@ -1,4 +1,3 @@
-// eslint-disable-next-line simple-import-sort/imports
 import 'react-widgets/styles.css';
 import '../styles/variables.css';
 
@@ -16,19 +15,21 @@ import { persistor, store } from '../redux/store';
 
 const App = ({
   Component,
-
   pageProps: { session, ...pageProps },
-}: AppProps<{ session: Session; dehydratedState: unknown }>) => {
+}: AppProps<{
+  session: Session;
+  dehydratedState: unknown;
+}>): React.ReactNode => {
   return (
     <>
-      <Head>
-        <title>POS</title>
-      </Head>
       <ChakraProvider theme={theme}>
         <SessionProvider session={session}>
           <Provider store={store}>
             <Suspense fallback={<div>Loading...</div>}>
               <PersistGate persistor={persistor}>
+                <Head>
+                  <title>POS</title>
+                </Head>
                 <Component {...pageProps} />
               </PersistGate>
             </Suspense>

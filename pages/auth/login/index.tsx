@@ -17,7 +17,7 @@ const LoginPage = () => {
     <AuthLayout>
       <AuthCard>
         <AuthCardHeader py="2rem">
-          <Heading>Let’s start with Log In!</Heading>
+          <Heading>Let's start with Log In!</Heading>
         </AuthCardHeader>
         <AuthCardBody maxH="50vh">
           <Stack>
