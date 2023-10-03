@@ -22,7 +22,8 @@
       "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"],
       "@api/*": ["api-services/*"],
-      "path-to-regexp": ["node_modules/path-to-regexp/dist/index"]
+      "path-to-regexp": ["node_modules/path-to-regexp/dist/index"],
+      "react": ["./node_modules/@types/react"]
     }
   },
   "types": ["node", "jest", "@testing-library/jest-dom"],
