@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body{
   background: #E9F0F8 !important;
   margin: 0px !important;
@@ -21,6 +24,11 @@ body{
 @font-face {
   font-family: 'Gilroy-Bold';
   src: url(../assets/fonts/Gilroy-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Gilroy-SemiBold';
+  src: url(../assets/fonts/Gilroy-SemiBold.ttf);
 }
 
 @font-face {
@@ -50,7 +58,7 @@ body{
 }
 
 .primary-font-semibold {
-  font-family: 'Gilroy-Bold' !important;
+  font-family: 'Gilroy-SemiBold' !important;
   font-weight: 600 !important;
 }
 

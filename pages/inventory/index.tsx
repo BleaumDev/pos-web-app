@@ -13,7 +13,7 @@ const InventoryPage = () => {
         alt=""
       />
     </Td>,
-    <Td className="text-center" key="subject">
+    <Td className="text-center" key="subject" bg="#FAFFFD">
       Coastal Kush
     </Td>,
     <Td className="text-center" key="category">
