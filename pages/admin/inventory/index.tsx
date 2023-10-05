@@ -1,5 +1,6 @@
 import { useDisclosure } from '@chakra-ui/react';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import Products from 'pages/products';
 
 const Inventory = () => {
   const NavItems = {
@@ -25,7 +26,9 @@ const Inventory = () => {
 
   return (
     <div>
-      <Sidenav isOpen={isOpen} />
+      <Sidenav>
+        <Products />
+      </Sidenav>
     </div>
   );
 };

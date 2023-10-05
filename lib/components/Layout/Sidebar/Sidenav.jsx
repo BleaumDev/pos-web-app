@@ -12,7 +12,7 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 import Navbar from './AppbarInfo';
 
-const Sidenav = () => {
+const Sidenav = ({ children }) => {
   const { isOpen, onToggle } = useDisclosure();
   const { isOpen: isInventoryOpen, onToggle: onInventoryToggle } =
     useDisclosure();
@@ -333,6 +333,9 @@ const Sidenav = () => {
             </NextLink>
           </Box>
         </Collapse>
+      </Box>
+      <Box m="5em">
+        { children }
       </Box>
       {/* White horizontal section outside of the sidebar */}
     </>
