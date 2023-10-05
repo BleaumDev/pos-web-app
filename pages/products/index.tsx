@@ -30,7 +30,7 @@ const generateProducts = (count: number): Array<IProduct> => {
 
 const products = generateProducts(50);
 
-export default function Products(): React.ReactNode {
+export default function Products() {
   return (
     <Box m="4em">
       <div className="flex justify-between">
