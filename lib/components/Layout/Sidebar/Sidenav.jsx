@@ -18,7 +18,9 @@ const Sidenav = ({ children }) => {
     useDisclosure();
   return (
     <>
-      <Navbar toggleSidebar={onToggle} />
+      <Box position={'fixed'} w={'full'} top={'0px'}>
+        <Navbar toggleSidebar={onToggle} />
+      </Box>
       <Box
         w={isOpen ? '250px' : '70px'}
         minH={isOpen ? '100vh' : '100vh'}
@@ -93,6 +95,7 @@ const Sidenav = ({ children }) => {
               <Box
                 borderLeft={'1px solid #E69066'}
                 marginLeft={'15px !important'}
+                transition=" 0.3s ease-in-out"
                 pl={'3em'}
               >
                 <NextLink href="/">
@@ -334,8 +337,12 @@ const Sidenav = ({ children }) => {
           </Box>
         </Collapse>
       </Box>
-      <Box m="5em">
-        { children }
+      <Box
+        ml={isOpen ? '12em' : '5em'}
+        marginTop={'10em'}
+        transition="0.3s ease-in-out"
+      >
+        {children}
       </Box>
       {/* White horizontal section outside of the sidebar */}
     </>
