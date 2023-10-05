@@ -44,7 +44,7 @@ export default function Products(): React.ReactNode {
       </div>
 
       <Box mt={50}>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 min-w-full sm:min-w-md">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 min-w-[100vh] sm:min-w-md">
           {products.map((product) => {
             return (
               <Product
