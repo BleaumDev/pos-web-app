@@ -22,6 +22,10 @@ const Sidenav = ({ children }) => {
         <Navbar toggleSidebar={onToggle} />
       </Box>
       <Box
+        display={{
+          base: 'none',
+          md: 'block',
+        }}
         w={isOpen ? '250px' : '70px'}
         minH={isOpen ? '100vh' : '100vh'}
         bg="#ffffff"
@@ -338,7 +342,7 @@ const Sidenav = ({ children }) => {
         </Collapse>
       </Box>
       <Box
-        ml={isOpen ? '12em' : '5em'}
+        ml={{ base: '0', md: isOpen ? '250px' : '70px' }}
         marginTop={'10em'}
         transition="0.3s ease-in-out"
       >
