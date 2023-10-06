@@ -22,6 +22,11 @@ body{
 }
 
 @font-face {
+  font-family: 'Gilroy-SemiBoldItalic';
+  src: url(../assets/fonts/Gilroy-SemiBoldItalic.ttf);
+}
+
+@font-face {
   font-family: 'Gilroy-Bold';
   src: url(../assets/fonts/Gilroy-Bold.ttf);
 }
@@ -47,8 +52,14 @@ body{
   font-family: 'Gilroy-Regular' !important;
   font-weight: 400 !important;
 }
+
 .primary-font-regular-italic {
   font-family: 'Gilroy-MediumItalic' !important;
+  font-weight: 400 !important;
+}
+
+.primary-font-semi-bold-italic {
+  font-family: 'Gilroy-SemiBoldItalic' !important;
   font-weight: 400 !important;
 }
 
