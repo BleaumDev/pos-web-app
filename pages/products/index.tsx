@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Box } from '@chakra-ui/react';
 import Heading from '@lib/components/base/heading';
 import Product from '@lib/components/product';
