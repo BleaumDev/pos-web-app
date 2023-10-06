@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { CardFooter, Checkbox, Flex, Stack, Text } from '@chakra-ui/react';
 import AuthLayout from '@lib/components/Auth/auth-layout';
 import {

@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-function AuthLayout({ children }: Props): React.ReactNode {
+function AuthLayout({ children }: Props) {
   return (
     <SimpleGrid
       columns={{ base: 1, md: 2 }}

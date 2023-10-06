@@ -35,8 +35,8 @@ export default function Products() {
     <Box m="4em">
       <div className="flex justify-between">
         <Heading h={6}>
-          All Products{' '}
-          <Box as="span" color={'#FF8A43'}>
+          All Products
+          <Box as="span" color="#FF8A43">
             {`(${3293}+)`}
           </Box>
         </Heading>
@@ -48,67 +48,12 @@ export default function Products() {
           {products.map((product) => {
             return (
               <Product
-                id={product.id}
+                key={product.id}
                 name={product.name}
                 sku={product.sku}
                 price={product.price}
-                description={product.description}
                 availability={product.availability}
               />
-              // <div
-              //   className="mt-2 mb-2 px-3 py-5 min-w-[200px] rounded-3xl border-2 border-green-300"
-              //   style={{
-              //     backgroundColor: 'white',
-              //     margin: 10,
-              //   }}
-              // >
-              //   <Image src="/images/image2.png" />
-              //   <div className="flex flex-row justify-between items-center">
-              //     <div>
-              //       <Heading
-              //         h={6}
-              //         fontSize={17}
-              //         color={'#41454B'}
-              //         // fontWeight="bold"
-              //         className="primary-font-semibold"
-              //       >
-              //         {product.name}
-              //       </Heading>
-              //     </div>
-              //     <div>
-              //       <Text className="primary-font-semibold" color="orange">
-              //         ${product.price.toFixed(2)}
-              //       </Text>
-              //     </div>
-              //   </div>
-              //   <div>
-              //     <Text
-              //       className="inline primary-font-semibold font-light"
-              //       color={'#41454B'}
-              //       // fontSize={14}
-              //     >
-              //       SKU{' '}
-              //     </Text>
-              //     <Text className="inline font-thin primary-font-medium">
-              //       {product.sku}
-              //     </Text>
-              //   </div>
-              //   {/* <Text className="primary-font-regular" color={'#41454B'}>
-              //     In store at {product.availability}
-              //   </Text> */}
-              //   <div>
-              //     <Text
-              //       className="inline primary-font-semibold font-normal"
-              //       color={'#41454B'}
-              //       // fontSize={14}
-              //     >
-              //       In store at{' '}
-              //     </Text>
-              //     <Text className="inline font-thin primary-font-medium">
-              //       {product.availability}
-              //     </Text>
-              //   </div>
-              // </div>
             );
           })}
         </div>
