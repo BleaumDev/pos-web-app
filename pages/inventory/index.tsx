@@ -1,5 +1,5 @@
 import { Box, Td } from '@chakra-ui/react';
-import Table from '@lib/components/base/Table';
+import Table from '@lib/components/base/table';
 import { useMemo } from 'react';
 
 const InventoryPage = () => {
