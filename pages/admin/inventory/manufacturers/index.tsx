@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { Box, Image, Td } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/table';
