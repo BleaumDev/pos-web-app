@@ -1,11 +1,11 @@
 /* eslint-disable */
 import { CardFooter, Checkbox, Flex, Stack, Text } from '@chakra-ui/react';
-import AuthLayout from '@lib/components/Auth/auth-layout';
+import AuthLayout from '@lib/components/auth/auth-layout';
 import {
   AuthCard,
   AuthCardBody,
   AuthCardHeader,
-} from '@lib/components/Auth/card';
+} from '@lib/components/auth/card';
 import Button from '@lib/components/base/button';
 import Heading from '@lib/components/base/heading';
 import Input from '@lib/components/base/input';
@@ -16,7 +16,7 @@ import Link from 'next/link';
 const LoginPage = () => {
   return (
     <AuthLayout>
-      <AuthCard>
+      <AuthCard background="none">
         <AuthCardHeader py="2rem">
           <Heading>Let's start with Log In!</Heading>
         </AuthCardHeader>
@@ -74,14 +74,21 @@ const LoginPage = () => {
           </Flex>
         </AuthCardBody>
         <CardFooter mt="-2em">
-          <Button
-            w="full"
-            styledVariant="blue"
-            fontSize={{ base: '12px', md: '20px ' }}
-            fontWeight="400"
+          <Link
+            href="/admin/inventory/products"
+            style={{
+              width: '100%',
+            }}
           >
-            Login
-          </Button>
+            <Button
+              w="full"
+              styledVariant="blue"
+              fontSize={{ base: '12px', md: '20px ' }}
+              fontWeight="400"
+            >
+              Login
+            </Button>
+          </Link>
         </CardFooter>
       </AuthCard>
     </AuthLayout>
