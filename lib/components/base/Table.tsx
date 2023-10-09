@@ -23,8 +23,8 @@ interface TableProps {
   rows: React.ReactNode[][];
   isLoading?: boolean;
   checkboxes?: boolean;
+  hoverEffect?: boolean;
 }
-// the table component will be used in many pages, so we need to make it reusable and dynamic not strict to certain data schema. so we will generate the keys dynamically.
 const generateKeys = (rows: number, cells: number): string[][] => {
   const keys = [];
   for (let i = 0; i < rows; i += 1) {
@@ -124,8 +124,14 @@ export const ArrowKey: FC<{
   );
 };
 
-const Table: FC<TableProps> = ({ headers, rows, isLoading, checkboxes }) => {
-  const [pageSize, setPageSize] = useState(10);
+const Table: FC<TableProps> = ({
+  headers,
+  rows,
+  isLoading,
+  checkboxes,
+  hoverEffect,
+}) => {
+  const [pageSize, setPageSize] = useState(3);
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(rows.length / pageSize);
   const [selectedRows, setSelectedRows] = useState(new Set<number>());
@@ -171,6 +177,7 @@ const Table: FC<TableProps> = ({ headers, rows, isLoading, checkboxes }) => {
     <Box>
       <TableContainer
         background="#F8FBF8"
+        padding={{ base: '1em', md: '1em' }}
         borderRadius="12px"
         border="0.3px solid rgba(18, 23, 30, 0.30)"
         css={{
@@ -193,7 +200,12 @@ const Table: FC<TableProps> = ({ headers, rows, isLoading, checkboxes }) => {
           },
         }}
       >
-        <ChakraTable>
+        <ChakraTable
+          style={{
+            borderCollapse: 'separate',
+            borderSpacing: '0 8px',
+          }}
+        >
           <TableCaption>
             <Flex justifyContent="space-between" align="center">
               <Flex color="#41454BB2" align="center" gap={3}>
@@ -206,7 +218,10 @@ const Table: FC<TableProps> = ({ headers, rows, isLoading, checkboxes }) => {
                   className="primary-font-semibold"
                   onChange={(e) => setPageSize(Number(e.target.value))}
                 >
+                  <option value={3}>3</option>
+                  <option value={5}>5</option>
                   <option value={10}>10</option>
+                  <option value={15}>15</option>
                   <option value={20}>20</option>
                 </Select>
               </Flex>
@@ -219,7 +234,7 @@ const Table: FC<TableProps> = ({ headers, rows, isLoading, checkboxes }) => {
                 of {rows.length} results
               </Text> */}
               <Box>
-                {totalPages > 4 ? (
+                {totalPages > 20 ? (
                   <Flex gap={10}>
                     <PageNumber
                       onClick={() => setCurrentPage(currentPage - 1)}
@@ -252,7 +267,6 @@ const Table: FC<TableProps> = ({ headers, rows, isLoading, checkboxes }) => {
                         )}
                       </>
                     )}
-                    <PageNumber n="..." />
                     <PageNumber
                       onClick={() => setCurrentPage(totalPages - 1)}
                       current={totalPages - 1 === currentPage}
@@ -300,9 +314,8 @@ const Table: FC<TableProps> = ({ headers, rows, isLoading, checkboxes }) => {
           </TableCaption>
           <Thead borderBottom="2px solid #41454BB2">
             <Tr>
-              {checkboxes && ( // Conditionally render the header checkbox
+              {checkboxes && (
                 <Th>
-                  {/* Header checkbox to select/deselect all */}
                   <Checkbox
                     isChecked={selectAll}
                     onChange={handleToggleSelectAll}
@@ -313,10 +326,10 @@ const Table: FC<TableProps> = ({ headers, rows, isLoading, checkboxes }) => {
                 <Th
                   key={header}
                   color="#41454B"
-                  fontSize="16px"
-                  fontWeight="bold"
+                  fontSize="14px"
+                  fontWeight="400"
                   textAlign="center"
-                  py="2em"
+                  pb={8}
                   px={5}
                   className="primary-font-semibold"
                 >
@@ -340,10 +353,27 @@ const Table: FC<TableProps> = ({ headers, rows, isLoading, checkboxes }) => {
               </Tr>
             )}
             {paginatedRows.map((row, i) => (
-              <Tr key={rowsKeys[i]}>
-                {checkboxes && ( // Conditionally render the row checkbox
+              <Tr
+                key={rowsKeys[i]}
+                bg="#ffffff"
+                color="rgba(65, 69, 75, 0.7)"
+                borderRadius="12px !important"
+                h="46px"
+                cursor="pointer"
+                {...(hoverEffect
+                  ? {
+                      _hover: {
+                        borderLeft: '12px solid #FFA382',
+                        color: '#000000',
+                        bg: '#FFFBF6',
+                        borderRadius: '12px',
+                      },
+                    }
+                  : {})}
+                style={{ marginBottom: '16px' }}
+              >
+                {checkboxes && (
                   <Td>
-                    {/* Row checkbox to select/deselect the row */}
                     <Checkbox
                       isChecked={selectedRows.has(i)}
                       onChange={() => handleRowSelect(i)}
@@ -357,7 +387,6 @@ const Table: FC<TableProps> = ({ headers, rows, isLoading, checkboxes }) => {
                     fontSize="16px"
                     id="img_col"
                     textAlign="center"
-                    color="rgba(65, 69, 75, 0.7)"
                     className="primary-font-medium"
                   >
                     {cell}

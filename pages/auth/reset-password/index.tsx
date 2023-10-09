@@ -1,10 +1,10 @@
 import { CardFooter, Stack } from '@chakra-ui/react';
-import AuthLayout from '@lib/components/Auth/auth-layout';
+import AuthLayout from '@lib/components/auth/auth-layout';
 import {
   AuthCard,
   AuthCardBody,
   AuthCardHeader,
-} from '@lib/components/Auth/card';
+} from '@lib/components/auth/card';
 import Button from '@lib/components/base/button';
 import Heading from '@lib/components/base/heading';
 import Label from '@lib/components/base/label';

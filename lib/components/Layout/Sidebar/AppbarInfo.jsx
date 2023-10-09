@@ -28,7 +28,13 @@ const Navbar = () => {
         >
           <Image src="/images/logo.png" width={35} height={35} alt="logo" />
 
-          <Flex gap={'20px'}>
+          <Box
+            gap={'20px'}
+            display={{
+              base: 'none',
+              md: 'flex',
+            }}
+          >
             <Input
               placeholder="Scan/Search Product by Code or Name here..."
               background={'#E9F0F8'}
@@ -47,7 +53,7 @@ const Navbar = () => {
                 alt="logo"
               />
             </Box>
-          </Flex>
+          </Box>
           <IconButton
             onClick={onMobileModeToggle}
             icon={<HamburgerIcon />}
@@ -264,6 +270,28 @@ const Navbar = () => {
                 />
                 Add New Item
               </Button>
+            </Flex>
+          </Flex>
+          <Flex py={'1em'} w={'full'} justifyContent="center">
+            <Flex gap={'20px'}>
+              <Input
+                placeholder="Scan/Search Product by Code or Name here..."
+                background={'#E9F0F8'}
+                className="primary-font-medium"
+                fontSize={'12px'}
+                h={'40px'}
+                w={'300px'}
+                color={'#41454B'}
+                borderRadius={'4px'}
+              />
+              <Box cursor={'pointer'}>
+                <Image
+                  src="/images/search-nav.png"
+                  width={40}
+                  height={40}
+                  alt="logo"
+                />
+              </Box>
             </Flex>
           </Flex>
         </Box>

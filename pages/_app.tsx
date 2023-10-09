@@ -21,16 +21,16 @@ const App = ({
 }>): React.ReactNode => {
   return (
     <ChakraProvider theme={theme}>
-      <SessionProvider session={session}>
-        <Provider store={store}>
-          <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <SessionProvider session={session}>
+          <Provider store={store}>
             <Head>
               <title>POS</title>
             </Head>
             <Component {...pageProps} />
-          </Suspense>
-        </Provider>
-      </SessionProvider>
+          </Provider>
+        </SessionProvider>
+      </Suspense>
     </ChakraProvider>
   );
 };
