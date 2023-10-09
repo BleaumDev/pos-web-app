@@ -1,6 +1,6 @@
 import { Box, SimpleGrid } from '@chakra-ui/react';
 
-import RightSidebar from './right-side-bar';
+import RighSidebar from './right-side-bar';
 
 type Props = {
   children: React.ReactNode;
@@ -30,6 +30,7 @@ function AuthLayout({ children }: Props) {
           sm: '106px',
         }}
         h="full"
+        background="#fff"
         display="flex"
         justifyContent="center"
         alignContent="center"
@@ -41,8 +42,8 @@ function AuthLayout({ children }: Props) {
       >
         {children}
       </Box>
-      <Box ml="6em" h="full">
-        <RightSidebar />
+      <Box h="full">
+        <RighSidebar />
       </Box>
     </SimpleGrid>
   );
