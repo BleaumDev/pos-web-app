@@ -1,8 +1,6 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { type FC } from 'react';
 
-import NavBar from './NavBar';
-
 interface AppShellProps {
   children: React.ReactNode;
 }
@@ -10,7 +8,6 @@ interface AppShellProps {
 const AppShell: FC<AppShellProps> = ({ children }) => {
   return (
     <Flex minH="100vh" flexDirection="column" justifyContent="space-between">
-      <NavBar />
       <Box
         id="app-shell-content"
         mx="auto"
