@@ -1,11 +1,11 @@
 /* eslint-disable */
 import { CardFooter, Checkbox, Flex, Stack, Text } from '@chakra-ui/react';
-import AuthLayout from '@lib/components/auth/auth-layout';
+import AuthLayout from '@lib/components/Auth/AuthLayout';
 import {
   AuthCard,
   AuthCardBody,
   AuthCardHeader,
-} from '@lib/components/auth/card';
+} from '@lib/components/Auth/Card';
 import Button from '@lib/components/base/button';
 import Heading from '@lib/components/base/heading';
 import Input from '@lib/components/base/input';
