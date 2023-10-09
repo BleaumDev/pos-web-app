@@ -124,7 +124,7 @@ export const ArrowKey: FC<{
   );
 };
 
-const Table: FC<TableProps> = ({
+const TablePage: FC<TableProps> = ({
   headers,
   rows,
   isLoading,
@@ -401,4 +401,4 @@ const Table: FC<TableProps> = ({
   );
 };
 
-export default Table;
+export default TablePage;
