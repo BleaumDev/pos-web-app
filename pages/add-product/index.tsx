@@ -7,6 +7,7 @@ import {
   Select,
   Textarea,
   Text,
+  Button,
   Table,
   Th,
   Thead,
@@ -16,8 +17,11 @@ import {
   TableContainer,
 } from '@chakra-ui/react';
 import { AddIcon, ChevronLeftIcon } from '@chakra-ui/icons';
+import { useState } from 'react';
+import ComplexPricingInputRow from './ComplexPricingInputRow';
 
 export default function ProductDetail(): React.ReactNode {
+  const [complexPricingRowCount, setComplexPricingRowCount] = useState(1);
   return (
     <div
       style={{
@@ -227,42 +231,23 @@ export default function ProductDetail(): React.ReactNode {
             >
               How do you want to set your product price?
             </Text>
-            <div className="flex-row justify-between items-center mt-4 grid grid-cols-1 sm:grid-cols-2">
-              <div className="w-full">
-                <FormLabel
-                  h={6}
-                  className="primary-font-semibold whitespace-nowrap"
-                  fontWeight={'medium'}
-                  color={'#41454B'}
-                >
-                  Weight
-                </FormLabel>
-                <Input
-                  type="text"
-                  borderWidth={2}
-                  className="primary-font-medium"
-                />
-              </div>
-              <div className="sm:pl-3 mt-4 sm:mt-0">
-                <FormLabel
-                  h={6}
-                  className="primary-font-semibold whitespace-nowrap"
-                  color={'#41454B'}
-                >
-                  Price
-                </FormLabel>
-                <Input
-                  type="text"
-                  borderWidth={2}
-                  className="primary-font-medium"
-                />
-              </div>
-              <Box className="flex-row mt-4">
-                <Text h={6} className="primary-font-semibold" color={'#FFA382'}>
-                  + Add more
-                </Text>
-              </Box>
-            </div>
+            {Array.from({ length: complexPricingRowCount }).map(function (
+              _,
+              key
+            ): React.ReactElement {
+              return <ComplexPricingInputRow />;
+            })}
+            <Button
+              className="flex-row mt-4"
+              onClick={(_) => {
+                console.log('Click');
+                setComplexPricingRowCount(complexPricingRowCount + 1);
+              }}
+            >
+              <Text h={6} className="primary-font-semibold" color="#FFA382">
+                + Add more
+              </Text>
+            </Button>
           </div>
         </div>
         <div className="flex-col flex-initial">

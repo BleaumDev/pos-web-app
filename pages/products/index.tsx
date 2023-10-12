@@ -34,14 +34,14 @@ const products = generateProducts(50);
 export default function Products(): React.ReactNode {
   return (
     <Box m="4em">
-      <div className="flex justify-between">
+      <Box className="flex justify-between">
         <Heading h={6}>
           All Products{' '}
-          <Box as="span" color={'#FF8A43'}>
+          <Box as="span" color="#FF8A43">
             {`(${3293}+)`}
           </Box>
         </Heading>
-        <div
+        <Box
           style={{
             backgroundColor: '#F8FBF8',
             paddingTop: 2,
@@ -57,7 +57,7 @@ export default function Products(): React.ReactNode {
             className="ml-4"
             width={517}
             borderColor="none"
-            variant={'unstyled'}
+            variant="unstyled"
             placeholder="Scan/Search Product by Code or Name here..."
           />
           <Image
@@ -68,11 +68,11 @@ export default function Products(): React.ReactNode {
               height: 30,
             }}
           />
-        </div>
-      </div>
+        </Box>
+      </Box>
 
       <Box mt={50}>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 min-w-[100vh] sm:min-w-md">
+        <Box className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 min-w-[100vh] sm:min-w-md">
           {products.map((product) => {
             return (
               // <Product
@@ -83,7 +83,8 @@ export default function Products(): React.ReactNode {
               //   description={product.description}
               //   availability={product.availability}
               // />
-              <div
+              <Box
+                // as="button"
                 className="mt-2 mb-2 px-3 py-5 min-w-[200px] rounded-3xl"
                 style={{
                   backgroundColor: 'white',
@@ -91,8 +92,8 @@ export default function Products(): React.ReactNode {
                 }}
               >
                 <Image src="/images/image2.png" />
-                <div className="flex flex-row justify-between items-center">
-                  <div>
+                <Box className="flex flex-row justify-between items-center">
+                  <Box>
                     <Heading
                       h={6}
                       fontSize={17}
@@ -102,17 +103,17 @@ export default function Products(): React.ReactNode {
                     >
                       {product.name}
                     </Heading>
-                  </div>
-                  <div>
+                  </Box>
+                  <Box>
                     <Text className="primary-font-semibold" color="orange">
                       ${product.price.toFixed(2)}
                     </Text>
-                  </div>
-                </div>
-                <div>
+                  </Box>
+                </Box>
+                <Box>
                   <Text
                     className="inline primary-font-semibold font-light"
-                    color={'#41454B'}
+                    color="#41454B"
                     // fontSize={14}
                   >
                     SKU{' '}
@@ -120,14 +121,14 @@ export default function Products(): React.ReactNode {
                   <Text className="inline font-thin primary-font-medium">
                     {product.sku}
                   </Text>
-                </div>
+                </Box>
                 {/* <Text className="primary-font-regular" color={'#41454B'}>
                   In store at {product.availability}
                 </Text> */}
-                <div>
+                <Box>
                   <Text
                     className="inline primary-font-semibold font-normal"
-                    color={'#41454B'}
+                    color="#41454B"
                     // fontSize={14}
                   >
                     In store at{' '}
@@ -135,11 +136,11 @@ export default function Products(): React.ReactNode {
                   <Text className="inline font-thin primary-font-medium">
                     {product.availability}
                   </Text>
-                </div>
-              </div>
+                </Box>
+              </Box>
             );
           })}
-        </div>
+        </Box>
       </Box>
     </Box>
   );

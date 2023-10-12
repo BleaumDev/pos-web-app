@@ -7,47 +7,45 @@ import {
   Select,
   Textarea,
   Text,
-  Table,
-  Th,
-  Thead,
-  Tr,
-  Td,
-  Tbody,
-  TableContainer,
+  Button,
 } from '@chakra-ui/react';
-import { AddIcon, ChevronLeftIcon } from '@chakra-ui/icons';
+import { ChevronLeftIcon, EditIcon } from '@chakra-ui/icons';
+import ComplexPricingInputRow from './ComplexPricingInputRow';
+import { useState } from 'react';
 
 export default function ProductDetail(): React.ReactNode {
+  const [complexPricingRowCount, setComplexPricingRowCount] = useState(1);
+
   return (
-    <div
+    <Box
       style={{
         backgroundColor: '#F8FBF8',
         minHeight: '100vh',
       }}
       className="pt-12"
     >
-      <div className="flex-row flex px-14">
-        <div>
+      <Box className="flex-row flex px-10">
+        <Box>
           <ChevronLeftIcon boxSize={30} />
-        </div>
-        <div>
+        </Box>
+        <Box>
           <Heading
             h={5}
             size="lg"
             mb={2}
             className="primary-font-semibold whitespace-nowrap"
-            color={'#41454B'}
-            fontWeight={'normal'}
+            color="#41454B"
+            fontWeight="normal"
           >
             Edit Product
           </Heading>
-        </div>
-      </div>
+        </Box>
+      </Box>
 
       <Divider className="mx-5 mt-4" />
 
-      <div className="mt-2 px-5 sm:px-10 grid grid-cols-1 md:grid-cols-2 gap-12 pb-28">
-        <div
+      <Box className="mt-2 px-5 sm:px-10 grid grid-cols-1 md:grid-cols-2 gap-12 pb-28">
+        <Box
           className="shadow-2xl rounded-xl py-5 px-10"
           style={{
             borderWidth: 0.2,
@@ -61,7 +59,7 @@ export default function ProductDetail(): React.ReactNode {
           <FormLabel
             h={6}
             className="primary-font-semibold mt-7"
-            color={'#41454B'}
+            color="#41454B"
           >
             Product Name
           </FormLabel>
@@ -76,8 +74,8 @@ export default function ProductDetail(): React.ReactNode {
           <FormLabel
             h={6}
             className="primary-font-semibold mt-4 font-normal text-md"
-            fontWeight={'medium'}
-            color={'#41454B'}
+            fontWeight="medium"
+            color="#41454B"
           >
             Category
           </FormLabel>
@@ -104,8 +102,8 @@ export default function ProductDetail(): React.ReactNode {
           <FormLabel
             h={6}
             className="primary-font-semibold mt-4"
-            fontWeight={'medium'}
-            color={'#41454B'}
+            fontWeight="medium"
+            color="#41454B"
           >
             Manufacturer
           </FormLabel>
@@ -132,8 +130,8 @@ export default function ProductDetail(): React.ReactNode {
           <FormLabel
             h={6}
             className="primary-font-semibold mt-4"
-            fontWeight={'medium'}
-            color={'#41454B'}
+            fontWeight="medium"
+            color="#41454B"
           >
             Description
           </FormLabel>
@@ -144,12 +142,12 @@ export default function ProductDetail(): React.ReactNode {
               borderWidth: 0.5,
             }}
           />
-          <div className="flex-row justify-between items-center mt-4 grid grid-cols-1 sm:grid-cols-2">
-            <div>
+          <Box className="flex-row justify-between items-center mt-4 grid grid-cols-1 sm:grid-cols-2">
+            <Box>
               <FormLabel
                 h={6}
                 className="primary-font-semibold"
-                color={'#41454B'}
+                color="#41454B"
               >
                 SKU
               </FormLabel>
@@ -158,13 +156,13 @@ export default function ProductDetail(): React.ReactNode {
                 borderWidth={2}
                 className="primary-font-medium"
               />
-            </div>
-            <div className="sm:w-full sm:pl-3 mt-4 sm:mt-0">
+            </Box>
+            <Box className="sm:w-full sm:pl-3 mt-4 sm:mt-0">
               <FormLabel
                 h={6}
                 className="primary-font-semibold whitespace-nowrap"
-                fontWeight={'medium'}
-                color={'#41454B'}
+                fontWeight="medium"
+                color="#41454B"
               >
                 Unit Of Measure
               </FormLabel>
@@ -179,15 +177,15 @@ export default function ProductDetail(): React.ReactNode {
                 <option value="option1">Boxes</option>
                 <option value="option2">Containers</option>
               </Select>
-            </div>
-          </div>
-          <div className="flex-row justify-between items-center mt-4 grid grid-cols-1 sm:grid-cols-2">
-            <div className="w-full">
+            </Box>
+          </Box>
+          <Box className="flex-row justify-between items-center mt-4 grid grid-cols-1 sm:grid-cols-2">
+            <Box className="w-full">
               <FormLabel
                 h={6}
                 className="primary-font-semibold whitespace-nowrap"
-                fontWeight={'medium'}
-                color={'#41454B'}
+                fontWeight="medium"
+                color="#41454B"
               >
                 Type Of Pricing
               </FormLabel>
@@ -199,12 +197,12 @@ export default function ProductDetail(): React.ReactNode {
                 <option value="option1">Complex</option>
                 <option value="option2">Regular</option>
               </Select>
-            </div>
-            <div className="sm:pl-3 mt-4 sm:mt-0">
+            </Box>
+            <Box className="sm:pl-3 mt-4 sm:mt-0">
               <FormLabel
                 h={6}
                 className="primary-font-semibold whitespace-nowrap"
-                color={'#41454B'}
+                color="#41454B"
               >
                 Quantity Remaining
               </FormLabel>
@@ -213,27 +211,27 @@ export default function ProductDetail(): React.ReactNode {
                 borderWidth={2}
                 className="primary-font-medium"
               />
-            </div>
-          </div>
-          <div>
-            <Text color={'#41454B'} className="primary-font-bold mt-4">
+            </Box>
+          </Box>
+          <Box>
+            <Text color="#41454B" className="primary-font-bold mt-4">
               Complex Pricing
             </Text>
             <Text
-              className="primary-font-semibold mt-4"
-              fontSize={'sm'}
-              color={'#41454B'}
+              className="primary-font-semibold mt-4 mb-4"
+              fontSize="sm"
+              color="#41454B"
               h={6}
             >
               How do you want to set your product price?
             </Text>
-            <div className="flex-row justify-between items-center mt-4 grid grid-cols-1 sm:grid-cols-2">
-              <div className="w-full">
+            {/* <Box className="flex-row justify-between items-center mt-4 grid grid-cols-1 sm:grid-cols-2">
+              <Box className="w-full">
                 <FormLabel
                   h={6}
                   className="primary-font-semibold whitespace-nowrap"
-                  fontWeight={'medium'}
-                  color={'#41454B'}
+                  fontWeight="medium"
+                  color="#41454B"
                 >
                   Weight
                 </FormLabel>
@@ -242,12 +240,12 @@ export default function ProductDetail(): React.ReactNode {
                   borderWidth={2}
                   className="primary-font-medium"
                 />
-              </div>
-              <div className="sm:pl-3 mt-4 sm:mt-0">
+              </Box>
+              <Box className="sm:pl-3 mt-4 sm:mt-0">
                 <FormLabel
                   h={6}
                   className="primary-font-semibold whitespace-nowrap"
-                  color={'#41454B'}
+                  color="#41454B"
                 >
                   Price
                 </FormLabel>
@@ -256,30 +254,42 @@ export default function ProductDetail(): React.ReactNode {
                   borderWidth={2}
                   className="primary-font-medium"
                 />
-              </div>
-              <Box className="flex-row mt-4">
-                <Text h={6} className="primary-font-semibold" color={'#FFA382'}>
-                  + Add more
-                </Text>
               </Box>
-            </div>
-          </div>
-        </div>
-        <div className="flex-col flex-initial">
-          <div className="py-5 px-10 h-1/2">
+            </Box> */}
+            {Array.from({ length: complexPricingRowCount }).map(function (
+              _,
+              key
+            ): React.ReactElement {
+              return <ComplexPricingInputRow />;
+            })}
+            <Button
+              className="flex-row mt-4"
+              onClick={(_) => {
+                console.log('Click');
+                setComplexPricingRowCount(complexPricingRowCount + 1);
+              }}
+            >
+              <Text h={6} className="primary-font-semibold" color="#FFA382">
+                + Add more
+              </Text>
+            </Button>
+          </Box>
+        </Box>
+        <Box className="flex-col flex-initial">
+          <Box className="py-5 px-10 h-1/2">
             <Text
               h={4}
               className="primary-font-semibold font-normal whitespace-nowrap"
               fontWeight={400}
               fontSize={20}
-              color={'#41454B'}
+              color="#41454B"
             >
               Detailed Information
             </Text>
             <FormLabel
               h={6}
               className="primary-font-semibold mt-10 whitespace-nowrap"
-              color={'#41454B'}
+              color="#41454B"
             >
               Product Addition Date
             </FormLabel>
@@ -294,7 +304,7 @@ export default function ProductDetail(): React.ReactNode {
             <FormLabel
               h={6}
               className="primary-font-semibold mt-4"
-              color={'#41454B'}
+              color="#41454B"
             >
               Mtrc Name
             </FormLabel>
@@ -306,12 +316,12 @@ export default function ProductDetail(): React.ReactNode {
                 borderWidth: 0.5,
               }}
             />
-            <div className="flex-row justify-between items-center mt-4 grid grid-cols-1 sm:grid-cols-2">
-              <div>
+            <Box className="flex-row justify-between items-center mt-4 grid grid-cols-1 sm:grid-cols-2">
+              <Box>
                 <FormLabel
                   h={6}
                   className="primary-font-semibold"
-                  color={'#41454B'}
+                  color="#41454B"
                 >
                   Metrc ID
                 </FormLabel>
@@ -320,13 +330,13 @@ export default function ProductDetail(): React.ReactNode {
                   borderWidth={2}
                   className="primary-font-medium"
                 />
-              </div>
-              <div className="sm:w-full sm:pl-3 mt-4 sm:mt-0">
+              </Box>
+              <Box className="sm:w-full sm:pl-3 mt-4 sm:mt-0">
                 <FormLabel
                   h={6}
                   className="primary-font-semibold whitespace-nowrap"
-                  fontWeight={'medium'}
-                  color={'#41454B'}
+                  fontWeight="medium"
+                  color="#41454B"
                 >
                   Initial Quantity
                 </FormLabel>
@@ -336,14 +346,14 @@ export default function ProductDetail(): React.ReactNode {
                   className="primary-font-medium"
                   placeholder="50g"
                 />
-              </div>
-            </div>
-            <div className="flex-row justify-between items-center mt-4 grid grid-cols-1 sm:grid-cols-2">
-              <div>
+              </Box>
+            </Box>
+            <Box className="flex-row justify-between items-center mt-4 grid grid-cols-1 sm:grid-cols-2">
+              <Box>
                 <FormLabel
                   h={6}
                   className="primary-font-semibold"
-                  color={'#41454B'}
+                  color="#41454B"
                 >
                   THC
                 </FormLabel>
@@ -353,13 +363,13 @@ export default function ProductDetail(): React.ReactNode {
                   className="primary-font-medium"
                   placeholder="2%"
                 />
-              </div>
-              <div className="sm:w-full sm:pl-3 mt-4 sm:mt-0">
+              </Box>
+              <Box className="sm:w-full sm:pl-3 mt-4 sm:mt-0">
                 <FormLabel
                   h={6}
                   className="primary-font-semibold whitespace-nowrap"
-                  fontWeight={'medium'}
-                  color={'#41454B'}
+                  fontWeight="medium"
+                  color="#41454B"
                 >
                   CBD
                 </FormLabel>
@@ -369,72 +379,54 @@ export default function ProductDetail(): React.ReactNode {
                   className="primary-font-medium"
                   placeholder="1%"
                 />
-              </div>
-            </div>
-          </div>
-          <div className="flex relative h-1/2">
-            <div className="absolute bottom-0 right-0 flex flex-row px-10 md:px-0 lg:px-10">
-              <div className="mt-20 hidden sm:block">
-                <button
+              </Box>
+            </Box>
+          </Box>
+          <Box className="relative hidden md:block h-1/2">
+            <Box className="md:absolute md:bottom-0 md:right-0 px-10 md:px-0 lg:px-10">
+              <Box className="mt-20 sm:block">
+                <Button
                   // as="button"
-                  className="px-10 py-3 primary-font-semibold rounded-xl"
-                  style={{
-                    backgroundColor: 'rgba(255, 138, 67, 0.50)',
-                  }}
+                  className="px-10 py-3 primary-font-semibold rounded-xl flex-row flex"
+                  // style={{
+                  //   backgroundColor:
+                  //     'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+                  // }}
+                  bgGradient="linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
                 >
+                  <EditIcon className="mr-3" color="white" />
                   <Text
                     style={{
                       color: 'white',
                     }}
                     className="whitespace-nowrap"
                   >
-                    Edit product
+                    Edit Product Details
                   </Text>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="sm:hidden flex flex-row items-center justify-center pb-10">
-        <div className="mr-10">
-          <button
-            // as="button"
-            className="px-10 py-3 primary-font-semibold rounded-xl"
-            style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.20)',
-              borderWidth: 0.3,
-              borderColor: 'rgba(18, 23, 30, 0.50)',
-              alignContent: 'flex-start',
-            }}
-          >
-            <Text
-              style={{
-                color: 'rgba(18, 23, 30, 0.50)',
-              }}
+                </Button>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+        <Box className="block md:hidden">
+          <Box className="sm:block flex justify-center items-center">
+            <Button
+              className="px-10 py-3 primary-font-semibold rounded-xl flex-row flex"
+              bgGradient="linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
             >
-              Cancel
-            </Text>
-          </button>
-        </div>
-        <div>
-          <button
-            // as="button"
-            className="px-10 py-3 primary-font-semibold rounded-xl"
-            style={{
-              backgroundColor: 'rgba(255, 138, 67, 0.50)',
-            }}
-          >
-            <Text
-              style={{
-                color: 'white',
-              }}
-            >
-              Add product
-            </Text>
-          </button>
-        </div>
-      </div>
-    </div>
+              <EditIcon className="mr-3" color="white" />
+              <Text
+                style={{
+                  color: 'white',
+                }}
+                className="whitespace-nowrap"
+              >
+                Edit Product Details
+              </Text>
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }
