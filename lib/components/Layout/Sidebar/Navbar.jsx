@@ -1,4 +1,4 @@
-import { AddIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { HamburgerIcon } from '@chakra-ui/icons';
 import {
   Box,
   Button,
@@ -10,7 +10,9 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
+import PosModel from '@lib/components/models/pos-model';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Navbar = () => {
   const { isOpen: isMobileModeOpen, onToggle: onMobileModeToggle } =
@@ -77,7 +79,14 @@ const Navbar = () => {
             w={'55%'}
           >
             <Box w={'25%'}>
-              <Image src="/images/logo.png" width={35} height={35} alt="logo" />
+              <Link href="/auth/login">
+                <Image
+                  src="/images/logo.png"
+                  width={35}
+                  height={35}
+                  alt="logo"
+                />
+              </Link>
             </Box>
             <Flex
               justifyContent={'space-between'}
@@ -106,19 +115,7 @@ const Navbar = () => {
           </Flex>
           <Flex justifyContent={'end'} w={'45%'}>
             <Flex gap={'1em'}>
-              <Button
-                p={'10px 24px'}
-                color={'#fff'}
-                fontSize={'16px'}
-                cursor={'pointer'}
-                _hover={{ background: '#E69066' }}
-                className={'primary-font-medium'}
-                border={'2px solid #fff'}
-                borderRadius={'33px'}
-                background={'#FF8A43'}
-              >
-                POS
-              </Button>
+              <PosModel />
               <Box cursor={'pointer'}>
                 <Image
                   src="/images/notification.png"
@@ -138,7 +135,6 @@ const Navbar = () => {
                 fontSize={'16px'}
                 className={'primary-font-medium'}
                 boxShadow={'0px 4px 4px 0px rgba(251, 100, 100, 0.23)'}
-                icon={<AddIcon />}
                 borderRadius={'9px'}
                 background={'#FF8A43'}
               >
@@ -258,7 +254,6 @@ const Navbar = () => {
                 fontSize={'16px'}
                 className={'primary-font-medium'}
                 boxShadow={'0px 4px 4px 0px rgba(251, 100, 100, 0.23)'}
-                icon={<AddIcon />}
                 borderRadius={'9px'}
                 background={'#FF8A43'}
               >
