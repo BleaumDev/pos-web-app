@@ -10,7 +10,6 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
-import PosModel from '@lib/components/models/pos-model';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -115,7 +114,21 @@ const Navbar = () => {
           </Flex>
           <Flex justifyContent={'end'} w={'45%'}>
             <Flex gap={'1em'}>
-              <PosModel />
+              <Link href="/pos">
+                <Button
+                  p="10px 24px"
+                  color="#fff"
+                  fontSize="16px"
+                  cursor="pointer"
+                  _hover={{ background: '#FF8A43' }}
+                  className="primary-font-medium"
+                  border="2px solid #fff"
+                  borderRadius="33px"
+                  background="#FF8A43"
+                >
+                  POS
+                </Button>
+              </Link>
               <Box cursor={'pointer'}>
                 <Image
                   src="/images/notification.png"

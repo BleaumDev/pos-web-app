@@ -30,10 +30,10 @@ function Button({
     buttonStyleProps = {
       ...buttonStyleProps,
       bg: 'transparent',
-      color: '#000',
-      border: '1px solid #000',
+      color: '#192837 ',
+      border: '1px solid #192837',
       _hover: {
-        bg: '#0000001a',
+        bg: 'transparent',
       },
       boxShadow: 'none',
     };

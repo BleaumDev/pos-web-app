@@ -72,12 +72,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </Text>
       </Flex>
       <Button
-        mt="1.5em"
         background="#EBFBFF"
         border="0.3px solid #192837"
         p="6px 0px"
-        w="full"
+        position="absolute"
+        w="120px"
+        left="10px"
         h="24px"
+        bottom="10px"
         fontSize="10px"
         className="primary-font-semibold"
         _hover={{ background: '#EBFBFF' }}

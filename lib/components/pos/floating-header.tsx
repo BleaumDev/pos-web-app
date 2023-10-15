@@ -50,7 +50,10 @@ const PosFloatingHeader: React.FC<FloatingHeaderProps> = ({
             base: '100%',
             md: '50%',
           }}
-          m="10px 2em 2em 10em"
+          m={{
+            base: '10px 2em 2em 15em',
+            md: '10px 2em 2em 10em',
+          }}
         >
           <Flex gap="8px">
             <Text

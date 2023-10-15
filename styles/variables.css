@@ -27,6 +27,11 @@ body{
 }
 
 @font-face {
+  font-family: 'Gilroy-HeavyItalic';
+  src: url(../assets/fonts/Gilroy-HeavyItalic.ttf);
+}
+
+@font-face {
   font-family: 'Gilroy-Bold';
   src: url(../assets/fonts/Gilroy-Bold.ttf);
 }
@@ -60,6 +65,11 @@ body{
 
 .primary-font-semi-bold-italic {
   font-family: 'Gilroy-SemiBoldItalic' !important;
+  font-weight: 600 !important;
+}
+
+.primary-font-BoldItalic {
+  font-family: 'Gilroy-HeavyItalic' !important;
   font-weight: 600 !important;
 }
 .glroy-bold{
@@ -148,4 +158,48 @@ body{
     border-radius: 7px;
     margin-left: -1px;
     transform: rotate(270deg);
+}
+.small-table-text{
+  font-size: 11px !important;
+  font-family: 'Gilroy-Medium' !important;
+  text-transform: capitalize !important;
+  padding: 5px 0px !important;
+}
+.small-table-text1{
+  font-size: 11px !important;
+  padding: 5px 0px !important;
+  font-family: 'Gilroy-Medium' !important;
+color: rgba(18, 23, 30, 0.60);
+}
+.slick-slider{
+  margin: 0px 25px !important;
+}
+.slick-next, .slick-prev{
+  width: auto !important;
+  height: auto !important;
+}
+.slick-next:before {
+  content: url(/images/next-2.png) !important;
+  font-size: 20px;
+  border-radius: 100%;
+  box-shadow: none !important;
+}
+.slick-prev:before {
+  content: url(/images/prev-2.png) !important;
+  font-size: 20px;
+  border-radius: 100%;
+  box-shadow: none !important;
+}
+
+.slick-next {
+    right: -35px !important;
+    top: 61% !important; 
+}
+.slick-prev {
+    left: -30px !important;
+    top: 55% !important; 
+}
+
+@media (max-width: 1396.36px) {
+  
 }

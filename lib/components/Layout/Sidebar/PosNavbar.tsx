@@ -11,6 +11,7 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
+import Link from 'next/link';
 
 const PosNavbar = () => {
   const { isOpen: isMobileModeOpen, onToggle: onMobileModeToggle } =
@@ -26,7 +27,9 @@ const PosNavbar = () => {
             md: 'none',
           }}
         >
-          <Image src="/images/logo.png" width={35} height={35} alt="logo" />
+          <Link href="/admin/inventory/products">
+            <Image src="/images/logo.png" width={35} height={35} alt="logo" />
+          </Link>
 
           <Box
             gap="20px"
@@ -48,7 +51,7 @@ const PosNavbar = () => {
             <Box cursor="pointer">
               <Image
                 src="/images/search-nav.png"
-                width={40}
+                width={43}
                 height={40}
                 alt="logo"
               />
@@ -77,7 +80,14 @@ const PosNavbar = () => {
             w="55%"
           >
             <Box w="25%">
-              <Image src="/images/logo.png" width={35} height={35} alt="logo" />
+              <Link href="/admin/inventory/products">
+                <Image
+                  src="/images/logo.png"
+                  width={35}
+                  height={35}
+                  alt="logo"
+                />
+              </Link>
             </Box>
 
             <Flex
@@ -98,7 +108,7 @@ const PosNavbar = () => {
               <Box cursor="pointer">
                 <Image
                   src="/images/search-nav.png"
-                  width="40px"
+                  width="43px"
                   height="40px"
                   alt="logo"
                 />
@@ -110,7 +120,7 @@ const PosNavbar = () => {
               <Box cursor="pointer">
                 <Image
                   src="/images/notification.png"
-                  width="40px"
+                  width="43px"
                   height="40px"
                   cursor="pointer"
                   alt="logo"
