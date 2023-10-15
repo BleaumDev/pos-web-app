@@ -7,7 +7,7 @@ import ErrorMessage from '../ErrorMessage';
 export type OptionType = {
   key?: string | number;
   value?: string;
-  label?: string;
+  label?: string | JSX.Element | JSX.IntrinsicElements;
 };
 
 type OptionsType = Array<OptionType>;

@@ -10,7 +10,6 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import Link from 'next/link';
-import React from 'react';
 
 import Select from '../base/select';
 import MedicalSelect from '../pos/medical-select';
@@ -18,6 +17,7 @@ import MedicalSelect from '../pos/medical-select';
 const medicalData = [
   {
     key: 'Wade Warren',
+    value: 'Wade Warren',
     label: (
       <Link href="/pos/payments">
         <MedicalSelect
@@ -31,6 +31,7 @@ const medicalData = [
   },
   {
     key: 'John Wick',
+    value: 'John Wick',
     label: (
       <Link href="/pos/payments">
         <MedicalSelect
@@ -44,6 +45,7 @@ const medicalData = [
   },
   {
     key: 'John Wick',
+    value: 'John Wick',
     label: (
       <Link href="/pos/payments">
         <MedicalSelect
@@ -58,6 +60,8 @@ const medicalData = [
 ];
 const MedicalModel = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const handleSelectChange = () => {};
+
   return (
     <>
       <Button
@@ -121,6 +125,7 @@ const MedicalModel = () => {
               height="38px"
               placeholder="Enter your Medical ID here"
               options={medicalData}
+              onChange={handleSelectChange}
             />
             <Text
               color="#41454B"
@@ -140,7 +145,7 @@ const MedicalModel = () => {
             >
               Simply Scan your Licence
             </Text>
-            <Box textAlign={'center'}>
+            <Box textAlign="center">
               <Button
                 w="124px"
                 h="45px"

@@ -1,23 +1,19 @@
+/* eslint-disable unused-imports/no-unused-vars */
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/button-has-type */
+import { ChevronLeftIcon } from '@chakra-ui/icons';
 import {
-  Box,
+  Button,
   Divider,
   FormLabel,
   Heading,
   Input,
   Select,
-  Textarea,
   Text,
-  Button,
-  Table,
-  Th,
-  Thead,
-  Tr,
-  Td,
-  Tbody,
-  TableContainer,
+  Textarea,
 } from '@chakra-ui/react';
-import { AddIcon, ChevronLeftIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
+
 import ComplexPricingInputRow from './ComplexPricingInputRow';
 
 export default function ProductDetail(): React.ReactNode {
@@ -40,8 +36,8 @@ export default function ProductDetail(): React.ReactNode {
             size="lg"
             mb={2}
             className="primary-font-semibold whitespace-nowrap"
-            color={'#41454B'}
-            fontWeight={'normal'}
+            color="#41454B"
+            fontWeight="normal"
           >
             Add Product
           </Heading>
@@ -59,13 +55,13 @@ export default function ProductDetail(): React.ReactNode {
             backgroundColor: 'rgba(246, 252, 255, 0.40)',
           }}
         >
-          <Text color={'#41454B'} className="primary-font-bold">
+          <Text color="#41454B" className="primary-font-bold">
             General Information
           </Text>
           <FormLabel
             h={6}
             className="primary-font-semibold mt-7"
-            color={'#41454B'}
+            color="#41454B"
           >
             Product Name
           </FormLabel>
@@ -80,8 +76,8 @@ export default function ProductDetail(): React.ReactNode {
           <FormLabel
             h={6}
             className="primary-font-semibold mt-4 font-normal text-md"
-            fontWeight={'medium'}
-            color={'#41454B'}
+            fontWeight="medium"
+            color="#41454B"
           >
             Category
           </FormLabel>
@@ -108,8 +104,8 @@ export default function ProductDetail(): React.ReactNode {
           <FormLabel
             h={6}
             className="primary-font-semibold mt-4"
-            fontWeight={'medium'}
-            color={'#41454B'}
+            fontWeight="medium"
+            color="#41454B"
           >
             Manufacturer
           </FormLabel>
@@ -127,7 +123,7 @@ export default function ProductDetail(): React.ReactNode {
             <option value="option3">Aphria Inc.</option>
             <option value="option1">VIVO Cannabis Inc.</option>
             <option value="option2">Steep Hill, Inc.</option>
-            <option value="option1">Willie's Reserve</option>
+            <option value="option1">Willies Reserve</option>
             <option value="option2">Terrascend Corp</option>
             <option value="option3">GW Pharmaceuticals</option>
             <option value="option1">Truelieve Cannabis</option>
@@ -136,8 +132,8 @@ export default function ProductDetail(): React.ReactNode {
           <FormLabel
             h={6}
             className="primary-font-semibold mt-4"
-            fontWeight={'medium'}
-            color={'#41454B'}
+            fontWeight="medium"
+            color="#41454B"
           >
             Description
           </FormLabel>
@@ -153,7 +149,7 @@ export default function ProductDetail(): React.ReactNode {
               <FormLabel
                 h={6}
                 className="primary-font-semibold"
-                color={'#41454B'}
+                color="#41454B"
               >
                 SKU
               </FormLabel>
@@ -167,8 +163,8 @@ export default function ProductDetail(): React.ReactNode {
               <FormLabel
                 h={6}
                 className="primary-font-semibold whitespace-nowrap"
-                fontWeight={'medium'}
-                color={'#41454B'}
+                fontWeight="medium"
+                color="#41454B"
               >
                 Unit Of Measure
               </FormLabel>
@@ -190,8 +186,8 @@ export default function ProductDetail(): React.ReactNode {
               <FormLabel
                 h={6}
                 className="primary-font-semibold whitespace-nowrap"
-                fontWeight={'medium'}
-                color={'#41454B'}
+                fontWeight="medium"
+                color="#41454B"
               >
                 Type Of Pricing
               </FormLabel>
@@ -208,7 +204,7 @@ export default function ProductDetail(): React.ReactNode {
               <FormLabel
                 h={6}
                 className="primary-font-semibold whitespace-nowrap"
-                color={'#41454B'}
+                color="#41454B"
               >
                 Quantity Remaining
               </FormLabel>
@@ -220,13 +216,13 @@ export default function ProductDetail(): React.ReactNode {
             </div>
           </div>
           <div>
-            <Text color={'#41454B'} className="primary-font-bold mt-4">
+            <Text color="#41454B" className="primary-font-bold mt-4">
               Complex Pricing
             </Text>
             <Text
               className="primary-font-semibold mt-4"
-              fontSize={'sm'}
-              color={'#41454B'}
+              fontSize="sm"
+              color="#41454B"
               h={6}
             >
               How do you want to set your product price?
@@ -240,7 +236,6 @@ export default function ProductDetail(): React.ReactNode {
             <Button
               className="flex-row mt-4"
               onClick={(_) => {
-                console.log('Click');
                 setComplexPricingRowCount(complexPricingRowCount + 1);
               }}
             >
@@ -257,14 +252,14 @@ export default function ProductDetail(): React.ReactNode {
               className="primary-font-semibold font-normal whitespace-nowrap"
               fontWeight={400}
               fontSize={20}
-              color={'#41454B'}
+              color="#41454B"
             >
               Detailed Information
             </Text>
             <FormLabel
               h={6}
               className="primary-font-semibold mt-10 whitespace-nowrap"
-              color={'#41454B'}
+              color="#41454B"
             >
               Product Addition Date
             </FormLabel>
@@ -279,7 +274,7 @@ export default function ProductDetail(): React.ReactNode {
             <FormLabel
               h={6}
               className="primary-font-semibold mt-4"
-              color={'#41454B'}
+              color="#41454B"
             >
               Mtrc Name
             </FormLabel>
@@ -296,7 +291,7 @@ export default function ProductDetail(): React.ReactNode {
                 <FormLabel
                   h={6}
                   className="primary-font-semibold"
-                  color={'#41454B'}
+                  color="#41454B"
                 >
                   Metrc ID
                 </FormLabel>
@@ -310,8 +305,8 @@ export default function ProductDetail(): React.ReactNode {
                 <FormLabel
                   h={6}
                   className="primary-font-semibold whitespace-nowrap"
-                  fontWeight={'medium'}
-                  color={'#41454B'}
+                  fontWeight="medium"
+                  color="#41454B"
                 >
                   Initial Quantity
                 </FormLabel>
@@ -328,7 +323,7 @@ export default function ProductDetail(): React.ReactNode {
                 <FormLabel
                   h={6}
                   className="primary-font-semibold"
-                  color={'#41454B'}
+                  color="#41454B"
                 >
                   THC
                 </FormLabel>
@@ -343,8 +338,8 @@ export default function ProductDetail(): React.ReactNode {
                 <FormLabel
                   h={6}
                   className="primary-font-semibold whitespace-nowrap"
-                  fontWeight={'medium'}
-                  color={'#41454B'}
+                  fontWeight="medium"
+                  color="#41454B"
                 >
                   CBD
                 </FormLabel>

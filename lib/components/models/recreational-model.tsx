@@ -10,7 +10,6 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import Link from 'next/link';
-import React from 'react';
 
 import Select from '../base/select';
 import MedicalSelect from '../pos/medical-select';
@@ -18,6 +17,7 @@ import MedicalSelect from '../pos/medical-select';
 const recreationalData = [
   {
     key: 'Wade Warren',
+    value: 'Wade Warren',
     label: (
       <Link href="/pos/payments">
         <MedicalSelect
@@ -31,6 +31,7 @@ const recreationalData = [
   },
   {
     key: 'John Wick',
+    value: 'John Wick',
     label: (
       <Link href="/pos/payments">
         <MedicalSelect
@@ -44,6 +45,7 @@ const recreationalData = [
   },
   {
     key: 'John Wick',
+    value: 'John Wick',
     label: (
       <Link href="/pos/payments">
         <MedicalSelect
@@ -140,7 +142,7 @@ const RecreationalModel = () => {
             >
               Simply Scan your Licence
             </Text>
-            <Box textAlign={'center'}>
+            <Box textAlign="center">
               <Button
                 w="124px"
                 h="45px"
