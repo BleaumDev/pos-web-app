@@ -77,6 +77,11 @@ body{
   font-weight: 700 !important;
 }
 
+.primary-font-bold {
+  font-family: 'Gilroy-Bold' !important;
+  font-weight: 400 !important;
+}
+
 .primary-font-medium {
   font-family: 'Gilroy-Medium' !important;
   font-weight: 500 !important;
