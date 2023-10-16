@@ -1,8 +1,8 @@
-/* eslint-disable */
-import { Box } from '@chakra-ui/react';
+/* eslint-disable no-plusplus */
+/* eslint-disable react/jsx-key */
+import { SearchIcon } from '@chakra-ui/icons';
+import { Box, Image, Input, Text } from '@chakra-ui/react';
 import Heading from '@lib/components/base/heading';
-import Product from '@lib/components/product';
-import { TextInput } from '@lib/components/product/TextInput';
 
 interface IProduct {
   id: number;
@@ -34,30 +34,114 @@ const products = generateProducts(50);
 export default function Products() {
   return (
     <Box m="4em">
-      <div className="flex justify-between">
+      <Box className="flex justify-between">
         <Heading h={6}>
-          All Products
+          All Products{' '}
           <Box as="span" color="#FF8A43">
             {`(${3293}+)`}
           </Box>
         </Heading>
-        <TextInput />
-      </div>
+        <Box
+          style={{
+            backgroundColor: '#F8FBF8',
+            paddingTop: 2,
+            paddingBottom: 2,
+          }}
+          className="flex flex-row items-center pl-4 rounded-lg"
+        >
+          <SearchIcon />
+          <Input
+            style={{
+              background: '#F8FBF8',
+            }}
+            className="ml-4"
+            width={517}
+            borderColor="none"
+            variant="unstyled"
+            placeholder="Scan/Search Product by Code or Name here..."
+          />
+          <Image
+            src="/images/arrow-right.png"
+            alt="arrow-right-pos"
+            // className="py-1.5"
+            style={{
+              width: 30,
+              height: 30,
+            }}
+          />
+        </Box>
+      </Box>
 
       <Box mt={50}>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 min-w-[100vh] sm:min-w-md">
+        <Box className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 min-w-[100vh] sm:min-w-md">
           {products.map((product) => {
             return (
-              <Product
-                key={product.id}
-                name={product.name}
-                sku={product.sku}
-                price={product.price}
-                availability={product.availability}
-              />
+              // <Product
+              //   id={product.id}
+              //   name={product.name}
+              //   sku={product.sku}
+              //   price={product.price}
+              //   description={product.description}
+              //   availability={product.availability}
+              // />
+              <Box
+                // as="button"
+                className="mt-2 mb-2 px-3 py-5 min-w-[200px] rounded-3xl"
+                style={{
+                  backgroundColor: 'white',
+                  margin: 10,
+                }}
+              >
+                <Image src="/images/image2.png" alt="arrow-right-pos" />
+                <Box className="flex flex-row justify-between items-center">
+                  <Box>
+                    <Heading
+                      h={6}
+                      fontSize={17}
+                      color="#41454B"
+                      // fontWeight="bold"
+                      className="primary-font-semibold"
+                    >
+                      {product.name}
+                    </Heading>
+                  </Box>
+                  <Box>
+                    <Text className="primary-font-semibold" color="orange">
+                      ${product.price.toFixed(2)}
+                    </Text>
+                  </Box>
+                </Box>
+                <Box>
+                  <Text
+                    className="inline primary-font-semibold font-light"
+                    color="#41454B"
+                    // fontSize={14}
+                  >
+                    SKU{' '}
+                  </Text>
+                  <Text className="inline font-thin primary-font-medium">
+                    {product.sku}
+                  </Text>
+                </Box>
+                {/* <Text className="primary-font-regular" color={'#41454B'}>
+                  In store at {product.availability}
+                </Text> */}
+                <Box>
+                  <Text
+                    className="inline primary-font-semibold font-normal"
+                    color="#41454B"
+                    // fontSize={14}
+                  >
+                    In store at{' '}
+                  </Text>
+                  <Text className="inline font-thin primary-font-medium">
+                    {product.availability}
+                  </Text>
+                </Box>
+              </Box>
             );
           })}
-        </div>
+        </Box>
       </Box>
     </Box>
   );

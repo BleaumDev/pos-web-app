@@ -1,9 +1,8 @@
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import {
   Box,
   Collapse,
   Flex,
-  IconButton,
+  Img,
   Text,
   useDisclosure,
   VStack,
@@ -11,21 +10,42 @@ import {
 import Image from 'next/image';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import Navbar from './Navbar';
+import type { ReactNode } from 'react';
 
-const Sidenav = ({ children }) => {
-  const { isOpen, onToggle } = useDisclosure(true, 'isOpen');
+import PosNavbar from './PosNavbar';
+
+interface SidenavProps {
+  children: ReactNode;
+}
+
+const PosSidenav = ({ children }: SidenavProps) => {
+  const { isOpen } = useDisclosure({ defaultIsOpen: true });
   const { isOpen: isInventoryOpen, onToggle: onInventoryToggle } =
-    useDisclosure('isInventoryOpen');
+    useDisclosure();
+
   const router = useRouter();
-  const isActive = (path) => {
+
+  const isActive = (path: string) => {
     return router.pathname === path;
   };
+
   return (
     <>
-      <Box position={'fixed'} w={'full'} top={'0px'} zIndex={9999}>
-        <Navbar />
+      <Box position="fixed" w="full" top="0px" zIndex={100}>
+        <PosNavbar />
       </Box>
+      <Box position="fixed" top="2em" left="4em" zIndex={200}>
+        <Img src="/images/oval2.png" width="150px" height="auto" alt="logo" />
+        <Box position="absolute" top="10px" left="2em">
+          <Img
+            src="/images/profile.png"
+            width="80px"
+            height="auto"
+            alt="logo"
+          />
+        </Box>
+      </Box>
+
       <Box
         display={{
           base: 'none',
@@ -38,47 +58,47 @@ const Sidenav = ({ children }) => {
         zIndex={10}
         position="fixed"
         left="0"
-        top="6em"
+        top="5.8em"
         transition="width 0.3s ease-in-out"
       >
-        {!isOpen ? (
+        {/* {!isOpen ? (
           <IconButton
             icon={<ChevronLeftIcon />}
             onClick={onToggle}
-            position={'absolute'}
-            background={'#ffffff'}
-            boxShadow={'2px 1px 35px -11px rgba(0,0,0,0.75)'}
-            right={'-20px'}
-            borderRadius={'50%'}
+            position="absolute"
+            background="#ffffff"
+            boxShadow="2px 1px 35px -11px rgba(0,0,0,0.75)"
+            right="-20px"
+            borderRadius="50%"
             zIndex={9999}
             aria-label="Collapse Sidebar"
           />
         ) : (
           <IconButton
             icon={<ChevronRightIcon />}
-            borderRadius={'50%'}
-            boxShadow={'2px 1px 35px -11px rgba(0,0,0,0.75)'}
-            background={'#ffffff'}
-            position={'absolute'}
-            right={'-20px'}
+            borderRadius="50%"
+            boxShadow="2px 1px 35px -11px rgba(0,0,0,0.75)"
+            background="#ffffff"
+            position="absolute"
+            right="-20px"
             onClick={onToggle}
             aria-label="Expand Sidebar"
             zIndex={9999}
           />
-        )}
+        )} */}
         <Collapse in={!isOpen}>
-          <VStack spacing="4" mt={'3em'} align="stretch">
+          <VStack spacing="4" mt="3em" align="stretch">
             <NextLink href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
-                <Box width={'20%'}>
+              <Flex alignItems="center" width="full" mb="12px">
+                <Box width="20%">
                   <Image
-                    src={'/images/Category.png'}
+                    src="/images/Category.png"
                     width={25}
                     height={25}
                     alt=""
                   />
                 </Box>
-                <Box width={'80%'}>
+                <Box width="80%">
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
@@ -89,17 +109,17 @@ const Sidenav = ({ children }) => {
                 </Box>
               </Flex>
             </NextLink>
-            <Box cursor={'pointer'} onClick={onInventoryToggle}>
-              <Flex alignItems={'center'} width="full" mb="12px">
-                <Box width={'20%'}>
+            <Box cursor="pointer" onClick={onInventoryToggle}>
+              <Flex alignItems="center" width="full" mb="12px">
+                <Box width="20%">
                   <Image
-                    src={'/images/inventory.png'}
+                    src="/images/inventory.png"
                     width={25}
                     height={25}
                     alt=""
                   />
                 </Box>
-                <Box width={'80%'}>
+                <Box width="80%">
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
@@ -120,10 +140,10 @@ const Sidenav = ({ children }) => {
             </Box>
             <Collapse in={!isInventoryOpen}>
               <Box
-                borderLeft={'1px solid #E69066'}
-                marginLeft={'15px !important'}
+                borderLeft="1px solid #E69066"
+                marginLeft="15px !important"
                 transition=" 0.3s ease-in-out"
-                pl={'38px'}
+                pl="38px"
                 mb="12px"
                 width="208px !important"
               >
@@ -135,7 +155,7 @@ const Sidenav = ({ children }) => {
                   }
                 >
                   <NextLink href="/admin/inventory/products">
-                    <Text className="primary-font-semibold" mt={'10px'}>
+                    <Text className="primary-font-semibold" mt="10px">
                       Products
                     </Text>
                   </NextLink>
@@ -148,7 +168,7 @@ const Sidenav = ({ children }) => {
                   }
                 >
                   <NextLink href="/admin/inventory/categories">
-                    <Text className="primary-font-semibold" mt={'10px'}>
+                    <Text className="primary-font-semibold" mt="10px">
                       Categories
                     </Text>
                   </NextLink>
@@ -161,7 +181,7 @@ const Sidenav = ({ children }) => {
                   }
                 >
                   <NextLink href="/admin/inventory/manufacturers">
-                    <Text className="primary-font-semibold" mt={'10px'}>
+                    <Text className="primary-font-semibold" mt="10px">
                       Manufacturers
                     </Text>
                   </NextLink>
@@ -174,7 +194,7 @@ const Sidenav = ({ children }) => {
                   }
                 >
                   <NextLink href="/admin/inventory/print-labels">
-                    <Text className="primary-font-semibold" mt={'10px'}>
+                    <Text className="primary-font-semibold" mt="10px">
                       Print Labels
                     </Text>
                   </NextLink>
@@ -187,7 +207,7 @@ const Sidenav = ({ children }) => {
                   }
                 >
                   <NextLink href="/admin/inventory/transfers">
-                    <Text className="primary-font-semibold" mt={'10px'}>
+                    <Text className="primary-font-semibold" mt="10px">
                       Transfers
                     </Text>
                   </NextLink>
@@ -195,16 +215,11 @@ const Sidenav = ({ children }) => {
               </Box>
             </Collapse>
             <NextLink href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
-                <Box width={'20%'}>
-                  <Image
-                    src={'/images/User.png'}
-                    width={25}
-                    height={25}
-                    alt=""
-                  />
+              <Flex alignItems="center" width="full" mb="12px">
+                <Box width="20%">
+                  <Image src="/images/User.png" width={25} height={25} alt="" />
                 </Box>
-                <Box width={'80%'}>
+                <Box width="80%">
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
@@ -216,16 +231,16 @@ const Sidenav = ({ children }) => {
               </Flex>
             </NextLink>
             <NextLink href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
-                <Box width={'20%'}>
+              <Flex alignItems="center" width="full" mb="12px">
+                <Box width="20%">
                   <Image
-                    src={'/images/rewards.png'}
+                    src="/images/rewards.png"
                     width={25}
                     height={25}
                     alt=""
                   />
                 </Box>
-                <Box width={'80%'}>
+                <Box width="80%">
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
@@ -237,16 +252,16 @@ const Sidenav = ({ children }) => {
               </Flex>
             </NextLink>
             <NextLink href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
-                <Box width={'20%'}>
+              <Flex alignItems="center" width="full" mb="12px">
+                <Box width="20%">
                   <Image
-                    src={'/images/order.png'}
+                    src="/images/order.png"
                     width={25}
                     height={25}
                     alt=""
                   />
                 </Box>
-                <Box width={'80%'}>
+                <Box width="80%">
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
@@ -258,16 +273,16 @@ const Sidenav = ({ children }) => {
               </Flex>
             </NextLink>
             <NextLink href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
-                <Box width={'20%'}>
+              <Flex alignItems="center" width="full" mb="12px">
+                <Box width="20%">
                   <Image
-                    src={'/images/employee.png'}
+                    src="/images/employee.png"
                     width={25}
                     height={25}
                     alt=""
                   />
                 </Box>
-                <Box width={'80%'}>
+                <Box width="80%">
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
@@ -279,16 +294,16 @@ const Sidenav = ({ children }) => {
               </Flex>
             </NextLink>
             <NextLink href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
-                <Box width={'20%'}>
+              <Flex alignItems="center" width="full" mb="12px">
+                <Box width="20%">
                   <Image
-                    src={'/images/label.png'}
+                    src="/images/label.png"
                     width={25}
                     height={25}
                     alt=""
                   />
                 </Box>
-                <Box width={'80%'}>
+                <Box width="80%">
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
@@ -300,16 +315,16 @@ const Sidenav = ({ children }) => {
               </Flex>
             </NextLink>
             <NextLink href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
-                <Box width={'20%'}>
+              <Flex alignItems="center" width="full" mb="12px">
+                <Box width="20%">
                   <Image
-                    src={'/images/Setting.png'}
+                    src="/images/Setting.png"
                     width={25}
                     height={25}
                     alt=""
                   />
                 </Box>
-                <Box width={'80%'}>
+                <Box width="80%">
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
@@ -321,16 +336,16 @@ const Sidenav = ({ children }) => {
               </Flex>
             </NextLink>
             <NextLink href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
-                <Box width={'20%'}>
+              <Flex alignItems="center" width="full" mb="12px">
+                <Box width="20%">
                   <Image
-                    src={'/images/Logout.png'}
+                    src="/images/Logout.png"
                     width={25}
                     height={25}
                     alt=""
                   />
                 </Box>
-                <Box width={'80%'}>
+                <Box width="80%">
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
@@ -349,14 +364,14 @@ const Sidenav = ({ children }) => {
           <Box
             w={isOpen ? '250px' : '70px'} // Adjust the width based on the sidebar state
             bg="white" // Adjust the margin as needed
-            minH={'100vh'}
-            mt={'3em'}
+            minH="100vh"
+            mt="3em"
             zIndex="20"
           >
             <NextLink href="/">
               <Flex>
                 <Image
-                  src={'/images/dashboard.png'}
+                  src="/images/dashboard.png"
                   width={25}
                   height={25}
                   alt=""
@@ -364,9 +379,9 @@ const Sidenav = ({ children }) => {
               </Flex>
             </NextLink>
             <NextLink href="/">
-              <Flex mt={'1em'}>
+              <Flex mt="1em">
                 <Image
-                  src={'/images/inventory.png'}
+                  src="/images/inventory.png"
                   width={25}
                   height={25}
                   alt=""
@@ -374,14 +389,14 @@ const Sidenav = ({ children }) => {
               </Flex>
             </NextLink>
             <NextLink href="/">
-              <Flex mt={'1em'}>
-                <Image src={'/images/User.png'} width={25} height={25} alt="" />
+              <Flex mt="1em">
+                <Image src="/images/User.png" width={25} height={25} alt="" />
               </Flex>
             </NextLink>
             <NextLink href="/">
-              <Flex mt={'1em'}>
+              <Flex mt="1em">
                 <Image
-                  src={'/images/rewards.png'}
+                  src="/images/rewards.png"
                   width={25}
                   height={25}
                   alt=""
@@ -389,9 +404,14 @@ const Sidenav = ({ children }) => {
               </Flex>
             </NextLink>
             <NextLink href="/">
-              <Flex mt={'1em'}>
+              <Flex mt="1em">
+                <Image src="/images/order.png" width={25} height={25} alt="" />
+              </Flex>
+            </NextLink>
+            <NextLink href="/">
+              <Flex mt="1em">
                 <Image
-                  src={'/images/order.png'}
+                  src="/images/employee.png"
                   width={25}
                   height={25}
                   alt=""
@@ -399,29 +419,14 @@ const Sidenav = ({ children }) => {
               </Flex>
             </NextLink>
             <NextLink href="/">
-              <Flex mt={'1em'}>
-                <Image
-                  src={'/images/employee.png'}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
+              <Flex mt="1em">
+                <Image src="/images/label.png" width={25} height={25} alt="" />
               </Flex>
             </NextLink>
             <NextLink href="/">
-              <Flex mt={'1em'}>
+              <Flex mt="1em">
                 <Image
-                  src={'/images/label.png'}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
-              </Flex>
-            </NextLink>
-            <NextLink href="/">
-              <Flex mt={'1em'}>
-                <Image
-                  src={'/images/Setting.png'}
+                  src="/images/Setting.png"
                   width={25}
                   height={25}
                   alt=""
@@ -433,7 +438,7 @@ const Sidenav = ({ children }) => {
       </Box>
       <Box
         ml={{ base: '0', md: !isOpen ? '250px' : '70px' }}
-        marginTop={'10em'}
+        marginTop="10em"
         transition="0.3s ease-in-out"
       >
         {children}
@@ -443,4 +448,4 @@ const Sidenav = ({ children }) => {
   );
 };
 
-export default Sidenav;
+export default PosSidenav;

@@ -1,9 +1,10 @@
-import { Box, CardFooter, Link } from '@chakra-ui/react';
+import { Box, CardFooter } from '@chakra-ui/react';
 import AuthLayout from '@lib/components/Auth/AuthLayout';
 import { AuthCard, AuthCardHeader } from '@lib/components/Auth/Card';
 import Button from '@lib/components/base/button';
 import Heading from '@lib/components/base/heading';
 import SubHeading from '@lib/components/base/subHeading';
+import Link from 'next/link';
 
 const ForgetPassword = () => {
   return (

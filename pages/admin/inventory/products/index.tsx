@@ -2,6 +2,7 @@ import { Box, Image, Td } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 
 const Inventory = () => {
@@ -12,17 +13,19 @@ const Inventory = () => {
   }, []);
   const inventoryItem = [
     <Td key="img">
-      <Box id="img_col" display="flex" justifyContent="center">
-        <Image
-          src="/images/imag1.png"
-          width={{
-            base: 'auto',
-            md: '46%',
-          }}
-          height="auto"
-          alt=""
-        />
-      </Box>
+      <Link href="/product-detail">
+        <Box id="img_col" display="flex" justifyContent="center">
+          <Image
+            src="/images/imag1.png"
+            width={{
+              base: 'auto',
+              md: '46%',
+            }}
+            height="auto"
+            alt=""
+          />
+        </Box>
+      </Link>
     </Td>,
     <Td className="text-center" key="subject">
       Coastal Kush
@@ -49,14 +52,16 @@ const Inventory = () => {
       25313DH
     </Td>,
     <Td key="actions">
-      <Image
-        src="/images/more.png"
-        id="img_col"
-        width="30px"
-        style={{ cursor: 'pointer' }}
-        height="30px"
-        alt=""
-      />
+      <Link href="/edit-product">
+        <Image
+          src="/images/more.png"
+          id="img_col"
+          width="30px"
+          style={{ cursor: 'pointer' }}
+          height="30px"
+          alt=""
+        />
+      </Link>
     </Td>,
   ];
 
@@ -94,6 +99,7 @@ const Inventory = () => {
             // filterButton
             addNew="Product"
             addBulk="Products"
+            addLink="/add-product"
             // filter1="Flowers"
             // filter2="Capsules"
           />
