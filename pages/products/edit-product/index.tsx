@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable unused-imports/no-unused-vars */
 import { ChevronLeftIcon, EditIcon } from '@chakra-ui/icons';
 import {
   Box,
@@ -12,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useState } from 'react';
+
 import ComplexPricingInputRow from './ComplexPricingInputRow';
 
 export default function ProductDetail(): React.ReactNode {
@@ -55,7 +58,7 @@ export default function ProductDetail(): React.ReactNode {
               backgroundColor: 'rgba(246, 252, 255, 0.40)',
             }}
           >
-            <Text color={'#41454B'} className="primary-font-bold">
+            <Text color="#41454B" className="primary-font-bold">
               General Information
             </Text>
             <FormLabel
@@ -123,7 +126,7 @@ export default function ProductDetail(): React.ReactNode {
               <option value="option3">Aphria Inc.</option>
               <option value="option1">VIVO Cannabis Inc.</option>
               <option value="option2">Steep Hill, Inc.</option>
-              <option value="option1">Willie's Reserve</option>
+              <option value="option1">Willies Reserve</option>
               <option value="option2">Terrascend Corp</option>
               <option value="option3">GW Pharmaceuticals</option>
               <option value="option1">Truelieve Cannabis</option>
