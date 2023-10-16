@@ -11,6 +11,7 @@ import {
   Select,
   Text,
 } from '@chakra-ui/react';
+import Link from 'next/link';
 
 const categories = ['Capsules', 'Edibles', 'Tinctures', 'Flowers', 'Drinks'];
 const manufacturers = [
@@ -49,6 +50,7 @@ interface FloatingHeaderProps {
   filter2?: string;
   filterButton?: boolean;
   searchWithFilters?: boolean;
+  addLink?: string;
 }
 
 const FloatingHeader: React.FC<FloatingHeaderProps> = ({
@@ -67,6 +69,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   filter2,
   filterButton,
   searchWithFilters,
+  addLink,
 }) => {
   return (
     <Box
@@ -234,28 +237,30 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
               />
               Add Bulk {addBulk}
             </Button>
-            <Button
-              display="flex"
-              background=" linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
-              borderRadius="4px"
-              color="#ffffff"
-              fontSize="12px"
-              className="primary-font-medium"
-              _hover={{
-                background:
-                  'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
-              }}
-              gap="10px"
-            >
-              <Image
-                src="/images/plus-square.png"
-                alt="refresh-circle"
-                w="15px"
-                cursor="pointer"
-                h="15px"
-              />
-              Add New {addNew}
-            </Button>
+            <Link href={addLink as string}>
+              <Button
+                display="flex"
+                background=" linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
+                borderRadius="4px"
+                color="#ffffff"
+                fontSize="12px"
+                className="primary-font-medium"
+                _hover={{
+                  background:
+                    'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+                }}
+                gap="10px"
+              >
+                <Image
+                  src="/images/plus-square.png"
+                  alt="refresh-circle"
+                  w="15px"
+                  cursor="pointer"
+                  h="15px"
+                />
+                Add New {addNew}
+              </Button>
+            </Link>
             <Image
               src={refreshImage}
               alt="refresh-circle"

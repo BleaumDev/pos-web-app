@@ -11,6 +11,7 @@ import {
   Text,
   Textarea,
 } from '@chakra-ui/react';
+import Link from 'next/link';
 import { useState } from 'react';
 
 import ComplexPricingInputRow from './ComplexPricingInputRow';
@@ -27,9 +28,9 @@ export default function ProductDetail(): React.ReactNode {
       className="pt-12"
     >
       <Box className="flex-row flex px-10">
-        <Box>
+        <Link href="/admin/inventory/products">
           <ChevronLeftIcon boxSize={30} />
-        </Box>
+        </Link>
         <Box>
           <Heading
             h={5}
