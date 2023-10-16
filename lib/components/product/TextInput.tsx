@@ -1,7 +1,7 @@
 import { SearchIcon } from '@chakra-ui/icons';
 import { Image, Input } from '@chakra-ui/react';
 
-export function TextInput(): React.ReactElement {
+export function TextInput() {
   return (
     <div
       style={{
@@ -19,16 +19,16 @@ export function TextInput(): React.ReactElement {
         className="ml-4"
         width={517}
         borderColor="none"
-        variant={'unstyled'}
+        variant="unstyled"
         placeholder="Scan/Search Product by Code or Name here..."
       />
       <Image
         src="/images/arrow-right.png"
-        // className="py-1.5"
         style={{
           width: 30,
           height: 30,
         }}
+        alt=""
       />
     </div>
   );
