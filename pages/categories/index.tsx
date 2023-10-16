@@ -15,7 +15,7 @@ const Categories = () => {
     </Td>,
     <Td key="subject">CBD Products {`(CBD > 98%)`}</Td>,
     <Td className="text-center underline text-blue-500 italic" key="category">
-      View all {`(06)`}
+      View all 06
     </Td>,
     <Td className="text-center" key="messagesCount">
       23

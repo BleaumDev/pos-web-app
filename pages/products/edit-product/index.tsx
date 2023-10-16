@@ -11,7 +11,9 @@ import {
   Textarea,
 } from '@chakra-ui/react';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { nanoid } from '@reduxjs/toolkit';
 import { useState } from 'react';
+
 import ComplexPricingInputRow from './ComplexPricingInputRow';
 
 export default function ProductDetail(): React.ReactNode {
@@ -55,7 +57,7 @@ export default function ProductDetail(): React.ReactNode {
               backgroundColor: 'rgba(246, 252, 255, 0.40)',
             }}
           >
-            <Text color={'#41454B'} className="primary-font-bold">
+            <Text color="#41454B" className="primary-font-bold">
               General Information
             </Text>
             <FormLabel
@@ -123,7 +125,7 @@ export default function ProductDetail(): React.ReactNode {
               <option value="option3">Aphria Inc.</option>
               <option value="option1">VIVO Cannabis Inc.</option>
               <option value="option2">Steep Hill, Inc.</option>
-              <option value="option1">Willie's Reserve</option>
+              <option value="option1">Willie`&apos;`s Reserve</option>
               <option value="option2">Terrascend Corp</option>
               <option value="option3">GW Pharmaceuticals</option>
               <option value="option1">Truelieve Cannabis</option>
@@ -258,16 +260,14 @@ export default function ProductDetail(): React.ReactNode {
                 />
               </Box>
             </Box> */}
-              {Array.from({ length: complexPricingRowCount }).map(function (
-                _,
-                key
-              ): React.ReactElement {
-                return <ComplexPricingInputRow />;
-              })}
+              {Array.from({ length: complexPricingRowCount }).map(
+                function (): React.ReactElement {
+                  return <ComplexPricingInputRow key={nanoid()} />;
+                }
+              )}
               <Button
                 className="flex-row mt-4"
                 onClick={(_) => {
-                  console.log('Click');
                   setComplexPricingRowCount(complexPricingRowCount + 1);
                 }}
               >

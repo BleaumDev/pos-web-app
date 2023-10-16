@@ -1,7 +1,8 @@
 import { SearchIcon } from '@chakra-ui/icons';
 import { Box, Image, Input, Text } from '@chakra-ui/react';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import Heading from '@lib/components/base/heading';
+import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { nanoid } from '@reduxjs/toolkit';
 
 interface IProduct {
   id: number;
@@ -14,7 +15,7 @@ interface IProduct {
 
 const generateProducts = (count: number): Array<IProduct> => {
   const products = [];
-  for (let i = 1; i <= count; i++) {
+  for (let i = 1; i <= count; i += 1) {
     const product = {
       id: i,
       name: `Product ${i}`,
@@ -69,6 +70,7 @@ export default function Products() {
                 width: 30,
                 height: 30,
               }}
+              alt=""
             />
           </Box>
         </Box>
@@ -87,19 +89,20 @@ export default function Products() {
                 // />
                 <Box
                   // as="button"
+                  key={nanoid()}
                   className="mt-2 mb-2 px-3 py-5 min-w-[200px] rounded-3xl"
                   style={{
                     backgroundColor: 'white',
                     margin: 10,
                   }}
                 >
-                  <Image src="/images/image2.png" />
+                  <Image src="/images/image2.png" alt="" />
                   <Box className="flex flex-row justify-between items-center">
                     <Box>
                       <Heading
                         h={6}
                         fontSize={17}
-                        color={'#41454B'}
+                        color="#41454B"
                         // fontWeight="bold"
                         className="primary-font-semibold"
                       >
