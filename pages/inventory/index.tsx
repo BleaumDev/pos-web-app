@@ -4,12 +4,21 @@ import { useMemo } from 'react';
 
 const InventoryPage = () => {
   const inventoryItem = [
-    <Td key="img" id="img_col">
+    <Td
+      key="img"
+      id="img_col"
+      style={
+        {
+          // paddingTop: 10,
+          // paddingBottom: 10,
+        }
+      }
+    >
       <img
         src="/images/imag1.png"
         id="img_col"
-        width="100px"
-        height="100px"
+        width="48px"
+        height="32px"
         alt=""
       />
     </Td>,

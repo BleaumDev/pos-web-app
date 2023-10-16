@@ -1,17 +1,17 @@
+import { ChevronLeftIcon, EditIcon } from '@chakra-ui/icons';
 import {
   Box,
+  Button,
   Divider,
   FormLabel,
   Heading,
   Input,
   Select,
-  Textarea,
   Text,
-  Button,
+  Textarea,
 } from '@chakra-ui/react';
-import { ChevronLeftIcon, EditIcon } from '@chakra-ui/icons';
-import ComplexPricingInputRow from './ComplexPricingInputRow';
 import { useState } from 'react';
+import ComplexPricingInputRow from './ComplexPricingInputRow';
 
 export default function ProductDetail(): React.ReactNode {
   const [complexPricingRowCount, setComplexPricingRowCount] = useState(1);
