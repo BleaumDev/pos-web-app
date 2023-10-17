@@ -31,7 +31,7 @@ const priceRanges = [
 
 interface BreadcrumbItems {
   label: string;
-  href: string;
+  breadcrumLink: string;
 }
 
 interface FloatingHeaderProps {
@@ -39,7 +39,7 @@ interface FloatingHeaderProps {
   itemCount: string;
   csvImage: string;
   refreshImage: string;
-  breadcrumbs: BreadcrumbItems[];
+  breadcrumbs?: BreadcrumbItems[];
   lastBreadcrumbColor: string;
   simpleSearch?: boolean;
   sortBy?: string;
@@ -71,6 +71,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   searchWithFilters,
   addLink,
 }) => {
+  const constructedHref = `/${addLink}`;
   return (
     <Box
       background="#ffffff"
@@ -123,7 +124,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
             {breadcrumbs?.map((breadcrumb, index) => (
               // eslint-disable-next-line react/no-array-index-key
               <BreadcrumbItem key={index}>
-                <BreadcrumbLink href={breadcrumb.href}>
+                <BreadcrumbLink href={breadcrumb.breadcrumLink}>
                   {index === breadcrumbs.length - 1 ? (
                     <Text
                       color={lastBreadcrumbColor}
@@ -237,7 +238,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
               />
               Add Bulk {addBulk}
             </Button>
-            <Link href={addLink as string}>
+            <Link href={constructedHref}>
               <Button
                 display="flex"
                 background=" linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"

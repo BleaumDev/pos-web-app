@@ -1,11 +1,11 @@
 /* eslint-disable */
 import { CardFooter, Checkbox, Flex, Stack, Text } from '@chakra-ui/react';
-import AuthLayout from '@lib/components/Auth/AuthLayout';
+import AuthLayout from '@lib/components/auth/AuthLayout';
 import {
   AuthCard,
   AuthCardBody,
   AuthCardHeader,
-} from '@lib/components/Auth/Card';
+} from '@lib/components/auth/card';
 import Button from '@lib/components/base/button';
 import Heading from '@lib/components/base/heading';
 import Input from '@lib/components/base/input';
@@ -17,10 +17,10 @@ const LoginPage = () => {
   return (
     <AuthLayout>
       <AuthCard background="none">
-        <AuthCardHeader py="2rem">
+        <AuthCardHeader>
           <Heading>Let's start with Log In!</Heading>
         </AuthCardHeader>
-        <AuthCardBody maxH="50vh">
+        <AuthCardBody>
           <Stack>
             <Label
               fontSize={{ base: '12px', sm: '14px', md: '16px' }}
@@ -41,7 +41,7 @@ const LoginPage = () => {
                   }
                 /> */}
           </Stack>
-          <Stack mt="2em">
+          <Stack mt="10px">
             <Label
               ml={2}
               fontSize={{ base: '12px', sm: '14px', md: '16px' }}
@@ -52,7 +52,7 @@ const LoginPage = () => {
 
             <PasswordInput placeholder="Password" />
           </Stack>
-          <Flex mt="2em" justifyContent="space-between">
+          <Flex mt="5px" justifyContent="space-between">
             <Checkbox
               colorScheme="blue"
               className="primary-font-regular-italic"
@@ -73,7 +73,7 @@ const LoginPage = () => {
             </Link>
           </Flex>
         </AuthCardBody>
-        <CardFooter mt="-2em">
+        <CardFooter mt="1em">
           <Link
             href="/admin/inventory/products"
             style={{
@@ -83,7 +83,7 @@ const LoginPage = () => {
             <Button
               w="full"
               styledVariant="blue"
-              fontSize={{ base: '12px', md: '20px ' }}
+              fontSize={{ base: '12px', md: '16px ' }}
               fontWeight="400"
             >
               Login

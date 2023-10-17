@@ -78,7 +78,10 @@ const PosPayments = () => {
                 base: 'block',
                 md: 'none',
               }}
-              pr="6em"
+              pr={{
+                base: '1em',
+                md: '6em',
+              }}
             >
               <CartPage />
             </Box>

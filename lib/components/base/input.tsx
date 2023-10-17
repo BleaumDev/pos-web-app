@@ -1,6 +1,6 @@
 /* eslint-disable simple-import-sort/imports */
 import type { InputProps } from '@chakra-ui/react';
-import { Input as BaseInput, Box } from '@chakra-ui/react';
+import { Box, Input as BaseInput } from '@chakra-ui/react';
 import type { ForwardRefRenderFunction } from 'react';
 import { forwardRef } from 'react';
 
@@ -15,7 +15,7 @@ export const baseInputStyles: InputProps = {
   className: 'primary-font-medium ',
   borderRadius: '4px',
   fontSize: { base: '12px', md: '14px' },
-  h: { base: '45px', md: '50px' },
+  h: { base: '35px', md: '40px' },
   boxSizing: 'border-box',
   border: '1px solid rgba(18, 23, 30, 0.20)',
   outline: 'none',
@@ -30,7 +30,7 @@ const InputComponent: ForwardRefRenderFunction<
       <BaseInput
         ref={ref}
         {...baseInputStyles}
-        h={props.h ?? props.height ?? { base: '45px', md: '50px' }}
+        h={props.h ?? props.height ?? { base: '45px', md: '40px' }}
         {...props}
       />
       {Boolean(helpText) && (

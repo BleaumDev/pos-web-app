@@ -80,15 +80,15 @@ const CategoriesPage = () => {
             breadcrumbs={[
               {
                 label: 'Home',
-                href: '/admin/inventory/categories',
+                breadcrumLink: '/admin/inventory/categories',
               },
               {
                 label: 'Inventory',
-                href: '/admin/inventory/categories',
+                breadcrumLink: '/admin/inventory/categories',
               },
               {
                 label: 'Categories',
-                href: '/admin/inventory/categories',
+                breadcrumLink: '/admin/inventory/categories',
               },
             ]}
             searchWithFilters

@@ -77,15 +77,15 @@ const ManufecturerPage = () => {
             breadcrumbs={[
               {
                 label: 'Home',
-                href: '/admin/inventory/categories',
+                breadcrumLink: '/admin/inventory/categories',
               },
               {
                 label: 'Inventory',
-                href: '/admin/inventory/inventory',
+                breadcrumLink: '/admin/inventory/inventory',
               },
               {
                 label: 'Manufacturers',
-                href: '/admin/inventory/manufacturers',
+                breadcrumLink: '/admin/inventory/manufacturers',
               },
             ]}
             searchWithFilters

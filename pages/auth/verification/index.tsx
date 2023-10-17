@@ -1,10 +1,10 @@
 import { Box, CardFooter, Stack } from '@chakra-ui/react';
-import AuthLayout from '@lib/components/Auth/AuthLayout';
+import AuthLayout from '@lib/components/auth/AuthLayout';
 import {
   AuthCard,
   AuthCardBody,
   AuthCardHeader,
-} from '@lib/components/Auth/Card';
+} from '@lib/components/auth/card';
 import Button from '@lib/components/base/button';
 import Heading from '@lib/components/base/heading';
 import Input from '@lib/components/base/input';
@@ -15,8 +15,8 @@ import Link from 'next/link';
 const VerificationPage = () => {
   return (
     <AuthLayout>
-      <AuthCard mt="4em">
-        <AuthCardHeader py="2rem">
+      <AuthCard>
+        <AuthCardHeader>
           <Heading>Reset Your Password!</Heading>
           <Box mx="2em">
             <SubHeading>
@@ -26,7 +26,7 @@ const VerificationPage = () => {
           </Box>
         </AuthCardHeader>
         <AuthCardBody maxH="30vh">
-          <Stack>
+          <Stack mt="-15px">
             <Label
               fontSize={{ base: '12px', sm: '14px', md: '16px' }}
               ml={2}
@@ -47,12 +47,12 @@ const VerificationPage = () => {
                 /> */}
           </Stack>
         </AuthCardBody>
-        <CardFooter mt="-2em">
+        <CardFooter>
           <Link href="/auth/reset-password" style={{ width: '100%' }}>
             <Button
               w="full"
               styledVariant="blue"
-              fontSize={{ base: '12px', md: '20px ' }}
+              fontSize={{ base: '12px', md: '16px ' }}
               fontWeight="400"
             >
               Verify Now

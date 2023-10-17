@@ -54,14 +54,24 @@ const CartPage = () => {
           </Text>
         </Flex>
       </Flex>
-      <Box overflowY="scroll" overflowX="hidden" h="100vh">
+      <Box
+        overflowY={{
+          base: 'hidden',
+          md: 'scroll',
+        }}
+        overflowX="hidden"
+        h={{
+          base: 'auto',
+          md: '100vh',
+        }}
+      >
         {activeComponent === 'CartDetail' && <CartDetail />}
         {activeComponent === 'InvoicePage' && <InvoicePage />}
         {activeComponent === 'EmailOrPrintInvoicePage' && (
           <EmailOrPrintInvoicePage />
         )}
         {activeComponent === 'ThanksPage' && <ThanksPage />}
-        <Flex gap="1em" mt="-15em" px="12px" w="full">
+        <Flex gap="1em" mt="-15em" mb="200px" px="12px" w="full">
           {activeComponent !== 'ThanksPage' &&
             activeComponent !== 'EmailOrPrintInvoicePage' && (
               <>

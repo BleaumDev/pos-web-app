@@ -130,7 +130,7 @@ body{
   padding: 0px  !important;
 }
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 0px !important;
 }
 .active-tab{
   background: #e9f0f8;
@@ -204,7 +204,24 @@ color: rgba(18, 23, 30, 0.60);
     left: -30px !important;
     top: 55% !important; 
 }
+.pagination-tag1 {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  margin-top: 8px;
+  justify-content: center;
+  padding-top: 2px;
+  align-items: center;
+  border: 1px solid #ccc;
+  font-size: 9px;
+  margin-right: 5px;
+  background-color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
 
-@media (max-width: 1396.36px) {
-  
+.pagination-tag1.current {
+  background-color: #2F80ED;
+  color: white;
 }

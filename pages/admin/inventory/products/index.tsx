@@ -83,15 +83,15 @@ const Inventory = () => {
             breadcrumbs={[
               {
                 label: 'Home',
-                href: '/admin/inventory/products',
+                breadcrumLink: '/admin/inventory/products',
               },
               {
                 label: 'Inventory',
-                href: '/admin/inventory/products',
+                breadcrumLink: '/admin/inventory/products',
               },
               {
                 label: 'Products',
-                href: '/admin/inventory/products',
+                breadcrumLink: '/admin/inventory/products',
               },
             ]}
             simpleSearch

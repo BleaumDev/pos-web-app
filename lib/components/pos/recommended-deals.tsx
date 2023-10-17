@@ -1,97 +1,10 @@
 /* eslint-disable react/no-array-index-key */
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
-import { Box, Flex, IconButton } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
+import recommendedDeals from 'data/recommendedDeals';
 import { useState } from 'react';
 
 import ProductCard from './product-card';
 import PsoHeading from './pso-heading';
-
-const recommendedDeals = [
-  {
-    productName: 'Volts Cannabis CBD Capsules',
-    imageSrc: '/images/bottle.png',
-    price: '$68.00',
-    sku: '1426384',
-    quantity: '88',
-  },
-  {
-    productName: 'Volts Cannabis CBD Capsules',
-    imageSrc: '/images/bottle.png',
-    price: '$68.00',
-    sku: '1426384',
-    quantity: '88',
-  },
-  {
-    productName: 'Volts Cannabis CBD Capsules',
-    imageSrc: '/images/bottle.png',
-    price: '$68.00',
-    sku: '1426384',
-    quantity: '88',
-  },
-  {
-    productName: 'Volts Cannabis CBD Capsules',
-    imageSrc: '/images/bottle.png',
-    price: '$68.00',
-    sku: '1426384',
-    quantity: '88',
-  },
-  {
-    productName: 'Volts Cannabis CBD Capsules',
-    imageSrc: '/images/bottle.png',
-    price: '$68.00',
-    sku: '1426384',
-    quantity: '88',
-  },
-  {
-    productName: 'Volts Cannabis CBD Capsules',
-    imageSrc: '/images/bottle.png',
-    price: '$68.00',
-    sku: '1426384',
-    quantity: '88',
-  },
-  {
-    productName: 'adada',
-    imageSrc: '/images/bottle.png',
-    price: '$68.00',
-    sku: '1426384',
-    quantity: '88',
-  },
-  {
-    productName: 'Volts adadad',
-    imageSrc: '/images/bottle.png',
-    price: '$68.00',
-    sku: '1426384',
-    quantity: '88',
-  },
-  {
-    productName: 'Volts Cannabisadadad',
-    imageSrc: '/images/bottle.png',
-    price: '$68.00',
-    sku: '1426384',
-    quantity: '88',
-  },
-  {
-    productName: 'Volts Cannabis CBD adada',
-    imageSrc: '/images/bottle.png',
-    price: '$68.00',
-    sku: '1426384',
-    quantity: '88',
-  },
-  {
-    productName: 'Volts adada CBD Capsules',
-    imageSrc: '/images/bottle.png',
-    price: '$68.00',
-    sku: '1426384',
-    quantity: '88',
-  },
-  {
-    productName: 'Volts Cannabis adadad Capsules',
-    imageSrc: '/images/bottle.png',
-    price: '$68.00',
-    sku: '1426384',
-    quantity: '88',
-  },
-];
 
 interface Product {
   productName: string;
@@ -110,7 +23,13 @@ const renderProductCards = (data: Product[], currentPage: number) => {
   const productsToShow = data.slice(startIndex, endIndex);
 
   return (
-    <Box display="flex" flexWrap="wrap" gap="20px" mt="12px">
+    <Box
+      display="flex"
+      flexWrap="wrap"
+      justifyContent={{ base: 'center', md: 'flex-start' }}
+      gap="20px"
+      mt="12px"
+    >
       {productsToShow.map((item, index) => (
         <ProductCard
           key={index}
@@ -140,6 +59,37 @@ const RecommendedDeals = () => {
     }
   };
 
+  const displayPages = 3;
+
+  const renderPageNumbers = () => {
+    const pageNumbers = Array.from({ length: totalPages }).map(
+      (_, index) => index + 1
+    );
+
+    if (totalPages <= displayPages) {
+      return pageNumbers;
+    }
+
+    const displayedPageNumbers = [];
+
+    if (currentPage <= displayPages) {
+      displayedPageNumbers.push(...pageNumbers.slice(0, displayPages));
+      displayedPageNumbers.push('...');
+    } else if (currentPage > totalPages - displayPages) {
+      displayedPageNumbers.push('...');
+      displayedPageNumbers.push(
+        ...pageNumbers.slice(totalPages - displayPages, totalPages)
+      );
+    } else {
+      displayedPageNumbers.push('...');
+      const start = currentPage - Math.floor((displayPages - 1) / 2);
+      const end = currentPage + Math.ceil((displayPages - 1) / 2);
+      displayedPageNumbers.push(...pageNumbers.slice(start - 1, end));
+      displayedPageNumbers.push('...');
+    }
+
+    return displayedPageNumbers;
+  };
   return (
     <Box mt="1em">
       <PsoHeading
@@ -151,20 +101,26 @@ const RecommendedDeals = () => {
       />
       {renderProductCards(recommendedDeals, currentPage)}
       <Flex justifyContent="end">
-        <IconButton
-          icon={<ChevronLeftIcon />}
-          aria-label="Previous Page"
-          variant="ghost"
-          isDisabled={currentPage === 1}
-          onClick={handlePreviousPage}
-        />
-        <IconButton
-          icon={<ChevronRightIcon />}
-          aria-label="Next Page"
-          variant="ghost"
-          isDisabled={currentPage === totalPages}
-          onClick={handleNextPage}
-        />
+        <Box onClick={handlePreviousPage}>
+          <img src="/images/prev.png" alt="" className="pag-button" />
+        </Box>
+        {renderPageNumbers().map((page, index) => (
+          <Box
+            key={index}
+            onClick={() => {
+              if (page === '...') return;
+              setCurrentPage(Number(page));
+            }}
+            className={`pagination-tag1 ${
+              page === currentPage ? 'current' : ''
+            }`}
+          >
+            {page}
+          </Box>
+        ))}
+        <Box onClick={handleNextPage}>
+          <img src="/images/next.png" alt="" className="pag-button" />
+        </Box>
       </Flex>
     </Box>
   );
