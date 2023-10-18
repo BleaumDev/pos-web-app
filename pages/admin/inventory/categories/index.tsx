@@ -75,7 +75,7 @@ const CategoriesPage = () => {
             itemCount="13+ Categories"
             csvImage="/images/csv-file.png"
             refreshImage="/images/refresh-circle.png"
-            sortBy="/images/sortBy.png"
+            sortBy
             lastBreadcrumbColor="#FF8A43"
             breadcrumbs={[
               {
@@ -95,6 +95,7 @@ const CategoriesPage = () => {
             filterButton
             addNew="Category"
             addBulk="Categories"
+            addButtons
             filter1="Flowers"
             filter2="Capsules"
           />

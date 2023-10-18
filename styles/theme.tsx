@@ -206,6 +206,12 @@ export const theme = extendTheme(
               },
             },
           },
+          PosSelect: {
+            fontSize: '14px',
+            color: 'rgba(65, 69, 75, 0.50)',
+            border: '1px solid rgba(18, 23, 30, 0.20)',
+            h: '33px',
+          },
           secondary: {
             field: {
               bg: '#EAEAEA',

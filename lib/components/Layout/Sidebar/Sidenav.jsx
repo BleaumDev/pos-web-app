@@ -108,6 +108,7 @@ const Sidenav = ({ children }) => {
                       isActive('/admin/inventory/categories') ||
                       isActive('/admin/inventory/manufacturers') ||
                       isActive('/admin/inventory/print-labels') ||
+                      isActive('/admin/inventory/products/add-product') ||
                       isActive('/admin/inventory/transfers')
                         ? '#000000'
                         : '#12171E66'
@@ -129,7 +130,10 @@ const Sidenav = ({ children }) => {
               >
                 <Box
                   className={
-                    isActive('/admin/inventory/products')
+                    isActive('/admin/inventory/products') ||
+                    isActive('/admin/inventory/products/add-product') ||
+                    isActive('/admin/inventory/products/edit-product-detail') ||
+                    isActive('/admin/inventory/products/product-detail')
                       ? 'active-tab'
                       : 'inactive-tab'
                   }
@@ -432,13 +436,12 @@ const Sidenav = ({ children }) => {
         </Collapse>
       </Box>
       <Box
-        ml={{ base: '0', md: !isOpen ? '250px' : '70px' }}
+        pl={{ base: '0', md: !isOpen ? '250px' : '70px' }}
         marginTop={'10em'}
         transition="0.3s ease-in-out"
       >
         {children}
       </Box>
-      {/* White horizontal section outside of the sidebar */}
     </>
   );
 };

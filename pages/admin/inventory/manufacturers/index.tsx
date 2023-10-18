@@ -72,7 +72,7 @@ const ManufecturerPage = () => {
             itemCount="121+ Manufacturers"
             csvImage="/images/csv-file.png"
             refreshImage="/images/refresh-circle.png"
-            sortBy="/images/sortBy.png"
+            sortBy
             lastBreadcrumbColor="#FF8A43"
             breadcrumbs={[
               {
@@ -91,6 +91,7 @@ const ManufecturerPage = () => {
             searchWithFilters
             filterButton
             addNew="Manufacturer"
+            addButtons
             addBulk="Manufacturers"
             filter1="Cresco Labs"
             filter2="Aphria Inc."
