@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 
 const AuthCardHeader: React.FC<CardHeaderProps> = ({ children, ...props }) => (
-  <CardHeader textAlign="center" py="4rem" {...props}>
+  <CardHeader textAlign="center" {...props}>
     {children}
   </CardHeader>
 );
@@ -54,11 +54,11 @@ const AuthCard: React.FC<CardProps> = ({ children, ...props }) => (
   <Card
     {...props}
     w={{ base: '100%' }}
-    maxW={{ sm: '540px' }}
+    maxW={{ sm: '470px' }}
     mx={{
       base: 'auto',
       sm: 'auto',
-      md: '7em',
+      md: '0em',
     }}
     bg="white"
     borderRadius="2rem"

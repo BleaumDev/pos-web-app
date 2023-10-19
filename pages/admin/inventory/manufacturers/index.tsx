@@ -72,25 +72,26 @@ const ManufecturerPage = () => {
             itemCount="121+ Manufacturers"
             csvImage="/images/csv-file.png"
             refreshImage="/images/refresh-circle.png"
-            sortBy="/images/sortBy.png"
+            sortBy
             lastBreadcrumbColor="#FF8A43"
             breadcrumbs={[
               {
                 label: 'Home',
-                href: '/admin/inventory/categories',
+                breadcrumLink: '/admin/inventory/categories',
               },
               {
                 label: 'Inventory',
-                href: '/admin/inventory/inventory',
+                breadcrumLink: '/admin/inventory/inventory',
               },
               {
                 label: 'Manufacturers',
-                href: '/admin/inventory/manufacturers',
+                breadcrumLink: '/admin/inventory/manufacturers',
               },
             ]}
             searchWithFilters
             filterButton
             addNew="Manufacturer"
+            addButtons
             addBulk="Manufacturers"
             filter1="Cresco Labs"
             filter2="Aphria Inc."

@@ -13,6 +13,7 @@ function AuthLayout({ children }: Props): React.ReactElement {
       alignItems="center"
       justifyContent="center"
       position="relative"
+      background="#fff"
       h="full"
       minH={{
         base: '100vh',
@@ -21,19 +22,15 @@ function AuthLayout({ children }: Props): React.ReactElement {
       }}
     >
       <Box
-        p={{
+        px={{
           base: 2,
-          sm: 8,
-        }}
-        pt={{
-          base: '80px',
-          sm: '106px',
+          sm: 10,
         }}
         h="full"
         background="#fff"
+        alignItems="center"
         display="flex"
         justifyContent="center"
-        alignContent="center"
         sx={{
           form: {
             width: '95%',

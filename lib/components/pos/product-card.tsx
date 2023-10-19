@@ -45,7 +45,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         {quantity} packs
       </Box>
       <Flex justifyContent="center" alignItems="center">
-        <Img src={imageSrc} alt="product-image" />
+        <Img src={imageSrc} alt="product-image" w="70px" />
       </Flex>
       <Text
         fontSize="10px"

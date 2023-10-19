@@ -130,7 +130,7 @@ body{
   padding: 0px  !important;
 }
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 0px !important;
 }
 .active-tab{
   background: #e9f0f8;
@@ -204,7 +204,66 @@ color: rgba(18, 23, 30, 0.60);
     left: -30px !important;
     top: 55% !important; 
 }
+.pagination-tag1 {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  margin-top: 8px;
+  justify-content: center;
+  padding-top: 2px;
+  align-items: center;
+  border: 1px solid #ccc;
+  font-size: 9px;
+  margin-right: 5px;
+  background-color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
 
-@media (max-width: 1396.36px) {
-  
+.pagination-tag1.current {
+  background-color: #2F80ED;
+  color: white;
+}
+
+.rw-input {
+  border: none !important;
+  height: 40px;
+  outline: none !important;
+}
+.rw-input:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+ .rw-input-addon,
+ .rw-input-addon.rw-picker-btn {
+  border: none !important;
+  background: url("/images/calendar.png") no-repeat center center;
+
+  top: 10px !important;
+  right: 16px !important;
+  height: 40px;
+  position: relative;
+  background-size: cover;
+  width: 25px;
+  border-radius: 3px;
+  height: 21px;
+}
+svg.rw-i-calendar {
+  color: #64646c !important;
+  opacity: 0;
+}
+.rw-cell.rw-state-selected {
+  background-color: #ff8a43;
+  border-color: #ff8a43;
+  border-radius: 100px;
+  height: 37px;
+  color: #fff;
+}
+.rw-calendar-btn-view {
+  color: #ff8a43 !important;
+}
+.rw-calendar-btn {
+  color: #ff8a43 !important;
 }

@@ -9,7 +9,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import NextLink from 'next/link';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Navbar from './Navbar';
 
@@ -68,7 +68,7 @@ const Sidenav = ({ children }) => {
         )}
         <Collapse in={!isOpen}>
           <VStack spacing="4" mt={'3em'} align="stretch">
-            <NextLink href="/">
+            <Link href="/">
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
                   <Image
@@ -88,7 +88,7 @@ const Sidenav = ({ children }) => {
                   </Text>
                 </Box>
               </Flex>
-            </NextLink>
+            </Link>
             <Box cursor={'pointer'} onClick={onInventoryToggle}>
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
@@ -108,6 +108,7 @@ const Sidenav = ({ children }) => {
                       isActive('/admin/inventory/categories') ||
                       isActive('/admin/inventory/manufacturers') ||
                       isActive('/admin/inventory/print-labels') ||
+                      isActive('/admin/inventory/products/add-product') ||
                       isActive('/admin/inventory/transfers')
                         ? '#000000'
                         : '#12171E66'
@@ -129,16 +130,19 @@ const Sidenav = ({ children }) => {
               >
                 <Box
                   className={
-                    isActive('/admin/inventory/products')
+                    isActive('/admin/inventory/products') ||
+                    isActive('/admin/inventory/products/add-product') ||
+                    isActive('/admin/inventory/products/edit-product-detail') ||
+                    isActive('/admin/inventory/products/product-detail')
                       ? 'active-tab'
                       : 'inactive-tab'
                   }
                 >
-                  <NextLink href="/admin/inventory/products">
+                  <Link href="/admin/inventory/products">
                     <Text className="primary-font-semibold" mt={'10px'}>
                       Products
                     </Text>
-                  </NextLink>
+                  </Link>
                 </Box>
                 <Box
                   className={
@@ -147,11 +151,11 @@ const Sidenav = ({ children }) => {
                       : 'inactive-tab'
                   }
                 >
-                  <NextLink href="/admin/inventory/categories">
+                  <Link href="/admin/inventory/categories">
                     <Text className="primary-font-semibold" mt={'10px'}>
                       Categories
                     </Text>
-                  </NextLink>
+                  </Link>
                 </Box>
                 <Box
                   className={
@@ -160,11 +164,11 @@ const Sidenav = ({ children }) => {
                       : 'inactive-tab'
                   }
                 >
-                  <NextLink href="/admin/inventory/manufacturers">
+                  <Link href="/admin/inventory/manufacturers">
                     <Text className="primary-font-semibold" mt={'10px'}>
                       Manufacturers
                     </Text>
-                  </NextLink>
+                  </Link>
                 </Box>
                 <Box
                   className={
@@ -173,11 +177,11 @@ const Sidenav = ({ children }) => {
                       : 'inactive-tab'
                   }
                 >
-                  <NextLink href="/admin/inventory/print-labels">
+                  <Link href="/admin/inventory/print-labels">
                     <Text className="primary-font-semibold" mt={'10px'}>
                       Print Labels
                     </Text>
-                  </NextLink>
+                  </Link>
                 </Box>
                 <Box
                   className={
@@ -186,15 +190,15 @@ const Sidenav = ({ children }) => {
                       : 'inactive-tab'
                   }
                 >
-                  <NextLink href="/admin/inventory/transfers">
+                  <Link href="/admin/inventory/transfers">
                     <Text className="primary-font-semibold" mt={'10px'}>
                       Transfers
                     </Text>
-                  </NextLink>
+                  </Link>
                 </Box>
               </Box>
             </Collapse>
-            <NextLink href="/">
+            <Link href="/">
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
                   <Image
@@ -214,8 +218,8 @@ const Sidenav = ({ children }) => {
                   </Text>
                 </Box>
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
                   <Image
@@ -235,8 +239,8 @@ const Sidenav = ({ children }) => {
                   </Text>
                 </Box>
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
                   <Image
@@ -256,8 +260,8 @@ const Sidenav = ({ children }) => {
                   </Text>
                 </Box>
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
                   <Image
@@ -277,8 +281,8 @@ const Sidenav = ({ children }) => {
                   </Text>
                 </Box>
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
                   <Image
@@ -298,8 +302,8 @@ const Sidenav = ({ children }) => {
                   </Text>
                 </Box>
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
                   <Image
@@ -319,8 +323,8 @@ const Sidenav = ({ children }) => {
                   </Text>
                 </Box>
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
                   <Image
@@ -340,7 +344,7 @@ const Sidenav = ({ children }) => {
                   </Text>
                 </Box>
               </Flex>
-            </NextLink>
+            </Link>
 
             {/* Add more sidebar links as needed */}
           </VStack>
@@ -353,7 +357,7 @@ const Sidenav = ({ children }) => {
             mt={'3em'}
             zIndex="20"
           >
-            <NextLink href="/">
+            <Link href="/">
               <Flex>
                 <Image
                   src={'/images/dashboard.png'}
@@ -362,8 +366,8 @@ const Sidenav = ({ children }) => {
                   alt=""
                 />
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex mt={'1em'}>
                 <Image
                   src={'/images/inventory.png'}
@@ -372,13 +376,13 @@ const Sidenav = ({ children }) => {
                   alt=""
                 />
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex mt={'1em'}>
                 <Image src={'/images/User.png'} width={25} height={25} alt="" />
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex mt={'1em'}>
                 <Image
                   src={'/images/rewards.png'}
@@ -387,8 +391,8 @@ const Sidenav = ({ children }) => {
                   alt=""
                 />
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex mt={'1em'}>
                 <Image
                   src={'/images/order.png'}
@@ -397,8 +401,8 @@ const Sidenav = ({ children }) => {
                   alt=""
                 />
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex mt={'1em'}>
                 <Image
                   src={'/images/employee.png'}
@@ -407,8 +411,8 @@ const Sidenav = ({ children }) => {
                   alt=""
                 />
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex mt={'1em'}>
                 <Image
                   src={'/images/label.png'}
@@ -417,8 +421,8 @@ const Sidenav = ({ children }) => {
                   alt=""
                 />
               </Flex>
-            </NextLink>
-            <NextLink href="/">
+            </Link>
+            <Link href="/">
               <Flex mt={'1em'}>
                 <Image
                   src={'/images/Setting.png'}
@@ -427,18 +431,17 @@ const Sidenav = ({ children }) => {
                   alt=""
                 />
               </Flex>
-            </NextLink>
+            </Link>
           </Box>
         </Collapse>
       </Box>
       <Box
-        ml={{ base: '0', md: !isOpen ? '250px' : '70px' }}
+        pl={{ base: '0', md: !isOpen ? '250px' : '70px' }}
         marginTop={'10em'}
         transition="0.3s ease-in-out"
       >
         {children}
       </Box>
-      {/* White horizontal section outside of the sidebar */}
     </>
   );
 };

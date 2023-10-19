@@ -13,7 +13,7 @@ const Inventory = () => {
   }, []);
   const inventoryItem = [
     <Td key="img">
-      <Link href="/product-detail">
+      <Link href="/admin/inventory/products/product-detail">
         <Box id="img_col" display="flex" justifyContent="center">
           <Image
             src="/images/imag1.png"
@@ -52,16 +52,14 @@ const Inventory = () => {
       25313DH
     </Td>,
     <Td key="actions">
-      <Link href="/edit-product">
-        <Image
-          src="/images/more.png"
-          id="img_col"
-          width="30px"
-          style={{ cursor: 'pointer' }}
-          height="30px"
-          alt=""
-        />
-      </Link>
+      <Image
+        src="/images/more.png"
+        id="img_col"
+        width="30px"
+        style={{ cursor: 'pointer' }}
+        height="30px"
+        alt=""
+      />
     </Td>,
   ];
 
@@ -72,26 +70,27 @@ const Inventory = () => {
   return (
     <div>
       <Sidenav>
-        <Box position="relative" mt="0em" w="auto">
+        <Box position="fixed" mt="0em" w="100%" pr="16em" zIndex={7}>
           <FloatingHeader
             title="Products"
             itemCount="1432+ Items"
             csvImage="/images/csv-file.png"
             refreshImage="/images/refresh-circle.png"
-            sortBy="/images/sortBy.png"
+            addButtons
+            sortBy
             lastBreadcrumbColor="#FF8A43"
             breadcrumbs={[
               {
                 label: 'Home',
-                href: '/admin/inventory/products',
+                breadcrumLink: '/admin/inventory/products',
               },
               {
                 label: 'Inventory',
-                href: '/admin/inventory/products',
+                breadcrumLink: '/admin/inventory/products',
               },
               {
                 label: 'Products',
-                href: '/admin/inventory/products',
+                breadcrumLink: '/admin/inventory/products',
               },
             ]}
             simpleSearch
@@ -99,41 +98,40 @@ const Inventory = () => {
             // filterButton
             addNew="Product"
             addBulk="Products"
-            addLink="/add-product"
+            addLink="/admin/inventory/products/add-product"
             // filter1="Flowers"
             // filter2="Capsules"
           />
         </Box>
-
-        <Box
-          p="2em 2em 4em 2em"
-          borderRadius="20px"
-          bg="#E9F0F8 !important"
-          position="relative"
-          top="-11px"
-          overflowX="hidden"
-          overflowY="scroll"
-          h="60vh"
-        >
-          {isClient && (
-            <Table
-              checkboxes
-              hoverEffect
-              headers={[
-                'Image',
-                'Product Name',
-                'Category',
-                'Price',
-                'Size',
-                'Manufacturer',
-                'Total Qty',
-                'Available Qty',
-                'SKU',
-                '',
-              ]}
-              rows={inventory}
-            />
-          )}
+        <Box zIndex={8}>
+          <Box
+            p="2em 2em 4em 2em"
+            zIndex={5}
+            borderRadius="20px"
+            bg="#E9F0F8 !important"
+            position="relative"
+            top="7em"
+          >
+            {isClient && (
+              <Table
+                checkboxes
+                hoverEffect
+                headers={[
+                  'Image',
+                  'Product Name',
+                  'Category',
+                  'Price',
+                  'Size',
+                  'Manufacturer',
+                  'Total Qty',
+                  'Available Qty',
+                  'SKU',
+                  '',
+                ]}
+                rows={inventory}
+              />
+            )}
+          </Box>
         </Box>
       </Sidenav>
     </div>

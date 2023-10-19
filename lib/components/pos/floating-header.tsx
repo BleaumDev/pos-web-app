@@ -51,7 +51,7 @@ const PosFloatingHeader: React.FC<FloatingHeaderProps> = ({
             md: '50%',
           }}
           m={{
-            base: '10px 2em 2em 15em',
+            base: '2em 2em 2em 1em',
             md: '10px 2em 2em 10em',
           }}
         >

@@ -29,7 +29,11 @@ const CartPage = () => {
 
   return (
     <Box mt="-4em" borderRadius="1em" background="#ffffff" zIndex={1000}>
-      <Flex
+      <Box
+        display={{
+          base: 'none',
+          md: 'flex',
+        }}
         p="20px 20px 10px 20px"
         borderBottom="1px solid #000000"
         justifyContent="space-between"
@@ -53,15 +57,25 @@ const CartPage = () => {
             Mr. Happy
           </Text>
         </Flex>
-      </Flex>
-      <Box overflowY="scroll" overflowX="hidden" h="100vh">
+      </Box>
+      <Box
+        overflowY={{
+          base: 'hidden',
+          md: 'scroll',
+        }}
+        overflowX="hidden"
+        h={{
+          base: 'auto',
+          md: '100vh',
+        }}
+      >
         {activeComponent === 'CartDetail' && <CartDetail />}
         {activeComponent === 'InvoicePage' && <InvoicePage />}
         {activeComponent === 'EmailOrPrintInvoicePage' && (
           <EmailOrPrintInvoicePage />
         )}
         {activeComponent === 'ThanksPage' && <ThanksPage />}
-        <Flex gap="1em" mt="-15em" px="12px" w="full">
+        <Flex gap="1em" mt="-15em" mb="200px" px="12px" w="full">
           {activeComponent !== 'ThanksPage' &&
             activeComponent !== 'EmailOrPrintInvoicePage' && (
               <>
