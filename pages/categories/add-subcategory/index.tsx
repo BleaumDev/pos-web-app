@@ -11,9 +11,10 @@ import {
   useBoolean,
 } from '@chakra-ui/react';
 import LabelledInput from '@lib/components/inputs/LabelledInput';
+import LabelledSelect from '@lib/components/inputs/LabelledSelect';
 
-export default function AddCategory(): React.ReactElement {
-  const [categoryActive, setCategoryActive] = useBoolean(false);
+export default function AddSubcategory(): React.ReactElement {
+  const [subcategoryActive, setSubcategoryActive] = useBoolean(false);
 
   return (
     <Box
@@ -41,7 +42,7 @@ export default function AddCategory(): React.ReactElement {
               color="#41454B"
               fontWeight="normal"
             >
-              Add Category
+              Add Sub-category
             </Heading>
           </Box>
         </Box>
@@ -59,9 +60,24 @@ export default function AddCategory(): React.ReactElement {
         columns={{ sm: 2 }}
       >
         <GridItem>
-          <LabelledInput
-            placeholderText="Name Your Category"
+          <LabelledSelect
+            options={[
+              { value: 'Ices', label: 'Ices' },
+              { value: 'Pre-Rolled', label: 'Pre-Rolled' },
+              { value: 'Flowers', label: 'Flowers' },
+              { value: 'Tablets', label: 'Tablets' },
+              { value: 'CBD Products', label: 'CBD Products' },
+              { value: 'Oil Capsules', label: 'Oil Capsules' },
+              { value: 'Oral Sprays', label: 'Oral Sprays' },
+              { value: 'Gel', label: 'Gel' },
+              { value: 'Chewable', label: 'Chewable' },
+              { value: 'Essential Oil', label: 'Essential Oil' },
+            ]}
             label="Category Name"
+          />
+          <LabelledInput
+            placeholderText="Sub-category Name"
+            label="Black Ice Feminized Seeds"
           />
           <Box
             style={{
@@ -85,11 +101,11 @@ export default function AddCategory(): React.ReactElement {
             <Box
               as="button"
               onClick={() => {
-                setCategoryActive.off();
+                setSubcategoryActive.off();
               }}
             >
               <Text
-                color={categoryActive ? 'rgba(65, 69, 75, 0.4)' : '#41454B'}
+                color={subcategoryActive ? 'rgba(65, 69, 75, 0.4)' : '#41454B'}
                 className="primary-font-semibold"
               >
                 Inactive
@@ -98,18 +114,18 @@ export default function AddCategory(): React.ReactElement {
             <Box>
               <Switch
                 size="lg"
-                isChecked={categoryActive}
-                onChange={setCategoryActive.toggle}
+                isChecked={subcategoryActive}
+                onChange={setSubcategoryActive.toggle}
               />
             </Box>
             <Box
               as="button"
               onClick={() => {
-                setCategoryActive.on();
+                setSubcategoryActive.on();
               }}
             >
               <Text
-                color={!categoryActive ? 'rgba(65, 69, 75, 0.4)' : '#41454B'}
+                color={!subcategoryActive ? 'rgba(65, 69, 75, 0.4)' : '#41454B'}
                 className="primary-font-semibold"
               >
                 Active
