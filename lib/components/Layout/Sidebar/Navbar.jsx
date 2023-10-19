@@ -157,7 +157,7 @@ const Navbar = () => {
                   height={15}
                   alt={''}
                 />
-                Add New Item
+                Add New Product
               </Button>
             </Flex>
           </Flex>
@@ -276,7 +276,7 @@ const Navbar = () => {
                   height={15}
                   alt={''}
                 />
-                Add New Item
+                Add New Product
               </Button>
             </Flex>
           </Flex>

@@ -29,7 +29,11 @@ const CartPage = () => {
 
   return (
     <Box mt="-4em" borderRadius="1em" background="#ffffff" zIndex={1000}>
-      <Flex
+      <Box
+        display={{
+          base: 'none',
+          md: 'flex',
+        }}
         p="20px 20px 10px 20px"
         borderBottom="1px solid #000000"
         justifyContent="space-between"
@@ -53,7 +57,7 @@ const CartPage = () => {
             Mr. Happy
           </Text>
         </Flex>
-      </Flex>
+      </Box>
       <Box
         overflowY={{
           base: 'hidden',

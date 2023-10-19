@@ -35,7 +35,10 @@ const SmallCard = ({ title, image }: SmallCardProps) => {
         base: 'calc(100% - 4px)',
         md: '120px',
       }}
-      height="50px"
+      height={{
+        base: '65px',
+        md: '50px',
+      }}
       gap="5px"
       borderRadius="62px"
       onClick={toggleImage}

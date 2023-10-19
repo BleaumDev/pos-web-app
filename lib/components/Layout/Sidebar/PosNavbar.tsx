@@ -126,22 +126,6 @@ const PosNavbar = () => {
                   alt="logo"
                 />
               </Box>
-              <Button
-                p="14px 18px"
-                color="#fff"
-                display="flex"
-                gap="10px"
-                cursor="pointer"
-                _hover={{ background: '#E69066' }}
-                fontSize="16px"
-                className="primary-font-medium"
-                boxShadow="0px 4px 4px 0px rgba(251, 100, 100, 0.23)"
-                borderRadius="9px"
-                background="#FF8A43"
-              >
-                <Image src="/images/plus.png" width={15} height={15} alt="" />
-                Add New Item
-              </Button>
             </Flex>
           </Flex>
         </Flex>
@@ -240,22 +224,6 @@ const PosNavbar = () => {
                   alt="logo"
                 />
               </Box>
-              <Button
-                p="14px 18px"
-                color="#fff"
-                display="flex"
-                gap="10px"
-                cursor="pointer"
-                _hover={{ background: '#E69066' }}
-                fontSize="16px"
-                className="primary-font-medium"
-                boxShadow="0px 4px 4px 0px rgba(251, 100, 100, 0.23)"
-                borderRadius="9px"
-                background="#FF8A43"
-              >
-                <Image src="/images/plus.png" width={15} height={15} alt="" />
-                Add New Item
-              </Button>
             </Flex>
           </Flex>
           <Flex py="1em" w="full" justifyContent="center">
