@@ -1,4 +1,6 @@
-import { FormLabel, Select, SelectProps } from '@chakra-ui/react';
+import type { SelectProps } from '@chakra-ui/react';
+import { FormLabel, Select } from '@chakra-ui/react';
+import { nanoid } from '@reduxjs/toolkit';
 
 interface ILabelledSelectProps extends SelectProps {
   label: string;
@@ -18,8 +20,8 @@ export default function LabelledSelect({
       <FormLabel
         h={6}
         className="primary-font-semibold mt-4 font-normal text-md"
-        fontWeight={'medium'}
-        color={'#41454B'}
+        fontWeight="medium"
+        color="#41454B"
       >
         {label}
       </FormLabel>
@@ -33,7 +35,9 @@ export default function LabelledSelect({
         }}
       >
         {options.map((option) => (
-          <option value={option.value}>{option.label}</option>
+          <option key={nanoid()} value={option.value}>
+            {option.label}
+          </option>
         ))}
       </Select>
     </>
