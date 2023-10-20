@@ -49,7 +49,7 @@ export default function ProductDetail(): React.ReactNode {
           top="-11px"
           overflowX="hidden"
           overflowY="scroll"
-          h="60vh"
+          h="65vh"
         >
           <Box
             backgroundColor="#F8FBF8"
