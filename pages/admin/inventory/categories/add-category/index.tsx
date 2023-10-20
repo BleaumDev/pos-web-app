@@ -11,11 +11,10 @@ import {
   Text,
   useBoolean,
 } from '@chakra-ui/react';
-
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Input from '@lib/components/base/input';
 import GalleryAdd from '@lib/components/inputs/GalleyAdd';
+import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 
 export default function AddCategory(): React.ReactElement {
   const [categoryActive, setCategoryActive] = useBoolean(false);
