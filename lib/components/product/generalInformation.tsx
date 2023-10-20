@@ -145,7 +145,7 @@ const GeneralInformation = () => {
           </Box>
         </Stack>
       </Box>
-      <Flex gap="10px" mt="8px" w="full">
+      <Flex gap="10px" mt="1em" w="full">
         <Stack w={{ base: '100%', md: '50%' }}>
           <Label
             fontSize={{ base: '12px', sm: '14px', md: '14px' }}

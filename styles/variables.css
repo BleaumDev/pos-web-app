@@ -144,7 +144,7 @@ body{
 }
 .inactive-tab{
     margin-top: 10px;
-    padding: 0.1px 10px;
+    padding: 10px 10px;
     transition: 0.3s ease-in-out;
     color: #12171E66 !important;
     font-size: 14px;
@@ -266,4 +266,7 @@ svg.rw-i-calendar {
 }
 .rw-calendar-btn {
   color: #ff8a43 !important;
+}
+.css-1l8lkvs{
+  text-transform: capitalize !important;
 }

@@ -5,7 +5,6 @@ import {
   Flex,
   Select,
   Table as ChakraTable,
-  TableCaption,
   TableContainer,
   Tag,
   Tbody,
@@ -206,112 +205,6 @@ const TablePage: FC<TableProps> = ({
             borderSpacing: '0 8px',
           }}
         >
-          <TableCaption>
-            <Flex justifyContent="space-between" align="center">
-              <Flex color="#41454BB2" align="center" gap={3}>
-                <Text>Rows per page </Text>
-                <Select
-                  value={pageSize}
-                  icon={<ArrowKey dir="down" />}
-                  border="none"
-                  rounded="xl"
-                  className="primary-font-semibold"
-                  onChange={(e) => setPageSize(Number(e.target.value))}
-                >
-                  <option value={3}>3</option>
-                  <option value={5}>5</option>
-                  <option value={10}>10</option>
-                  <option value={15}>15</option>
-                  <option value={20}>20</option>
-                </Select>
-              </Flex>
-              {/* pages pagination */}
-              {/* <Text id="table-pagination-results">
-                showing {pageSize * (currentPage - 1) + 1}-
-                {pageSize * currentPage > rows.length
-                  ? rows.length
-                  : pageSize * currentPage}{' '}
-                of {rows.length} results
-              </Text> */}
-              <Box>
-                {totalPages > 20 ? (
-                  <Flex gap={10}>
-                    <PageNumber
-                      onClick={() => setCurrentPage(currentPage - 1)}
-                      disable={currentPage === 1}
-                      n={<ArrowKey dir="left" />}
-                    />
-                    {/* if we are at the last page display the option to go to page 1,2 */}
-                    {currentPage >= totalPages - 1 ? (
-                      <>
-                        <PageNumber n={1} onClick={() => setCurrentPage(1)} />
-                        <PageNumber n={2} onClick={() => setCurrentPage(2)} />
-                      </>
-                    ) : (
-                      <>
-                        {currentPage + 1 === totalPages - 1 && (
-                          <PageNumber
-                            n={currentPage - 1}
-                            disable={currentPage === totalPages}
-                            onClick={() => setCurrentPage(currentPage - 1)}
-                          />
-                        )}
-                        <PageNumber n={currentPage} current />
-                        {/* at this condition the `current page + 1` aka the next page will be the same as the page before the last page so we don't want to have double page tags */}
-                        {currentPage + 1 !== totalPages - 1 && (
-                          <PageNumber
-                            n={currentPage + 1}
-                            disable={currentPage === totalPages}
-                            onClick={() => setCurrentPage(currentPage + 1)}
-                          />
-                        )}
-                      </>
-                    )}
-                    <PageNumber
-                      onClick={() => setCurrentPage(totalPages - 1)}
-                      current={totalPages - 1 === currentPage}
-                      n={totalPages - 1}
-                    />
-                    <PageNumber
-                      onClick={() => setCurrentPage(totalPages)}
-                      current={totalPages === currentPage}
-                      n={totalPages}
-                    />
-                    <PageNumber
-                      onClick={() => setCurrentPage(currentPage + 1)}
-                      disable={currentPage === totalPages}
-                      n={<ArrowKey dir="right" />}
-                    />
-                  </Flex>
-                ) : (
-                  <Flex gap={1}>
-                    <Box onClick={() => setCurrentPage(currentPage - 1)}>
-                      <img
-                        src="/images/prev.png"
-                        alt=""
-                        className="pag-button"
-                      />
-                    </Box>
-                    {[...Array(totalPages)].map((_, i) => (
-                      <PageNumber
-                        key={nanoid()}
-                        n={i + 1}
-                        current={currentPage === i + 1}
-                        onClick={() => setCurrentPage(i + 1)}
-                      />
-                    ))}
-                    <Box onClick={() => setCurrentPage(currentPage + 1)}>
-                      <img
-                        src="/images/next.png"
-                        alt=""
-                        className="pag-button"
-                      />
-                    </Box>
-                  </Flex>
-                )}
-              </Box>
-            </Flex>
-          </TableCaption>
           <Thead borderBottom="2px solid #41454BB2" textTransform="capitalize">
             <Tr>
               {checkboxes && (
@@ -397,6 +290,104 @@ const TablePage: FC<TableProps> = ({
           </Tbody>
         </ChakraTable>
       </TableContainer>
+      <Box mt="1em">
+        <Flex justifyContent="space-between" align="center">
+          <Flex color="#41454BB2" align="center" gap={3}>
+            <Text w="110px">Rows per page </Text>
+            <Select
+              w="70px"
+              value={pageSize}
+              icon={<ArrowKey dir="down" />}
+              border="none"
+              rounded="xl"
+              className="primary-font-semibold"
+              onChange={(e) => setPageSize(Number(e.target.value))}
+            >
+              <option value={3}>3</option>
+              <option value={10}>10</option>
+              <option value={15}>15</option>
+              <option value={20}>20</option>
+            </Select>
+          </Flex>
+          {/* pages pagination */}
+          {/* <Text id="table-pagination-results">
+                showing {pageSize * (currentPage - 1) + 1}-
+                {pageSize * currentPage > rows.length
+                  ? rows.length
+                  : pageSize * currentPage}{' '}
+                of {rows.length} results
+              </Text> */}
+          <Box>
+            {totalPages > 20 ? (
+              <Flex gap={10}>
+                <PageNumber
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                  disable={currentPage === 1}
+                  n={<ArrowKey dir="left" />}
+                />
+                {/* if we are at the last page display the option to go to page 1,2 */}
+                {currentPage >= totalPages - 1 ? (
+                  <>
+                    <PageNumber n={1} onClick={() => setCurrentPage(1)} />
+                    <PageNumber n={2} onClick={() => setCurrentPage(2)} />
+                  </>
+                ) : (
+                  <>
+                    {currentPage + 1 === totalPages - 1 && (
+                      <PageNumber
+                        n={currentPage - 1}
+                        disable={currentPage === totalPages}
+                        onClick={() => setCurrentPage(currentPage - 1)}
+                      />
+                    )}
+                    <PageNumber n={currentPage} current />
+                    {/* at this condition the `current page + 1` aka the next page will be the same as the page before the last page so we don't want to have double page tags */}
+                    {currentPage + 1 !== totalPages - 1 && (
+                      <PageNumber
+                        n={currentPage + 1}
+                        disable={currentPage === totalPages}
+                        onClick={() => setCurrentPage(currentPage + 1)}
+                      />
+                    )}
+                  </>
+                )}
+                <PageNumber
+                  onClick={() => setCurrentPage(totalPages - 1)}
+                  current={totalPages - 1 === currentPage}
+                  n={totalPages - 1}
+                />
+                <PageNumber
+                  onClick={() => setCurrentPage(totalPages)}
+                  current={totalPages === currentPage}
+                  n={totalPages}
+                />
+                <PageNumber
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                  disable={currentPage === totalPages}
+                  n={<ArrowKey dir="right" />}
+                />
+              </Flex>
+            ) : (
+              <Flex gap={1}>
+                <Box onClick={() => setCurrentPage(currentPage - 1)}>
+                  <img src="/images/prev.png" alt="" className="pag-button" />
+                </Box>
+                {[...Array(totalPages)].map((_, i) => (
+                  <PageNumber
+                    key={nanoid()}
+                    n={i + 1}
+                    current={currentPage === i + 1}
+                    onClick={() => setCurrentPage(i + 1)}
+                  />
+                ))}
+                <Box onClick={() => setCurrentPage(currentPage + 1)}>
+                  <img src="/images/next.png" alt="" className="pag-button" />
+                </Box>
+              </Flex>
+            )}
+          </Box>
+        </Flex>
+      </Box>
     </Box>
   );
 };

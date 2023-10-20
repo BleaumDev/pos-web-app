@@ -70,7 +70,7 @@ const Inventory = () => {
   return (
     <div>
       <Sidenav>
-        <Box position="fixed" mt="0em" w="100%" pr="16em" zIndex={7}>
+        <Box position="fixed" mt="0em" w="100%" pr="16em">
           <FloatingHeader
             title="Products"
             itemCount="1432+ Items"
@@ -103,35 +103,36 @@ const Inventory = () => {
             // filter2="Capsules"
           />
         </Box>
-        <Box zIndex={8}>
-          <Box
-            p="2em 2em 4em 2em"
-            zIndex={5}
-            borderRadius="20px"
-            bg="#E9F0F8 !important"
-            position="relative"
-            top="7em"
-          >
-            {isClient && (
-              <Table
-                checkboxes
-                hoverEffect
-                headers={[
-                  'Image',
-                  'Product Name',
-                  'Category',
-                  'Price',
-                  'Size',
-                  'Manufacturer',
-                  'Total Qty',
-                  'Available Qty',
-                  'SKU',
-                  '',
-                ]}
-                rows={inventory}
-              />
-            )}
-          </Box>
+
+        <Box
+          p="2em 2em 4em 2em"
+          borderRadius="20px"
+          bg="#E9F0F8 !important"
+          position="relative"
+          top="7em"
+          overflowX="hidden"
+          overflowY="scroll"
+          h="60vh"
+        >
+          {isClient && (
+            <Table
+              checkboxes
+              hoverEffect
+              headers={[
+                'Image',
+                'Product Name',
+                'Category',
+                'Price',
+                'Size',
+                'Manufacturer',
+                'Total Qty',
+                'Available Qty',
+                'SKU',
+                '',
+              ]}
+              rows={inventory}
+            />
+          )}
         </Box>
       </Sidenav>
     </div>
