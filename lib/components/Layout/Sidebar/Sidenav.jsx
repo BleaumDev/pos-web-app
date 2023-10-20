@@ -5,8 +5,8 @@ import {
   Flex,
   IconButton,
   Text,
-  useDisclosure,
   VStack,
+  useDisclosure,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
