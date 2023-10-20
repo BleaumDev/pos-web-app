@@ -1,10 +1,10 @@
 // eslint-disable-next-line simple-import-sort/imports
 import {
   Box,
-  Table as ChakraTable,
   Checkbox,
   Flex,
   Select,
+  Table as ChakraTable,
   TableCaption,
   TableContainer,
   Tag,
@@ -315,7 +315,7 @@ const TablePage: FC<TableProps> = ({
               </Box>
             </Flex>
           </TableCaption>
-          <Thead borderBottom="2px solid #41454BB2">
+          <Thead borderBottom="2px solid #41454BB2" textTransform="capitalize">
             <Tr>
               {checkboxes && (
                 <Th>

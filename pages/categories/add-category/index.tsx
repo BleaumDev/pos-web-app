@@ -11,9 +11,10 @@ import {
   Text,
   useBoolean,
 } from '@chakra-ui/react';
-import GalleryAdd from '@lib/components/inputs/GalleyAdd';
-import LabelledInput from '@lib/components/inputs/LabelledInput';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+
+import Input from '@lib/components/base/input';
+import Sidenav from '../../../lib/components/Layout/Sidebar/Sidenav';
+import GalleryAdd from '../../../lib/components/inputs/GalleyAdd';
 
 export default function AddCategory(): React.ReactElement {
   const [categoryActive, setCategoryActive] = useBoolean(false);
@@ -65,9 +66,21 @@ export default function AddCategory(): React.ReactElement {
           columns={{ sm: 2 }}
         >
           <GridItem>
-            <LabelledInput
+            {/* <LabelledInput
               placeholderText="Name Your Category"
               label="Category Name"
+            /> */}
+            <FormLabel h={6} className="primary-font-semibold" color="#41454B">
+              Category Name
+            </FormLabel>
+            <Input
+              type="text"
+              borderWidth={2}
+              style={{
+                borderColor: 'rgba(18, 23, 30, 0.40)',
+                borderWidth: 0.5,
+              }}
+              placeholder="Name Your Category"
             />
             <Box
               style={{

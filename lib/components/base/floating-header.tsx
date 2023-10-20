@@ -3,14 +3,15 @@ import {
   Box,
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   Button,
   Flex,
   Image,
+  Img,
   Input,
   Select,
   Text,
 } from '@chakra-ui/react';
+import Link from 'next/link';
 
 const categories = ['Capsules', 'Edibles', 'Tinctures', 'Flowers', 'Drinks'];
 const manufacturers = [
@@ -30,25 +31,33 @@ const priceRanges = [
 
 interface BreadcrumbItems {
   label: string;
-  href: string;
+  breadcrumLink: string;
 }
 
 interface FloatingHeaderProps {
-  title: string;
-  itemCount: string;
-  csvImage: string;
-  refreshImage: string;
-  breadcrumbs: BreadcrumbItems[];
-  lastBreadcrumbColor: string;
+  title?: string;
+  itemCount?: string;
+  csvImage?: string;
+  refreshImage?: string;
+  breadcrumbs?: BreadcrumbItems[];
+  lastBreadcrumbColor?: string;
   simpleSearch?: boolean;
-  sortBy?: string;
+  sortBy?: boolean;
   productFilter?: boolean;
-  addNew: string;
-  addBulk: string;
+  addButtons?: boolean;
+  addNew?: string;
+  addBulk?: string;
   filter1?: string;
   filter2?: string;
   filterButton?: boolean;
   searchWithFilters?: boolean;
+  addLink?: string;
+  productDetail?: boolean;
+  editDetail?: boolean;
+  editLink?: string;
+  printImage?: boolean;
+  cancelLink?: string;
+  confirmLink?: string;
 }
 
 const FloatingHeader: React.FC<FloatingHeaderProps> = ({
@@ -60,22 +69,35 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   lastBreadcrumbColor,
   simpleSearch,
   sortBy,
+  addButtons,
   addNew,
+  productDetail,
   addBulk,
   productFilter,
   filter1,
   filter2,
+  printImage,
   filterButton,
   searchWithFilters,
+  addLink,
+  editDetail,
+  editLink,
+  confirmLink,
+  cancelLink,
 }) => {
+  const constructedHref = `/${addLink}`;
+  const constructedHref1 = `/${editLink}`;
+  const constructedHref2 = `/${cancelLink}`;
+  const constructedHref3 = `/${confirmLink}`;
   return (
     <Box
       background="#ffffff"
       h={{
         base: 'auto',
-        md: '200px',
+        md: 'auto',
       }}
       mt="-4em"
+      pb="1em"
       zIndex="100"
       mr="20px"
       borderRadius="0px 20px 50px 0px"
@@ -120,7 +142,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
             {breadcrumbs?.map((breadcrumb, index) => (
               // eslint-disable-next-line react/no-array-index-key
               <BreadcrumbItem key={index}>
-                <BreadcrumbLink href={breadcrumb.href}>
+                <Link href={breadcrumb.breadcrumLink}>
                   {index === breadcrumbs.length - 1 ? (
                     <Text
                       color={lastBreadcrumbColor}
@@ -132,10 +154,65 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                   ) : (
                     breadcrumb.label
                   )}
-                </BreadcrumbLink>
+                </Link>
               </BreadcrumbItem>
             ))}
           </Breadcrumb>
+          {editDetail && (
+            <Link href={constructedHref1}>
+              <Button
+                p="10px 18px"
+                mt="1.5em"
+                className="primary-font-semibold"
+                color="#fff"
+                fontSize="12px"
+                bg="linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
+                borderRadius="7px"
+                _hover={{
+                  bg: 'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+                }}
+              >
+                <Img src="/images/edit.png" mr="5px" w="16px" />
+                Edit Details
+              </Button>
+            </Link>
+          )}
+          {productDetail && (
+            <Flex mt="1.5em" gap="10px">
+              <Link href={constructedHref2}>
+                <Button
+                  p="10px 40px"
+                  className="primary-font-semibold"
+                  color="rgba(18, 23, 30, 0.50)"
+                  fontSize="12px"
+                  bg="transparent"
+                  border="0.3px solid rgba(18, 23, 30, 0.50)"
+                  borderRadius="7px"
+                  _hover={{
+                    bg: 'transparent',
+                  }}
+                >
+                  Cancel
+                </Button>
+              </Link>
+              <Link href={constructedHref3}>
+                <Button
+                  p="10px 40px"
+                  className="primary-font-semibold"
+                  color="#fff"
+                  fontSize="12px"
+                  bg="#FF8A43"
+                  border="2px solid #FFD8C0;"
+                  borderRadius="7px"
+                  _hover={{
+                    bg: '#FF8A43',
+                  }}
+                >
+                  Confirm Edit
+                </Button>
+              </Link>
+            </Flex>
+          )}
           {searchWithFilters && (
             <Flex gap="20px" mt="2em">
               <Flex>
@@ -210,52 +287,58 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
               base: 'start',
               md: 'end',
             }}
-            gap="10px"
+            gap="5px"
           >
-            <Button
-              display="flex"
-              background="transparent"
-              borderRadius="4px"
-              border="1px solid #41454B"
-              color="#41454B"
-              fontSize="12px"
-              className="primary-font-medium"
-              _hover={{
-                background: 'transparent',
-              }}
-              gap="10px"
-            >
-              <Image
-                src="/images/add-bulk.png"
-                alt="refresh-circle"
-                w="15px"
-                cursor="pointer"
-                h="15px"
-              />
-              Add Bulk {addBulk}
-            </Button>
-            <Button
-              display="flex"
-              background=" linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
-              borderRadius="4px"
-              color="#ffffff"
-              fontSize="12px"
-              className="primary-font-medium"
-              _hover={{
-                background:
-                  'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
-              }}
-              gap="10px"
-            >
-              <Image
-                src="/images/plus-square.png"
-                alt="refresh-circle"
-                w="15px"
-                cursor="pointer"
-                h="15px"
-              />
-              Add New {addNew}
-            </Button>
+            {addButtons && (
+              <>
+                <Button
+                  display="flex"
+                  background="transparent"
+                  borderRadius="4px"
+                  border="1px solid #41454B"
+                  color="#41454B"
+                  fontSize="12px"
+                  className="primary-font-medium"
+                  _hover={{
+                    background: 'transparent',
+                  }}
+                  gap="10px"
+                >
+                  <Image
+                    src="/images/add-bulk.png"
+                    alt="refresh-circle"
+                    w="15px"
+                    cursor="pointer"
+                    h="15px"
+                  />
+                  Add Bulk {addBulk}
+                </Button>
+                <Link href={constructedHref}>
+                  <Button
+                    display="flex"
+                    background=" linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
+                    borderRadius="4px"
+                    color="#ffffff"
+                    fontSize="12px"
+                    className="primary-font-medium"
+                    _hover={{
+                      background:
+                        'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+                    }}
+                    gap="10px"
+                  >
+                    <Image
+                      src="/images/plus-square.png"
+                      alt="refresh-circle"
+                      w="15px"
+                      cursor="pointer"
+                      h="15px"
+                    />
+                    Add New {addNew}
+                  </Button>
+                </Link>
+              </>
+            )}
             <Image
               src={refreshImage}
               alt="refresh-circle"
@@ -263,6 +346,15 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
               cursor="pointer"
               h="38px"
             />
+            {printImage && (
+              <Image
+                src="/images/print.png"
+                alt="refresh-circle"
+                w="38px"
+                cursor="pointer"
+                h="38px"
+              />
+            )}
             <Image
               src={csvImage}
               alt="csv-file"
@@ -366,13 +458,15 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                 </Button>
               </Flex>
             )}
-            <Image
-              src={sortBy}
-              alt="sortBy"
-              w="38px"
-              cursor="pointer"
-              h="38px"
-            />
+            {sortBy && (
+              <Image
+                src="/images/sortBy.png"
+                alt="sortBy"
+                w="38px"
+                cursor="pointer"
+                h="38px"
+              />
+            )}
           </Flex>
         </Box>
       </Box>

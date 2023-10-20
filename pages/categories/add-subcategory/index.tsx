@@ -11,10 +11,11 @@ import {
   Text,
   useBoolean,
 } from '@chakra-ui/react';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
-import GalleryAdd from '@lib/components/inputs/GalleyAdd';
-import LabelledInput from '@lib/components/inputs/LabelledInput';
-import LabelledSelect from '@lib/components/inputs/LabelledSelect';
+
+import Input from '@lib/components/base/input';
+import Sidenav from '../../../lib/components/Layout/Sidebar/Sidenav';
+import GalleryAdd from '../../../lib/components/inputs/GalleyAdd';
+import LabelledSelect from '../../../lib/components/inputs/LabelledSelect';
 
 export default function AddSubcategory(): React.ReactElement {
   const [subcategoryActive, setSubcategoryActive] = useBoolean(false);
@@ -81,9 +82,25 @@ export default function AddSubcategory(): React.ReactElement {
               ]}
               label="Category Name"
             />
-            <LabelledInput
+            {/* <LabelledInput
               placeholderText="Sub-category Name"
               label="Black Ice Feminized Seeds"
+            /> */}
+            <FormLabel
+              h={6}
+              className="primary-font-semibold mt-2"
+              color="#41454B"
+            >
+              Sub-category Name
+            </FormLabel>
+            <Input
+              type="text"
+              borderWidth={2}
+              style={{
+                borderColor: 'rgba(18, 23, 30, 0.40)',
+                borderWidth: 0.5,
+              }}
+              placeholder="Sub-category Name"
             />
             <Box
               style={{

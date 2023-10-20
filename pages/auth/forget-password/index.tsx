@@ -4,7 +4,7 @@ import {
   AuthCard,
   AuthCardBody,
   AuthCardHeader,
-} from '@lib/components/Auth/Card';
+} from '@lib/components/Auth/card';
 import Button from '@lib/components/base/button';
 import Heading from '@lib/components/base/heading';
 import Input from '@lib/components/base/input';
@@ -15,8 +15,8 @@ import Link from 'next/link';
 const ForgetPassword = () => {
   return (
     <AuthLayout>
-      <AuthCard mt="4em">
-        <AuthCardHeader py="2rem">
+      <AuthCard>
+        <AuthCardHeader>
           <Heading>Reset Your Password!</Heading>
           <Box mx="2em">
             <SubHeading>
@@ -26,7 +26,7 @@ const ForgetPassword = () => {
           </Box>
         </AuthCardHeader>
         <AuthCardBody maxH="30vh">
-          <Stack>
+          <Stack mt="-15px">
             <Label
               fontSize={{ base: '12px', sm: '14px', md: '16px' }}
               ml={2}
@@ -36,18 +36,9 @@ const ForgetPassword = () => {
             </Label>
 
             <Input placeholder="Enter Email" />
-            {/* <ErrorMessage
-                  touched={props.touched.email}
-                  message={
-                    t(
-                      (props.errors.email as keyof typeof resources.common) ||
-                        ''
-                    ) || ''
-                  }
-                /> */}
           </Stack>
         </AuthCardBody>
-        <CardFooter mt="-2em">
+        <CardFooter>
           <Link
             href="/auth/verification"
             style={{
@@ -57,7 +48,7 @@ const ForgetPassword = () => {
             <Button
               w="full"
               styledVariant="blue"
-              fontSize={{ base: '12px', md: '20px ' }}
+              fontSize={{ base: '12px', md: '16px ' }}
               fontWeight="400"
             >
               Send Verification Code

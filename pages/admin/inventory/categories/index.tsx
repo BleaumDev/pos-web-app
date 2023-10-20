@@ -75,26 +75,27 @@ const CategoriesPage = () => {
             itemCount="13+ Categories"
             csvImage="/images/csv-file.png"
             refreshImage="/images/refresh-circle.png"
-            sortBy="/images/sortBy.png"
+            sortBy
             lastBreadcrumbColor="#FF8A43"
             breadcrumbs={[
               {
                 label: 'Home',
-                href: '/admin/inventory/categories',
+                breadcrumLink: '/admin/inventory/categories',
               },
               {
                 label: 'Inventory',
-                href: '/admin/inventory/categories',
+                breadcrumLink: '/admin/inventory/categories',
               },
               {
                 label: 'Categories',
-                href: '/admin/inventory/categories',
+                breadcrumLink: '/admin/inventory/categories',
               },
             ]}
             searchWithFilters
             filterButton
             addNew="Category"
             addBulk="Categories"
+            addButtons
             filter1="Flowers"
             filter2="Capsules"
           />
