@@ -89,7 +89,7 @@ const Sidenav = ({ children }) => {
                 </Box>
               </Flex>
             </Link>
-            <Box cursor={'pointer'} onClick={onInventoryToggle}>
+            <Box cursor={'pointer'} mt="-10px" onClick={onInventoryToggle}>
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
                   <Image
@@ -145,6 +145,7 @@ const Sidenav = ({ children }) => {
                   </Link>
                 </Box>
                 <Box
+                  mt="-5px"
                   className={
                     isActive('/admin/inventory/categories')
                       ? 'active-tab'
@@ -158,6 +159,7 @@ const Sidenav = ({ children }) => {
                   </Link>
                 </Box>
                 <Box
+                  mt="-5px"
                   className={
                     isActive('/admin/inventory/manufacturers')
                       ? 'active-tab'
@@ -171,6 +173,7 @@ const Sidenav = ({ children }) => {
                   </Link>
                 </Box>
                 <Box
+                  mt="-5px"
                   className={
                     isActive('/admin/inventory/print-labels')
                       ? 'active-tab'
@@ -184,6 +187,7 @@ const Sidenav = ({ children }) => {
                   </Link>
                 </Box>
                 <Box
+                  mt="-5px"
                   className={
                     isActive('/admin/inventory/transfers')
                       ? 'active-tab'
@@ -199,7 +203,7 @@ const Sidenav = ({ children }) => {
               </Box>
             </Collapse>
             <Link href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
+              <Flex alignItems={'center'} width="full">
                 <Box width={'20%'}>
                   <Image
                     src={'/images/User.png'}
@@ -220,7 +224,7 @@ const Sidenav = ({ children }) => {
               </Flex>
             </Link>
             <Link href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
+              <Flex alignItems={'center'} width="full">
                 <Box width={'20%'}>
                   <Image
                     src={'/images/rewards.png'}
@@ -241,7 +245,7 @@ const Sidenav = ({ children }) => {
               </Flex>
             </Link>
             <Link href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
+              <Flex alignItems={'center'} width="full">
                 <Box width={'20%'}>
                   <Image
                     src={'/images/order.png'}
@@ -262,7 +266,7 @@ const Sidenav = ({ children }) => {
               </Flex>
             </Link>
             <Link href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
+              <Flex alignItems={'center'} width="full">
                 <Box width={'20%'}>
                   <Image
                     src={'/images/employee.png'}
@@ -283,7 +287,7 @@ const Sidenav = ({ children }) => {
               </Flex>
             </Link>
             <Link href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
+              <Flex alignItems={'center'} width="full">
                 <Box width={'20%'}>
                   <Image
                     src={'/images/label.png'}
@@ -304,7 +308,7 @@ const Sidenav = ({ children }) => {
               </Flex>
             </Link>
             <Link href="/">
-              <Flex alignItems={'center'} width="full" mb="12px">
+              <Flex alignItems={'center'} width="full">
                 <Box width={'20%'}>
                   <Image
                     src={'/images/Setting.png'}

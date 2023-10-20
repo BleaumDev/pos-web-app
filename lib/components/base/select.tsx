@@ -105,10 +105,11 @@ const Select = (props: Props) => {
           }),
           menuList: (baseStyles) => ({
             ...baseStyles,
-            background: '#FFF',
+            background: '#fff',
             borderRadius: '10px',
             position: 'absolute',
             width: '100%',
+
             border: '0.5px solid #64646C',
             boxShadow: '0px 2px 6px 0px #13124212',
             boxSizing: 'border-box',
@@ -118,8 +119,18 @@ const Select = (props: Props) => {
             ...baseStyles,
             outline: 'none !important',
             border: 'none !important',
+
             boxShadow: 'none !important',
+
             zIndex: 9999,
+          }),
+          option: (baseStyles, state) => ({
+            ...baseStyles,
+            '&:hover': {
+              background: '#FFA382',
+              color: '#fff',
+            },
+            backgroundColor: state.isSelected ? '#fff' : '#fff',
           }),
           input: (baseStyles) => ({
             ...baseStyles,
@@ -128,6 +139,7 @@ const Select = (props: Props) => {
             boxShadow: 'none !important',
             outline: 'none !important',
             minWidth: '50px',
+
             paddingRight: '10px',
             paddingLeft: '10px',
           }),
@@ -137,6 +149,7 @@ const Select = (props: Props) => {
             border: '0.5px solid #64646C',
             boxShadow: '0px 2px 6px 0px #13124212',
             boxSizing: 'border-box',
+
             height: height ?? '50px',
             '@media (max-width: 1024px)': {
               height: height ?? '45px',
@@ -149,6 +162,7 @@ const Select = (props: Props) => {
             input: {
               background: 'none !important',
               boxShadow: 'none !important',
+
               outline: 'none !important',
               minWidth: '50px',
             },
