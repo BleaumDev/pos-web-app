@@ -76,6 +76,7 @@ const CategoriesPage = () => {
             csvImage="/images/csv-file.png"
             refreshImage="/images/refresh-circle.png"
             sortBy
+            addLink="/admin/inventory/categories/add-category"
             lastBreadcrumbColor="#FF8A43"
             breadcrumbs={[
               {

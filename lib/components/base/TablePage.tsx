@@ -24,6 +24,8 @@ interface TableProps {
   checkboxes?: boolean;
   hoverEffect?: boolean;
 }
+
+// the table component will be used in many pages, so we need to make it reusable and dynamic not strict to certain data schema. so we will generate the keys dynamically.
 const generateKeys = (rows: number, cells: number): string[][] => {
   const keys = [];
   for (let i = 0; i < rows; i += 1) {
@@ -35,6 +37,7 @@ const generateKeys = (rows: number, cells: number): string[][] => {
   }
   return keys;
 };
+
 const PageNumber: FC<{
   n: React.ReactNode;
   current?: boolean;
