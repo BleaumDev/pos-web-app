@@ -70,7 +70,7 @@ const Inventory = () => {
   return (
     <div>
       <Sidenav>
-        <Box position="fixed" mt="0em" w="100%" pr="16em">
+        <Box position="relative" mt="0em" w="auto">
           <FloatingHeader
             title="Products"
             itemCount="1432+ Items"
@@ -109,7 +109,7 @@ const Inventory = () => {
           borderRadius="20px"
           bg="#E9F0F8 !important"
           position="relative"
-          top="7em"
+          top="-2em"
           overflowX="hidden"
           overflowY="scroll"
           h="60vh"
