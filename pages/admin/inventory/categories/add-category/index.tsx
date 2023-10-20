@@ -11,14 +11,14 @@ import {
   Text,
   useBoolean,
 } from '@chakra-ui/react';
+
+import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Input from '@lib/components/base/input';
-import Sidenav from '../../../lib/components/Layout/Sidebar/Sidenav';
-import GalleryAdd from '../../../lib/components/inputs/GalleyAdd';
-import LabelledSelect from '../../../lib/components/inputs/LabelledSelect';
+import GalleryAdd from '@lib/components/inputs/GalleyAdd';
 
-export default function AddSubcategory(): React.ReactElement {
-  const [subcategoryActive, setSubcategoryActive] = useBoolean(false);
+export default function AddCategory(): React.ReactElement {
+  const [categoryActive, setCategoryActive] = useBoolean(false);
 
   return (
     <Sidenav>
@@ -76,7 +76,7 @@ export default function AddSubcategory(): React.ReactElement {
                 color="#41454B"
                 fontWeight="normal"
               >
-                Add Sub-category
+                Add Category
               </Heading>
             </Box>
           </Box>
@@ -90,35 +90,16 @@ export default function AddSubcategory(): React.ReactElement {
             paddingLeft: 60,
             paddingRight: 60,
           }}
-          gap={{ base: 30, md: 250 }}
+          gap={{ base: 30, md: 200 }}
           columns={{ sm: 2 }}
         >
           <GridItem>
-            <LabelledSelect
-              options={[
-                { value: 'Ices', label: 'Ices' },
-                { value: 'Pre-Rolled', label: 'Pre-Rolled' },
-                { value: 'Flowers', label: 'Flowers' },
-                { value: 'Tablets', label: 'Tablets' },
-                { value: 'CBD Products', label: 'CBD Products' },
-                { value: 'Oil Capsules', label: 'Oil Capsules' },
-                { value: 'Oral Sprays', label: 'Oral Sprays' },
-                { value: 'Gel', label: 'Gel' },
-                { value: 'Chewable', label: 'Chewable' },
-                { value: 'Essential Oil', label: 'Essential Oil' },
-              ]}
-              label="Category Name"
-            />
             {/* <LabelledInput
-              placeholderText="Sub-category Name"
-              label="Black Ice Feminized Seeds"
+              placeholderText="Name Your Category"
+              label="Category Name"
             /> */}
-            <FormLabel
-              h={6}
-              className="primary-font-semibold mt-2"
-              color="#41454B"
-            >
-              Sub-category Name
+            <FormLabel h={6} className="primary-font-semibold" color="#41454B">
+              Category Name
             </FormLabel>
             <Input
               type="text"
@@ -127,7 +108,7 @@ export default function AddSubcategory(): React.ReactElement {
                 borderColor: 'rgba(18, 23, 30, 0.40)',
                 borderWidth: 0.5,
               }}
-              placeholder="Sub-category Name"
+              placeholder="Name Your Category"
             />
             <Box
               style={{
@@ -151,13 +132,11 @@ export default function AddSubcategory(): React.ReactElement {
               <Box
                 as="button"
                 onClick={() => {
-                  setSubcategoryActive.off();
+                  setCategoryActive.off();
                 }}
               >
                 <Text
-                  color={
-                    subcategoryActive ? 'rgba(65, 69, 75, 0.4)' : '#41454B'
-                  }
+                  color={categoryActive ? 'rgba(65, 69, 75, 0.4)' : '#41454B'}
                   className="primary-font-semibold"
                 >
                   Inactive
@@ -166,20 +145,18 @@ export default function AddSubcategory(): React.ReactElement {
               <Box>
                 <Switch
                   size="lg"
-                  isChecked={subcategoryActive}
-                  onChange={setSubcategoryActive.toggle}
+                  isChecked={categoryActive}
+                  onChange={setCategoryActive.toggle}
                 />
               </Box>
               <Box
                 as="button"
                 onClick={() => {
-                  setSubcategoryActive.on();
+                  setCategoryActive.on();
                 }}
               >
                 <Text
-                  color={
-                    !subcategoryActive ? 'rgba(65, 69, 75, 0.4)' : '#41454B'
-                  }
+                  color={!categoryActive ? 'rgba(65, 69, 75, 0.4)' : '#41454B'}
                   className="primary-font-semibold"
                 >
                   Active
@@ -187,7 +164,11 @@ export default function AddSubcategory(): React.ReactElement {
               </Box>
             </Box>
           </GridItem>
-          <GridItem>
+          <GridItem
+          // style={{
+          //   marginTop: 20,
+          // }}
+          >
             <Box
               style={{
                 justifyContent: 'center',

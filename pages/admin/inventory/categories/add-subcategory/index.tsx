@@ -11,11 +11,11 @@ import {
   Text,
   useBoolean,
 } from '@chakra-ui/react';
+import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Input from '@lib/components/base/input';
-import Sidenav from '../../../lib/components/Layout/Sidebar/Sidenav';
-import GalleryAdd from '../../../lib/components/inputs/GalleyAdd';
-import LabelledSelect from '../../../lib/components/inputs/LabelledSelect';
+import GalleryAdd from '@lib/components/inputs/GalleyAdd';
+import LabelledSelect from '@lib/components/inputs/LabelledSelect';
 
 export default function AddSubcategory(): React.ReactElement {
   const [subcategoryActive, setSubcategoryActive] = useBoolean(false);
