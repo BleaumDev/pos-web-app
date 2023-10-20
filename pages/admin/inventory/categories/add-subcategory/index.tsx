@@ -36,7 +36,7 @@ export default function AddSubcategory(): React.ReactElement {
             },
             {
               label: 'Categories',
-              breadcrumLink: '/categories/',
+              breadcrumLink: '/admin/inventory/categories',
             },
           ]}
           searchWithFilters
