@@ -1,4 +1,5 @@
-import { Box, Flex, Grid, Img, Link, Text } from '@chakra-ui/react';
+import { Box, Flex, Grid, Img, Text } from '@chakra-ui/react';
+import Link from 'next/link';
 
 import Button from '../base/button';
 
@@ -36,7 +37,7 @@ const ThanksPage = () => {
           >
             Thank You For Shopping With Us.
           </Text>
-          <Link href="/pos/payments">
+          <Link href="/pos">
             <Button
               mt="2em"
               w="full"
