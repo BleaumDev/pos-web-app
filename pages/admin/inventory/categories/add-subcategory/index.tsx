@@ -25,27 +25,38 @@ export default function AddSubcategory(): React.ReactElement {
       <Box position="relative" mt="0em" w="auto">
         <FloatingHeader
           title="Categories"
-          itemCount="12+ Categories"
+          itemCount="13+ Categories"
           csvImage="/images/csv-file.png"
           refreshImage="/images/refresh-circle.png"
+          sortBy
+          addLink="/admin/inventory/categories/add-category"
           lastBreadcrumbColor="#FF8A43"
           breadcrumbs={[
             {
               label: 'Home',
-              breadcrumLink: '/admin/inventory/products',
+              breadcrumLink: '/admin/inventory/categories',
+            },
+            {
+              label: 'Inventory',
+              breadcrumLink: '/admin/inventory/categories',
             },
             {
               label: 'Categories',
               breadcrumLink: '/admin/inventory/categories',
             },
+            {
+              label: 'Add Sub-category',
+              breadcrumLink: '/admin/inventory/categories/add-sub-category',
+            },
           ]}
           searchWithFilters
           filterButton
-          addNew="Manufacturer"
+          primaryButton
+          addNew="Category"
+          addBulk="Categories"
           addButtons
-          addBulk="Manufacturers"
-          filter1="Cresco Labs"
-          filter2="Aphria Inc."
+          filter1="Flowers"
+          filter2="Capsules"
         />
       </Box>
       <Box

@@ -147,7 +147,9 @@ const Sidenav = ({ children }) => {
                 <Box
                   mt="-5px"
                   className={
-                    isActive('/admin/inventory/categories')
+                    isActive('/admin/inventory/categories') ||
+                    isActive('/admin/inventory/categories/add-category') ||
+                    isActive('/admin/inventory/categories/add-subcategory')
                       ? 'active-tab'
                       : 'inactive-tab'
                   }

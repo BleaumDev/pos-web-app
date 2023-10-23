@@ -94,6 +94,7 @@ const CategoriesPage = () => {
             ]}
             searchWithFilters
             filterButton
+            primaryButton
             addNew="Category"
             addBulk="Categories"
             addButtons
