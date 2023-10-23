@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from '@chakra-ui/icons';
+import { AddIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import {
   Box,
   Breadcrumb,
@@ -58,6 +58,10 @@ interface FloatingHeaderProps {
   printImage?: boolean;
   cancelLink?: string;
   confirmLink?: string;
+  primaryButton?: boolean;
+  secondaryButton?: boolean;
+  primaryLabel?: string;
+  secondaryLabel?: string;
 }
 
 const FloatingHeader: React.FC<FloatingHeaderProps> = ({
@@ -84,6 +88,10 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   editLink,
   confirmLink,
   cancelLink,
+  primaryButton,
+  secondaryButton,
+  primaryLabel,
+  secondaryLabel,
 }) => {
   const constructedHref = `/${addLink}`;
   const constructedHref1 = `/${editLink}`;
@@ -289,6 +297,51 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
             }}
             gap="5px"
           >
+            {primaryButton && (
+              <Box
+                as="button"
+                boxShadow="2xl"
+                bg="linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
+                style={{
+                  // width: 134,
+                  // height: 31,
+                  paddingLeft: 18,
+                  paddingRight: 18,
+                  paddingTop: 10,
+                  paddingBottom: 10,
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: 4,
+                  flexDirection: 'row',
+                }}
+              >
+                <Box
+                  style={{
+                    borderRadius: 4,
+                    borderColor: 'white',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderWidth: 2,
+                    padding: 4,
+                  }}
+                >
+                  <AddIcon color="white" boxSize={2} />
+                </Box>
+                <Text
+                  className="primary-font-semibold"
+                  fontSize={14}
+                  color="white"
+                  fontWeight="medium"
+                  style={{
+                    marginLeft: 5,
+                  }}
+                >
+                  {primaryLabel}
+                </Text>
+              </Box>
+            )}
             {addButtons && (
               <>
                 <Button
@@ -456,6 +509,31 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                     h="12px"
                   />
                 </Button>
+                {secondaryButton && (
+                  <Box
+                    as="button"
+                    boxShadow="2xl"
+                    style={{
+                      width: 134,
+                      height: 31,
+                      backgroundColor: '#FF8A43',
+                      padding: 8,
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      borderRadius: 3,
+                    }}
+                  >
+                    <Text
+                      className="primary-font-semibold"
+                      fontSize={12}
+                      color="white"
+                      fontWeight="medium"
+                    >
+                      + {secondaryLabel}
+                    </Text>
+                  </Box>
+                )}
               </Flex>
             )}
             {sortBy && (
