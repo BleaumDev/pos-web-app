@@ -103,6 +103,7 @@ const CategoriesPage = () => {
               },
             ]}
             filterButton
+            primaryButton
             addNew="Category"
             addBulk="Categories"
             addButtons

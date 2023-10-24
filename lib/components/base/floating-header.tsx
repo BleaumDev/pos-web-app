@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from '@chakra-ui/icons';
+import { AddIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import {
   Box,
   Breadcrumb,
@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import type { Key } from 'react';
+import { useRouter } from 'next/router';
 
 const categories = ['Capsules', 'Edibles', 'Tinctures', 'Flowers', 'Drinks'];
 const manufacturers = [
@@ -65,6 +66,7 @@ interface FloatingHeaderProps {
   printImage?: boolean;
   cancelLink?: string;
   confirmLink?: string;
+  primaryButton?: boolean;
 }
 
 const FloatingHeader: React.FC<FloatingHeaderProps> = ({
@@ -94,11 +96,17 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   editLink,
   confirmLink,
   cancelLink,
+  primaryButton,
 }) => {
   const constructedHref = `/${addLink}`;
   const constructedHref1 = `/${editLink}`;
   const constructedHref2 = `/${cancelLink}`;
   const constructedHref3 = `/${confirmLink}`;
+
+  const router = useRouter();
+  const isActive = (path: string) => {
+    return router.pathname === path;
+  };
   return (
     <Box
       background="#ffffff"
@@ -363,7 +371,11 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                 <Link href={constructedHref}>
                   <Button
                     display="flex"
-                    background=" linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
+                    background={
+                      isActive('/admin/inventory/categories/add-category')
+                        ? '#BBC0C4'
+                        : ' linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)'
+                    }
                     borderRadius="4px"
                     color="#ffffff"
                     fontSize="12px"
@@ -517,6 +529,29 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                 cursor="pointer"
                 h="38px"
               />
+            )}
+            {primaryButton && (
+              <Link href="/admin/inventory/categories/add-subcategory">
+                <Button
+                  display="flex"
+                  borderRadius="4px"
+                  background={
+                    isActive('/admin/inventory/categories/add-subcategory')
+                      ? '#BBC0C4'
+                      : '#FF8A43'
+                  }
+                  color="#ffffff"
+                  fontSize="12px"
+                  className="primary-font-medium"
+                  _hover={{
+                    background: '#FF8A43',
+                  }}
+                  gap="10px"
+                >
+                  <AddIcon color="white" boxSize={2} />
+                  Add Sub-category
+                </Button>
+              </Link>
             )}
           </Flex>
         </Box>

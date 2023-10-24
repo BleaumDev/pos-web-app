@@ -27,24 +27,35 @@ export default function AddCategory(): React.ReactElement {
           itemCount="12+ Categories"
           csvImage
           refreshImage
+
+          sortBy
           lastBreadcrumbColor="#FF8A43"
           breadcrumbs={[
             {
               label: 'Home',
-              breadcrumLink: '/admin/inventory/products',
+              breadcrumLink: '/admin/inventory/categories',
+            },
+            {
+              label: 'Inventory',
+              breadcrumLink: '/admin/inventory/categories',
             },
             {
               label: 'Categories',
               breadcrumLink: '/admin/inventory/categories',
             },
+            {
+              label: 'Add Category',
+              breadcrumLink: '/admin/inventory/categories/add-category',
+            },
           ]}
           searchWithFilters
           filterButton
-          addNew="Manufacturer"
+          primaryButton
+          addNew="Category"
+          addBulk="Categories"
           addButtons
-          addBulk="Manufacturers"
-          filter1="Cresco Labs"
-          filter2="Aphria Inc."
+          filter1="Flowers"
+          filter2="Capsules"
         />
       </Box>
       <Box
