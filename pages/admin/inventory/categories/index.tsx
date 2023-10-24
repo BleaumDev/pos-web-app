@@ -73,8 +73,8 @@ const CategoriesPage = () => {
           <FloatingHeader
             title="Categories"
             itemCount="13+ Categories"
-            csvImage="/images/csv-file.png"
-            refreshImage="/images/refresh-circle.png"
+            csvImage
+            refreshImage
             sortBy
             addLink="/admin/inventory/categories/add-category"
             lastBreadcrumbColor="#FF8A43"
@@ -93,6 +93,15 @@ const CategoriesPage = () => {
               },
             ]}
             searchWithFilters
+            searchWithFiltersPlaceholder="Products"
+            searchWithFilterOptions={[
+              {
+                label: 'Flowers',
+              },
+              {
+                label: 'Capsules',
+              },
+            ]}
             filterButton
             addNew="Category"
             addBulk="Categories"

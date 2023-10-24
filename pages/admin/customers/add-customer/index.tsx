@@ -2,25 +2,24 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/button-has-type */
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Img } from '@chakra-ui/react';
+import Button from '@lib/components/base/button';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
+import ContactInformation from '@lib/components/customers/contact-information';
+import CustomerPersonalInformation from '@lib/components/customers/customer-personal-information';
+import LicenseInformation from '@lib/components/customers/license-information';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
-import DetailedInformation from '@lib/components/product/detailedInformation';
-import GeneralInformation from '@lib/components/product/generalInformation';
 import Link from 'next/link';
-import { useState } from 'react';
 
-export default function ProductDetail(): React.ReactNode {
-  const [complexPricingRowCount, setComplexPricingRowCount] = useState(1);
+export default function AddCustomer(): React.ReactNode {
   return (
     <div>
       <Sidenav>
         <Box position="relative" mt="0em" w="auto">
           <FloatingHeader
-            title="Inventory"
-            itemCount="1432+ Products"
-            csvImage
+            title="Customers"
+            itemCount="12230+ Customers"
             refreshImage
             lastBreadcrumbColor="#FF8A43"
             breadcrumbs={[
@@ -29,16 +28,12 @@ export default function ProductDetail(): React.ReactNode {
                 breadcrumLink: '/admin/inventory/products',
               },
               {
-                label: 'Inventory',
-                breadcrumLink: '/admin/inventory/products',
+                label: 'Customer',
+                breadcrumLink: '/admin/customers',
               },
               {
-                label: 'Products',
-                breadcrumLink: '/admin/inventory/products',
-              },
-              {
-                label: 'Add Product',
-                breadcrumLink: '/admin/inventory/products/add-product',
+                label: 'Add New Customer',
+                breadcrumLink: '/admin/customers/add-customer',
               },
             ]}
           />
@@ -64,7 +59,7 @@ export default function ProductDetail(): React.ReactNode {
             border="0.3px solid rgba(18, 23, 30, 0.30)"
           >
             <Flex ml="1em">
-              <Link href="/admin/inventory/products">
+              <Link href="/admin/customers">
                 <ChevronLeftIcon boxSize={30} />
               </Link>
 
@@ -73,7 +68,7 @@ export default function ProductDetail(): React.ReactNode {
                 ml={2}
                 className="primary-font-semibold"
               >
-                Add Product
+                Add New Customer
               </Label>
             </Flex>
 
@@ -91,33 +86,36 @@ export default function ProductDetail(): React.ReactNode {
               p="12px"
             >
               <Box
-                w={{ base: '100%', md: '50%' }}
-                background="rgba(246, 252, 255, 0.40)"
-                borderRadius="12px"
+                w="100%"
                 m={{
                   base: '0em 10px',
                   md: '0em 2em',
                 }}
-                p="20px 40px"
-                border="0.2px solid rgba(18, 23, 30, 0.40)"
-                boxShadow="9px 9px 23px 0px rgba(128, 128, 128, 0.07)"
               >
-                <Label
-                  fontSize={{ base: '12px', sm: '14px', md: '16px' }}
-                  className="primary-font-semibold"
+                <CustomerPersonalInformation />
+                <ContactInformation />
+                <LicenseInformation />
+
+                <Box
+                  textAlign="end"
+                  justifyContent="end"
+                  display="flex"
+                  mt="1em"
                 >
-                  General Information
-                </Label>
-                <GeneralInformation />
-              </Box>
-              <Box w={{ base: '100%', md: '50%' }} p="0px 40px">
-                <Label
-                  fontSize={{ base: '16px', sm: '18px', md: '20px' }}
-                  className="primary-font-semibold"
-                >
-                  Detailed Information
-                </Label>
-                <DetailedInformation />
+                  <Button
+                    className="primary-font-semibold"
+                    fontSize="14px"
+                    styledVariant="orange"
+                    display="flex"
+                  >
+                    <Img
+                      src="/images/profile-add.png"
+                      width="16px"
+                      height="16px"
+                    />
+                    Add Customer
+                  </Button>
+                </Box>
               </Box>
             </Box>
           </Box>

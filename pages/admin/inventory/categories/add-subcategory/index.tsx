@@ -26,8 +26,8 @@ export default function AddSubcategory(): React.ReactElement {
         <FloatingHeader
           title="Categories"
           itemCount="12+ Categories"
-          csvImage="/images/csv-file.png"
-          refreshImage="/images/refresh-circle.png"
+          csvImage
+          refreshImage
           lastBreadcrumbColor="#FF8A43"
           breadcrumbs={[
             {

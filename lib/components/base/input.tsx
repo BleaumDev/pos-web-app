@@ -15,6 +15,9 @@ export const baseInputStyles: InputProps = {
   borderRadius: '4px',
   fontSize: { base: '12px', md: '14px' },
   h: { base: '35px', md: '40px' },
+  _placeholder: {
+    fontSize: { base: '12px', md: '14px' },
+  },
   boxSizing: 'border-box',
   background: '#FFFFFF !important',
   border: '1px solid rgba(18, 23, 30, 0.20)',

@@ -74,8 +74,8 @@ const Inventory = () => {
           <FloatingHeader
             title="Products"
             itemCount="1432+ Items"
-            csvImage="/images/csv-file.png"
-            refreshImage="/images/refresh-circle.png"
+            csvImage
+            refreshImage
             addButtons
             sortBy
             lastBreadcrumbColor="#FF8A43"
@@ -95,12 +95,9 @@ const Inventory = () => {
             ]}
             simpleSearch
             productFilter
-            // filterButton
             addNew="Product"
             addBulk="Products"
             addLink="/admin/inventory/products/add-product"
-            // filter1="Flowers"
-            // filter2="Capsules"
           />
         </Box>
 

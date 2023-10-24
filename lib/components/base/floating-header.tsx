@@ -12,6 +12,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Link from 'next/link';
+import type { Key } from 'react';
 
 const categories = ['Capsules', 'Edibles', 'Tinctures', 'Flowers', 'Drinks'];
 const manufacturers = [
@@ -33,12 +34,15 @@ interface BreadcrumbItems {
   label: string;
   breadcrumLink: string;
 }
+interface SearchWithFilterOptionsItems {
+  label: string;
+}
 
 interface FloatingHeaderProps {
   title?: string;
   itemCount?: string;
-  csvImage?: string;
-  refreshImage?: string;
+  csvImage?: boolean;
+  refreshImage?: boolean;
   breadcrumbs?: BreadcrumbItems[];
   lastBreadcrumbColor?: string;
   simpleSearch?: boolean;
@@ -46,11 +50,14 @@ interface FloatingHeaderProps {
   productFilter?: boolean;
   addButtons?: boolean;
   addNew?: string;
+  addSingleButtons?: boolean;
   addBulk?: string;
   filter1?: string;
   filter2?: string;
   filterButton?: boolean;
   searchWithFilters?: boolean;
+  searchWithFiltersPlaceholder?: string;
+  searchWithFilterOptions?: SearchWithFilterOptionsItems[];
   addLink?: string;
   productDetail?: boolean;
   editDetail?: boolean;
@@ -75,10 +82,13 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   addBulk,
   productFilter,
   filter1,
+  addSingleButtons,
   filter2,
   printImage,
   filterButton,
   searchWithFilters,
+  searchWithFiltersPlaceholder,
+  searchWithFilterOptions,
   addLink,
   editDetail,
   editLink,
@@ -217,13 +227,24 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
             <Flex gap="20px" mt="2em">
               <Flex>
                 <Select
-                  placeholder="Products"
-                  w="100px"
+                  placeholder={searchWithFiltersPlaceholder}
+                  w="auto"
                   borderRadius="4px 0px 0px 4px"
                 >
-                  <option value="Flower">Flower</option>
-                  <option value="Capsules">Capsules</option>
-                  <option value="All">All</option>
+                  {searchWithFilterOptions?.map(
+                    (filterItem: any, index: Key | null | undefined) => (
+                      // eslint-disable-next-line react/no-array-index-key
+                      <option key={index}>
+                        <Text
+                          color="#41454B"
+                          fontSize="12px"
+                          className="primary-font-medium"
+                        >
+                          {filterItem.label}
+                        </Text>
+                      </option>
+                    )
+                  )}
                 </Select>
                 <Input
                   placeholder="Search here ..."
@@ -289,6 +310,32 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
             }}
             gap="5px"
           >
+            {addSingleButtons && (
+              <Link href={constructedHref}>
+                <Button
+                  display="flex"
+                  background=" linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
+                  borderRadius="4px"
+                  color="#ffffff"
+                  fontSize="12px"
+                  className="primary-font-medium"
+                  _hover={{
+                    background:
+                      'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+                  }}
+                  gap="10px"
+                >
+                  <Image
+                    src="/images/plus-square.png"
+                    alt="refresh-circle"
+                    w="15px"
+                    cursor="pointer"
+                    h="15px"
+                  />
+                  Add New {addNew}
+                </Button>
+              </Link>
+            )}
             {addButtons && (
               <>
                 <Button
@@ -339,13 +386,15 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                 </Link>
               </>
             )}
-            <Image
-              src={refreshImage}
-              alt="refresh-circle"
-              w="38px"
-              cursor="pointer"
-              h="38px"
-            />
+            {refreshImage && (
+              <Image
+                src="/images/refresh-circle.png"
+                alt="refresh-circle"
+                w="38px"
+                cursor="pointer"
+                h="38px"
+              />
+            )}
             {printImage && (
               <Image
                 src="/images/print.png"
@@ -355,13 +404,15 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                 h="38px"
               />
             )}
-            <Image
-              src={csvImage}
-              alt="csv-file"
-              w="38px"
-              cursor="pointer"
-              h="38px"
-            />
+            {csvImage && (
+              <Image
+                src="/images/csv-file.png"
+                alt="csv-file"
+                w="38px"
+                cursor="pointer"
+                h="38px"
+              />
+            )}
           </Flex>
           <Flex
             justifyContent={{

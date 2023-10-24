@@ -1,19 +1,14 @@
-import {
-  Box,
-  Flex,
-  Grid,
-  Img,
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Text,
-  Th,
-  Thead,
-  Tr,
-} from '@chakra-ui/react';
+import { Box, Flex, Grid, Img, Text } from '@chakra-ui/react';
+
+import SmallTable from '../SmallTable';
 
 const EmailOrPrintInvoicePage = () => {
+  const header = ['Product Name', 'SKU', 'Price', 'Qty', 'Subtotal'];
+  const rows = [
+    ['Cowichan Kush', '1426384', '$40.06', '1', '$40.06'],
+    ['Tribe CBD Oil...', '1426384', '$40.06', '1', '$40.06'],
+    ['District Cannab...', '1426384', '$40.06', '1', '$40.06'],
+  ];
   return (
     <Box>
       <Box mx="12px">
@@ -117,42 +112,7 @@ const EmailOrPrintInvoicePage = () => {
             marginTop: '6px',
           }}
         />
-        <TableContainer>
-          <Table variant="simple" size="sm">
-            <Thead>
-              <Tr>
-                <Th className="small-table-text">Product Name</Th>
-                <Th className="small-table-text">SKU</Th>
-                <Th className="small-table-text">Price</Th>
-                <Th className="small-table-text">Qty</Th>
-                <Th className="small-table-text">Subtotal</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td className="small-table-text1">Cowichan Kush</Td>
-                <Td className="small-table-text1">1426384</Td>
-                <Td className="small-table-text1">$40.06</Td>
-                <Td className="small-table-text1">1</Td>
-                <Td className="small-table-text1">$40.06</Td>
-              </Tr>
-              <Tr>
-                <Td className="small-table-text1">Tribe CBD Oil...</Td>
-                <Td className="small-table-text1">1426384</Td>
-                <Td className="small-table-text1">$40.06</Td>
-                <Td className="small-table-text1">1</Td>
-                <Td className="small-table-text1">$40.06</Td>
-              </Tr>
-              <Tr>
-                <Td className="small-table-text1">District Cannab...</Td>
-                <Td className="small-table-text1">1426384</Td>
-                <Td className="small-table-text1">$40.06</Td>
-                <Td className="small-table-text1">1</Td>
-                <Td className="small-table-text1">$40.06</Td>
-              </Tr>
-            </Tbody>
-          </Table>
-        </TableContainer>
+        <SmallTable header={header} rows={rows} />
         <Flex justifyContent="end" gap="20px" mt="6px">
           <Text
             color="#41454B"
