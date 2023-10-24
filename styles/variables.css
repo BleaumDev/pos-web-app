@@ -156,6 +156,7 @@ body{
 }
 .css-1zts0j{
   text-align: center !important;
+  text-transform: capitalize !important;
 }
 .css-1xc3v61-indicatorContainer:hover{
       background: #ff8a43;
@@ -269,4 +270,10 @@ svg.rw-i-calendar {
 }
 .css-1l8lkvs{
   text-transform: capitalize !important;
+}
+.order-list-th{
+  font-size: 15px;
+  font-family: 'Gilroy-SemiBold' !important;
+  color: #41454B;
+  border-bottom: 1px solid rgba(65, 69, 75, 1);
 }

@@ -34,7 +34,8 @@
     "**/*.tsx",
     "styles/theme/index.ts",
     "lib/i18n/local-storage-backend.js",
-    "lib/components/Layout/Sidebar/Sidenav.jsx"
+    "lib/components/Layout/Sidebar/Sidenav.jsx",
+    "utils/customerUtils.ts"
   ],
   "exclude": ["./out/**/*", "./node_modules/**/*", "cypress/**/*.ts"]
 }

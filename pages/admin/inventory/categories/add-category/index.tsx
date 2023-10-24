@@ -24,11 +24,11 @@ export default function AddCategory(): React.ReactElement {
       <Box position="relative" mt="0em" w="auto">
         <FloatingHeader
           title="Categories"
-          itemCount="13+ Categories"
-          csvImage="/images/csv-file.png"
-          refreshImage="/images/refresh-circle.png"
+          itemCount="12+ Categories"
+          csvImage
+          refreshImage
+
           sortBy
-          addLink="/admin/inventory/categories/add-category"
           lastBreadcrumbColor="#FF8A43"
           breadcrumbs={[
             {

@@ -70,8 +70,8 @@ const ManufecturerPage = () => {
           <FloatingHeader
             title="Manufacturers"
             itemCount="121+ Manufacturers"
-            csvImage="/images/csv-file.png"
-            refreshImage="/images/refresh-circle.png"
+            csvImage
+            refreshImage
             sortBy
             lastBreadcrumbColor="#FF8A43"
             breadcrumbs={[
@@ -89,6 +89,15 @@ const ManufecturerPage = () => {
               },
             ]}
             searchWithFilters
+            searchWithFiltersPlaceholder="Products"
+            searchWithFilterOptions={[
+              {
+                label: 'Flowers',
+              },
+              {
+                label: 'Capsules',
+              },
+            ]}
             filterButton
             addNew="Manufacturer"
             addButtons

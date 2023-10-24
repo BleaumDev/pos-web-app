@@ -5,8 +5,8 @@ import {
   Flex,
   IconButton,
   Text,
-  VStack,
   useDisclosure,
+  VStack,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -204,7 +204,7 @@ const Sidenav = ({ children }) => {
                 </Box>
               </Box>
             </Collapse>
-            <Link href="/">
+            <Link href="/admin/customers">
               <Flex alignItems={'center'} width="full">
                 <Box width={'20%'}>
                   <Image
@@ -218,7 +218,13 @@ const Sidenav = ({ children }) => {
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
-                    color="#12171E66"
+                    color={
+                      isActive('/admin/customers') ||
+                      isActive('/admin/customers/add-customer') ||
+                      isActive('/admin/customer/customer-detail')
+                        ? '#000000'
+                        : '#12171E66'
+                    }
                   >
                     Customers
                   </Text>

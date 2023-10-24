@@ -15,11 +15,11 @@ export default function ProductDetail(): React.ReactNode {
           <FloatingHeader
             title="Products"
             itemCount="1432+ Products"
-            csvImage="/images/csv-file.png"
+            csvImage
             editDetail
             printImage
             editLink="/admin/inventory/products/edit-product-detail"
-            refreshImage="/images/refresh-circle.png"
+            refreshImage
             lastBreadcrumbColor="#FF8A43"
             breadcrumbs={[
               {
