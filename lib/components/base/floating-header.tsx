@@ -12,8 +12,8 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Link from 'next/link';
-import type { Key } from 'react';
 import { useRouter } from 'next/router';
+import type { Key } from 'react';
 
 const categories = ['Capsules', 'Edibles', 'Tinctures', 'Flowers', 'Drinks'];
 const manufacturers = [

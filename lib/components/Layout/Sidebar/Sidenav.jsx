@@ -221,7 +221,7 @@ const Sidenav = ({ children }) => {
                     color={
                       isActive('/admin/customers') ||
                       isActive('/admin/customers/add-customer') ||
-                      isActive('/admin/customer/customer-detail')
+                      isActive('/admin/customers/customer-detail')
                         ? '#000000'
                         : '#12171E66'
                     }

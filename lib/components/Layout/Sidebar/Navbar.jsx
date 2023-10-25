@@ -114,7 +114,7 @@ const Navbar = () => {
           </Flex>
           <Flex justifyContent={'end'} w={'45%'}>
             <Flex gap={'1em'}>
-              <Link href="/pos">
+              <Link href="/pos/order-type">
                 <Button
                   p="10px 24px"
                   color="#fff"

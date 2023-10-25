@@ -1,10 +1,10 @@
 import { Box, CardFooter, Stack } from '@chakra-ui/react';
-import AuthLayout from '@lib/components/Auth/AuthLayout';
+import AuthLayout from '@lib/components/auth/AuthLayout';
 import {
   AuthCard,
   AuthCardBody,
   AuthCardHeader,
-} from '@lib/components/Auth/Card';
+} from '@lib/components/auth/card';
 import Button from '@lib/components/base/button';
 import Heading from '@lib/components/base/heading';
 import Input from '@lib/components/base/input';

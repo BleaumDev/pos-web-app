@@ -2,11 +2,11 @@ import { Box, Button, Flex, Img, Text } from '@chakra-ui/react';
 import React from 'react';
 
 interface ProductCardProps {
-  imageSrc: string;
-  productName: string;
-  price: string;
-  sku: string;
-  quantity: string;
+  imageSrc?: string;
+  productName?: string;
+  price?: string;
+  sku?: string;
+  quantity?: string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({

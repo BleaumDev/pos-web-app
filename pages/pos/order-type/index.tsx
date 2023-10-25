@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import type { UseDisclosureProps } from '@chakra-ui/react';
 import {
+  Button,
   Flex,
   Modal,
   ModalBody,
@@ -10,8 +11,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import PosNavbar from '@lib/components/Layout/Sidebar/PosNavbar';
-import MedicalModel from '@lib/components/models/medical-model';
-import RecreationalModel from '@lib/components/models/recreational-model';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const index = () => {
@@ -61,10 +61,44 @@ const index = () => {
               className="primary-font-medium"
               fontSize="14px"
             >
-              Choose Customer Type
+              Choose Order Type
             </Text>
-            <MedicalModel />
-            <RecreationalModel />
+            <Link href="/pos">
+              <Button
+                w="full"
+                borderRadius="8px"
+                border="0.4px solid #192837"
+                bg="#EBFBFF"
+                _hover={{
+                  background:
+                    'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+                  color: '#fff',
+                }}
+                mt="10px"
+                className="primary-font-medium"
+                fontSize="12px"
+              >
+                New Order
+              </Button>
+            </Link>
+            <Link href="/pos">
+              <Button
+                w="full"
+                borderRadius="8px"
+                border="0.4px solid #192837"
+                bg="#EBFBFF"
+                _hover={{
+                  background:
+                    'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+                  color: '#fff',
+                }}
+                mt="10px"
+                className="primary-font-medium"
+                fontSize="12px"
+              >
+                Pending Order
+              </Button>
+            </Link>
           </ModalBody>
         </ModalContent>
       </Modal>

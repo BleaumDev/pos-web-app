@@ -19,11 +19,11 @@ const CustomerInformationDetail = () => {
         borderRadius="5px"
         border="1px solid rgba(65, 69, 75,
                     0.20)"
-        w="auto"
         p="1.4em 1.5em"
+        h="375px"
       >
-        <Flex w="full" gap="0px">
-          <Box w="60%">
+        <Flex gap="0px">
+          <Box>
             <Stack>
               <Text styledVariant="textSemiBold"> Name</Text>
               <Box mt="-10px">
@@ -69,7 +69,7 @@ const CustomerInformationDetail = () => {
                 </Label>
               </Box>
             </Stack>
-            <Stack mt="5px" w="240px">
+            <Stack mt="5px">
               <Text styledVariant="textSemiBold"> Shipping address</Text>
               <Box mt="-10px">
                 <Label
@@ -100,7 +100,7 @@ const CustomerInformationDetail = () => {
               </Box>
             </Stack>
           </Box>
-          <Box w="40%" pl="1em">
+          <Box pl="1em">
             <Box textAlign="end">
               <Text
                 fontSize="12px"
@@ -170,7 +170,7 @@ const CustomerInformationDetail = () => {
                   See all
                 </Text>
               </Flex>
-              <Box mt="5px" w="300px">
+              <Box mt="5px">
                 <Flex mt="-10px">
                   <Label
                     fontSize={{
@@ -183,7 +183,6 @@ const CustomerInformationDetail = () => {
                     Star Customer
                   </Label>
                   <Text
-                    w="100px"
                     color="rgba(65, 69, 75, 0.7)"
                     fontSize="12px"
                     mb="5px"
@@ -196,7 +195,7 @@ const CustomerInformationDetail = () => {
             </Stack>
           </Box>
         </Flex>
-        <Box borderRadius="3px" background="#F6F6F6" h="52px" p="10px">
+        <Box borderRadius="3px" background="#F6F6F6" h="auto" p="10px">
           <Flex justifyContent="space-between">
             <Text styledVariant="textSemiBold" fontSize="12px">
               {' '}
@@ -212,7 +211,7 @@ const CustomerInformationDetail = () => {
               Edit Points
             </Text>
           </Flex>
-          <Flex justifyContent="space-between" mt="10px" w="450px">
+          <Flex justifyContent="space-between" mt="10px">
             <Flex gap="6px">
               <Label
                 fontSize={{

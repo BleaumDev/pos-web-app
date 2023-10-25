@@ -1,5 +1,4 @@
 import { Flex, Text } from '@chakra-ui/react';
-import React from 'react';
 
 interface PsoHeadingProps {
   heading: string;
@@ -18,11 +17,7 @@ const PsoHeading = ({
 }: PsoHeadingProps) => {
   return (
     <Flex gap="8px">
-      <Text
-        color="#41454B"
-        fontSize={fontSize1}
-        className="primary-font-semibold"
-      >
+      <Text color="#41454B" fontSize={fontSize1} className="glroy-bold">
         {heading}
       </Text>
       <Text

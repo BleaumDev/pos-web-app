@@ -27,7 +27,6 @@ export default function AddCategory(): React.ReactElement {
           itemCount="12+ Categories"
           csvImage
           refreshImage
-
           sortBy
           lastBreadcrumbColor="#FF8A43"
           breadcrumbs={[
