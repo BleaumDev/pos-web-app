@@ -251,7 +251,7 @@ const TablePage: FC<TableProps> = ({
             {paginatedRows.map((row, i) => (
               <Tr
                 key={rowsKeys[i]}
-                bg="#ffffff"
+                bg="#FFF7F5"
                 color="rgba(65, 69, 75, 0.7)"
                 borderRadius="12px !important"
                 h="46px"

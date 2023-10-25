@@ -6,7 +6,7 @@ import React from 'react';
 export interface BaseTextPropsType extends TextProps {
   children?: React.ReactNode;
   ref?: RefObject<HTMLButtonElement>;
-  styledVariant?: 'textMedium' | 'textLabel';
+  styledVariant?: 'textMedium' | 'textLabel' | 'textSemiBold';
 }
 
 function Text({ children, styledVariant, ref, ...props }: BaseTextPropsType) {
@@ -28,6 +28,14 @@ function Text({ children, styledVariant, ref, ...props }: BaseTextPropsType) {
         bg: 'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
       },
       boxShadow: 'none',
+    };
+  } else if (styledVariant === 'textSemiBold') {
+    textStyleProps = {
+      ...textStyleProps,
+      color: 'rgba(65, 69, 75, 0.70) ',
+      className: 'primary-font-semibold',
+
+      fontSize: '14px',
     };
   }
 

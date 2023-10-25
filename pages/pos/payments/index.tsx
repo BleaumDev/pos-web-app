@@ -4,6 +4,7 @@ import PosCarousel from '@lib/components/base/carousel';
 import PosSidenav from '@lib/components/Layout/Sidebar/PosSidenav';
 import CartPage from '@lib/components/pos/cart';
 import PosFloatingHeader from '@lib/components/pos/floating-header';
+import FrequentlyPurchasedProducts from '@lib/components/pos/frequently-purchased';
 import PosSearch from '@lib/components/pos/pos-search';
 import PsoHeading from '@lib/components/pos/pso-heading';
 import RecommendedDeals from '@lib/components/pos/recommended-deals';
@@ -62,8 +63,10 @@ const PosPayments = () => {
               />
               <PosCarousel />
             </Box>
-
-            <RecommendedDeals />
+            <FrequentlyPurchasedProducts />
+            <Box mt="1em">
+              <RecommendedDeals />
+            </Box>
             <Box
               h={{
                 base: '100px',

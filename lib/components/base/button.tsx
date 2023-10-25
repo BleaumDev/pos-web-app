@@ -6,7 +6,7 @@ import React from 'react';
 export interface BaseButtonPropsType extends ButtonProps {
   children?: React.ReactNode;
   ref?: RefObject<HTMLButtonElement>;
-  styledVariant?: 'outline' | 'blue';
+  styledVariant?: 'outline' | 'blue' | 'orange';
 }
 
 function Button({
@@ -43,6 +43,15 @@ function Button({
       bg: 'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
       _hover: {
         bg: 'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+      },
+      boxShadow: 'none',
+    };
+  } else if (styledVariant === 'orange') {
+    buttonStyleProps = {
+      ...buttonStyleProps,
+      bg: '#FF8A43',
+      _hover: {
+        bg: '#FF8A43',
       },
       boxShadow: 'none',
     };

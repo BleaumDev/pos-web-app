@@ -16,8 +16,8 @@ export default function EditProductDetail(): React.ReactNode {
             itemCount="1432+ Products"
             productDetail
             cancelLink="/admin/inventory/products/product-detail"
-            csvImage="/images/csv-file.png"
-            refreshImage="/images/refresh-circle.png"
+            csvImage
+            refreshImage
             printImage
             lastBreadcrumbColor="#FF8A43"
             breadcrumbs={[
