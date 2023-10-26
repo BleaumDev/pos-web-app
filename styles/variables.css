@@ -277,3 +277,7 @@ svg.rw-i-calendar {
   color: #41454B;
   border-bottom: 1px solid rgba(65, 69, 75, 1);
 }
+.flag-dropdown {
+  background-color: #fff !important;
+  border: none;
+}

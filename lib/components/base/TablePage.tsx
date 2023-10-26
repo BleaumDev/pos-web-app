@@ -175,6 +175,22 @@ const TablePage: FC<TableProps> = ({
     }
     return rK;
   }, []);
+
+  // Calculate the number of tags to display on each side of the current page
+  const numTagsToShow = 4;
+  const tagsBeforeCurrent = Math.min(currentPage - 1, numTagsToShow);
+  const tagsAfterCurrent = Math.min(totalPages - currentPage, numTagsToShow);
+
+  // Generate an array of tag numbers to display
+  const tagsToDisplay = [];
+
+  for (
+    let i = currentPage - tagsBeforeCurrent;
+    i <= currentPage + tagsAfterCurrent;
+    i += 1
+  ) {
+    tagsToDisplay.push(i);
+  }
   return (
     <Box>
       <TableContainer
@@ -314,12 +330,12 @@ const TablePage: FC<TableProps> = ({
           </Flex>
           {/* pages pagination */}
           {/* <Text id="table-pagination-results">
-                showing {pageSize * (currentPage - 1) + 1}-
-                {pageSize * currentPage > rows.length
-                  ? rows.length
-                  : pageSize * currentPage}{' '}
-                of {rows.length} results
-              </Text> */}
+            showing {pageSize * (currentPage - 1) + 1}-
+            {pageSize * currentPage > rows.length
+              ? rows.length
+              : pageSize * currentPage}{' '}
+            of {rows.length} results
+          </Text> */}
           <Box>
             {totalPages > 20 ? (
               <Flex gap={10}>
@@ -371,22 +387,32 @@ const TablePage: FC<TableProps> = ({
                 />
               </Flex>
             ) : (
-              <Flex gap={1}>
-                <Box onClick={() => setCurrentPage(currentPage - 1)}>
-                  <img src="/images/prev.png" alt="" className="pag-button" />
-                </Box>
-                {[...Array(totalPages)].map((_, i) => (
-                  <PageNumber
-                    key={nanoid()}
-                    n={i + 1}
-                    current={currentPage === i + 1}
-                    onClick={() => setCurrentPage(i + 1)}
-                  />
-                ))}
-                <Box onClick={() => setCurrentPage(currentPage + 1)}>
-                  <img src="/images/next.png" alt="" className="pag-button" />
-                </Box>
-              </Flex>
+              <Box>
+                <Flex gap={1}>
+                  <Box onClick={() => setCurrentPage(currentPage - 1)}>
+                    <img src="/images/prev.png" alt="" className="pag-button" />
+                  </Box>
+                  {tagsToDisplay.map((page) => (
+                    <PageNumber
+                      key={nanoid()}
+                      n={page}
+                      current={currentPage === page}
+                      onClick={() => setCurrentPage(page)}
+                    />
+                  ))}
+                  {currentPage + numTagsToShow < totalPages && (
+                    <PageNumber
+                      n="..."
+                      onClick={() =>
+                        setCurrentPage(currentPage + numTagsToShow)
+                      }
+                    />
+                  )}
+                  <Box onClick={() => setCurrentPage(currentPage + 1)}>
+                    <img src="/images/next.png" alt="" className="pag-button" />
+                  </Box>
+                </Flex>
+              </Box>
             )}
           </Box>
         </Flex>

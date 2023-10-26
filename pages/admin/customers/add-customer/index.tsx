@@ -70,7 +70,6 @@ export default function AddCustomer(): React.ReactNode {
                 Add New Customer
               </Label>
             </Flex>
-
             <Box
               display={{
                 base: 'grid',

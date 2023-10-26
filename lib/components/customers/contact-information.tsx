@@ -2,10 +2,11 @@ import { Box, Flex, Img, Input, Select, Stack } from '@chakra-ui/react';
 import { useState } from 'react';
 
 import Label from '../base/label';
+import PosPhoneInput from '../base/phone-input';
+import UploadSingleImage from '../base/upload-single-image';
 
 const states = ['California', 'Texas', 'Florida'];
 const zipCodes = ['46000', '460001', '4600033'];
-const phones = ['+1-9876543256', '+2-9876543256', '+3-9876543256'];
 const customerTypeOptions = ['Medical', 'Recreational'];
 
 const ContactInformation = () => {
@@ -136,20 +137,7 @@ const ContactInformation = () => {
               Phone No.
             </Label>
             <Box mt="-5px">
-              <Select
-                color="rgba(65, 69, 75, 0.50)"
-                border="1px solid rgba(18, 23, 30, 0.20)"
-                h="33px"
-                fontSize="14px"
-                background="#fff"
-                className="primary-font-medium"
-              >
-                {phones.map((phone) => (
-                  <option key={phone} value={phone}>
-                    {phone}
-                  </option>
-                ))}
-              </Select>
+              <PosPhoneInput />
             </Box>
           </Stack>
           <Stack
@@ -336,12 +324,11 @@ const ContactInformation = () => {
                   </Label>
                 </Flex>
                 <Flex gap="32px" mt="1em" ml="2em" alignItems="center">
-                  <Img
-                    src="/images/upload-license.png"
-                    alt="upload-license-pos"
-                    width="246px"
-                    height="168px"
-                    cursor="pointer"
+                  <UploadSingleImage
+                    widthSelectedImage="246px"
+                    heightSelectedImage="168px"
+                    widthOfDefaultImage="246px"
+                    defaultImage="/images/upload-license.png"
                   />
                   <Label
                     fontSize={{ base: '12px', sm: '14px', md: '14px' }}

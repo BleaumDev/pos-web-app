@@ -9,7 +9,9 @@ import { Provider } from 'react-redux';
 import { theme } from 'styles/theme';
 
 import 'react-widgets/styles.css';
+import 'styles/phone-input.css';
 import '../styles/variables.css';
+
 import { store } from '../redux/store';
 
 const App = ({
