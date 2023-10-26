@@ -14,7 +14,7 @@ export default function ViewCategory(): React.ReactElement {
           <FloatingHeader
             title="Categories"
             itemCount="13+ Categories"
-            csvImage="/images/csv-file.png"
+            // csvImage="/images/csv-file.png"
             // editDetail
             // searchWithFilters
             simpleSearch
