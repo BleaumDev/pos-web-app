@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable react/no-array-index-key */
 import { Box, Flex, useMediaQuery } from '@chakra-ui/react';
-import recommendedDeals from 'data/recommendedDeals';
+import frequentlyPurchasedData from 'data/frequentlyPurchasedData';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
+import CustomerProductCard from './customer-product-card';
 import ProductCard from './product-card';
 import PsoHeading from './pso-heading';
 
@@ -13,14 +15,14 @@ interface Product {
   price: string;
   sku: string;
   quantity: string;
+  inStoreDate: string;
 }
 
-const totalPages = Math.ceil(recommendedDeals.length / 6); // Default products per page
+const totalPages = Math.ceil(frequentlyPurchasedData.length / 6); // Default products per page
 
 const FrequentlyPurchasedProducts = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const displayPages = 3;
-
   // Use media queries to determine the screen size
   const [isLargeScreen] = useMediaQuery('(min-width: 1280px)');
   const [isMedium] = useMediaQuery(
@@ -30,7 +32,9 @@ const FrequentlyPurchasedProducts = () => {
     '(min-width: 768px) and (max-width: 1023px)'
   );
   const [isMobile] = useMediaQuery('(min-width: 300px) and (max-width: 767px)');
-
+  const router = useRouter();
+  const isCustomerDetailRoute =
+    router.pathname === '/admin/customers/customer-detail';
   // Determine the number of products to display per page based on screen size
   let productsPerPage = 6;
   if (isLargeScreen) {
@@ -55,16 +59,35 @@ const FrequentlyPurchasedProducts = () => {
         gap="20px"
         mt="12px"
       >
-        {productsToShow.map((item, index) => (
-          <ProductCard
-            key={index}
-            productName={item.productName}
-            imageSrc={item.imageSrc}
-            price={item.price}
-            sku={item.sku}
-            quantity={item.quantity}
-          />
-        ))}
+        {isCustomerDetailRoute ? (
+          <>
+            {productsToShow.map((item, index) => (
+              <CustomerProductCard
+                key={index}
+                productName={item.productName}
+                imageSrc={item.imageSrc}
+                price={item.price}
+                sku={item.sku}
+                quantity={item.quantity}
+                inStoreDate={item.inStoreDate}
+              />
+            ))}
+          </>
+        ) : (
+          /* Render ProductCard component */
+          <>
+            {productsToShow.map((item, index) => (
+              <ProductCard
+                key={index}
+                productName={item.productName}
+                imageSrc={item.imageSrc}
+                price={item.price}
+                sku={item.sku}
+                quantity={item.quantity}
+              />
+            ))}
+          </>
+        )}
       </Box>
     );
   };
@@ -118,9 +141,9 @@ const FrequentlyPurchasedProducts = () => {
         fontSize2="12px"
         subColor="#E69066"
         heading="Frequently Purchased Products"
-        subText={`(${recommendedDeals.length} Items)`}
+        subText={`(${frequentlyPurchasedData.length} Items)`}
       />
-      {renderProductCards(recommendedDeals, currentPage)}
+      {renderProductCards(frequentlyPurchasedData, currentPage)}
       <Flex justifyContent="end">
         <Box onClick={handlePreviousPage}>
           <img src="/images/prev.png" alt="" className="pag-button" />

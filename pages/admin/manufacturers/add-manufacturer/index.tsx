@@ -16,7 +16,7 @@ import Input from '@lib/components/base/input';
 import GalleryAdd from '@lib/components/inputs/GalleyAdd';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 
-export default function AddCategory(): React.ReactElement {
+export default function AddManufacturer(): React.ReactElement {
   const [categoryActive, setCategoryActive] = useBoolean(false);
 
   return (
@@ -34,25 +34,25 @@ export default function AddCategory(): React.ReactElement {
               label: 'Home',
               breadcrumLink: '/admin/inventory/categories',
             },
+            // {
+            //   label: 'Inventory',
+            //   breadcrumLink: '/admin/inventory/categories',
+            // },
+            // {
+            //   label: 'Categories',
+            //   breadcrumLink: '/admin/inventory/categories',
+            // },
             {
-              label: 'Inventory',
-              breadcrumLink: '/admin/inventory/categories',
-            },
-            {
-              label: 'Categories',
-              breadcrumLink: '/admin/inventory/categories',
-            },
-            {
-              label: 'Add Category',
-              breadcrumLink: '/admin/inventory/categories/add-category',
+              label: 'Manufaturer',
+              breadcrumLink: '/admin/manufacturer',
             },
           ]}
           searchWithFilters
           filterButton
           primaryButton
-          addNew="Category"
-          addBulk="Categories"
-          addButtons
+          addNew="Manufacturer"
+          // addBulk="Manufacturers"
+          // addButtons
           filter1="Flowers"
           filter2="Capsules"
         />
@@ -65,7 +65,7 @@ export default function AddCategory(): React.ReactElement {
         top="-11px"
         overflowX="hidden"
         overflowY="scroll"
-        h="63vh"
+        h="64vh"
       >
         <Box
           borderRadius="14px"
@@ -91,7 +91,7 @@ export default function AddCategory(): React.ReactElement {
                   color="#41454B"
                   fontWeight="normal"
                 >
-                  Add Category
+                  Add Manufacturer
                 </Heading>
               </Box>
             </Box>
@@ -109,16 +109,12 @@ export default function AddCategory(): React.ReactElement {
             columns={{ sm: 2 }}
           >
             <GridItem>
-              {/* <LabelledInput
-              placeholderText="Name Your Category"
-              label="Category Name"
-            /> */}
               <FormLabel
                 h={6}
                 className="primary-font-semibold"
                 color="#41454B"
               >
-                Category Name
+                Manufacturer Name
               </FormLabel>
               <Input
                 type="text"
@@ -127,7 +123,7 @@ export default function AddCategory(): React.ReactElement {
                   borderColor: 'rgba(18, 23, 30, 0.40)',
                   borderWidth: 0.5,
                 }}
-                placeholder="Name Your Category"
+                placeholder="Name Your Manufacturer"
               />
               <Box
                 style={{
@@ -218,7 +214,7 @@ export default function AddCategory(): React.ReactElement {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    marginTop: 100,
+                    marginTop: 50,
                   }}
                   as="button"
                   bgGradient="linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
@@ -295,54 +291,55 @@ export default function AddCategory(): React.ReactElement {
                   </Box>
                 </Box>
               </Box>
-            </GridItem>
-            <Box
-              display={{ base: 'none', sm: 'block' }}
-              style={{
-                position: 'absolute',
-                bottom: 40,
-                right: 70,
-              }}
-            >
               <Box
+                display={{ base: 'none', sm: 'block' }}
                 style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  borderRadius: 8,
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  backgroundColor: '#FF8A43',
-                  paddingRight: 40,
-                  paddingLeft: 40,
-                  paddingTop: 10,
-                  paddingBottom: 10,
+                  position: 'absolute',
+                  // bottom: -10,
+                  right: 70,
+                  marginTop: 30,
                 }}
               >
-                <Box>
-                  <Image
-                    src="/images/save.svg"
-                    style={{
-                      // alignSelf: 'center',
-                      width: 16,
-                      height: 16,
-                      // marginBottom: 5,
-                    }}
-                    alt="pos"
-                  />
-                </Box>
-                <Box>
-                  <Text
-                    style={{
-                      color: 'white',
-                      marginLeft: 7,
-                    }}
-                    className="primary-font-semibold"
-                  >
-                    Save
-                  </Text>
+                <Box
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    borderRadius: 8,
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    backgroundColor: '#FF8A43',
+                    paddingRight: 40,
+                    paddingLeft: 40,
+                    paddingTop: 10,
+                    paddingBottom: 10,
+                  }}
+                >
+                  <Box>
+                    <Image
+                      src="/images/save.svg"
+                      style={{
+                        // alignSelf: 'center',
+                        width: 16,
+                        height: 16,
+                        // marginBottom: 5,
+                      }}
+                      alt="pos"
+                    />
+                  </Box>
+                  <Box>
+                    <Text
+                      style={{
+                        color: 'white',
+                        marginLeft: 7,
+                      }}
+                      className="primary-font-semibold"
+                    >
+                      Save
+                    </Text>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
+            </GridItem>
           </SimpleGrid>
           <Box
             display={{ base: 'block', sm: 'none', md: 'none' }}
@@ -350,6 +347,8 @@ export default function AddCategory(): React.ReactElement {
               // display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              // borderWidth: 3,
+              // borderColor: 'orange',
             }}
           >
             <Box

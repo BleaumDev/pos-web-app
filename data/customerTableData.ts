@@ -12,7 +12,7 @@ const customerData = [
   {
     imgSrc: '/images/profile1.png',
     name: 'Esther Howard',
-    type: 'R',
+    type: 'M',
     medicalId: 'N/A',
     DOB: '12-07-1991',
     phone: '(217) 555-0113',

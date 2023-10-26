@@ -2,13 +2,13 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/button-has-type */
 import { Box, Flex, Img } from '@chakra-ui/react';
-import Button from '@lib/components/base/button';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import CustomerInformationDetail from '@lib/components/customers/customer-info-detail';
 import OrderDetails from '@lib/components/customers/order-details-list';
 import StatsDetail from '@lib/components/customers/stats-details';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import FrequentlyPurchasedProducts from '@lib/components/pos/frequently-purchased';
 import Link from 'next/link';
 
 const CustomerDetail = () => {
@@ -45,7 +45,7 @@ const CustomerDetail = () => {
         </Box>
 
         <Box
-          p="2em 2em 4em 2em"
+          p="2em 1em 4em 1em"
           borderRadius="20px 50px 0px 0px"
           bg="#E9F0F8 !important"
           position="relative"
@@ -107,35 +107,27 @@ const CustomerDetail = () => {
                 w="100%"
                 m={{
                   base: '0em 10px',
-                  md: '0em 2em',
+                  md: '0em 0em',
                 }}
               >
-                <StatsDetail />
-                <Flex gap="24px">
-                  <CustomerInformationDetail />
-                  <OrderDetails />
-                </Flex>
-
-                <Box
-                  textAlign="end"
-                  justifyContent="end"
-                  display="flex"
-                  mt="1em"
-                >
-                  <Button
-                    className="primary-font-semibold"
-                    fontSize="14px"
-                    styledVariant="orange"
-                    display="flex"
-                  >
-                    <Img
-                      src="/images/profile-add.png"
-                      width="16px"
-                      height="16px"
-                    />
-                    Add Customer
-                  </Button>
+                <Box w="90%">
+                  <StatsDetail />
                 </Box>
+                <Box
+                  display={{
+                    base: 'grid',
+                    md: 'flex',
+                  }}
+                  gap="24px"
+                >
+                  <Box>
+                    <CustomerInformationDetail />
+                  </Box>
+                  <Box>
+                    <OrderDetails />
+                  </Box>
+                </Box>
+                <FrequentlyPurchasedProducts />
               </Box>
             </Box>
           </Box>

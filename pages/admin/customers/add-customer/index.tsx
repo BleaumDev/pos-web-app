@@ -8,7 +8,6 @@ import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import ContactInformation from '@lib/components/customers/contact-information';
 import CustomerPersonalInformation from '@lib/components/customers/customer-personal-information';
-import LicenseInformation from '@lib/components/customers/license-information';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import Link from 'next/link';
 
@@ -94,7 +93,6 @@ export default function AddCustomer(): React.ReactNode {
               >
                 <CustomerPersonalInformation />
                 <ContactInformation />
-                <LicenseInformation />
 
                 <Box
                   textAlign="end"
