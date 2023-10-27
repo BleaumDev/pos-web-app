@@ -1,18 +1,21 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable react/no-array-index-key */
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the carousel styles
+import React, { useEffect, useRef, useState } from 'react';
+import { FileWithPath, useDropzone } from 'react-dropzone';
+import SwiperCore from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css'; // Import Swiper styles
 
-import { Box, Flex, Img, Input } from '@chakra-ui/react';
-import React, { useRef, useState } from 'react';
-import { useDropzone } from 'react-dropzone';
-import { Carousel } from 'react-responsive-carousel'; // Import the carousel component
-
+import { Box, Flex, Icon, Img, Input } from '@chakra-ui/react';
 import Button from './button';
+
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import SwiperInstance from 'swiper';
+import { Navigation } from 'swiper/modules';
+
+SwiperCore.use([Navigation]);
 
 interface UploadMultipleImagesProps {
   widthSelectedImage: string;
   heightSelectedImage: string;
-  defaultImages?: string[];
   widthOfDefaultImage?: string;
   addButton?: boolean;
 }
@@ -23,13 +26,17 @@ const UploadMultipleImages: React.FC<UploadMultipleImagesProps> = ({
   widthOfDefaultImage,
   addButton,
 }) => {
-  const [selectedFiles, setSelectedFiles] = useState<string[]>([]);
+  const [selectedFiles, setSelectedFiles] = useState<FileWithPath[]>([]);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const swiperRef = useRef<SwiperInstance | null>(null);
 
   const { getRootProps, getInputProps } = useDropzone({
-    onDrop: (acceptedFiles) => {
+    onDrop: (acceptedFiles: FileWithPath[]) => {
       const imageUrls = acceptedFiles.map((file) => URL.createObjectURL(file));
-      setSelectedFiles([...selectedFiles, ...imageUrls]);
+      setSelectedFiles((prevSelectedFiles) => [
+        ...prevSelectedFiles,
+        ...acceptedFiles,
+      ]);
     },
   });
 
@@ -53,11 +60,11 @@ const UploadMultipleImages: React.FC<UploadMultipleImagesProps> = ({
           fontSize="12px"
           w="136px"
           h="33px"
-          mt="10px"
+          position="relative"
+          top="2em"
           className="primary-font-semibold"
-          onClick={handleAddImageClick}
         >
-          <Img src="/images/gallery-add.png" w="16px" />
+          <Img src="/images/gallery-add.png" w="16px" mr="10px" />
           Add Image
         </Button>
       );
@@ -65,37 +72,86 @@ const UploadMultipleImages: React.FC<UploadMultipleImagesProps> = ({
     return null;
   };
 
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.update();
+    }
+  }, [selectedFiles]);
+
   return (
     <Box>
       {selectedFiles.length > 0 ? (
-        <Flex pl="2em" position="relative">
-          <Carousel showArrows dynamicHeight width="200px">
+        <Flex position="relative" mt="6em">
+          <Swiper
+            slidesPerView={1}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }}
+            onSwiper={(swiper: any) => {
+              swiperRef.current = swiper;
+            }}
+          >
             {selectedFiles.map((imageUrl, index) => (
-              <div key={index}>
-                <Img
-                  src={imageUrl}
-                  alt={`Uploaded Image ${index + 1}`}
-                  w={widthSelectedImage}
-                  h={heightSelectedImage}
-                  borderRadius="9px"
-                  objectFit="cover"
-                />
-                {renderAddImageButton()}
-                <Box
-                  position="absolute"
-                  top="2em"
-                  right="2em"
-                  cursor="pointer"
-                  onClick={() => handleRemoveImage(index)}
-                >
-                  <Img src="/images/close-circle.png" w="16px" />
+              <SwiperSlide key={index}>
+                <Box position="relative" left="30%">
+                  <Img
+                    src={
+                      typeof imageUrl === 'string'
+                        ? imageUrl
+                        : URL.createObjectURL(imageUrl)
+                    }
+                    alt={`Uploaded Image ${index + 1}`}
+                    w={widthSelectedImage}
+                    h={heightSelectedImage}
+                    borderRadius="9px"
+                    objectFit="cover"
+                  />
+                  <Box
+                    className="remove-image-button"
+                    position="absolute"
+                    top="8px"
+                    left="7em"
+                    cursor="pointer"
+                    onClick={() => handleRemoveImage(index)}
+                  >
+                    <Img src="/images/close-circle-grey.png" w="25px" />
+                  </Box>
                 </Box>
-              </div>
+              </SwiperSlide>
             ))}
-          </Carousel>
+          </Swiper>
+          <Box>
+            <div className="swiper-button-next">
+              <Icon
+                as={ChevronRightIcon}
+                w={6}
+                h={6}
+                color="rgba(65, 69, 75, 1)"
+              />
+            </div>
+          </Box>
+          <div className="swiper-button-prev">
+            <Icon
+              as={ChevronLeftIcon}
+              w={6}
+              h={6}
+              color="rgba(65, 69, 75, 1)"
+            />
+          </div>
         </Flex>
       ) : (
-        <Flex pl="12px">
+        <Flex
+          pl={{
+            base: '0em',
+            md: '6em',
+          }}
+          pr={{
+            base: '0em',
+            md: '4em',
+          }}
+          mt="6em"
+        >
           <Box
             display="grid"
             justifyItems="center"

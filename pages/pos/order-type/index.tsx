@@ -81,7 +81,7 @@ const index = () => {
                 New Order
               </Button>
             </Link>
-            <Link href="/pos">
+            <Link href="/pos/pending-orders">
               <Button
                 w="full"
                 borderRadius="8px"

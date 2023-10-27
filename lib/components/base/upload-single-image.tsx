@@ -67,7 +67,7 @@ const UploadSingleImage: React.FC<UploadSingleImageProps> = ({
                 className="primary-font-semibold"
                 onClick={handleAddImageClick}
               >
-                <Img src="/images/gallery-add.png" w="16px" />
+                <Img src="/images/gallery-add.png" w="16px" mr="10px" />
                 Add Image
               </Button>
             )}
@@ -104,7 +104,7 @@ const UploadSingleImage: React.FC<UploadSingleImageProps> = ({
                 mt="10px"
                 className="primary-font-semibold"
               >
-                <Img src="/images/gallery-add.png" w="16px" />
+                <Img src="/images/gallery-add.png" w="16px" mr="10px" />
                 Add Image
               </Button>
             )}

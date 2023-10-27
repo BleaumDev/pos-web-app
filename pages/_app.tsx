@@ -6,6 +6,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Suspense } from 'react';
 import { Provider } from 'react-redux';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 import { theme } from 'styles/theme';
 
 import 'react-widgets/styles.css';

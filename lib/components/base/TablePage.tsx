@@ -15,6 +15,7 @@ import {
   Tr,
 } from '@chakra-ui/react';
 import { nanoid } from '@reduxjs/toolkit';
+import { useRouter } from 'next/router';
 import React, { useMemo, useState, type FC } from 'react';
 
 interface TableProps {
@@ -191,6 +192,11 @@ const TablePage: FC<TableProps> = ({
   ) {
     tagsToDisplay.push(i);
   }
+
+  const router = useRouter();
+  const isActive = (path: string) => {
+    return router.pathname === path;
+  };
   return (
     <Box>
       <TableContainer
@@ -267,7 +273,7 @@ const TablePage: FC<TableProps> = ({
             {paginatedRows.map((row, i) => (
               <Tr
                 key={rowsKeys[i]}
-                bg="#FFF7F5"
+                bg={isActive('/admin/customers') ? '#FFFBF6' : 'transparent'}
                 color="rgba(65, 69, 75, 0.7)"
                 borderRadius="12px !important"
                 h="46px"
@@ -277,7 +283,7 @@ const TablePage: FC<TableProps> = ({
                       _hover: {
                         borderLeft: '12px solid #FFA382',
                         color: '#000000',
-                        bg: '#FFFBF6',
+                        bg: '#fff',
                         borderRadius: '12px',
                       },
                     }

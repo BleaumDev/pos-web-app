@@ -11,7 +11,7 @@ import RecommendedDeals from '@lib/components/pos/recommended-deals';
 
 const PosPayments = () => {
   return (
-    <PosSidenav>
+    <PosSidenav profileImage>
       <Flex position="fixed" top="9.75em" w="100%" gap="20px">
         <Box
           w={{
@@ -53,7 +53,7 @@ const PosPayments = () => {
               subText=" 42+ Categories"
             />
             <PosCarousel />
-            <Box mt="1em">
+            <Box mt="1em" mb="2em">
               <PsoHeading
                 fontSize1="16px"
                 fontSize2="12px"
