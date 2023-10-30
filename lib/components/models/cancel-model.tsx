@@ -1,6 +1,8 @@
 import {
-  Button,
+  Box,
+  Divider,
   Flex,
+  Img,
   Modal,
   ModalBody,
   ModalContent,
@@ -8,9 +10,7 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
-
-import MedicalModel from './medical-model';
-import RecreationalModel from './recreational-model';
+import Button from '../base/button';
 
 const CancelModel = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -21,6 +21,7 @@ const CancelModel = () => {
         borderRadius="9px"
         border="0.5px solid #fff"
         onClick={onOpen}
+        h="30px"
         color="#fff"
         fontSize="12px"
         _hover={{
@@ -34,8 +35,8 @@ const CancelModel = () => {
       </Button>
       <Modal
         isCentered
-        onClose={onClose}
         isOpen={isOpen}
+        onClose={onClose}
         motionPreset="slideInBottom"
       >
         <ModalOverlay />
@@ -45,35 +46,80 @@ const CancelModel = () => {
           bg="#fff"
           p="60px 10px"
         >
+          <Img
+            src="/images/close-circle-grey.png"
+            position="absolute"
+            top="-1em"
+            right="-10px"
+            boxSize="24px"
+            w="40px"
+            h="40px"
+            cursor="pointer"
+            onClick={onClose} // Close the modal when the close icon is clicked
+          />
           <ModalBody>
             <Flex justifyContent="center" alignItems="center">
               <Text
-                color="#FF4040"
-                className="primary-font-medium"
+                color="#FF4040 "
+                className="primary-font-extraBold"
                 fontSize="16px"
               >
                 Cancel Order?
               </Text>
             </Flex>
-            <Flex justifyContent="center" alignItems="center">
+            <Divider
+              border="1px solid"
+              mt="5px"
+              borderColor="rgba(65, 69, 75, 0.30)"
+            />
+            <Flex mt="10px" justifyContent="center" alignItems="center">
               <Text
-                color="#000"
-                className="primary-font-extraBold"
-                fontSize="30px"
+                color="#41454B"
+                className="primary-font-semi-bold-italic"
+                fontSize="14px"
               >
-                Bleaum POS
+                Order no.{' '}
+                <span
+                  style={{
+                    color: '#FF8A43',
+                  }}
+                >
+                  #185,
+                </span>{' '}
+                Ordered by{' '}
+                <span
+                  style={{
+                    color: '#FF8A43',
+                  }}
+                >
+                  Devon Lane
+                </span>{' '}
+                at
               </Text>
             </Flex>
-            <Text
-              mt="20px"
-              color="#41454B"
-              className="primary-font-medium"
-              fontSize="14px"
-            >
-              Choose Customer Type
-            </Text>
-            <MedicalModel />
-            <RecreationalModel />
+            <Flex mt="0px" justifyContent="center" alignItems="center">
+              <Text
+                color="#FF8A43"
+                className="primary-font-semi-bold-italic"
+                fontSize="14px"
+              >
+                23rd September, 2022
+              </Text>
+            </Flex>
+            <Flex mt="10px" justifyContent="center" alignItems="center">
+              <Text
+                color="#41454B"
+                className="primary-font-semi-bold-italic"
+                fontSize="14px"
+              >
+                Do you want to Cancel this order?
+              </Text>
+            </Flex>
+            <Box textAlign="center">
+              <Button styledVariant="delete" w="full" mt="2em">
+                Confirm Cancel
+              </Button>
+            </Box>
           </ModalBody>
         </ModalContent>
       </Modal>

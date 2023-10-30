@@ -116,16 +116,25 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
       }}
       mt="-4em"
       pb="1em"
-      zIndex="100"
+      position="relative"
       mr="20px"
-      borderRadius="0px 20px 50px 0px"
+      w="100%"
+      borderRadius="0px 20px 20px 0px"
     >
+      <Image
+        src="/images/arrow-side1.png"
+        alt="arrow"
+        bottom="-1.36em"
+        position="absolute"
+        left="-2px"
+        w="20px"
+      />
       <Box
         display={{
           base: 'grid',
           md: 'flex',
         }}
-        w="full"
+        w="100%"
       >
         <Box
           w={{

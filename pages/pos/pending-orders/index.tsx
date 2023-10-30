@@ -83,6 +83,7 @@ const PendingOrders = () => {
           className="primary-font-semibold"
           borderRadius="9px"
           border="0.5px solid #fff"
+          h="30px"
           bg="#08754C"
           _hover={{
             background: '#08754C',

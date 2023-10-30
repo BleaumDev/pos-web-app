@@ -65,7 +65,7 @@ const UploadMultipleImages: React.FC<UploadMultipleImagesProps> = ({
           className="primary-font-semibold"
         >
           <Img src="/images/gallery-add.png" w="16px" mr="10px" />
-          Add Image
+          Add Images
         </Button>
       );
     }
