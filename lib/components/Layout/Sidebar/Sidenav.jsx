@@ -4,11 +4,11 @@ import {
   Collapse,
   Flex,
   IconButton,
+  Image,
   Text,
   useDisclosure,
   VStack,
 } from '@chakra-ui/react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Navbar from './Navbar';
@@ -22,7 +22,7 @@ const Sidenav = ({ children }) => {
     return router.pathname === path;
   };
   return (
-    <>
+    <Flex>
       <Box position={'fixed'} w={'full'} top={'0px'} zIndex={9999}>
         <Navbar />
       </Box>
@@ -89,7 +89,7 @@ const Sidenav = ({ children }) => {
                 </Box>
               </Flex>
             </Link>
-            <Box cursor={'pointer'} mt="-10px" onClick={onInventoryToggle}>
+            <Box cursor={'pointer'} mt="0px" onClick={onInventoryToggle}>
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
                   <Image
@@ -124,8 +124,10 @@ const Sidenav = ({ children }) => {
                 borderLeft={'1px solid #E69066'}
                 marginLeft={'15px !important'}
                 transition=" 0.3s ease-in-out"
-                pl={'38px'}
+                pl={'30px'}
+                mt="2em"
                 mb="12px"
+                zIndex="10"
                 width="208px !important"
               >
                 <Box
@@ -450,11 +452,12 @@ const Sidenav = ({ children }) => {
       <Box
         pl={{ base: '0', md: !isOpen ? '250px' : '70px' }}
         marginTop={'10em'}
+        w="100%"
         transition="0.3s ease-in-out"
       >
         {children}
       </Box>
-    </>
+    </Flex>
   );
 };
 

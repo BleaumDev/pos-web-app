@@ -21,7 +21,7 @@ const CustomerPage = () => {
   return (
     <div>
       <Sidenav>
-        <Box position="relative" mt="0em" w="auto">
+        <Box position="relative" mt="0em" pr="2em" w="auto">
           <FloatingHeader
             title="Customers"
             itemCount="12342+ Customers"
@@ -60,10 +60,8 @@ const CustomerPage = () => {
 
         <Box
           p="2em 2em 4em 2em"
-          borderRadius="20px"
-          bg="#E9F0F8 !important"
           position="relative"
-          top="-2em"
+          top="0em"
           overflowX="hidden"
           overflowY="scroll"
           h="60vh"

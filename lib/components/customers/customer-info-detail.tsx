@@ -20,7 +20,7 @@ const CustomerInformationDetail = () => {
         border="1px solid rgba(65, 69, 75,
                     0.20)"
         p="1.4em 1.5em"
-        h="375px"
+        h="auto"
       >
         <Flex gap="0px">
           <Box>

@@ -1,8 +1,8 @@
-import { Box, Img, Input, Select, Stack } from '@chakra-ui/react';
+import { Box, Input, Select, Stack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 
-import Button from '../base/button';
 import Label from '../base/label';
+import UploadSingleImage from '../base/upload-single-image';
 
 const genders = ['Male', 'Female'];
 const countries = ['USA', 'Canada', 'Mexico'];
@@ -195,19 +195,13 @@ const CustomerPersonalInformation = () => {
                 Add Photo
               </Label>
               <Box ml="-1em">
-                <Img src="/images/upload-Image.png " w="200px" />
-                <Button
-                  styledVariant="blue"
-                  fontSize="12px"
-                  ml="3em"
-                  mt="1em"
-                  w="136px"
-                  h="33px"
-                  className="primary-font-semibold"
-                >
-                  <Img src="/images/gallery-add.png" mr="10px" w="16px" />
-                  Add Image
-                </Button>
+                <UploadSingleImage
+                  widthSelectedImage="164px"
+                  heightSelectedImage="136px"
+                  widthOfDefaultImage="200px"
+                  defaultImage="/images/upload-Image.png"
+                  addButton
+                />
               </Box>
             </Stack>
           </Box>

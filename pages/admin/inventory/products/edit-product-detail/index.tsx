@@ -1,8 +1,9 @@
 /* eslint-disable */
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Flex, Img, Link } from '@chakra-ui/react';
+import { Box, Flex, Link } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
+import UploadMultipleImages from '@lib/components/base/upload-multiple-images';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import EditProductInformation from '@lib/components/product/edit-product-information';
 
@@ -82,13 +83,28 @@ export default function EditProductDetail(): React.ReactNode {
               <Box w={{ base: '100%', md: '70%' }} ml="1em" mt="1em" px="2em">
                 <EditProductInformation />
               </Box>
-              <Box w={{ base: '100%', md: '30%' }} ml="1em">
+              <Box
+                w={{ base: '500px', md: '30%' }}
+                ml="1em"
+                position="relative"
+              >
                 <Box
                   borderRadius="24px"
                   border="0.2px solid rgba(18, 23, 30, 0.40)"
                   background="rgba(255, 255, 255, 0.80)"
+                  h="400px"
+                  w={{
+                    base: '100%',
+                    md: '100%',
+                  }}
+                  alignItems="center"
                 >
-                  <Img src="/images/image_zoom.png" p="3em 1em" />
+                  <UploadMultipleImages
+                    widthSelectedImage="164px"
+                    heightSelectedImage="136px"
+                    widthOfDefaultImage="200px"
+                    addButton
+                  />
                 </Box>
               </Box>
             </Box>

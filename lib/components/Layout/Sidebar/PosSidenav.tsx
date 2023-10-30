@@ -16,9 +16,10 @@ import PosNavbar from './PosNavbar';
 
 interface SidenavProps {
   children: ReactNode;
+  profileImage?: boolean;
 }
 
-const PosSidenav = ({ children }: SidenavProps) => {
+const PosSidenav = ({ children, profileImage }: SidenavProps) => {
   const { isOpen } = useDisclosure({ defaultIsOpen: true });
   const { isOpen: isInventoryOpen, onToggle: onInventoryToggle } =
     useDisclosure();
@@ -34,17 +35,19 @@ const PosSidenav = ({ children }: SidenavProps) => {
       <Box position="fixed" w="full" top="0px" zIndex={100}>
         <PosNavbar />
       </Box>
-      <Box position="fixed" top="2em" left="4em" zIndex={200}>
-        <Img src="/images/oval2.png" width="150px" height="auto" alt="logo" />
-        <Box position="absolute" top="10px" left="2em">
-          <Img
-            src="/images/profile.png"
-            width="80px"
-            height="auto"
-            alt="logo"
-          />
+      {profileImage && (
+        <Box position="fixed" top="2em" left="4em" zIndex={200}>
+          <Img src="/images/oval2.png" width="150px" height="auto" alt="logo" />
+          <Box position="absolute" top="10px" left="2em">
+            <Img
+              src="/images/profile.png"
+              width="80px"
+              height="auto"
+              alt="logo"
+            />
+          </Box>
         </Box>
-      </Box>
+      )}
 
       <Box
         display={{
