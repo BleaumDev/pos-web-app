@@ -66,7 +66,7 @@ const ManufecturerPage = () => {
   return (
     <div>
       <Sidenav>
-        <Box position="relative" mt="0em" w="auto">
+        <Box position="relative" mt="0em" pr="2em" w="auto">
           <FloatingHeader
             title="Manufacturers"
             itemCount="121+ Manufacturers"
@@ -109,8 +109,6 @@ const ManufecturerPage = () => {
 
         <Box
           p="2em 2em 4em 2em"
-          borderRadius="20px"
-          bg="#E9F0F8 !important"
           position="relative"
           top="-11px"
           overflowX="hidden"

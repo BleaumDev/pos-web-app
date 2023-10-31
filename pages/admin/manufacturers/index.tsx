@@ -4,14 +4,14 @@ import { Box, Image, Td } from '@chakra-ui/react';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import TablePage from '@lib/components/base/TablePage';
 import FloatingHeader from '@lib/components/base/floating-header';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 export default function ManufacturerList(): React.ReactElement {
-  const [isClient, setIsClient] = useState(false);
+  // const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // useEffect(() => {
+  //   setIsClient(true);
+  // }, []);
 
   const inventoryItem = [
     <Td
@@ -40,9 +40,6 @@ export default function ManufacturerList(): React.ReactElement {
     <Td className="text-center" key="category">
       30
     </Td>,
-    // <Td className="text-center" key="messagesCount">
-    //   23
-    // </Td>,
     <Td className="text-center" key="createdAt">
       Active
     </Td>,
@@ -72,8 +69,8 @@ export default function ManufacturerList(): React.ReactElement {
       <Sidenav>
         <Box position="relative" mt="0em" w="auto">
           <FloatingHeader
-            title="Categories"
-            itemCount="13+ Categories"
+            title="Manufacturers"
+            itemCount="13+ Manufacturers"
             csvImage
             refreshImage
             sortBy
@@ -89,7 +86,7 @@ export default function ManufacturerList(): React.ReactElement {
                 breadcrumLink: '/admin/inventory/categories',
               },
               {
-                label: 'Categories',
+                label: 'Manufacturers',
                 breadcrumLink: '/admin/inventory/categories',
               },
             ]}
@@ -97,19 +94,16 @@ export default function ManufacturerList(): React.ReactElement {
             searchWithFiltersPlaceholder="Products"
             searchWithFilterOptions={[
               {
-                label: 'Flowers',
-              },
-              {
-                label: 'Capsules',
+                label: 'Cresco Labs',
               },
             ]}
             filterButton
-            primaryButton
-            addNew="Category"
-            addBulk="Categories"
+            // primaryButton
+            addNew="Manufacturer"
+            addBulk="Manufacturers"
             addButtons
-            filter1="Flowers"
-            filter2="Capsules"
+            filter1="Cresco Labs"
+            filter2="Aphria Inc."
           />
         </Box>
 
@@ -123,19 +117,17 @@ export default function ManufacturerList(): React.ReactElement {
           overflowY="scroll"
           h="60vh"
         >
-          {isClient && (
-            <TablePage
-              checkboxes
-              headers={[
-                'Image',
-                'Manufacturer',
-                'No.of Products',
-                'Status',
-                'Action',
-              ]}
-              rows={inventory}
-            />
-          )}
+          <TablePage
+            checkboxes
+            headers={[
+              'Image',
+              'Manufacturer',
+              'No.of Products',
+              'Status',
+              'Action',
+            ]}
+            rows={inventory}
+          />
         </Box>
       </Sidenav>
     </div>

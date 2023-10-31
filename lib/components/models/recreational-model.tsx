@@ -169,13 +169,15 @@ const RecreationalModel = () => {
               >
                 Don’t have an account?
               </Text>
-              <Text
-                fontSize="14px"
-                color="#1098FF"
-                className="primary-font-semibold"
-              >
-                Create new account
-              </Text>
+              <Link href="/admin/customers/add-customer">
+                <Text
+                  fontSize="14px"
+                  color="#1098FF"
+                  className="primary-font-semibold"
+                >
+                  Create new account
+                </Text>
+              </Link>
             </Flex>
           </ModalBody>
         </ModalContent>

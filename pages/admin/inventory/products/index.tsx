@@ -34,7 +34,7 @@ const Inventory = () => {
       Herb, dried
     </Td>,
     <Td className="text-center" key="messagesCount">
-      $22.00
+      complex
     </Td>,
     <Td className="text-center" key="createdAt">
       250g
@@ -68,9 +68,9 @@ const Inventory = () => {
   }, [inventoryItem]);
 
   return (
-    <div>
+    <Box>
       <Sidenav>
-        <Box position="relative" mt="0em" w="auto">
+        <Box position="relative" mt="0em" w="100%" pr="2em">
           <FloatingHeader
             title="Products"
             itemCount="1432+ Items"
@@ -103,12 +103,12 @@ const Inventory = () => {
 
         <Box
           p="2em 2em 4em 2em"
-          borderRadius="20px"
-          bg="#E9F0F8 !important"
           position="relative"
-          top="-2em"
+          top="0em"
+          w="100%"
           overflowX="hidden"
           overflowY="scroll"
+          zIndex={-1}
           h="60vh"
         >
           {isClient && (
@@ -116,11 +116,11 @@ const Inventory = () => {
               checkboxes
               hoverEffect
               headers={[
-                'Image',
+                '',
                 'Product Name',
                 'Category',
                 'Price',
-                'Size',
+                'Price type',
                 'Manufacturer',
                 'Total Qty',
                 'Available Qty',
@@ -132,7 +132,7 @@ const Inventory = () => {
           )}
         </Box>
       </Sidenav>
-    </div>
+    </Box>
   );
 };
 

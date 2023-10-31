@@ -1,4 +1,4 @@
-import { Box, Flex, Img, Stack, Text, Textarea } from '@chakra-ui/react';
+import { Box, Flex, Img, Stack, Textarea } from '@chakra-ui/react';
 
 import Input from '../base/input';
 import Label from '../base/label';
@@ -136,11 +136,11 @@ const EditProductInformation = () => {
                   sm: '14px',
                   md: '15px',
                 }}
-                className="primary-font-semibold"
+                className="primary-font-semibold mt-2"
               >
                 Complex Pricing
               </Label>
-              <Text
+              {/* <Text
                 fontSize="14px"
                 color="#0C8CE9"
                 borderBottom="1px solid #0C8CE9"
@@ -148,7 +148,7 @@ const EditProductInformation = () => {
                 className="primary-font-semi-bold-italic"
               >
                 Edit
-              </Text>
+              </Text> */}
             </Flex>
             <ComplexPricingTable />
             <Stack mt="1em">

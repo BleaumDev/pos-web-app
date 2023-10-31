@@ -20,6 +20,13 @@ const breakpoints = {
 
 export const theme = extendTheme(
   {
+    styles: {
+      global: {
+        option: {
+          color: 'orange',
+        },
+      },
+    },
     breakpoints,
     fonts: {
       body: tajawal.style.fontFamily,

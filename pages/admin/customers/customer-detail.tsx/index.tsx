@@ -21,7 +21,7 @@ const CustomerDetail = () => {
   return (
     <div>
       <Sidenav>
-        <Box position="relative" mt="0em" w="auto">
+        <Box position="relative" mt="0em" w="auto" pr="2em">
           <FloatingHeader
             title="Customers"
             itemCount="12230+ Customers"
@@ -37,17 +37,15 @@ const CustomerDetail = () => {
                 breadcrumLink: '/admin/customers',
               },
               {
-                label: 'Add New Customer',
-                breadcrumLink: '/admin/customers/add-customer',
+                label: 'Customer Detail',
+                breadcrumLink: '/admin/customers/customer-detail',
               },
             ]}
           />
         </Box>
 
         <Box
-          p="2em 1em 4em 1em"
-          borderRadius="20px 50px 0px 0px"
-          bg="#E9F0F8 !important"
+          p="2em 2em 4em 2em"
           position="relative"
           top="-11px"
           overflowX="hidden"
@@ -113,13 +111,7 @@ const CustomerDetail = () => {
                 <Box w="90%">
                   <StatsDetail />
                 </Box>
-                <Box
-                  display={{
-                    base: 'grid',
-                    md: 'flex',
-                  }}
-                  gap="24px"
-                >
+                <Box className="customer-detail-box">
                   <Box>
                     <CustomerInformationDetail />
                   </Box>

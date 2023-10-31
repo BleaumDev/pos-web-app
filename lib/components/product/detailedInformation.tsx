@@ -1,9 +1,10 @@
-import { Box, Flex, Img, Stack } from '@chakra-ui/react';
+import { Box, Flex, Stack } from '@chakra-ui/react';
 
 import Button from '../base/button';
 import PosDatePicker from '../base/data-picker';
 import Input from '../base/input';
 import Label from '../base/label';
+import UploadSingleImage from '../base/upload-single-image';
 
 const DetailedInformation = () => {
   return (
@@ -91,18 +92,13 @@ const DetailedInformation = () => {
         >
           Image
         </Label>
-        <Img src="/images/upload-Image.png " w="200px" />
-        <Button
-          styledVariant="blue"
-          fontSize="12px"
-          ml="3em"
-          w="136px"
-          h="33px"
-          className="primary-font-semibold"
-        >
-          <Img src="/images/gallery-add.png" mr="10px" w="16px" />
-          Add Image
-        </Button>
+        <UploadSingleImage
+          widthSelectedImage="164px"
+          heightSelectedImage="136px"
+          widthOfDefaultImage="200px"
+          defaultImage="/images/upload-Image.png"
+          addButton
+        />
       </Stack>
       <Flex justifyContent="end" gap="21px" mt="5em" alignItems="end">
         <Button

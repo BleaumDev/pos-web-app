@@ -163,8 +163,8 @@ const OrderDetailsList = () => {
         Orders History
       </Label>
       <Box
-        p="18px 31px"
-        h="375px"
+        p="18px 31px 30px 31px"
+        h="auto"
         mt="1em"
         borderRadius="6px"
         border="1px solid rgba(65, 69, 75, 0.20)"
