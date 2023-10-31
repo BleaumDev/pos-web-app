@@ -2,6 +2,7 @@ import { Box, Flex, Stack } from '@chakra-ui/react';
 
 import Label from '../base/label';
 import Text from '../base/text';
+import EditLoyalityPoints from '../models/edit-loyality-points';
 
 const CustomerInformationDetail = () => {
   return (
@@ -201,15 +202,7 @@ const CustomerInformationDetail = () => {
               {' '}
               Loyalty Points
             </Text>
-            <Text
-              fontSize="12px"
-              className="primary-font-regular-italic"
-              color="#0C8CE9"
-              textDecoration="underline"
-              cursor="pointer"
-            >
-              Edit Points
-            </Text>
+            <EditLoyalityPoints />
           </Flex>
           <Flex justifyContent="space-between" mt="10px">
             <Flex gap="6px">

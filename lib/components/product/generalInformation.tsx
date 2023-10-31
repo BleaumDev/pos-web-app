@@ -1,4 +1,4 @@
-import { Box, Flex, Select, Stack, Text, Textarea } from '@chakra-ui/react';
+import { Box, Flex, Select, Stack, Textarea } from '@chakra-ui/react';
 
 import Input from '../base/input';
 import Label from '../base/label';
@@ -200,16 +200,6 @@ const GeneralInformation = () => {
         </Label>
       </Stack>
       <ComplexPricingInputRow />
-      <Box mt={4}>
-        <Text
-          h={6}
-          cursor="pointer"
-          className="primary-font-semibold"
-          color="#FFA382"
-        >
-          + Add more
-        </Text>
-      </Box>
     </>
   );
 };

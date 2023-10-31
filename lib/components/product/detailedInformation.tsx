@@ -1,6 +1,5 @@
 import { Box, Flex, Stack } from '@chakra-ui/react';
 
-import Button from '../base/button';
 import PosDatePicker from '../base/data-picker';
 import Input from '../base/input';
 import Label from '../base/label';
@@ -100,28 +99,6 @@ const DetailedInformation = () => {
           addButton
         />
       </Stack>
-      <Flex justifyContent="end" gap="21px" mt="5em" alignItems="end">
-        <Button
-          className="primary-font-semibold"
-          border=" 0.3px solid rgba(18, 23, 30, 0.50)"
-          fontSize="14px"
-          styledVariant="outline"
-          color="rgba(18, 23, 30, 0.50)"
-        >
-          Cancel
-        </Button>
-        <Button
-          className="primary-font-semibold"
-          fontSize="14px"
-          styledVariant="blue"
-          _hover={{
-            background: 'rgba(255, 138, 67, 0.50)',
-          }}
-          background="rgba(255, 138, 67, 0.50)"
-        >
-          Add product
-        </Button>
-      </Flex>
     </>
   );
 };

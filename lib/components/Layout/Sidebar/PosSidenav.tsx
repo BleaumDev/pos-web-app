@@ -436,6 +436,16 @@ const PosSidenav = ({ children, profileImage }: SidenavProps) => {
                 />
               </Flex>
             </NextLink>
+            <NextLink href="/auth/login">
+              <Flex mt="1em">
+                <Image
+                  src={'/images/Logout.png'}
+                  width={25}
+                  height={25}
+                  alt=""
+                />
+              </Flex>
+            </NextLink>
           </Box>
         </Collapse>
       </Box>

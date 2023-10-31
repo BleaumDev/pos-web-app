@@ -20,9 +20,9 @@ const ForgetPassword = () => {
           <Heading>Reset Your Password!</Heading>
           <Box mx="2em">
             <SubHeading>
-              You will receive an e-mail with a verification code. Please check
-              you inbox.
+              You will receive an e-mail with a verification code.
             </SubHeading>
+            <SubHeading mt="-9px">Please check you inbox.</SubHeading>
           </Box>
         </AuthCardHeader>
         <AuthCardBody maxH="30vh">

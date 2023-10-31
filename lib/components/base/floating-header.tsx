@@ -288,7 +288,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
             </Flex>
           )}
           {simpleSearch && (
-            <Flex gap="20px" mt="2em">
+            <Flex gap="12px" mt="2em">
               <Input
                 placeholder="Search here by SKU or Product Name"
                 background="#E9F0F8"
@@ -361,6 +361,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                   borderRadius="4px"
                   border="1px solid #41454B"
                   color="#41454B"
+                  w="auto"
                   fontSize="12px"
                   className="primary-font-medium"
                   _hover={{

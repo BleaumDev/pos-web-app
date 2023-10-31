@@ -96,7 +96,12 @@ export default function AddSubcategory(): React.ReactElement {
                 </Heading>
               </Box>
             </Box>
-            <Divider className="mx-5 mt-4" />
+            <Divider
+              my="15px"
+              w="95%"
+              ml="4em"
+              borderColor="rgba(18, 23, 30, 0.4)"
+            />
           </Box>
           <SimpleGrid
             style={{
@@ -112,6 +117,7 @@ export default function AddSubcategory(): React.ReactElement {
             <GridItem>
               <LabelledSelect
                 options={[
+                  { value: '', label: '' },
                   { value: 'Ices', label: 'Ices' },
                   { value: 'Pre-Rolled', label: 'Pre-Rolled' },
                   { value: 'Flowers', label: 'Flowers' },

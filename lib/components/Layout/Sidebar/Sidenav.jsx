@@ -338,7 +338,7 @@ const Sidenav = ({ children }) => {
                 </Box>
               </Flex>
             </Link>
-            <Link href="/">
+            <Link href="/auth/login">
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
                   <Image
@@ -440,6 +440,16 @@ const Sidenav = ({ children }) => {
               <Flex mt={'1em'}>
                 <Image
                   src={'/images/Setting.png'}
+                  width={25}
+                  height={25}
+                  alt=""
+                />
+              </Flex>
+            </Link>
+            <Link href="/auth/login">
+              <Flex mt={'1em'}>
+                <Image
+                  src={'/images/Logout.png'}
                   width={25}
                   height={25}
                   alt=""

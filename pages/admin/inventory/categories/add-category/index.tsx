@@ -95,7 +95,12 @@ export default function AddCategory(): React.ReactElement {
                 </Heading>
               </Box>
             </Box>
-            <Divider className="mx-5 mt-4" />
+            <Divider
+              my="15px"
+              w="95%"
+              ml="4em"
+              borderColor="rgba(18, 23, 30, 0.4)"
+            />
           </Box>
           <SimpleGrid
             style={{

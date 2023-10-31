@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/button-has-type */
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Flex, Img } from '@chakra-ui/react';
+import { Box, Divider, Flex, Img } from '@chakra-ui/react';
 import Button from '@lib/components/base/button';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
@@ -70,6 +70,8 @@ export default function AddCustomer(): React.ReactNode {
                 Add New Customer
               </Label>
             </Flex>
+            <Divider my="15px" mx="30px" borderColor="rgba(18, 23, 30, 0.4)" />
+
             <Box
               display={{
                 base: 'grid',

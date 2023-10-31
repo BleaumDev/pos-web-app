@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Flex, Img } from '@chakra-ui/react';
+import { Box, Divider, Flex, Img } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
@@ -70,6 +70,7 @@ export default function ProductDetail(): React.ReactNode {
                 Coastal Kush
               </Label>
             </Flex>
+            <Divider my="15px" mx="30px" borderColor="rgba(18, 23, 30, 0.4)" />
 
             <Box
               mt="10px"

@@ -40,12 +40,7 @@ const CancelModel = () => {
         motionPreset="slideInBottom"
       >
         <ModalOverlay />
-        <ModalContent
-          border="0.4px solid #000"
-          borderRadius="24px"
-          bg="#fff"
-          p="60px 10px"
-        >
+        <ModalContent borderRadius="24px" bg="#fff" p="60px 10px">
           <Img
             src="/images/close-circle-grey.png"
             position="absolute"

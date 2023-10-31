@@ -108,7 +108,6 @@ const Inventory = () => {
           w="100%"
           overflowX="hidden"
           overflowY="scroll"
-          zIndex={-1}
           h="60vh"
         >
           {isClient && (
