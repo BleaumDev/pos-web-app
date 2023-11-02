@@ -105,7 +105,7 @@ export default function ProductDetail(): React.ReactNode {
               >
                 <Label
                   fontSize={{ base: '12px', sm: '14px', md: '16px' }}
-                  className="primary-font-semibold"
+                  className="glroy-bold"
                 >
                   General Information
                 </Label>

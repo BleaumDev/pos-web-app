@@ -1,17 +1,19 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import type { UseDisclosureProps } from '@chakra-ui/react';
 import {
   Flex,
+  Img,
   Modal,
   ModalBody,
   ModalContent,
   ModalOverlay,
   Text,
   useDisclosure,
+  UseDisclosureProps,
 } from '@chakra-ui/react';
 import PosNavbar from '@lib/components/Layout/Sidebar/PosNavbar';
 import MedicalModel from '@lib/components/models/medical-model';
 import RecreationalModel from '@lib/components/models/recreational-model';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const index = () => {
@@ -37,6 +39,16 @@ const index = () => {
           p="60px 10px"
         >
           <ModalBody>
+            <Link href="/pos/order-type">
+              <Img
+                src="/images/arrow-square.png"
+                alt="arrow-square"
+                width="32px"
+                height="32px"
+                position="relative"
+                top="-3em"
+              />
+            </Link>
             <Flex justifyContent="center" alignItems="center">
               <Text
                 color="#000"

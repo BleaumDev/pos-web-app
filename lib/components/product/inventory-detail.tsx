@@ -43,7 +43,7 @@ const InventoryDetail = ({ className }: InventoryDetailProps) => {
           sm: '14px',
           md: '14px',
         }}
-        className="primary-font-semibold"
+        className="glroy-bold"
       >
         Inventory Details
       </Label>

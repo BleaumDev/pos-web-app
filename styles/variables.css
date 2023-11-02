@@ -325,6 +325,13 @@ background-clip: text !important;
 }
 
 /* Extra Large Devices (Large Desktops) */
+@media (min-width: 1390px) {
+ .customer-detail-box{
+  display: flex;
+  gap: 20px;
+ }
+}
+/* Extra Large Devices (Large Desktops) */
 @media (min-width: 1500px) {
  .customer-detail-box{
   display: flex;

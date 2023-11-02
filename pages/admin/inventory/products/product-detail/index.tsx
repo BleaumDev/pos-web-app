@@ -43,10 +43,8 @@ export default function ProductDetail(): React.ReactNode {
         </Box>
         <Box
           p="2em 2em 4em 2em"
-          borderRadius="20px 50px 0px 0px"
-          bg="#E9F0F8 !important"
           position="relative"
-          top="-11px"
+          top="0px"
           overflowX="hidden"
           overflowY="scroll"
           h="65vh"

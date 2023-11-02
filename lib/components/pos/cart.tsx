@@ -10,13 +10,16 @@ import ThanksPage from './thanks';
 const CartPage = () => {
   const [activeComponent, setActiveComponent] = useState('CartDetail');
   const [buttonText, setButtonText] = useState('Pay Now');
+  const [headerHeading, setHeaderHeading] = useState('New Order Bill');
   const handleFinalizeOrder = () => {
     if (activeComponent === 'CartDetail') {
       setActiveComponent('InvoicePage');
       setButtonText('Finalize Order');
+      setHeaderHeading('Invoice POS');
     } else if (activeComponent === 'InvoicePage') {
       setActiveComponent('EmailOrPrintInvoicePage');
       setButtonText('Email Invoice');
+      setHeaderHeading('Invoice POS');
     } else if (activeComponent === 'EmailOrPrintInvoicePage') {
       setActiveComponent('ThanksPage');
       setButtonText('Finalize Order');
@@ -25,6 +28,21 @@ const CartPage = () => {
 
   const handlePrintInvoice = () => {
     setActiveComponent('ThanksPage');
+    setHeaderHeading('New Order Bill');
+  };
+
+  const handleToggleComponent = () => {
+    if (activeComponent === 'CartDetail') {
+      setActiveComponent('InvoicePage');
+      setButtonText('Finalize Order');
+      // ... (update state as needed for 'InvoicePage')
+    } else {
+      setActiveComponent('CartDetail');
+      setButtonText('Pay Now');
+      setHeaderHeading('New Order Bill');
+
+      // ... (update state as needed for 'CartDetail')
+    }
   };
 
   return (
@@ -34,29 +52,43 @@ const CartPage = () => {
           base: 'none',
           md: 'flex',
         }}
-        p="20px 20px 10px 20px"
+        p="30px 20px 10px 20px"
         borderBottom="1px solid #000000"
         justifyContent="space-between"
       >
         <Text
           fontSize="16px"
-          className="primary-font-semibold"
+          className="glroy-bold"
           color="#41454B"
           fontWeight="400"
         >
-          New Order Bill
+          {headerHeading}
         </Text>
-        <Flex fontSize="12px" gap="5px">
-          <Text
-            color="rgba(65, 69, 75, 0.50)"
-            className="primary-font-semibold"
-          >
-            Bud-tender:
-          </Text>
-          <Text color="#41454B" className="primary-font-semi-bold-italic">
-            Mr. Happy
-          </Text>
-        </Flex>
+        {activeComponent === 'CartDetail' ||
+        activeComponent === 'ThanksPage' ? (
+          <Flex fontSize="12px" gap="5px">
+            <Text
+              color="rgba(65, 69, 75, 0.50)"
+              className="primary-font-semibold"
+            >
+              Bud-tender:
+            </Text>
+            <Text color="#41454B" className="primary-font-semi-bold-italic">
+              Mr. Happy
+            </Text>
+          </Flex>
+        ) : (
+          <Flex fontSize="12px" gap="5px">
+            <Img
+              src="/images/close-circle.png"
+              alt="arrow-square"
+              width="21px"
+              cursor={'pointer'}
+              height="21px"
+              onClick={handleToggleComponent}
+            />
+          </Flex>
+        )}
       </Box>
       <Box
         overflowY={{

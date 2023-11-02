@@ -72,8 +72,12 @@ const AddProduct = () => {
             <Box>
               <Text
                 fontSize="14px"
-                className="primary-font-semibold"
+                className="glroy-bold"
                 color="#41454B"
+                w={{
+                  base: 'auto',
+                  md: '200px',
+                }}
                 fontWeight="400"
               >
                 {product.name}

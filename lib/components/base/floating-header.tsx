@@ -245,7 +245,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
               <Flex>
                 <Select
                   placeholder={searchWithFiltersPlaceholder}
-                  w="auto"
+                  w="150px"
                   borderRadius="4px 0px 0px 4px"
                 >
                   {searchWithFilterOptions?.map(

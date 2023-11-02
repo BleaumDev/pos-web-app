@@ -37,11 +37,7 @@ const CartDetail = () => {
           </Text>
         </Flex>
         <Flex justifyContent="space-between" mt="6px">
-          <Text
-            color="#41454B"
-            fontSize="14px"
-            className="primary-font-semi-bold-italic"
-          >
+          <Text color="#41454B" fontSize="14px" className="glroy-bold">
             Total Discount
           </Text>
           <Flex gap="5px">
@@ -136,11 +132,7 @@ const CartDetail = () => {
         )}
         <hr style={{ borderTop: '1px dashed rgba(65, 69, 75, 1)' }} />
         <Flex justifyContent="space-between" mt="6px">
-          <Text
-            color="#41454B"
-            fontSize="14px"
-            className="primary-font-semi-bold-italic"
-          >
+          <Text color="#41454B" fontSize="14px" className="glroy-bold">
             Total Tax
           </Text>
           <Flex gap="5px">
@@ -259,11 +251,7 @@ const CartDetail = () => {
         </Flex>
         <hr style={{ borderTop: '1px dashed #000', marginTop: '1em' }} />
         <Flex justifyContent="space-between" mt="6px">
-          <Text
-            color="#41454B"
-            fontSize="14px"
-            className="primary-font-semi-bold-italic"
-          >
+          <Text color="#41454B" fontSize="14px" className="glroy-bold">
             Total Payable
           </Text>
           <Flex gap="5px">
@@ -283,12 +271,7 @@ const CartDetail = () => {
             marginTop: '1em',
           }}
         />
-        <Text
-          color="#41454B"
-          fontSize="16px"
-          mt="5px"
-          className="primary-font-semibold"
-        >
+        <Text color="#41454B" fontSize="16px" mt="5px" className="glroy-bold">
           Bud-tender Notes/experience
         </Text>
         <Box
@@ -300,7 +283,7 @@ const CartDetail = () => {
           <Text
             color="rgba(18, 23, 30, 0.60)"
             fontSize="12px"
-            className="primary-font-semibold"
+            className="primary-font-semi-bold-italic"
           >
             Non-refundable products. Non-changeable.
           </Text>

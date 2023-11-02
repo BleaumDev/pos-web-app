@@ -187,7 +187,7 @@ const GeneralInformation = () => {
       <Stack mt="24px">
         <Label
           fontSize={{ base: '12px', sm: '14px', md: '16px' }}
-          className="primary-font-semibold"
+          className="glroy-bold"
         >
           Complex Pricing
         </Label>

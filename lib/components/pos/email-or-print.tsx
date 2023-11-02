@@ -17,18 +17,14 @@ const EmailOrPrintInvoicePage = () => {
         </Flex>
 
         <Flex justifyContent="space-between" mt="6px">
-          <Text
-            color="#41454B"
-            fontSize="16px"
-            className="primary-font-semibold"
-          >
+          <Text color="#41454B" fontSize="16px" className="glroy-bold">
             Order #1246
           </Text>
           <Flex gap="5px">
             <Text
               color="rgba(65, 69, 75, 0.20)"
               fontSize="12px"
-              className="primary-font-semibold"
+              className="glroy-bold"
             >
               Monday, 23rd May, 2023
             </Text>
@@ -41,18 +37,14 @@ const EmailOrPrintInvoicePage = () => {
           }}
         />
         <Flex justifyContent="space-between" mt="6px">
-          <Text
-            color="#41454B"
-            fontSize="16px"
-            className="primary-font-semibold"
-          >
+          <Text color="#41454B" fontSize="16px" className="glroy-bold">
             Customer Name
           </Text>
           <Flex gap="5px">
             <Text
               color="rgba(65, 69, 75, 0.60)"
               fontSize="12px"
-              className="primary-font-semibold"
+              className="glroy-bold"
             >
               Darlene Robertson
             </Text>
@@ -65,18 +57,14 @@ const EmailOrPrintInvoicePage = () => {
           }}
         />
         <Flex justifyContent="space-between" mt="6px">
-          <Text
-            color="#41454B"
-            fontSize="16px"
-            className="primary-font-semibold"
-          >
+          <Text color="#41454B" fontSize="16px" className="glroy-bold">
             Medical ID
           </Text>
           <Flex gap="5px">
             <Text
               color="rgba(65, 69, 75, 0.60)"
               fontSize="12px"
-              className="primary-font-semibold"
+              className="glroy-bold"
             >
               AP-FAAA-HR4P-VQOO-RDAK-C6W9-8J
             </Text>
@@ -89,18 +77,14 @@ const EmailOrPrintInvoicePage = () => {
           }}
         />
         <Flex justifyContent="space-between" mt="6px">
-          <Text
-            color="#41454B"
-            fontSize="16px"
-            className="primary-font-semibold"
-          >
+          <Text color="#41454B" fontSize="16px" className="glroy-bold">
             Outlet
           </Text>
           <Flex gap="5px">
             <Text
               color="rgba(65, 69, 75, 0.60)"
               fontSize="12px"
-              className="primary-font-semibold"
+              className="glroy-bold"
             >
               Store name 3
             </Text>
@@ -182,11 +166,7 @@ const EmailOrPrintInvoicePage = () => {
         </Flex>
         <hr style={{ borderTop: '1px dashed #000', marginTop: '10px' }} />
         <Flex justifyContent="space-between" mt="6px">
-          <Text
-            color="#41454B"
-            fontSize="14px"
-            className="primary-font-semibold"
-          >
+          <Text color="#41454B" fontSize="14px" className="glroy-bold">
             Total Discount
           </Text>
           <Flex gap="5px">
@@ -254,19 +234,11 @@ const EmailOrPrintInvoicePage = () => {
           }}
         />
         <Flex justifyContent="space-between" mt="6px">
-          <Text
-            color="#41454B"
-            fontSize="12px"
-            className="primary-font-semibold"
-          >
+          <Text color="#41454B" fontSize="12px" className="glroy-bold">
             Total Tax
           </Text>
           <Flex gap="5px">
-            <Text
-              color="#41454B"
-              fontSize="16px"
-              className="primary-font-semibold"
-            >
+            <Text color="#41454B" fontSize="16px" className="glroy-bold">
               $29.82
             </Text>
           </Flex>
@@ -300,19 +272,11 @@ const EmailOrPrintInvoicePage = () => {
           }}
         />
         <Flex justifyContent="space-between" mt="6px">
-          <Text
-            color="#41454B"
-            fontSize="14px"
-            className="primary-font-semibold"
-          >
+          <Text color="#41454B" fontSize="14px" className="glroy-bold">
             Total Payable
           </Text>
           <Flex gap="5px">
-            <Text
-              color="#41454B"
-              fontSize="16px"
-              className="primary-font-semibold"
-            >
+            <Text color="#41454B" fontSize="16px" className="glroy-bold">
               $ 550.00
             </Text>
           </Flex>
@@ -341,7 +305,7 @@ const EmailOrPrintInvoicePage = () => {
           <Text
             color="rgba(65, 69, 75, 0.70)"
             fontSize="14px"
-            className="primary-font-semibold"
+            className="glroy-bold"
           >
             Amount Paid By Card
           </Text>
@@ -356,36 +320,23 @@ const EmailOrPrintInvoicePage = () => {
           </Flex>
         </Flex>
         <Flex justifyContent="space-between" mt="6px">
-          <Text
-            color="#41454B"
-            fontSize="14px"
-            className="primary-font-semibold"
-          >
+          <Text color="#41454B" fontSize="14px" className="glroy-bold">
             Visa Credit
           </Text>
           <Flex gap="5px">
-            <Text
-              color="#41454B"
-              fontSize="16px"
-              className="primary-font-semibold"
-            >
+            <Text color="#41454B" fontSize="16px" className="glroy-bold">
               12** **** **** **51
             </Text>
           </Flex>
         </Flex>
-        <Text
-          color="#41454B"
-          fontSize="16px"
-          mt="5px"
-          className="primary-font-semibold"
-        >
+        <Text color="#41454B" fontSize="16px" mt="5px" className="glroy-bold">
           Bud-tender Notes/experience
         </Text>
         <Box mt="10px">
           <Text
             color="rgba(18, 23, 30, 0.60)"
             fontSize="12px"
-            className="primary-font-semibold"
+            className="primary-font-semi-bold-italic"
           >
             Non-refundable products. Non-changeable.
           </Text>

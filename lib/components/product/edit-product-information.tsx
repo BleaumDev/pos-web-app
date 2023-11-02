@@ -1,4 +1,4 @@
-import { Box, Flex, Img, Stack, Text, Textarea } from '@chakra-ui/react';
+import { Box, Flex, Img, Stack, Textarea } from '@chakra-ui/react';
 
 import Input from '../base/input';
 import Label from '../base/label';
@@ -129,26 +129,17 @@ const EditProductInformation = () => {
                 <ReadOnly placeholder="Simple" withArrow />
               </Box>
             </Stack>
-            <Flex justifyContent="space-between">
+            <Flex justifyContent="space-between" mt="1em">
               <Label
                 fontSize={{
                   base: '12px',
                   sm: '14px',
                   md: '15px',
                 }}
-                className="primary-font-semibold"
+                className="glroy-bold"
               >
                 Complex Pricing
               </Label>
-              <Text
-                fontSize="14px"
-                color="#0C8CE9"
-                borderBottom="1px solid #0C8CE9"
-                cursor="pointer"
-                className="primary-font-semi-bold-italic"
-              >
-                Edit
-              </Text>
             </Flex>
             <ComplexPricingTable />
             <Stack mt="1em">

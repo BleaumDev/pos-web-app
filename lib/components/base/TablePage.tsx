@@ -222,6 +222,7 @@ const TablePage: FC<TableProps> = ({
             width: '10px',
             display: 'block',
           },
+          'overflow-x': 'auto',
         }}
       >
         <ChakraTable
@@ -302,7 +303,10 @@ const TablePage: FC<TableProps> = ({
                   <Td
                     w="auto"
                     key={keys[i][j]}
-                    fontSize="16px"
+                    fontSize={{
+                      base: '12px',
+                      md: '16px',
+                    }}
                     id="img_col"
                     textAlign="center"
                     className="primary-font-medium"

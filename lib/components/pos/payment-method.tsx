@@ -9,11 +9,7 @@ const PaymentMethod = () => {
   return (
     <>
       <Flex justifyContent="space-between" alignItems="center" mt="6px">
-        <Text
-          color="#41454B"
-          fontSize="14px"
-          className="primary-font-semi-bold-italic"
-        >
+        <Text color="#41454B" fontSize="14px" className="glroy-bold">
           Payment Method
         </Text>
         <Select
