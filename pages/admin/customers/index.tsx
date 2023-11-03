@@ -3,12 +3,14 @@ import { Box } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { useClassContext } from 'context/ClassContext';
 import customerData from 'data/customerTableData';
 import { useEffect, useMemo, useState } from 'react';
 import { mapCustomerDataToRows } from 'utils/customerUtils';
 
 const CustomerPage = () => {
   const [isClient, setIsClient] = useState(false);
+  const { isClassToggled } = useClassContext();
 
   useEffect(() => {
     setIsClient(true);
@@ -19,54 +21,62 @@ const CustomerPage = () => {
   }, [customerData]);
 
   return (
-    <div>
-      <Sidenav>
-        <Box position="relative" mt="0em" pr="2em" w="auto">
-          <FloatingHeader
-            title="Customers"
-            itemCount="12342+ Customers"
-            csvImage
-            refreshImage
-            addSingleButtons
-            sortBy
-            lastBreadcrumbColor="#FF8A43"
-            breadcrumbs={[
-              {
-                label: 'Home',
-                breadcrumLink: '/admin/inventory/products',
-              },
-              {
-                label: 'Customers',
-                breadcrumLink: '/admin/customers',
-              },
-            ]}
-            filterButton
-            searchWithFilters
-            searchWithFiltersPlaceholder="Customer Type"
-            searchWithFilterOptions={[
-              {
-                label: 'Medical',
-              },
-              {
-                label: 'Recreational',
-              },
-            ]}
-            addNew="Customer"
-            addLink="/admin/customers/add-customer"
-            filter1="Medical ID"
-            filter2="DOB"
-          />
-        </Box>
+    <Box>
+      {isClient && (
+        <Sidenav>
+          <Box
+            w="auto"
+            left="0"
+            right="0"
+            width={'100%'}
+            className={isClassToggled ? 'toggled-class' : 'default-class'}
+            position="fixed"
+            pr="2em"
+          >
+            <FloatingHeader
+              title="Customers"
+              itemCount="12342+ Customers"
+              csvImage
+              refreshImage
+              addSingleButtons
+              sortBy
+              lastBreadcrumbColor="#FF8A43"
+              breadcrumbs={[
+                {
+                  label: 'Home',
+                  breadcrumLink: '/admin/inventory/products',
+                },
+                {
+                  label: 'Customers',
+                  breadcrumLink: '/admin/customers',
+                },
+              ]}
+              filterButton
+              searchWithFilters
+              searchWithFiltersPlaceholder="Customer Type"
+              searchWithFilterOptions={[
+                {
+                  label: 'Medical',
+                },
+                {
+                  label: 'Recreational',
+                },
+              ]}
+              addNew="Customer"
+              addLink="/admin/customers/add-customer"
+              filter1="Medical ID"
+              filter2="DOB"
+            />
+          </Box>
 
-        <Box
-          p="2em 2em 4em 2em"
-          position="relative"
-          top="0em"
-          overflowX="hidden"
-          overflowY="scroll"
-          h="60vh"
-        >
-          {isClient && (
+          <Box
+            p="2em 2em 4em 2em"
+            position="relative"
+            top="8.5em"
+            overflowX="hidden"
+            overflowY="scroll"
+            h="60vh"
+          >
             <Table
               hoverEffect
               headers={[
@@ -81,10 +91,10 @@ const CustomerPage = () => {
               ]}
               rows={customerRows}
             />
-          )}
-        </Box>
-      </Sidenav>
-    </div>
+          </Box>
+        </Sidenav>
+      )}
+    </Box>
   );
 };
 

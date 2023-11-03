@@ -296,6 +296,15 @@ background-clip: text !important;
 -webkit-text-fill-color: transparent !important; 
 }
 
+.toggled-class{
+  padding-left: 4em !important;
+  transition:  0.3s ease-in-out;
+}
+.default-class{
+  padding-left: 15.5em !important;
+  transition:  0.3s ease-in-out;
+
+}
 /* Extra Small Devices (Phones) */
 @media (max-width: 575.98px) {
   /* Styles for extra small devices go here */

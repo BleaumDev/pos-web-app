@@ -9,19 +9,24 @@ import OrderDetails from '@lib/components/customers/order-details-list';
 import StatsDetail from '@lib/components/customers/stats-details';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import FrequentlyPurchasedProducts from '@lib/components/pos/frequently-purchased';
+import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
 
 const CustomerDetail = () => {
-  const header = ['Product Name', 'SKU', 'Price', 'Qty', 'Subtotal'];
-  const rows = [
-    ['Cowichan Kush', '1426384', '$40.06', '1', '$40.06'],
-    ['Tribe CBD Oil...', '1426384', '$40.06', '1', '$40.06'],
-    ['District Cannab...', '1426384', '$40.06', '1', '$40.06'],
-  ];
+  const { isClassToggled } = useClassContext();
+
   return (
     <div>
       <Sidenav>
-        <Box position="relative" mt="0em" w="auto" pr="2em">
+        <Box
+          w="auto"
+          left="0"
+          right="0"
+          width={'100%'}
+          className={isClassToggled ? 'toggled-class' : 'default-class'}
+          position="fixed"
+          pr="2em"
+        >
           <FloatingHeader
             title="Customers"
             itemCount="12230+ Customers"
@@ -47,7 +52,7 @@ const CustomerDetail = () => {
         <Box
           p="2em 2em 4em 2em"
           position="relative"
-          top="-11px"
+          top="5.5em"
           overflowX="hidden"
           overflowY="scroll"
           h="70vh"

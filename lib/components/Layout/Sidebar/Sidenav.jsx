@@ -9,12 +9,14 @@ import {
   useDisclosure,
   VStack,
 } from '@chakra-ui/react';
+import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Navbar from './Navbar';
 
 const Sidenav = ({ children }) => {
   const { isOpen, onToggle } = useDisclosure(true, 'isOpen');
+  const { toggleClass } = useClassContext();
   const { isOpen: isInventoryOpen, onToggle: onInventoryToggle } =
     useDisclosure('isInventoryOpen');
   const router = useRouter();
@@ -44,7 +46,10 @@ const Sidenav = ({ children }) => {
         {!isOpen ? (
           <IconButton
             icon={<ChevronLeftIcon />}
-            onClick={onToggle}
+            onClick={() => {
+              onToggle();
+              toggleClass();
+            }}
             position={'absolute'}
             background={'#ffffff'}
             boxShadow={'2px 1px 35px -11px rgba(0,0,0,0.75)'}
@@ -61,7 +66,10 @@ const Sidenav = ({ children }) => {
             background={'#ffffff'}
             position={'absolute'}
             right={'-20px'}
-            onClick={onToggle}
+            onClick={() => {
+              onToggle();
+              toggleClass();
+            }}
             aria-label="Expand Sidebar"
             zIndex={9999}
           />
