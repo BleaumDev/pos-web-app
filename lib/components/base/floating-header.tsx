@@ -67,6 +67,9 @@ interface FloatingHeaderProps {
   cancelLink?: string;
   confirmLink?: string;
   primaryButton?: boolean;
+  secondaryButton?: boolean;
+  primaryLabel?: string;
+  secondaryLabel?: string;
 }
 
 const FloatingHeader: React.FC<FloatingHeaderProps> = ({

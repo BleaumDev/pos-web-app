@@ -4,15 +4,23 @@ import Input from '../base/input';
 import Label from '../base/label';
 import ComplexPricingInputRow from './ComplexPricingInputRow';
 
-const categories = ['Capsules', 'Edibles', 'Tinctures', 'Flowers', 'Drinks'];
+const categories = [
+  '',
+  'Capsules',
+  'Edibles',
+  'Tinctures',
+  'Flowers',
+  'Drinks',
+];
 const manufacturers = [
+  '',
   'Cresco Labs',
   'Aphira Inc',
   'Steep Hill, INC',
   'Trulieve Canabis',
   'MariMed Inc',
 ];
-const units = ['Grams', 'Ounces', 'Pounds', 'Kilograms'];
+const units = ['', 'Grams', 'Ounces', 'Pounds', 'Kilograms'];
 const GeneralInformation = () => {
   return (
     <>
@@ -46,7 +54,11 @@ const GeneralInformation = () => {
             className="primary-font-medium"
           >
             {categories.map((category) => (
-              <option key={category} value={category}>
+              <option
+                key={category}
+                value={category}
+                style={{ backgroundColor: 'red' }}
+              >
                 {category}
               </option>
             ))}

@@ -34,7 +34,7 @@ const Inventory = () => {
       Herb, dried
     </Td>,
     <Td className="text-center" key="messagesCount">
-      $22.00
+      complex
     </Td>,
     <Td className="text-center" key="createdAt">
       250g
@@ -115,11 +115,11 @@ const Inventory = () => {
               checkboxes
               hoverEffect
               headers={[
-                'Image',
+                '',
                 'Product Name',
                 'Category',
                 'Price',
-                'Size',
+                'Price type',
                 'Manufacturer',
                 'Total Qty',
                 'Available Qty',

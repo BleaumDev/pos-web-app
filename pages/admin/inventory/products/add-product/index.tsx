@@ -88,15 +88,14 @@ export default function ProductDetail(): React.ReactNode {
                 md: '0em 1em',
               }}
               w="full"
-              gap="112px"
-              p="12px"
+              gap="70px"
             >
               <Box
                 w={{ base: '100%', md: '50%' }}
                 background="rgba(246, 252, 255, 0.40)"
                 borderRadius="12px"
                 m={{
-                  base: '0em 10px',
+                  base: '0em 1000px',
                   md: '0em 2em',
                 }}
                 p="20px 40px"

@@ -71,7 +71,7 @@ export default function AddSubcategory(): React.ReactElement {
         <Box
           borderRadius="14px"
           paddingBottom={20}
-          paddingTop={20}
+          paddingTop={10}
           backgroundColor="white"
         >
           <Box
@@ -156,7 +156,7 @@ export default function AddSubcategory(): React.ReactElement {
                   marginTop: 10,
                 }}
               >
-                <Text className="primary-font-medium" style={{}}>
+                <Text className="primary-font-semibold" style={{}}>
                   Status
                 </Text>
               </Box>
@@ -240,7 +240,7 @@ export default function AddSubcategory(): React.ReactElement {
               display={{ base: 'none', sm: 'block' }}
               style={{
                 position: 'absolute',
-                bottom: 40,
+                bottom: 5,
                 right: 70,
               }}
             >

@@ -13,10 +13,10 @@ import {
 } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Input from '@lib/components/base/input';
-import UploadSingleImage from '@lib/components/base/upload-single-image';
+import GalleryAdd from '@lib/components/inputs/GalleyAdd';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 
-export default function AddCategory(): React.ReactElement {
+export default function AddManufacturer(): React.ReactElement {
   const [categoryActive, setCategoryActive] = useBoolean(false);
 
   return (
@@ -34,25 +34,25 @@ export default function AddCategory(): React.ReactElement {
               label: 'Home',
               breadcrumLink: '/admin/inventory/categories',
             },
+            // {
+            //   label: 'Inventory',
+            //   breadcrumLink: '/admin/inventory/categories',
+            // },
+            // {
+            //   label: 'Categories',
+            //   breadcrumLink: '/admin/inventory/categories',
+            // },
             {
-              label: 'Inventory',
-              breadcrumLink: '/admin/inventory/categories',
-            },
-            {
-              label: 'Categories',
-              breadcrumLink: '/admin/inventory/categories',
-            },
-            {
-              label: 'Add Category',
-              breadcrumLink: '/admin/inventory/categories/add-category',
+              label: 'Manufaturer',
+              breadcrumLink: '/admin/manufacturer',
             },
           ]}
           searchWithFilters
           filterButton
           primaryButton
-          addNew="Category"
-          addBulk="Categories"
-          addButtons
+          addNew="Manufacturer"
+          // addBulk="Manufacturers"
+          // addButtons
           filter1="Flowers"
           filter2="Capsules"
         />
@@ -65,12 +65,12 @@ export default function AddCategory(): React.ReactElement {
         top="-11px"
         overflowX="hidden"
         overflowY="scroll"
-        h="63vh"
+        h="64vh"
       >
         <Box
           borderRadius="14px"
           paddingBottom={20}
-          paddingTop={10}
+          paddingTop={20}
           backgroundColor="white"
         >
           <Box
@@ -91,16 +91,11 @@ export default function AddCategory(): React.ReactElement {
                   color="#41454B"
                   fontWeight="normal"
                 >
-                  Add Category
+                  Add Manufacturer
                 </Heading>
               </Box>
             </Box>
-            <Divider
-              my="15px"
-              w="95%"
-              ml="4em"
-              borderColor="rgba(18, 23, 30, 0.4)"
-            />
+            <Divider className="mx-5 mt-4" />
           </Box>
           <SimpleGrid
             style={{
@@ -114,16 +109,12 @@ export default function AddCategory(): React.ReactElement {
             columns={{ sm: 2 }}
           >
             <GridItem>
-              {/* <LabelledInput
-              placeholderText="Name Your Category"
-              label="Category Name"
-            /> */}
               <FormLabel
                 h={6}
                 className="primary-font-semibold"
                 color="#41454B"
               >
-                Category Name
+                Manufacturer Name
               </FormLabel>
               <Input
                 type="text"
@@ -132,14 +123,14 @@ export default function AddCategory(): React.ReactElement {
                   borderColor: 'rgba(18, 23, 30, 0.40)',
                   borderWidth: 0.5,
                 }}
-                placeholder="Name Your Category"
+                placeholder="Name Your Manufacturer"
               />
               <Box
                 style={{
                   marginTop: 10,
                 }}
               >
-                <Text className="primary-font-semibold" style={{}}>
+                <Text className="primary-font-medium" style={{}}>
                   Status
                 </Text>
               </Box>
@@ -211,63 +202,144 @@ export default function AddCategory(): React.ReactElement {
                   >
                     Image
                   </FormLabel>
-                  <UploadSingleImage
-                    widthSelectedImage="164px"
-                    heightSelectedImage="136px"
-                    widthOfDefaultImage="200px"
-                    defaultImage="/images/upload-Image.png"
-                    addButton
-                  />
+                  <GalleryAdd />
+                </Box>
+                <Box
+                  style={{
+                    paddingRight: 20,
+                    paddingLeft: 20,
+                    paddingTop: 12,
+                    paddingBottom: 12,
+                    borderRadius: 8,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginTop: 50,
+                  }}
+                  as="button"
+                  bgGradient="linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
+                >
+                  <Box
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                    }}
+                  >
+                    {/* <Image
+                    src="/images/gallery-add.svg"
+                    style={{
+                      width: 16,
+                      height: 16,
+                      marginRight: 10,
+                      // backgroundColor: 'white',
+                    }}
+                    color={'white'}
+                  /> */}
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 46 45"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{
+                        marginRight: 10,
+                        marginTop: 2,
+                      }}
+                    >
+                      <path
+                        d="M17.375 18.7501C19.4461 18.7501 21.125 17.0712 21.125 15.0001C21.125 12.9291 19.4461 11.2501 17.375 11.2501C15.3039 11.2501 13.625 12.9291 13.625 15.0001C13.625 17.0712 15.3039 18.7501 17.375 18.7501Z"
+                        stroke="#FFFFFF"
+                        stroke-width="2.8125"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M24.875 3.75012H17.375C8 3.75012 4.25 7.50012 4.25 16.8751V28.1251C4.25 37.5001 8 41.2501 17.375 41.2501H28.625C38 41.2501 41.75 37.5001 41.75 28.1251V18.7501"
+                        stroke="#FFFFFF"
+                        stroke-width="2.8125"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M30.0312 9.37512H40.3438"
+                        stroke="#FFFFFF"
+                        stroke-width="2.8125"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M35.1875 14.5314V4.21887"
+                        stroke="#FFFFFF"
+                        stroke-width="2.8125"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M5.50586 35.5314L14.7496 29.3252C16.2309 28.3314 18.3684 28.4439 19.6996 29.5877L20.3184 30.1314C21.7809 31.3877 24.1434 31.3877 25.6059 30.1314L33.4059 23.4377C34.8684 22.1814 37.2309 22.1814 38.6934 23.4377L41.7496 26.0627"
+                        stroke="#FFFFFF"
+                        stroke-width="2.8125"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <Text
+                      style={{
+                        color: 'white',
+                      }}
+                      className="primary-font-semibold"
+                    >
+                      Add Image
+                    </Text>
+                  </Box>
+                </Box>
+              </Box>
+              <Box
+                display={{ base: 'none', sm: 'block' }}
+                style={{
+                  position: 'absolute',
+                  // bottom: -10,
+                  right: 70,
+                  marginTop: 30,
+                }}
+              >
+                <Box
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    borderRadius: 8,
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    backgroundColor: '#FF8A43',
+                    paddingRight: 40,
+                    paddingLeft: 40,
+                    paddingTop: 10,
+                    paddingBottom: 10,
+                  }}
+                >
+                  <Box>
+                    <Image
+                      src="/images/save.svg"
+                      style={{
+                        // alignSelf: 'center',
+                        width: 16,
+                        height: 16,
+                        // marginBottom: 5,
+                      }}
+                      alt="pos"
+                    />
+                  </Box>
+                  <Box>
+                    <Text
+                      style={{
+                        color: 'white',
+                        marginLeft: 7,
+                      }}
+                      className="primary-font-semibold"
+                    >
+                      Save
+                    </Text>
+                  </Box>
                 </Box>
               </Box>
             </GridItem>
-            <Box
-              display={{ base: 'none', sm: 'block' }}
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                right: 70,
-              }}
-            >
-              <Box
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  borderRadius: 8,
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  backgroundColor: '#FF8A43',
-                  paddingRight: 40,
-                  paddingLeft: 40,
-                  paddingTop: 10,
-                  paddingBottom: 10,
-                }}
-              >
-                <Box>
-                  <Image
-                    src="/images/save.svg"
-                    style={{
-                      // alignSelf: 'center',
-                      width: 16,
-                      height: 16,
-                      // marginBottom: 5,
-                    }}
-                    alt="pos"
-                  />
-                </Box>
-                <Box>
-                  <Text
-                    style={{
-                      color: 'white',
-                      marginLeft: 7,
-                    }}
-                    className="primary-font-semibold"
-                  >
-                    Save
-                  </Text>
-                </Box>
-              </Box>
-            </Box>
           </SimpleGrid>
           <Box
             display={{ base: 'block', sm: 'none', md: 'none' }}
@@ -275,6 +347,8 @@ export default function AddCategory(): React.ReactElement {
               // display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              // borderWidth: 3,
+              // borderColor: 'orange',
             }}
           >
             <Box
