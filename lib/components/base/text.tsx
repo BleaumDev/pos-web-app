@@ -40,7 +40,12 @@ function Text({ children, styledVariant, ref, ...props }: BaseTextPropsType) {
   }
 
   return (
-    <BaseText size="lg" ref={ref} {...textStyleProps} {...props}>
+    <BaseText
+      size="lg"
+      ref={ref as RefObject<HTMLParagraphElement> | null | undefined}
+      {...textStyleProps}
+      {...props}
+    >
       {children}
     </BaseText>
   );
