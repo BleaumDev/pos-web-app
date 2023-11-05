@@ -15,16 +15,27 @@ import FloatingHeader from '@lib/components/base/floating-header';
 import Input from '@lib/components/base/input';
 import GalleryAdd from '@lib/components/inputs/GalleyAdd';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { useClassContext } from 'context/ClassContext';
+import Link from 'next/link';
 
 export default function AddManufacturer(): React.ReactElement {
   const [categoryActive, setCategoryActive] = useBoolean(false);
+  const { isClassToggled } = useClassContext();
 
   return (
     <Sidenav>
-      <Box position="relative" mt="0em" w="auto">
+      <Box
+        w="auto"
+        left="0"
+        right="0"
+        width={'100%'}
+        className={isClassToggled ? 'toggled-class' : 'default-class'}
+        position="fixed"
+        pr="2em"
+      >
         <FloatingHeader
-          title="Categories"
-          itemCount="12+ Categories"
+          title="Manufacturers"
+          itemCount="121+ Manufacturers"
           csvImage
           refreshImage
           sortBy
@@ -32,37 +43,44 @@ export default function AddManufacturer(): React.ReactElement {
           breadcrumbs={[
             {
               label: 'Home',
-              breadcrumLink: '/admin/inventory/categories',
+              breadcrumLink: '/admin/inventory/products',
             },
-            // {
-            //   label: 'Inventory',
-            //   breadcrumLink: '/admin/inventory/categories',
-            // },
-            // {
-            //   label: 'Categories',
-            //   breadcrumLink: '/admin/inventory/categories',
-            // },
             {
-              label: 'Manufaturer',
-              breadcrumLink: '/admin/manufacturer',
+              label: 'Inventory',
+              breadcrumLink: '/admin/inventory/products',
+            },
+            {
+              label: 'Manufacturers',
+              breadcrumLink: '/admin/inventory/manufacturers',
+            },
+            {
+              label: 'Add Manufacturer',
+              breadcrumLink: '/admin/inventory/manufacturers/add-manufacturer',
             },
           ]}
           searchWithFilters
+          searchWithFiltersPlaceholder="Products"
+          searchWithFilterOptions={[
+            {
+              label: 'Flowers',
+            },
+            {
+              label: 'Capsules',
+            },
+          ]}
           filterButton
-          primaryButton
           addNew="Manufacturer"
-          // addBulk="Manufacturers"
-          // addButtons
-          filter1="Flowers"
-          filter2="Capsules"
+          addLink="/admin/inventory/manufacturers/add-manufacturer"
+          addButtons
+          addBulk="Manufacturers"
+          filter1="Cresco Labs"
+          filter2="Aphria Inc."
         />
       </Box>
       <Box
         p="2em 2em 4em 2em"
-        borderRadius="20px"
-        bg="#E9F0F8 !important"
         position="relative"
-        top="-11px"
+        top="8.5em"
         overflowX="hidden"
         overflowY="scroll"
         h="64vh"
@@ -79,9 +97,9 @@ export default function AddManufacturer(): React.ReactElement {
             }}
           >
             <Box className="flex-row flex px-14">
-              <Box as="button">
+              <Link href="/admin/inventory/manufacturers" as="button">
                 <ChevronLeftIcon boxSize={30} />
-              </Box>
+              </Link>
               <Box>
                 <Heading
                   h={5}

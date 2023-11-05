@@ -4,6 +4,7 @@ import { Box, Image, Td } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { useClassContext } from 'context/ClassContext';
 import { useEffect, useMemo, useState } from 'react';
 
 const ManufecturerPage = () => {
@@ -62,11 +63,20 @@ const ManufecturerPage = () => {
   const inventory = useMemo(() => {
     return Array(20).fill(inventoryItem);
   }, [inventoryItem]);
+  const { isClassToggled } = useClassContext();
 
   return (
     <div>
       <Sidenav>
-        <Box position="relative" mt="0em" pr="2em" w="auto">
+        <Box
+          w="auto"
+          left="0"
+          right="0"
+          width={'100%'}
+          className={isClassToggled ? 'toggled-class' : 'default-class'}
+          position="fixed"
+          pr="2em"
+        >
           <FloatingHeader
             title="Manufacturers"
             itemCount="121+ Manufacturers"
@@ -100,6 +110,7 @@ const ManufecturerPage = () => {
             ]}
             filterButton
             addNew="Manufacturer"
+            addLink="/admin/inventory/manufacturers/add-manufacturer"
             addButtons
             addBulk="Manufacturers"
             filter1="Cresco Labs"
@@ -110,7 +121,7 @@ const ManufecturerPage = () => {
         <Box
           p="2em 2em 4em 2em"
           position="relative"
-          top="-11px"
+          top="8.5em"
           overflowX="hidden"
           overflowY="scroll"
           h="60vh"

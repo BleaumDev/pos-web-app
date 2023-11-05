@@ -6,12 +6,23 @@ import Label from '@lib/components/base/label';
 import UploadMultipleImages from '@lib/components/base/upload-multiple-images';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import EditProductInformation from '@lib/components/product/edit-product-information';
+import { useClassContext } from 'context/ClassContext';
 
 export default function EditProductDetail(): React.ReactNode {
+  const { isClassToggled } = useClassContext();
+
   return (
     <div>
       <Sidenav>
-        <Box position="relative" mt="0em" w="auto">
+        <Box
+          w="auto"
+          left="0"
+          right="0"
+          width={'100%'}
+          className={isClassToggled ? 'toggled-class' : 'default-class'}
+          position="fixed"
+          pr="2em"
+        >
           <FloatingHeader
             title="Products"
             itemCount="1432+ Products"
@@ -45,7 +56,7 @@ export default function EditProductDetail(): React.ReactNode {
         <Box
           p="2em 2em 4em 2em"
           position="relative"
-          top="0px"
+          top="8em"
           overflowX="hidden"
           overflowY="scroll"
           h="65vh"

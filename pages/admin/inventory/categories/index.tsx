@@ -4,6 +4,7 @@ import { Box, Image, Td, Text } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { useClassContext } from 'context/ClassContext';
 import { useEffect, useMemo, useState } from 'react';
 
 const CategoriesPage = () => {
@@ -12,6 +13,8 @@ const CategoriesPage = () => {
   useEffect(() => {
     setIsClient(true);
   }, []);
+  const { isClassToggled } = useClassContext();
+
   const inventoryItem = [
     <Td
       key="img"
@@ -70,7 +73,15 @@ const CategoriesPage = () => {
     <Sidenav>
       {isClient && (
         <>
-          <Box position="relative" mt="0em" w="auto" pr="2em">
+          <Box
+            w="auto"
+            left="0"
+            right="0"
+            width={'100%'}
+            className={isClassToggled ? 'toggled-class' : 'default-class'}
+            position="fixed"
+            pr="2em"
+          >
             <FloatingHeader
               title="Categories"
               itemCount="13+ Categories"
@@ -116,7 +127,7 @@ const CategoriesPage = () => {
           <Box
             p="2em 2em 4em 2em"
             position="relative"
-            top="0em"
+            top="8.5em"
             overflowX="hidden"
             overflowY="scroll"
             h="60vh"

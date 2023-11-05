@@ -173,7 +173,8 @@ const Sidenav = ({ children }) => {
                 <Box
                   mt="-5px"
                   className={
-                    isActive('/admin/inventory/manufacturers')
+                    isActive('/admin/inventory/manufacturers') ||
+                    isActive('/admin/inventory/manufacturers/add-manufacturer')
                       ? 'active-tab'
                       : 'inactive-tab'
                   }
@@ -262,7 +263,7 @@ const Sidenav = ({ children }) => {
                 </Box>
               </Flex>
             </Link>
-            <Link href="/">
+            <Link href="/admin/orders">
               <Flex alignItems={'center'} width="full">
                 <Box width={'20%'}>
                   <Image
@@ -276,7 +277,12 @@ const Sidenav = ({ children }) => {
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
-                    color="#12171E66"
+                    color={
+                      isActive('/admin/orders') ||
+                      isActive('/admin/orders/order-detail')
+                        ? '#000000'
+                        : '#12171E66'
+                    }
                   >
                     Order
                   </Text>

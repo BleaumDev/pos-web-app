@@ -5,12 +5,23 @@ import Label from '@lib/components/base/label';
 import Text from '@lib/components/base/text';
 import CategoryDetail from '@lib/components/category/category-detail';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { useClassContext } from 'context/ClassContext';
 
 export default function ViewCategory(): React.ReactElement {
+  const { isClassToggled } = useClassContext();
+
   return (
     <div>
       <Sidenav>
-        <Box position="relative" mt="0em" w="auto">
+        <Box
+          w="auto"
+          left="0"
+          right="0"
+          width={'100%'}
+          className={isClassToggled ? 'toggled-class' : 'default-class'}
+          position="fixed"
+          pr="2em"
+        >
           <FloatingHeader
             title="Categories"
             itemCount="13+ Categories"
@@ -53,10 +64,8 @@ export default function ViewCategory(): React.ReactElement {
         </Box>
         <Box
           p="2em 2em 4em 2em"
-          borderRadius="20px 50px 0px 0px"
-          bg="#E9F0F8 !important"
           position="relative"
-          top="-11px"
+          top="8.5em"
           overflowX="hidden"
           overflowY="scroll"
           h="65vh"

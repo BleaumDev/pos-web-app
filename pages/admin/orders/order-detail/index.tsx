@@ -17,6 +17,7 @@ import {
 } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import Link from 'next/link';
 
 export default function OrderDetail(): React.ReactElement {
   return (
@@ -24,16 +25,17 @@ export default function OrderDetail(): React.ReactElement {
       <Box position="relative" mt="0em" w="auto">
         <FloatingHeader
           title="Orders"
-          itemCount="13+ Orders"
-          csvImage
+          itemCount="12342+ Orders"
+          csvDownLoadModel
           refreshImage
           sortBy
-          // addLink="/admin/inventory/categories/add-category"
+          statusFilter
+          addLink="/pos/order-type"
           lastBreadcrumbColor="#FF8A43"
           breadcrumbs={[
             {
               label: 'Home',
-              breadcrumLink: '/admin/',
+              breadcrumLink: '/admin/inventory/products',
             },
             {
               label: 'Order',
@@ -41,17 +43,33 @@ export default function OrderDetail(): React.ReactElement {
             },
           ]}
           searchWithFilters
-          searchWithFiltersPlaceholder="Products"
-          // searchWithFilterOptions={[
-          //   {
-          //     label: 'Cresco Labs',
-          //   },
-          // ]}
+          searchWithFiltersPlaceholder="Order Category"
+          searchWithFilterOptions={[
+            {
+              label: 'Order No.',
+            },
+            {
+              label: 'Customer Name',
+            },
+            {
+              label: 'Customer Type',
+            },
+            {
+              label: 'Total Payment',
+            },
+            {
+              label: 'Date',
+            },
+            {
+              label: 'Discount',
+            },
+          ]}
           // filterButton
           // primaryButton
           addNew="Orders"
           // addBulk="Manufacturers"
-          addButtons
+          addSingleButtons
+
           // filter1="Cresco Labs"
           // filter2="Aphria Inc."
         />
@@ -80,16 +98,18 @@ export default function OrderDetail(): React.ReactElement {
               alignItems: 'center',
             }}
           >
-            <ArrowBackIcon
-              style={{
-                borderWidth: 1,
-                borderColor: 'rgba(65, 69, 75, 0.20)',
-                borderRadius: 3,
-                width: 24,
-                height: 24,
-              }}
-              color="rgba(65, 69, 75, 0.70)"
-            />
+            <Link href="/admin/orders">
+              <ArrowBackIcon
+                style={{
+                  borderWidth: 1,
+                  borderColor: 'rgba(65, 69, 75, 0.20)',
+                  borderRadius: 3,
+                  width: 24,
+                  height: 24,
+                }}
+                color="rgba(65, 69, 75, 0.70)"
+              />
+            </Link>
             <Box
               style={{
                 display: 'flex',

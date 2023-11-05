@@ -296,15 +296,6 @@ background-clip: text !important;
 -webkit-text-fill-color: transparent !important; 
 }
 
-.toggled-class{
-  padding-left: 4em !important;
-  transition:  0.3s ease-in-out;
-}
-.default-class{
-  padding-left: 15.5em !important;
-  transition:  0.3s ease-in-out;
-
-}
 /* Extra Small Devices (Phones) */
 @media (max-width: 575.98px) {
   /* Styles for extra small devices go here */
@@ -323,6 +314,16 @@ background-clip: text !important;
 /* Large Devices (Large Laptops and Desktops) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
   /* Styles for large devices go here */
+  
+.toggled-class{
+  padding-left: 4em !important;
+  transition:  0.3s ease-in-out;
+}
+.default-class{
+  padding-left: 15.5em !important;
+  transition:  0.3s ease-in-out;
+
+}
 }
 
 /* Extra Large Devices (Large Desktops) */
@@ -331,6 +332,16 @@ background-clip: text !important;
   display: grid;
   gap: 20px;
  }
+ 
+.toggled-class{
+  padding-left: 4em !important;
+  transition:  0.3s ease-in-out;
+}
+.default-class{
+  padding-left: 15.5em !important;
+  transition:  0.3s ease-in-out;
+
+}
 }
 
 /* Extra Large Devices (Large Desktops) */
@@ -339,6 +350,16 @@ background-clip: text !important;
   display: flex;
   gap: 20px;
  }
+ 
+.toggled-class{
+  padding-left: 4em !important;
+  transition:  0.3s ease-in-out;
+}
+.default-class{
+  padding-left: 15.5em !important;
+  transition:  0.3s ease-in-out;
+
+}
 }
 /* Extra Large Devices (Large Desktops) */
 @media (min-width: 1500px) {
@@ -346,6 +367,16 @@ background-clip: text !important;
   display: flex;
   gap: 20px;
  }
+ 
+.toggled-class{
+  padding-left: 4em !important;
+  transition:  0.3s ease-in-out;
+}
+.default-class{
+  padding-left: 15.5em !important;
+  transition:  0.3s ease-in-out;
+
+}
 }
 
 /* Extra Large Devices (Large Desktops) */
@@ -354,4 +385,14 @@ background-clip: text !important;
   display: flex;
   gap: 20px;
  }
+ 
+.toggled-class{
+  padding-left: 4em !important;
+  transition:  0.3s ease-in-out;
+}
+.default-class{
+  padding-left: 15.5em !important;
+  transition:  0.3s ease-in-out;
+
+}
 }

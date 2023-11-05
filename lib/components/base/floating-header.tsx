@@ -4,16 +4,19 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   Button,
+  Collapse,
   Flex,
   Image,
   Img,
   Input,
   Select,
+  Stack,
   Text,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import type { Key } from 'react';
+import { Key, useState } from 'react';
+import DownloadCSVModel from '../models/download-csv';
 
 const categories = ['Capsules', 'Edibles', 'Tinctures', 'Flowers', 'Drinks'];
 const manufacturers = [
@@ -43,6 +46,7 @@ interface FloatingHeaderProps {
   title?: string;
   itemCount?: string;
   csvImage?: boolean;
+  csvDownLoadModel?: boolean;
   refreshImage?: boolean;
   breadcrumbs?: BreadcrumbItems[];
   lastBreadcrumbColor?: string;
@@ -70,12 +74,14 @@ interface FloatingHeaderProps {
   secondaryButton?: boolean;
   primaryLabel?: string;
   secondaryLabel?: string;
+  statusFilter?: boolean;
 }
 
 const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   title,
   itemCount,
   csvImage,
+  csvDownLoadModel,
   refreshImage,
   breadcrumbs,
   lastBreadcrumbColor,
@@ -83,6 +89,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   sortBy,
   addButtons,
   addNew,
+  statusFilter,
   productDetail,
   addBulk,
   productFilter,
@@ -105,6 +112,12 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   const constructedHref1 = `/${editLink}`;
   const constructedHref2 = `/${cancelLink}`;
   const constructedHref3 = `/${confirmLink}`;
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOptions = () => {
+    setIsOpen(!isOpen);
+  };
 
   const router = useRouter();
   const isActive = (path: string) => {
@@ -248,7 +261,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
               <Flex>
                 <Select
                   placeholder={searchWithFiltersPlaceholder}
-                  w="150px"
+                  w="170px"
                   borderRadius="4px 0px 0px 4px"
                 >
                   {searchWithFilterOptions?.map(
@@ -438,6 +451,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                 h="38px"
               />
             )}
+            {csvDownLoadModel && <DownloadCSVModel />}
           </Flex>
           <Flex
             justifyContent={{
@@ -534,9 +548,89 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                 </Button>
               </Flex>
             )}
+            {statusFilter && (
+              <Image
+                src="/images/status.png"
+                alt="Status"
+                zIndex={1000}
+                w="95px"
+                onClick={toggleOptions}
+                cursor="pointer"
+                h="38px"
+              />
+            )}
+            <Collapse
+              in={isOpen}
+              style={{
+                position: 'absolute',
+                zIndex: 999,
+              }}
+            >
+              <Stack
+                background={'#FFF6F2'}
+                w="200px"
+                mt="3em"
+                borderRadius="12px"
+              >
+                <Text
+                  px="15px"
+                  py="10px"
+                  color="#2B86FF"
+                  cursor="pointer"
+                  _hover={{
+                    background: '#2B86FF',
+                    color: '#fff',
+                    transition: '0.3s ease-in-out',
+                  }}
+                >
+                  New
+                </Text>
+                <Text
+                  px="15px"
+                  py="10px"
+                  cursor="pointer"
+                  color="#08754C"
+                  _hover={{
+                    background: '#08754C',
+                    color: '#fff',
+                    transition: '0.3s ease-in-out',
+                  }}
+                >
+                  Completed
+                </Text>
+                <Text
+                  px="15px"
+                  py="10px"
+                  color="#2B86FF"
+                  cursor="pointer"
+                  _hover={{
+                    background: '#2B86FF',
+                    transition: '0.3s ease-in-out',
+
+                    color: '#fff',
+                  }}
+                >
+                  Pending
+                </Text>
+                <Text
+                  px="15px"
+                  py="10px"
+                  color="#FF2323"
+                  cursor="pointer"
+                  _hover={{
+                    background: '#FF2323',
+                    transition: '0.3s ease-in-out',
+
+                    color: '#fff',
+                  }}
+                >
+                  Canceled
+                </Text>
+              </Stack>
+            </Collapse>
             {sortBy && (
               <Image
-                src="/images/sortBy.png"
+                src="/images/funnel.png"
                 alt="sortBy"
                 w="38px"
                 cursor="pointer"

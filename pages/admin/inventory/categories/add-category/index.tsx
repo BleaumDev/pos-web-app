@@ -15,13 +15,23 @@ import FloatingHeader from '@lib/components/base/floating-header';
 import Input from '@lib/components/base/input';
 import UploadSingleImage from '@lib/components/base/upload-single-image';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { useClassContext } from 'context/ClassContext';
 
 export default function AddCategory(): React.ReactElement {
   const [categoryActive, setCategoryActive] = useBoolean(false);
+  const { isClassToggled } = useClassContext();
 
   return (
     <Sidenav>
-      <Box position="relative" mt="0em" w="auto">
+      <Box
+        w="auto"
+        left="0"
+        right="0"
+        width={'100%'}
+        className={isClassToggled ? 'toggled-class' : 'default-class'}
+        position="fixed"
+        pr="2em"
+      >
         <FloatingHeader
           title="Categories"
           itemCount="12+ Categories"
@@ -48,6 +58,15 @@ export default function AddCategory(): React.ReactElement {
             },
           ]}
           searchWithFilters
+          searchWithFiltersPlaceholder="Products"
+          searchWithFilterOptions={[
+            {
+              label: 'Flowers',
+            },
+            {
+              label: 'Capsules',
+            },
+          ]}
           filterButton
           primaryButton
           addNew="Category"
@@ -59,10 +78,8 @@ export default function AddCategory(): React.ReactElement {
       </Box>
       <Box
         p="2em 2em 4em 2em"
-        borderRadius="20px"
-        bg="#E9F0F8 !important"
         position="relative"
-        top="-11px"
+        top="8.5em"
         overflowX="hidden"
         overflowY="scroll"
         h="63vh"

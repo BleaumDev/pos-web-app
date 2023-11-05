@@ -5,13 +5,24 @@ import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import DetailProductInformation from '@lib/components/product/detail-product-information';
+import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
 
 export default function ProductDetail(): React.ReactNode {
+  const { isClassToggled } = useClassContext();
+
   return (
     <div>
       <Sidenav>
-        <Box position="relative" mt="0em" w="auto">
+        <Box
+          w="auto"
+          left="0"
+          right="0"
+          width={'100%'}
+          className={isClassToggled ? 'toggled-class' : 'default-class'}
+          position="fixed"
+          pr="2em"
+        >
           <FloatingHeader
             title="Products"
             itemCount="1432+ Products"
@@ -44,7 +55,7 @@ export default function ProductDetail(): React.ReactNode {
         <Box
           p="2em 2em 4em 2em"
           position="relative"
-          top="0px"
+          top="7.5em"
           overflowX="hidden"
           overflowY="scroll"
           h="65vh"
