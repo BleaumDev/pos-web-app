@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "allowUmdGlobalAccess": true,
+    "baseUrl": ".",
+    "paths": {
+      "@lib/*": ["lib/*"],
+      "@theme/*": ["styles/themes/*"],
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@utils/*": ["utils/*"],
+      "@api/*": ["api-services/*"],
+      "path-to-regexp": ["node_modules/path-to-regexp/dist/index"],
+      "react": ["./node_modules/@types/react"]
+    }
+  },
+  "types": ["node", "jest", "@testing-library/jest-dom"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "styles/theme/index.ts",
+    "lib/i18n/local-storage-backend.js",
+    "lib/components/Layout/Sidebar/Sidenav.jsx",
+    "utils/customerUtils.ts"
+  ],
+  "exclude": ["./out/**/*", "./node_modules/**/*", "cypress/**/*.ts"]
+}
