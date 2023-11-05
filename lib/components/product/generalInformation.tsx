@@ -1,18 +1,26 @@
-import { Box, Flex, Select, Stack, Text, Textarea } from '@chakra-ui/react';
+import { Box, Flex, Select, Stack, Textarea } from '@chakra-ui/react';
 
 import Input from '../base/input';
 import Label from '../base/label';
 import ComplexPricingInputRow from './ComplexPricingInputRow';
 
-const categories = ['Capsules', 'Edibles', 'Tinctures', 'Flowers', 'Drinks'];
+const categories = [
+  '',
+  'Capsules',
+  'Edibles',
+  'Tinctures',
+  'Flowers',
+  'Drinks',
+];
 const manufacturers = [
+  '',
   'Cresco Labs',
   'Aphira Inc',
   'Steep Hill, INC',
   'Trulieve Canabis',
   'MariMed Inc',
 ];
-const units = ['Grams', 'Ounces', 'Pounds', 'Kilograms'];
+const units = ['', 'Grams', 'Ounces', 'Pounds', 'Kilograms'];
 const GeneralInformation = () => {
   return (
     <>
@@ -46,7 +54,11 @@ const GeneralInformation = () => {
             className="primary-font-medium"
           >
             {categories.map((category) => (
-              <option key={category} value={category}>
+              <option
+                key={category}
+                value={category}
+                style={{ backgroundColor: 'red' }}
+              >
                 {category}
               </option>
             ))}
@@ -187,7 +199,7 @@ const GeneralInformation = () => {
       <Stack mt="24px">
         <Label
           fontSize={{ base: '12px', sm: '14px', md: '16px' }}
-          className="primary-font-semibold"
+          className="glroy-bold"
         >
           Complex Pricing
         </Label>
@@ -200,16 +212,6 @@ const GeneralInformation = () => {
         </Label>
       </Stack>
       <ComplexPricingInputRow />
-      <Box mt={4}>
-        <Text
-          h={6}
-          cursor="pointer"
-          className="primary-font-semibold"
-          color="#FFA382"
-        >
-          + Add more
-        </Text>
-      </Box>
     </>
   );
 };

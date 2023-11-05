@@ -14,8 +14,10 @@ interface Product {
   imageSrc: string;
   price: string;
   sku: string;
-  quantity: string;
+  quantity?: string;
   inStoreDate: string;
+  isSimpleProduct?: boolean;
+  isComplexProduct?: boolean;
 }
 
 const totalPages = Math.ceil(frequentlyPurchasedData.length / 6); // Default products per page
@@ -84,6 +86,9 @@ const FrequentlyPurchasedProducts = () => {
                 price={item.price}
                 sku={item.sku}
                 quantity={item.quantity}
+                isSimpleProduct={item.isSimpleProduct}
+                isComplexProduct={item.isComplexProduct}
+                outStock={!item.quantity}
               />
             ))}
           </>

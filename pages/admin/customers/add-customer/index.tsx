@@ -2,20 +2,31 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/button-has-type */
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Flex, Img } from '@chakra-ui/react';
+import { Box, Divider, Flex, Img } from '@chakra-ui/react';
 import Button from '@lib/components/base/button';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import ContactInformation from '@lib/components/customers/contact-information';
 import CustomerPersonalInformation from '@lib/components/customers/customer-personal-information';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
 
 export default function AddCustomer(): React.ReactNode {
+  const { isClassToggled } = useClassContext();
+
   return (
     <div>
       <Sidenav>
-        <Box position="relative" mt="0em" w="auto">
+        <Box
+          w="auto"
+          left="0"
+          right="0"
+          width={'100%'}
+          className={isClassToggled ? 'toggled-class' : 'default-class'}
+          position="fixed"
+          pr="2em"
+        >
           <FloatingHeader
             title="Customers"
             itemCount="12230+ Customers"
@@ -40,10 +51,8 @@ export default function AddCustomer(): React.ReactNode {
 
         <Box
           p="2em 2em 4em 2em"
-          borderRadius="20px 50px 0px 0px"
-          bg="#E9F0F8 !important"
           position="relative"
-          top="-11px"
+          top="5.5em"
           overflowX="hidden"
           overflowY="scroll"
           h="70vh"
@@ -70,6 +79,8 @@ export default function AddCustomer(): React.ReactNode {
                 Add New Customer
               </Label>
             </Flex>
+            <Divider my="15px" mx="30px" borderColor="rgba(18, 23, 30, 0.4)" />
+
             <Box
               display={{
                 base: 'grid',

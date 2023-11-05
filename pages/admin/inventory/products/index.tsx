@@ -2,11 +2,14 @@ import { Box, Image, Td } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 
 const Inventory = () => {
   const [isClient, setIsClient] = useState(false);
+
+  const { isClassToggled } = useClassContext();
 
   useEffect(() => {
     setIsClient(true);
@@ -34,7 +37,7 @@ const Inventory = () => {
       Herb, dried
     </Td>,
     <Td className="text-center" key="messagesCount">
-      $22.00
+      complex
     </Td>,
     <Td className="text-center" key="createdAt">
       250g
@@ -70,7 +73,15 @@ const Inventory = () => {
   return (
     <Box>
       <Sidenav>
-        <Box position="relative" mt="0em" w="100%" pr="2em">
+        <Box
+          w="auto"
+          left="0"
+          right="0"
+          width={'100%'}
+          className={isClassToggled ? 'toggled-class' : 'default-class'}
+          position="fixed"
+          pr="2em"
+        >
           <FloatingHeader
             title="Products"
             itemCount="1432+ Items"
@@ -104,11 +115,10 @@ const Inventory = () => {
         <Box
           p="2em 2em 4em 2em"
           position="relative"
-          top="0em"
+          top="8.5em"
           w="100%"
           overflowX="hidden"
           overflowY="scroll"
-          zIndex={-1}
           h="60vh"
         >
           {isClient && (
@@ -116,11 +126,11 @@ const Inventory = () => {
               checkboxes
               hoverEffect
               headers={[
-                'Image',
+                '',
                 'Product Name',
                 'Category',
                 'Price',
-                'Size',
+                'Price type',
                 'Manufacturer',
                 'Total Qty',
                 'Available Qty',

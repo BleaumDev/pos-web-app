@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Flex,
+  Img,
   Modal,
   ModalBody,
   ModalContent,
@@ -94,6 +95,16 @@ const MedicalModel = () => {
           p="60px 10px"
         >
           <ModalBody>
+            <a href="/pos">
+              <Img
+                src="/images/arrow-square.png"
+                alt="arrow-square"
+                width="32px"
+                height="32px"
+                position="relative"
+                top="-3em"
+              />
+            </a>
             <Flex justifyContent="center" alignItems="center">
               <Text
                 color="#000"

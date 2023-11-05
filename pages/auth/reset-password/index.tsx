@@ -43,7 +43,7 @@ const ResetPassword = () => {
               Confirm Password
             </Label>
 
-            <PasswordInput placeholder="Re-Enter new password" />
+            <PasswordInput placeholder="Confirm new password" />
           </Stack>
         </AuthCardBody>
         <CardFooter mt="1em">

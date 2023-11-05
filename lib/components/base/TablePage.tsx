@@ -1,10 +1,10 @@
 // eslint-disable-next-line simple-import-sort/imports
 import {
   Box,
+  Table as ChakraTable,
   Checkbox,
   Flex,
   Select,
-  Table as ChakraTable,
   TableContainer,
   Tag,
   Tbody,
@@ -222,6 +222,7 @@ const TablePage: FC<TableProps> = ({
             width: '10px',
             display: 'block',
           },
+          'overflow-x': 'auto',
         }}
       >
         <ChakraTable
@@ -250,6 +251,7 @@ const TablePage: FC<TableProps> = ({
                   pb={8}
                   px={5}
                   className="primary-font-semibold"
+                  minW={100}
                 >
                   {header}
                 </Th>
@@ -302,7 +304,10 @@ const TablePage: FC<TableProps> = ({
                   <Td
                     w="auto"
                     key={keys[i][j]}
-                    fontSize="16px"
+                    fontSize={{
+                      base: '12px',
+                      md: '16px',
+                    }}
                     id="img_col"
                     textAlign="center"
                     className="primary-font-medium"

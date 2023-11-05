@@ -14,6 +14,7 @@ import 'react-widgets/styles.css';
 import 'styles/phone-input.css';
 import '../styles/variables.css';
 
+import { ClassProvider } from 'context/ClassContext';
 import { store } from '../redux/store';
 
 const App = ({
@@ -24,18 +25,20 @@ const App = ({
   dehydratedState: unknown;
 }>): React.ReactNode => {
   return (
-    <ChakraProvider theme={theme}>
-      <Suspense fallback={<div>Loading...</div>}>
-        <SessionProvider session={session}>
-          <Provider store={store}>
-            <Head>
-              <title>POS</title>
-            </Head>
-            <Component {...pageProps} />
-          </Provider>
-        </SessionProvider>
-      </Suspense>
-    </ChakraProvider>
+    <ClassProvider>
+      <ChakraProvider theme={theme}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <SessionProvider session={session}>
+            <Provider store={store}>
+              <Head>
+                <title>POS</title>
+              </Head>
+              <Component {...pageProps} />
+            </Provider>
+          </SessionProvider>
+        </Suspense>
+      </ChakraProvider>
+    </ClassProvider>
   );
 };
 

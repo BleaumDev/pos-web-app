@@ -8,6 +8,7 @@ import { Box, Flex, Icon, Img, Input } from '@chakra-ui/react';
 import Button from './button';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { nanoid } from '@reduxjs/toolkit';
 import SwiperInstance from 'swiper';
 import { Navigation } from 'swiper/modules';
 
@@ -93,7 +94,7 @@ const UploadMultipleImages: React.FC<UploadMultipleImagesProps> = ({
             }}
           >
             {selectedFiles.map((imageUrl, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={nanoid()}>
                 <Box position="relative" left="30%">
                   <Img
                     src={

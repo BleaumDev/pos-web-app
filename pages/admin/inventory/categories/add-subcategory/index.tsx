@@ -16,13 +16,23 @@ import Input from '@lib/components/base/input';
 import UploadSingleImage from '@lib/components/base/upload-single-image';
 import LabelledSelect from '@lib/components/inputs/LabelledSelect';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { useClassContext } from 'context/ClassContext';
 
 export default function AddSubcategory(): React.ReactElement {
   const [subcategoryActive, setSubcategoryActive] = useBoolean(false);
+  const { isClassToggled } = useClassContext();
 
   return (
     <Sidenav>
-      <Box position="relative" mt="0em" w="auto">
+      <Box
+        w="auto"
+        left="0"
+        right="0"
+        width={'100%'}
+        className={isClassToggled ? 'toggled-class' : 'default-class'}
+        position="fixed"
+        pr="2em"
+      >
         <FloatingHeader
           title="Categories"
           itemCount="12+ Categories"
@@ -49,6 +59,15 @@ export default function AddSubcategory(): React.ReactElement {
             },
           ]}
           searchWithFilters
+          searchWithFiltersPlaceholder="Products"
+          searchWithFilterOptions={[
+            {
+              label: 'Flowers',
+            },
+            {
+              label: 'Capsules',
+            },
+          ]}
           filterButton
           primaryButton
           addNew="Category"
@@ -60,10 +79,8 @@ export default function AddSubcategory(): React.ReactElement {
       </Box>
       <Box
         p="2em 2em 4em 2em"
-        borderRadius="20px"
-        bg="#E9F0F8 !important"
         position="relative"
-        top="-11px"
+        top="8.5em"
         overflowX="hidden"
         overflowY="scroll"
         h="63vh"
@@ -71,7 +88,7 @@ export default function AddSubcategory(): React.ReactElement {
         <Box
           borderRadius="14px"
           paddingBottom={20}
-          paddingTop={20}
+          paddingTop={10}
           backgroundColor="white"
         >
           <Box
@@ -96,7 +113,12 @@ export default function AddSubcategory(): React.ReactElement {
                 </Heading>
               </Box>
             </Box>
-            <Divider className="mx-5 mt-4" />
+            <Divider
+              my="15px"
+              w="95%"
+              ml="4em"
+              borderColor="rgba(18, 23, 30, 0.4)"
+            />
           </Box>
           <SimpleGrid
             style={{
@@ -112,6 +134,7 @@ export default function AddSubcategory(): React.ReactElement {
             <GridItem>
               <LabelledSelect
                 options={[
+                  { value: '', label: '' },
                   { value: 'Ices', label: 'Ices' },
                   { value: 'Pre-Rolled', label: 'Pre-Rolled' },
                   { value: 'Flowers', label: 'Flowers' },
@@ -150,7 +173,7 @@ export default function AddSubcategory(): React.ReactElement {
                   marginTop: 10,
                 }}
               >
-                <Text className="primary-font-medium" style={{}}>
+                <Text className="primary-font-semibold" style={{}}>
                   Status
                 </Text>
               </Box>
@@ -234,7 +257,7 @@ export default function AddSubcategory(): React.ReactElement {
               display={{ base: 'none', sm: 'block' }}
               style={{
                 position: 'absolute',
-                bottom: 40,
+                bottom: 5,
                 right: 70,
               }}
             >

@@ -2,21 +2,31 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/button-has-type */
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Divider, Flex } from '@chakra-ui/react';
+import Button from '@lib/components/base/button';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import DetailedInformation from '@lib/components/product/detailedInformation';
 import GeneralInformation from '@lib/components/product/generalInformation';
+import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
-import { useState } from 'react';
 
 export default function ProductDetail(): React.ReactNode {
-  const [complexPricingRowCount, setComplexPricingRowCount] = useState(1);
+  const { isClassToggled } = useClassContext();
+
   return (
     <div>
       <Sidenav>
-        <Box position="relative" mt="0em" w="auto">
+        <Box
+          w="auto"
+          left="0"
+          right="0"
+          width={'100%'}
+          className={isClassToggled ? 'toggled-class' : 'default-class'}
+          position="fixed"
+          pr="2em"
+        >
           <FloatingHeader
             title="Inventory"
             itemCount="1432+ Products"
@@ -46,10 +56,8 @@ export default function ProductDetail(): React.ReactNode {
 
         <Box
           p="2em 2em 4em 2em"
-          borderRadius="20px 50px 0px 0px"
-          bg="#E9F0F8 !important"
           position="relative"
-          top="-11px"
+          top="5.5em"
           overflowX="hidden"
           overflowY="scroll"
           h="70vh"
@@ -76,7 +84,7 @@ export default function ProductDetail(): React.ReactNode {
                 Add Product
               </Label>
             </Flex>
-
+            <Divider my="15px" mx="30px" borderColor="rgba(18, 23, 30, 0.4)" />
             <Box
               display={{
                 base: 'grid',
@@ -87,15 +95,14 @@ export default function ProductDetail(): React.ReactNode {
                 md: '0em 1em',
               }}
               w="full"
-              gap="112px"
-              p="12px"
+              gap="70px"
             >
               <Box
                 w={{ base: '100%', md: '50%' }}
                 background="rgba(246, 252, 255, 0.40)"
                 borderRadius="12px"
                 m={{
-                  base: '0em 10px',
+                  base: '0em 1000px',
                   md: '0em 2em',
                 }}
                 p="20px 40px"
@@ -104,7 +111,7 @@ export default function ProductDetail(): React.ReactNode {
               >
                 <Label
                   fontSize={{ base: '12px', sm: '14px', md: '16px' }}
-                  className="primary-font-semibold"
+                  className="glroy-bold"
                 >
                   General Information
                 </Label>
@@ -120,6 +127,28 @@ export default function ProductDetail(): React.ReactNode {
                 <DetailedInformation />
               </Box>
             </Box>
+            <Flex justifyContent="end" gap="21px" mt="-3.6em" alignItems="end">
+              <Button
+                className="primary-font-semibold"
+                border=" 0.3px solid rgba(18, 23, 30, 0.50)"
+                fontSize="14px"
+                styledVariant="outline"
+                color="rgba(18, 23, 30, 0.50)"
+              >
+                Cancel
+              </Button>
+              <Button
+                className="primary-font-semibold"
+                fontSize="14px"
+                styledVariant="blue"
+                _hover={{
+                  background: 'rgba(255, 138, 67, 0.50)',
+                }}
+                background="rgba(255, 138, 67, 0.50)"
+              >
+                Add product
+              </Button>
+            </Flex>
           </Box>
         </Box>
       </Sidenav>

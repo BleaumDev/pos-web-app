@@ -12,7 +12,9 @@ interface Product {
   imageSrc: string;
   price: string;
   sku: string;
-  quantity: string;
+  quantity?: string;
+  isSimpleProduct?: boolean;
+  isComplexProduct?: boolean;
 }
 
 const totalPages = Math.ceil(recommendedDeals.length / 6); // Default products per page
@@ -63,6 +65,9 @@ const RecommendedDeals = () => {
             price={item.price}
             sku={item.sku}
             quantity={item.quantity}
+            isSimpleProduct={item.isSimpleProduct}
+            isComplexProduct={item.isComplexProduct}
+            outStock={!item.quantity}
           />
         ))}
       </Box>

@@ -8,7 +8,6 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
-import React from 'react';
 
 import MedicalModel from './medical-model';
 import RecreationalModel from './recreational-model';
