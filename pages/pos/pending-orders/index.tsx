@@ -9,7 +9,7 @@ import {
   Flex,
   Image,
   Td,
-  Text
+  Text,
 } from '@chakra-ui/react';
 import TablePage from '@lib/components/base/TablePage';
 
@@ -26,7 +26,7 @@ const PendingOrders = () => {
   useEffect(() => {
     setIsClient(true);
   }, []);
-  const PendingOrders = [
+  const PendingOrdersItems = [
     <Td key="img" display="flex" alignItems="center" justifyContent="center">
       <Link href="/admin/customers/customer-detail">
         <Flex
@@ -98,8 +98,8 @@ const PendingOrders = () => {
   ];
 
   const inventory = useMemo(() => {
-    return Array(20).fill(PendingOrders);
-  }, [PendingOrders]);
+    return Array(20).fill(PendingOrdersItems);
+  }, [PendingOrdersItems]);
   return (
     <PosSidenav>
       <Flex position="fixed" top="9.75em" w="100%" gap="20px">
