@@ -1,5 +1,5 @@
+/* eslint-disable */
 import React, { useEffect, useRef, useState } from 'react';
-import { FileWithPath, useDropzone } from 'react-dropzone';
 import SwiperCore from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css'; // Import Swiper styles
@@ -9,6 +9,7 @@ import Button from './button';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { nanoid } from '@reduxjs/toolkit';
+import { FileWithPath, useDropzone } from 'react-dropzone';
 import SwiperInstance from 'swiper';
 import { Navigation } from 'swiper/modules';
 

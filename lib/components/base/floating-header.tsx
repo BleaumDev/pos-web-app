@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { AddIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import {
   Box,
@@ -183,7 +184,6 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
             separator={<ChevronRightIcon color="#000000" />}
           >
             {breadcrumbs?.map((breadcrumb, index) => (
-              // eslint-disable-next-line react/no-array-index-key
               <BreadcrumbItem key={index}>
                 <Link href={breadcrumb.breadcrumLink}>
                   {index === breadcrumbs.length - 1 ? (

@@ -1,5 +1,4 @@
 import { Box, SimpleGrid } from '@chakra-ui/react';
-
 import RighSidebar from './right-side-bar';
 
 type Props = {
