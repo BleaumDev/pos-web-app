@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+import type { UseDisclosureProps } from '@chakra-ui/react';
 import {
   Flex,
   Img,
@@ -8,7 +9,6 @@ import {
   ModalOverlay,
   Text,
   useDisclosure,
-  UseDisclosureProps,
 } from '@chakra-ui/react';
 import PosNavbar from '@lib/components/Layout/Sidebar/PosNavbar';
 import MedicalModel from '@lib/components/models/medical-model';
