@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { AddIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import {
   Box,

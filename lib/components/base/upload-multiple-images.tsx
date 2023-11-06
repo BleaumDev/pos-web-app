@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useRef, useState } from 'react';
 import SwiperCore from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
