@@ -12,7 +12,7 @@ import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
 
-export default function AddCustomer(): React.ReactNode {
+export default function AddCustomer() {
   const { isClassToggled } = useClassContext();
 
   return (

@@ -36,7 +36,8 @@
     "styles/theme/index.ts",
     "lib/i18n/local-storage-backend.js",
     "lib/components/Layout/Sidebar/Sidenav.jsx",
-    "utils/customerUtils.ts"
+    "utils/customerUtils.ts",
+    "pages/admin/customers/customer-detail"
   ],
   "exclude": ["./out/**/*", "./node_modules/**/*", "cypress/**/*.ts"]
 }
