@@ -9,7 +9,7 @@ import {
   Flex,
   Image,
   Td,
-  Text,
+  Text
 } from '@chakra-ui/react';
 import TablePage from '@lib/components/base/TablePage';
 
