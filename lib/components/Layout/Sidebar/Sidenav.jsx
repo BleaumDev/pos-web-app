@@ -9,7 +9,7 @@ import {
   useDisclosure,
   VStack,
 } from '@chakra-ui/react';
-import { useClassContext } from 'context/ClassContext';
+import { useClassContext } from 'context/ClassContext.tsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Navbar from './Navbar';
