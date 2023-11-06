@@ -45,6 +45,7 @@ const VerificationPage = () => {
                     ) || ''
                   }
                 /> */}
+            {/* <Text></Text> */}
           </Stack>
         </AuthCardBody>
         <CardFooter>
