@@ -156,7 +156,11 @@ export default function AddCategory(): React.ReactElement {
                   marginTop: 10,
                 }}
               >
-                <Text className="primary-font-semibold" style={{}}>
+                <Text
+                  className="primary-font-semibold"
+                  color="#41454B"
+                  style={{}}
+                >
                   Status
                 </Text>
               </Box>
@@ -188,6 +192,16 @@ export default function AddCategory(): React.ReactElement {
                     size="lg"
                     isChecked={categoryActive}
                     onChange={setCategoryActive.toggle}
+                    colorScheme="red"
+                    sx={{
+                      '& input:checked + div': {
+                        borderColor: 'green',
+                        bg: 'green',
+                      },
+                      '& input:checked + div::before': {
+                        transform: 'translateX(150%)',
+                      },
+                    }}
                   />
                 </Box>
                 <Box

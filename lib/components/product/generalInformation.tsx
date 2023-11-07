@@ -187,6 +187,7 @@ const GeneralInformation = () => {
           <Label
             fontSize={{ base: '12px', sm: '14px', md: '14px' }}
             className="primary-font-semibold"
+            // whiteSpace="nowrap"
           >
             Quantity Remaining
           </Label>

@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/button-has-type */
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Divider, Flex } from '@chakra-ui/react';
+import { Box, Divider, Flex, Grid, GridItem } from '@chakra-ui/react';
 import Button from '@lib/components/base/button';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
@@ -85,29 +85,34 @@ export default function ProductDetail(): React.ReactNode {
               </Label>
             </Flex>
             <Divider my="15px" mx="30px" borderColor="rgba(18, 23, 30, 0.4)" />
-            <Box
+            <Grid
               display={{
                 base: 'grid',
-                md: 'flex',
+                // md: 'flex',
+              }}
+              templateColumns={{
+                base: 'repeat(1, 1fr)',
+                md: 'repeat(2, 1fr)',
               }}
               m={{
                 base: '0em 0px',
                 md: '0em 1em',
               }}
               w="full"
-              gap="70px"
+              // gap="70px"
             >
-              <Box
-                w={{ base: '100%', md: '50%' }}
+              <GridItem
+                // w={{ base: '100%', md: '50%' }}
                 background="rgba(246, 252, 255, 0.40)"
                 borderRadius="12px"
-                m={{
-                  base: '0em 1000px',
-                  md: '0em 2em',
-                }}
+                // m={{
+                //   base: '0em 1000px',
+                //   md: '0em 2em',
+                // }}
                 p="20px 40px"
                 border="0.2px solid rgba(18, 23, 30, 0.40)"
                 boxShadow="9px 9px 23px 0px rgba(128, 128, 128, 0.07)"
+                // colSpan={1}
               >
                 <Label
                   fontSize={{ base: '12px', sm: '14px', md: '16px' }}
@@ -116,8 +121,8 @@ export default function ProductDetail(): React.ReactNode {
                   General Information
                 </Label>
                 <GeneralInformation />
-              </Box>
-              <Box w={{ base: '100%', md: '50%' }} p="0px 40px">
+              </GridItem>
+              <GridItem w={{ base: '100%', md: '50%' }} p="0px 40px">
                 <Label
                   fontSize={{ base: '16px', sm: '18px', md: '20px' }}
                   className="primary-font-semibold"
@@ -125,8 +130,8 @@ export default function ProductDetail(): React.ReactNode {
                   Detailed Information
                 </Label>
                 <DetailedInformation />
-              </Box>
-            </Box>
+              </GridItem>
+            </Grid>
             <Flex justifyContent="end" gap="21px" mt="-3.6em" alignItems="end">
               <Button
                 className="primary-font-semibold"

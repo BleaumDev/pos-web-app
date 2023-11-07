@@ -396,3 +396,8 @@ background-clip: text !important;
 
 }
 }
+
+option:checked,
+option:hover {
+  background-color: orange;
+}

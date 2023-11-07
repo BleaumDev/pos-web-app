@@ -236,6 +236,7 @@ export default function ViewCategory(): React.ReactElement {
                           <Label
                             fontSize={{ base: '12px', sm: '14px', md: '14px' }}
                             className="primary-font-semibold"
+                            whiteSpace="nowrap"
                           >
                             Quantity Remaining
                           </Label>

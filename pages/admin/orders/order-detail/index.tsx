@@ -1,4 +1,4 @@
-import { ArrowBackIcon, TriangleUpIcon } from '@chakra-ui/icons';
+import { ArrowBackIcon } from '@chakra-ui/icons';
 import {
   Box,
   Center,
@@ -6,6 +6,8 @@ import {
   Grid,
   GridItem,
   Image,
+  Img,
+  Input,
   Table,
   TableContainer,
   Tbody,
@@ -18,8 +20,13 @@ import {
 import FloatingHeader from '@lib/components/base/floating-header';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function OrderDetail(): React.ReactElement {
+  const [isDiscountExpanded, setIsDiscountExpanded] = useState<boolean>(false);
+
+  const [isTaxExpanded, setIsTaxEnpanded] = useState<boolean>(false);
+
   return (
     <Sidenav>
       <Box position="relative" mt="0em" w="auto">
@@ -418,7 +425,13 @@ export default function OrderDetail(): React.ReactElement {
             </Text>
             <Divider />
             <TableContainer>
-              <Table variant="unstyled">
+              <Table
+                variant="unstyled"
+                style={{
+                  borderCollapse: 'separate',
+                  borderSpacing: '0em 0em',
+                }}
+              >
                 <Thead>
                   <Tr
                     borderBottomWidth={1}
@@ -437,9 +450,6 @@ export default function OrderDetail(): React.ReactElement {
                   <Tr
                     borderBottomWidth={1}
                     borderColor="rgba(18, 23, 30, 0.20)"
-                    // borderWidth={1}
-                    mt={-1}
-                    mb={-1}
                   >
                     <Td
                       color="rgba(18, 23, 30, 0.60)"
@@ -848,11 +858,68 @@ export default function OrderDetail(): React.ReactElement {
                     <Td
                       color="rgba(65, 69, 75, 1)"
                       className="primary-font-semibold"
+                      display="flex"
+                      flexDir="row"
                     >
                       $53.00
-                      <TriangleUpIcon ml={2} mb={1} />
+                      <Box
+                        cursor="pointer"
+                        onClick={(_) =>
+                          setIsDiscountExpanded(!isDiscountExpanded)
+                        }
+                      >
+                        <Img
+                          src={
+                            !isDiscountExpanded
+                              ? '/images/down.png'
+                              : '/images/up.png'
+                          }
+                          w="12px"
+                          h="auto"
+                          transition="0.3s ease-in-out"
+                          mt="3px"
+                          ml={2}
+                        />
+                      </Box>
                     </Td>
                   </Tr>
+                  <Tr>
+                    <Td colSpan={5}>
+                      <hr
+                        style={{ borderTop: '1px dashed rgba(65, 69, 75, 1)' }}
+                      />
+                    </Td>
+                  </Tr>
+                  {isDiscountExpanded && (
+                    <Tr mt={-2} mb={0}>
+                      <Td colSpan={4} className="primary-font-semi-bold-italic">
+                        <Text
+                          color="rgba(18, 23, 30, 0.60)"
+                          fontSize="12px"
+                          className="primary-font-semi-bold-italic"
+                        >
+                          Coupon Code
+                        </Text>
+                      </Td>
+                      <Td>
+                        <Input
+                          defaultValue="b32super"
+                          color="#FFA382"
+                          borderRadius="2px"
+                          fontSize="14px"
+                          p="8px 10px"
+                          className="primary-font-semi-bold-italic"
+                          w="82px"
+                          textAlign="center"
+                          h="24px"
+                          background="rgba(65, 69, 75, 0.08)"
+                          _placeholder={{
+                            color: '#FFA382',
+                          }}
+                        />
+                      </Td>
+                    </Tr>
+                  )}
                   <Tr mt={-2} mb={0}>
                     <Td
                       colSpan={4} // Assuming the table has 5 columns, this will span across the first 4 columns
@@ -864,26 +931,86 @@ export default function OrderDetail(): React.ReactElement {
                     <Td
                       color="rgba(65, 69, 75, 1)"
                       className="primary-font-semibold"
-                    >
-                      $29.82
-                      <TriangleUpIcon ml={2} mb={1} />
-                    </Td>
-                  </Tr>
-                  <Tr mt={-2} mb={0}>
-                    <Td
-                      colSpan={4} // Assuming the table has 5 columns, this will span across the first 4 columns
-                      color="rgba(65, 69, 75, 1)"
-                      className="primary-font-semibold"
-                    >
-                      Total Payable
-                    </Td>
-                    <Td
-                      color="rgba(65, 69, 75, 1)"
-                      className="primary-font-semibold"
+                      display="flex"
+                      flexDir="row"
                     >
                       $550.00
+                      <Box
+                        cursor="pointer"
+                        onClick={(_) => setIsTaxEnpanded(!isTaxExpanded)}
+                      >
+                        <Img
+                          src={
+                            !isTaxExpanded
+                              ? '/images/down.png'
+                              : '/images/up.png'
+                          }
+                          w="12px"
+                          h="auto"
+                          transition="0.3s ease-in-out"
+                          mt="3px"
+                          ml={2}
+                        />
+                      </Box>
                     </Td>
                   </Tr>
+                  <Tr>
+                    <Td colSpan={5}>
+                      <hr
+                        style={{ borderTop: '1px dashed rgba(65, 69, 75, 1)' }}
+                      />
+                    </Td>
+                  </Tr>
+                  {isTaxExpanded && (
+                    <>
+                      <Tr mt={-2} mb={0}>
+                        <Td
+                          colSpan={4}
+                          className="primary-font-semi-bold-italic"
+                        >
+                          <Text
+                            color="rgba(18, 23, 30, 0.60)"
+                            fontSize="12px"
+                            className="primary-font-semi-bold-italic"
+                          >
+                            CA Excise Tax
+                          </Text>
+                        </Td>
+                        <Td>
+                          <Text
+                            color="rgba(18, 23, 30, 0.60)"
+                            fontSize="12px"
+                            className="primary-font-semi-bold-italic"
+                          >
+                            $ 6.56
+                          </Text>
+                        </Td>
+                      </Tr>
+                      <Tr mt={-2} mb={0}>
+                        <Td
+                          colSpan={4}
+                          className="primary-font-semi-bold-italic"
+                        >
+                          <Text
+                            color="rgba(18, 23, 30, 0.60)"
+                            fontSize="12px"
+                            className="primary-font-semi-bold-italic"
+                          >
+                            CA Sales Tax
+                          </Text>
+                        </Td>
+                        <Td>
+                          <Text
+                            color="rgba(18, 23, 30, 0.60)"
+                            fontSize="12px"
+                            className="primary-font-semi-bold-italic"
+                          >
+                            $ 9.04
+                          </Text>
+                        </Td>
+                      </Tr>
+                    </>
+                  )}
                   <Tr mt={-2} mb={0}>
                     <Td
                       colSpan={5} // Assuming the table has 5 columns, this will span across the first 4 columns

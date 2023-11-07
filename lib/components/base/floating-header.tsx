@@ -463,9 +463,22 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
           >
             {productFilter && (
               <>
-                <Select placeholder="Category">
+                <Select
+                  placeholder="Category"
+                  // sx={{
+                  //   option: {
+                  //     _hover: { backgroundColor: 'orange', color: 'white' },
+                  //   },
+                  // }}
+                >
                   {categories.map((category) => (
-                    <option key={category} value={category}>
+                    <option
+                      key={category}
+                      value={category}
+                      style={{
+                        backgroundColor: 'orange',
+                      }}
+                    >
                       {category}
                     </option>
                   ))}
