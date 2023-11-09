@@ -8,7 +8,7 @@ const DetailProductInformation = () => {
   return (
     <Box
       display={{
-        base: 'grid',
+        base: 'flex',
         md: 'flex',
       }}
       w="100%"

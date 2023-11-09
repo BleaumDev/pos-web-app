@@ -4,14 +4,13 @@ import ReactSelect from 'react-select';
 
 import ErrorMessage from '../ErrorMessage';
 
-export type OptionType = {
+export interface OptionType {
   key?: string | number;
   value?: string;
   label?: string | JSX.Element | JSX.IntrinsicElements;
-};
+}
 
-type OptionsType = Array<OptionType>;
-
+export type OptionsType = OptionType[];
 interface Props {
   name: string;
   options?: OptionsType;
@@ -20,6 +19,7 @@ interface Props {
   isDisabled?: boolean;
   placeholder?: string;
   height?: string | number;
+  width?: string | number;
 
   field?: FieldInputProps<any>;
   form?: FormikProps<FormikValues>;
@@ -39,6 +39,7 @@ const Select = (props: Props) => {
     isDisabled = false,
     isMulti = false,
     height,
+    width,
     inputStyle,
   } = props;
   const fieldName = field?.name ?? name;
@@ -87,7 +88,7 @@ const Select = (props: Props) => {
         styles={{
           placeholder: (baseStyles) => ({
             ...baseStyles,
-            color: '#64646C',
+            color: '#41454B',
             fontSize: '14px',
             display: 'flex',
             alignItems: 'start',
@@ -110,7 +111,7 @@ const Select = (props: Props) => {
             position: 'absolute',
             width: '100%',
 
-            border: '0.5px solid #64646C',
+            border: '0.5px solid rgba(65, 69, 75, 0.40)',
             boxShadow: '0px 2px 6px 0px #13124212',
             boxSizing: 'border-box',
           }),
@@ -130,7 +131,7 @@ const Select = (props: Props) => {
               background: '#FFA382',
               color: '#fff',
             },
-            backgroundColor: state.isSelected ? '#fff' : '#fff',
+            backgroundColor: state.isSelected ? '#FFA382' : '#fff',
           }),
           input: (baseStyles) => ({
             ...baseStyles,
@@ -146,14 +147,15 @@ const Select = (props: Props) => {
           control: (baseStyles) => ({
             ...baseStyles,
             borderRadius: '8px',
-            border: '0.5px solid #64646C',
+            border: '0.5px solid rgba(65, 69, 75, 0.40)',
             boxShadow: '0px 2px 6px 0px #13124212',
             boxSizing: 'border-box',
-
+            width: width ?? 'auto',
             height: height ?? '50px',
             '@media (max-width: 1024px)': {
               height: height ?? '45px',
             },
+
             ...inputStyle,
           }),
 

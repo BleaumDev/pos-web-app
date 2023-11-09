@@ -74,8 +74,8 @@ const ManufecturerPage = () => {
           right="0"
           width={'100%'}
           className={isClassToggled ? 'toggled-class' : 'default-class'}
-          position="fixed"
           pr="2em"
+          zIndex={2}
         >
           <FloatingHeader
             title="Manufacturers"
@@ -121,10 +121,14 @@ const ManufecturerPage = () => {
         <Box
           p="2em 2em 4em 2em"
           position="relative"
-          top="8.5em"
+          top={{
+            base: '0em',
+            md: '8.5em',
+          }}
           overflowX="hidden"
           overflowY="scroll"
           h="60vh"
+          zIndex={1}
         >
           {isClient && (
             <Table

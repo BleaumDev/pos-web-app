@@ -3,12 +3,12 @@ import { Box } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
-import { mapCustomerDataToRows } from '@utils/customerUtils';
+import { mapIndividualEmployeeDataToRows } from '@utils/individualEmployeeUtils';
 import { useClassContext } from 'context/ClassContext';
-import customerData from 'data/customerTableData';
+import individualEmployeeData from 'data/individualEmployeeData';
 import { useEffect, useMemo, useState } from 'react';
 
-const CustomerPage = () => {
+const IndividualEmployee = () => {
   const [isClient, setIsClient] = useState(false);
   const { isClassToggled } = useClassContext();
 
@@ -16,9 +16,9 @@ const CustomerPage = () => {
     setIsClient(true);
   }, []);
 
-  const customerRows = useMemo(() => {
-    return mapCustomerDataToRows(customerData);
-  }, [customerData]);
+  const employeeRows = useMemo(() => {
+    return mapIndividualEmployeeDataToRows(individualEmployeeData);
+  }, [individualEmployeeData]);
 
   return (
     <Box>
@@ -30,17 +30,15 @@ const CustomerPage = () => {
             right="0"
             width={'100%'}
             className={isClassToggled ? 'toggled-class' : 'default-class'}
-            position="fixed"
             zIndex={2}
             pr="2em"
           >
             <FloatingHeader
-              title="Customers"
-              itemCount="12342+ Customers"
+              title="Employees"
+              itemCount="102+ Customers"
               csvImage
               refreshImage
               addSingleButtons
-              sortBy
               lastBreadcrumbColor="#FF8A43"
               breadcrumbs={[
                 {
@@ -48,50 +46,42 @@ const CustomerPage = () => {
                   breadcrumLink: '/admin/inventory/products',
                 },
                 {
-                  label: 'Customers',
-                  breadcrumLink: '/admin/customers',
+                  label: 'Individual Employee',
+                  breadcrumLink: '/admin/employee/individual-employee',
                 },
               ]}
-              filterButton
-              searchWithFilters
-              searchWithFiltersPlaceholder="Customer Type"
-              searchWithFilterOptions={[
-                {
-                  label: 'Medical',
-                },
-                {
-                  label: 'Recreational',
-                },
-              ]}
-              addNew="Customer"
-              addLink="/admin/customers/add-customer"
-              filter1="Medical ID"
-              filter2="DOB"
+              simpleSearch
+              simplePlaceHolderSearch="Search here..."
+              addNew="Employee"
+              addLink="/admin/employee/add-employee"
             />
           </Box>
 
           <Box
             p="2em 2em 4em 2em"
             position="relative"
-            top="8.5em"
+            top={{
+              base: '0em',
+              md: '8.5em',
+            }}
             overflowX="hidden"
-            zIndex={1}
             overflowY="scroll"
             h="60vh"
+            zIndex={1}
           >
             <Table
               hoverEffect
               headers={[
-                'Customer Name',
-                'Customer Type',
-                'Medical ID',
-                'Date Of Birth',
-                'Phone',
-                'Email',
-                'Total Purchase',
+                'Employee Name',
+                'User Name',
+                'Role',
+                'Group Name',
+                'Email Address',
+                'Phone No',
+                'Permission',
                 '',
               ]}
-              rows={customerRows}
+              rows={employeeRows}
             />
           </Box>
         </Sidenav>
@@ -100,4 +90,4 @@ const CustomerPage = () => {
   );
 };
 
-export default CustomerPage;
+export default IndividualEmployee;

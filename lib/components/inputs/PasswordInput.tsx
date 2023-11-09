@@ -20,7 +20,6 @@ function PasswordInput({ helpText, ...props }: BaseInputProps) {
           {...baseInputStyles}
           {...props}
           type={view ? 'text' : 'password'}
-          color="#12171E33"
         />
         <IconButton
           aria-label="view-icon"

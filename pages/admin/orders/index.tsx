@@ -5,6 +5,7 @@ import FloatingHeader from '@lib/components/base/floating-header';
 import TablePage from '@lib/components/base/TablePage';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import DeleteOrderModel from '@lib/components/models/delete-order';
+import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 const options = [
@@ -14,6 +15,7 @@ const options = [
 ];
 export default function ManufacturerList(): React.ReactElement {
   const [isClient, setIsClient] = useState(false);
+  const { isClassToggled } = useClassContext();
 
   useEffect(() => {
     setIsClient(true);
@@ -54,7 +56,15 @@ export default function ManufacturerList(): React.ReactElement {
     <Box>
       {isClient && (
         <Sidenav>
-          <Box position="relative" mt="0em" w="auto">
+          <Box
+            w="auto"
+            left="0"
+            right="0"
+            width={'100%'}
+            className={isClassToggled ? 'toggled-class' : 'default-class'}
+            zIndex={2}
+            pr="2em"
+          >
             <FloatingHeader
               title="Orders"
               itemCount="12342+ Orders"
@@ -110,10 +120,14 @@ export default function ManufacturerList(): React.ReactElement {
           <Box
             p="2em 2em 4em 2em"
             position="relative"
-            top="-11px"
+            top={{
+              base: '0em',
+              md: '8.5em',
+            }}
             overflowX="hidden"
             overflowY="scroll"
             h="60vh"
+            zIndex={1}
           >
             <TablePage
               checkboxes

@@ -24,8 +24,8 @@ const CustomerDetail = () => {
           right="0"
           width={'100%'}
           className={isClassToggled ? 'toggled-class' : 'default-class'}
-          position="fixed"
           pr="2em"
+          zIndex={2}
         >
           <FloatingHeader
             title="Customers"
@@ -55,6 +55,7 @@ const CustomerDetail = () => {
           top="5.5em"
           overflowX="hidden"
           overflowY="scroll"
+          zIndex={1}
           h="70vh"
         >
           <Box

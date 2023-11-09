@@ -62,11 +62,8 @@ const CancelModel = () => {
                 Cancel Order?
               </Text>
             </Flex>
-            <Divider
-              border="1px solid"
-              mt="5px"
-              borderColor="rgba(65, 69, 75, 0.30)"
-            />
+            <Divider className="mx-5 mt-4" />
+
             <Flex mt="10px" justifyContent="center" alignItems="center">
               <Text
                 color="#41454B"

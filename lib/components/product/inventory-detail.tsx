@@ -18,7 +18,7 @@ const InventtoryDetailData = [
   },
   {
     label: 'Initial Quantity',
-    value: '50g',
+    value: '50 items',
   },
   {
     label: 'Metrc Name',

@@ -157,7 +157,7 @@ const UploadMultipleImages: React.FC<UploadMultipleImagesProps> = ({
           <Box
             display="grid"
             justifyItems="center"
-            alignItems="start"
+            alignItems="center"
             {...getRootProps()}
           >
             <Img

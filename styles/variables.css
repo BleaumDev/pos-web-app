@@ -159,7 +159,7 @@ body{
   text-transform: capitalize !important;
 }
 .css-1xc3v61-indicatorContainer:hover{
-      background: #ff8a43;
+      background: none;
     color: #fff;
     border-radius: 7px;
     margin-left: -1px;
@@ -309,6 +309,20 @@ background-clip: text !important;
 /* Medium Devices (Laptops and Desktops) */
 @media (min-width: 768px) and (max-width: 991.98px) {
   /* Styles for medium devices go here */
+    
+.toggled-class{
+  padding-left: 4em !important;
+  transition:  0.3s ease-in-out;
+  position: relative;
+
+}
+.default-class{
+  padding-left: 0em !important;
+  transition:  0.3s ease-in-out;
+  position: relative;
+
+
+}
 }
 
 /* Large Devices (Large Laptops and Desktops) */
@@ -318,10 +332,14 @@ background-clip: text !important;
 .toggled-class{
   padding-left: 4em !important;
   transition:  0.3s ease-in-out;
+  position: fixed;
+
 }
 .default-class{
   padding-left: 15.5em !important;
   transition:  0.3s ease-in-out;
+  position: fixed;
+
 
 }
 }
@@ -340,6 +358,8 @@ background-clip: text !important;
 .default-class{
   padding-left: 15.5em !important;
   transition:  0.3s ease-in-out;
+  position: fixed;
+
 
 }
 }
@@ -354,10 +374,13 @@ background-clip: text !important;
 .toggled-class{
   padding-left: 4em !important;
   transition:  0.3s ease-in-out;
+  position: fixed;
+
 }
 .default-class{
   padding-left: 15.5em !important;
   transition:  0.3s ease-in-out;
+  position: fixed;
 
 }
 }
@@ -371,10 +394,13 @@ background-clip: text !important;
 .toggled-class{
   padding-left: 4em !important;
   transition:  0.3s ease-in-out;
+  position: fixed;
+
 }
 .default-class{
   padding-left: 15.5em !important;
   transition:  0.3s ease-in-out;
+  position: fixed;
 
 }
 }
@@ -389,10 +415,26 @@ background-clip: text !important;
 .toggled-class{
   padding-left: 4em !important;
   transition:  0.3s ease-in-out;
+  position: fixed;
+
 }
 .default-class{
   padding-left: 15.5em !important;
   transition:  0.3s ease-in-out;
+  position: fixed;
 
 }
+}
+.css-1slmy6p{
+  text-transform: capitalize !important;
+  font-size: 16px !important;
+}
+.css-legqbj{
+  margin-left: -1em !important;
+}
+.css-1u9des2-indicatorSeparator {
+width: 0px !important;
+}
+.css-1xc3v61-indicatorContainer{
+  color: rgba(65, 69, 75, 0.8) !important;
 }
