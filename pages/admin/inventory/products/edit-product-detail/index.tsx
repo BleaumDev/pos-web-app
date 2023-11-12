@@ -97,26 +97,17 @@ export default function EditProductDetail(): React.ReactNode {
               <Box w={{ base: '100%', md: '70%' }} ml="1em" mt="1em" px="2em">
                 <EditProductInformation />
               </Box>
-              <Box
-                w={{ base: '500px', md: '30%' }}
-                ml="1em"
-                position="relative"
-              >
+              <Box w={{ base: '500px', md: '30%' }}>
                 <Box
-                  borderRadius="24px"
-                  border="0.2px solid rgba(18, 23, 30, 0.40)"
-                  background="rgba(255, 255, 255, 0.80)"
-                  h="400px"
                   w={{
                     base: '100%',
                     md: '100%',
                   }}
-                  alignItems="center"
                 >
                   <UploadMultipleImages
                     widthSelectedImage="164px"
                     heightSelectedImage="136px"
-                    widthOfDefaultImage="200px"
+                    widthOfDefaultImage="800px"
                     addButton
                   />
                 </Box>

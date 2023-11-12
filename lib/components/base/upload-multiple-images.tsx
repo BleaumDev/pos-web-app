@@ -161,7 +161,7 @@ const UploadMultipleImages: React.FC<UploadMultipleImagesProps> = ({
             {...getRootProps()}
           >
             <Img
-              src="/images/upload-Image.png"
+              src="/images/multiple-upload.png"
               alt="Uploaded Image"
               w={widthOfDefaultImage}
             />

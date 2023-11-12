@@ -146,6 +146,8 @@ interface FloatingHeaderProps {
   secondaryLabel?: string;
   statusFilter?: boolean;
   simplePlaceHolderSearch?: string;
+  addNewStore?: boolean;
+  addStore?: string;
 }
 
 const FloatingHeader: React.FC<FloatingHeaderProps> = ({
@@ -179,11 +181,14 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   cancelLink,
   primaryButton,
   simplePlaceHolderSearch,
+  addNewStore,
+  addStore,
 }) => {
   const constructedHref = `/${addLink}`;
   const constructedHref1 = `/${editLink}`;
   const constructedHref2 = `/${cancelLink}`;
   const constructedHref3 = `/${confirmLink}`;
+  const constructedHref4 = `/${addStore}`;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -282,6 +287,25 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                     </BreadcrumbItem>
                   ))}
                 </Breadcrumb>
+                {addNewStore && (
+                  <Link href={constructedHref4}>
+                    <Button
+                      p="10px 18px"
+                      mt="1.5em"
+                      className="primary-font-semibold"
+                      color="#fff"
+                      fontSize="12px"
+                      bg="linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
+                      borderRadius="7px"
+                      _hover={{
+                        bg: 'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+                      }}
+                    >
+                      <Img src="/images/shop-add.png" mr="5px" w="16px" />
+                      Add New Store
+                    </Button>
+                  </Link>
+                )}
                 {editDetail && (
                   <Link href={constructedHref1}>
                     <Button
