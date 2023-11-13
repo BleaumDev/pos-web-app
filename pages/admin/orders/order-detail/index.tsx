@@ -3,8 +3,6 @@ import {
   Box,
   Center,
   Divider,
-  Grid,
-  GridItem,
   Image,
   Table,
   TableContainer,
@@ -17,12 +15,23 @@ import {
 } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
 
 export default function OrderDetail(): React.ReactElement {
+  const { isClassToggled } = useClassContext();
+
   return (
     <Sidenav>
-      <Box position="relative" mt="0em" w="auto">
+      <Box
+        w="auto"
+        left="0"
+        right="0"
+        width={'100%'}
+        className={isClassToggled ? 'toggled-class' : 'default-class'}
+        zIndex={2}
+        pr="2em"
+      >
         <FloatingHeader
           title="Orders"
           itemCount="12342+ Orders"
@@ -79,18 +88,17 @@ export default function OrderDetail(): React.ReactElement {
         borderRadius="20px"
         bg="#FFFFFF !important"
         position="relative"
-        top="-11px"
+        top={{
+          base: '0em',
+          md: '8.5em',
+        }}
         overflowX="hidden"
         overflowY="scroll"
         h="60vh"
         margin={8}
+        zIndex={1}
       >
-        <Box
-          display="flex"
-          flexDir="row"
-          alignItems="center"
-          justifyContent="space-between"
-        >
+        <Box display="flex" flexDir="row" justifyContent="space-between">
           <Box
             style={{
               display: 'flex',
@@ -167,252 +175,232 @@ export default function OrderDetail(): React.ReactElement {
           <Divider />
         </Center>
 
-        <Grid
-          // column={15}
-          // columns={{
-          //   base: 7,
-          //   md: 15,
-          // }}
-          // templateColumns="repeat(14, 1fr)"
-          templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(14, 1fr)' }}
+        <Box
+          display={{
+            base: 'grid',
+            md: 'flex',
+          }}
+          justifyContent="center"
+          alignItems="center"
+          gap="54px"
         >
-          <GridItem
-            // colSpan={7}
-            colSpan={{
-              base: 1,
-              md: 7,
+          <Box
+            boxShadow="9px 9px 23px 0px rgba(128, 128, 128, 0.07)"
+            py={10}
+            px={5}
+            mt={{
+              base: '0em',
+              md: '-8em',
             }}
-            pl={8}
-            pr={3}
-            mr={10}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flexDir="column"
           >
+            <Box my={2} mb={5}>
+              <Text
+                className="primary-font-bold"
+                fontSize={20}
+                color="rgba(65, 69, 75, 1)"
+                fontWeight="bold"
+              >
+                Order Details
+              </Text>
+            </Box>
             <Box
-              boxShadow="9px 9px 23px 0px rgba(128, 128, 128, 0.07)"
-              py={10}
-              px={5}
+              borderWidth={1}
+              borderColor="rgba(65, 69, 75, 0.20)"
+              borderRadius={5}
+              p={5}
             >
-              <Box my={2} mb={5}>
+              <Box
+                display="flex"
+                flexDir="row"
+                justifyContent="space-between"
+                mb={6}
+              >
                 <Text
-                  className="primary-font-bold"
-                  fontSize={20}
-                  color="rgba(65, 69, 75, 1)"
-                  fontWeight="bold"
+                  color="rgba(65, 69, 75, 0.5)"
+                  className="primary-font-semibold"
                 >
-                  Order Details
+                  Customer Name
+                </Text>
+                <Text
+                  color="rgba(65, 69, 75, 0.8)"
+                  className="primary-font-semi-bold-italic"
+                >
+                  Wade Warren
                 </Text>
               </Box>
               <Box
-                borderWidth={1}
-                borderColor="rgba(65, 69, 75, 0.20)"
-                borderRadius={5}
-                p={5}
+                display="flex"
+                flexDir="row"
+                justifyContent="space-between"
+                mb={6}
               >
-                <Box
-                  display="flex"
-                  flexDir="row"
-                  justifyContent="space-between"
-                  mb={6}
+                <Text
+                  color="rgba(65, 69, 75, 0.5)"
+                  className="primary-font-semibold"
                 >
-                  <Text
-                    color="rgba(65, 69, 75, 0.5)"
-                    className="primary-font-semibold"
-                  >
-                    Customer Name
-                  </Text>
-                  <Text
-                    color="rgba(65, 69, 75, 0.8)"
-                    className="primary-font-semi-bold-italic"
-                  >
-                    Wade Warren
-                  </Text>
-                </Box>
-                <Box
-                  display="flex"
-                  flexDir="row"
-                  justifyContent="space-between"
-                  mb={6}
+                  Order Created At
+                </Text>
+                <Text
+                  color="rgba(65, 69, 75, 0.8)"
+                  className="primary-font-semi-bold-italic"
                 >
-                  <Text
-                    color="rgba(65, 69, 75, 0.5)"
-                    className="primary-font-semibold"
-                  >
-                    Order Created At
-                  </Text>
-                  <Text
-                    color="rgba(65, 69, 75, 0.8)"
-                    className="primary-font-semi-bold-italic"
-                  >
-                    12/09/2023 3:45 PM
-                  </Text>
-                </Box>
-                <Box
-                  display="flex"
-                  flexDir="row"
-                  justifyContent="space-between"
-                  mb={6}
+                  12/09/2023 3:45 PM
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDir="row"
+                justifyContent="space-between"
+                mb={6}
+              >
+                <Text
+                  color="rgba(65, 69, 75, 0.5)"
+                  className="primary-font-semibold"
                 >
-                  <Text
-                    color="rgba(65, 69, 75, 0.5)"
-                    className="primary-font-semibold"
-                  >
-                    Order Completed At
-                  </Text>
-                  <Text
-                    color="rgba(65, 69, 75, 0.8)"
-                    className="primary-font-semi-bold-italic"
-                  >
-                    12/09/2023 4:45 PM
-                  </Text>
-                </Box>
-                <Box
-                  display="flex"
-                  flexDir="row"
-                  justifyContent="space-between"
-                  mb={6}
+                  Order Completed At
+                </Text>
+                <Text
+                  color="rgba(65, 69, 75, 0.8)"
+                  className="primary-font-semi-bold-italic"
                 >
-                  <Text
-                    color="rgba(65, 69, 75, 0.5)"
-                    className="primary-font-semibold"
-                  >
-                    Customer Type
-                  </Text>
-                  <Text
-                    color="rgba(65, 69, 75, 0.8)"
-                    className="primary-font-semi-bold-italic"
-                  >
-                    Medical
-                  </Text>
-                </Box>
-                <Box
-                  display="flex"
-                  flexDir="row"
-                  justifyContent="space-between"
-                  mb={6}
+                  12/09/2023 4:45 PM
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDir="row"
+                justifyContent="space-between"
+                mb={6}
+              >
+                <Text
+                  color="rgba(65, 69, 75, 0.5)"
+                  className="primary-font-semibold"
                 >
-                  <Text
-                    color="rgba(65, 69, 75, 0.5)"
-                    className="primary-font-semibold"
-                  >
-                    Bud Temder
-                  </Text>
-                  <Text
-                    color="rgba(65, 69, 75, 0.8)"
-                    className="primary-font-semi-bold-italic"
-                  >
-                    Jhon Wick
-                  </Text>
-                </Box>
-                <Box
-                  display="flex"
-                  flexDir="row"
-                  justifyContent="space-between"
-                  mb={6}
+                  Customer Type
+                </Text>
+                <Text
+                  color="rgba(65, 69, 75, 0.8)"
+                  className="primary-font-semi-bold-italic"
                 >
-                  <Text
-                    color="rgba(65, 69, 75, 0.5)"
-                    className="primary-font-semibold"
-                  >
-                    Register
-                  </Text>
-                  <Text
-                    color="rgba(65, 69, 75, 0.8)"
-                    className="primary-font-semi-bold-italic"
-                  >
-                    Lotus Gold 2
-                  </Text>
-                </Box>
-                <Box
-                  display="flex"
-                  flexDir="row"
-                  justifyContent="space-between"
-                  mb={6}
+                  Medical
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDir="row"
+                justifyContent="space-between"
+                mb={6}
+              >
+                <Text
+                  color="rgba(65, 69, 75, 0.5)"
+                  className="primary-font-semibold"
                 >
-                  <Text
-                    color="rgba(65, 69, 75, 0.5)"
-                    className="primary-font-semibold"
-                  >
-                    Store Name
-                  </Text>
-                  <Text
-                    color="rgba(65, 69, 75, 0.8)"
-                    className="primary-font-semi-bold-italic"
-                  >
-                    Lotus Gold Nicoma Park
-                  </Text>
-                </Box>
-                <Box
-                  display="flex"
-                  flexDir="row"
-                  justifyContent="space-between"
-                  mb={6}
+                  Bud Temder
+                </Text>
+                <Text
+                  color="rgba(65, 69, 75, 0.8)"
+                  className="primary-font-semi-bold-italic"
                 >
-                  <Text
-                    color="rgba(65, 69, 75, 0.5)"
-                    className="primary-font-semibold"
-                  >
-                    License Number
-                  </Text>
-                  <Text
-                    color="rgba(65, 69, 75, 0.8)"
-                    className="primary-font-semi-bold-italic"
-                  >
-                    AP-FAAA-HR4P-VQOO-RDAK
-                  </Text>
-                </Box>
-                <Box
-                  display="flex"
-                  flexDir="row"
-                  justifyContent="space-between"
-                  mb={6}
+                  Jhon Wick
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDir="row"
+                justifyContent="space-between"
+                mb={6}
+              >
+                <Text
+                  color="rgba(65, 69, 75, 0.5)"
+                  className="primary-font-semibold"
                 >
-                  <Text
-                    color="rgba(65, 69, 75, 0.5)"
-                    className="primary-font-semibold"
-                  >
-                    Metrc ID
-                  </Text>
-                  <Text
-                    color="rgba(65, 69, 75, 0.8)"
-                    className="primary-font-semi-bold-italic"
-                  >
-                    12127281
-                  </Text>
-                </Box>
-                <Box
-                  display="flex"
-                  flexDir="row"
-                  justifyContent="space-between"
-                  mb={6}
+                  Register
+                </Text>
+                <Text
+                  color="rgba(65, 69, 75, 0.8)"
+                  className="primary-font-semi-bold-italic"
                 >
-                  <Text
-                    color="rgba(65, 69, 75, 0.5)"
-                    className="primary-font-semibold"
-                  >
-                    Reported to METRC
+                  Lotus Gold 2
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDir="row"
+                justifyContent="space-between"
+                mb={6}
+              >
+                <Text
+                  color="rgba(65, 69, 75, 0.5)"
+                  className="primary-font-semibold"
+                >
+                  Store Name
+                </Text>
+                <Text
+                  color="rgba(65, 69, 75, 0.8)"
+                  className="primary-font-semi-bold-italic"
+                >
+                  Lotus Gold Nicoma Park
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDir="row"
+                justifyContent="space-between"
+                mb={6}
+              >
+                <Text
+                  color="rgba(65, 69, 75, 0.5)"
+                  className="primary-font-semibold"
+                >
+                  License Number
+                </Text>
+                <Text
+                  color="rgba(65, 69, 75, 0.8)"
+                  className="primary-font-semi-bold-italic"
+                >
+                  AP-FAAA-HR4P-VQOO-RDAK
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDir="row"
+                justifyContent="space-between"
+                mb={6}
+              >
+                <Text
+                  color="rgba(65, 69, 75, 0.5)"
+                  className="primary-font-semibold"
+                >
+                  Metrc ID
+                </Text>
+                <Text
+                  color="rgba(65, 69, 75, 0.8)"
+                  className="primary-font-semi-bold-italic"
+                >
+                  12127281
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDir="row"
+                justifyContent="space-between"
+                mb={6}
+              >
+                <Text
+                  color="rgba(65, 69, 75, 0.5)"
+                  className="primary-font-semibold"
+                >
+                  Reported to METRC
+                </Text>
+                <Box backgroundColor="#08754C" borderRadius={4} py={2} px={4}>
+                  <Text color="white" className="primary-font-semi-bold-italic">
+                    Approved
                   </Text>
-                  <Box backgroundColor="#08754C" borderRadius={4} py={2} px={4}>
-                    <Text
-                      color="white"
-                      className="primary-font-semi-bold-italic"
-                    >
-                      Approved
-                    </Text>
-                  </Box>
                 </Box>
               </Box>
             </Box>
-          </GridItem>
-          <GridItem
-            // colSpan={7}
-            colSpan={{
-              base: 1,
-              md: 7,
-            }}
-          >
+          </Box>
+          <Box>
             <Text textAlign="center" className="primary-font-bold">
               Pricing Details
             </Text>
@@ -937,8 +925,8 @@ export default function OrderDetail(): React.ReactElement {
                 <Text>$500</Text>
               </Box> */}
             </TableContainer>
-          </GridItem>
-        </Grid>
+          </Box>
+        </Box>
       </Box>
     </Sidenav>
   );

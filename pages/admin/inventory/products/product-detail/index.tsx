@@ -20,8 +20,8 @@ export default function ProductDetail(): React.ReactNode {
           right="0"
           width={'100%'}
           className={isClassToggled ? 'toggled-class' : 'default-class'}
-          position="fixed"
           pr="2em"
+          zIndex={2}
         >
           <FloatingHeader
             title="Products"
@@ -55,10 +55,14 @@ export default function ProductDetail(): React.ReactNode {
         <Box
           p="2em 2em 4em 2em"
           position="relative"
-          top="7.5em"
+          top={{
+            base: '0em',
+            md: '7.5em',
+          }}
           overflowX="hidden"
           overflowY="scroll"
           h="65vh"
+          zIndex={1}
         >
           <Box
             backgroundColor="#F8FBF8"
@@ -79,7 +83,7 @@ export default function ProductDetail(): React.ReactNode {
                 Coastal Kush
               </Label>
             </Flex>
-            <Divider my="15px" mx="30px" borderColor="rgba(18, 23, 30, 0.4)" />
+            <Divider className="mx-5 mt-4" />
 
             <Box
               mt="10px"
@@ -103,7 +107,7 @@ export default function ProductDetail(): React.ReactNode {
               >
                 <DetailProductInformation />
               </Box>
-              <Box w={{ base: '100%', md: '30%' }} ml="1em">
+              <Box w={{ base: '30%', md: '30%' }} ml="1em">
                 <Box
                   borderRadius="24px"
                   border="0.2px solid rgba(18, 23, 30, 0.40)"

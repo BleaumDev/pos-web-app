@@ -20,8 +20,8 @@ export default function EditProductDetail(): React.ReactNode {
           right="0"
           width={'100%'}
           className={isClassToggled ? 'toggled-class' : 'default-class'}
-          position="fixed"
           pr="2em"
+          zIndex={2}
         >
           <FloatingHeader
             title="Products"
@@ -56,10 +56,14 @@ export default function EditProductDetail(): React.ReactNode {
         <Box
           p="2em 2em 4em 2em"
           position="relative"
-          top="8em"
+          top={{
+            base: '0em',
+            md: '8em',
+          }}
           overflowX="hidden"
           overflowY="scroll"
           h="65vh"
+          zIndex={1}
         >
           <Box
             backgroundColor="#F8FBF8"
@@ -80,7 +84,7 @@ export default function EditProductDetail(): React.ReactNode {
                 Coastal Kush
               </Label>
             </Flex>
-            <Divider my="15px" mx="30px" borderColor="rgba(18, 23, 30, 0.4)" />
+            <Divider className="mx-5 mt-4" />
 
             <Box
               mt="10px"
@@ -93,26 +97,17 @@ export default function EditProductDetail(): React.ReactNode {
               <Box w={{ base: '100%', md: '70%' }} ml="1em" mt="1em" px="2em">
                 <EditProductInformation />
               </Box>
-              <Box
-                w={{ base: '500px', md: '30%' }}
-                ml="1em"
-                position="relative"
-              >
+              <Box w={{ base: '500px', md: '30%' }}>
                 <Box
-                  borderRadius="24px"
-                  border="0.2px solid rgba(18, 23, 30, 0.40)"
-                  background="rgba(255, 255, 255, 0.80)"
-                  h="400px"
                   w={{
                     base: '100%',
                     md: '100%',
                   }}
-                  alignItems="center"
                 >
                   <UploadMultipleImages
                     widthSelectedImage="164px"
                     heightSelectedImage="136px"
-                    widthOfDefaultImage="200px"
+                    widthOfDefaultImage="800px"
                     addButton
                   />
                 </Box>

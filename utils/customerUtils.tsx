@@ -1,10 +1,9 @@
-/* eslint-disable import/prefer-default-export */
-// customerUtils.js
-
 import { Flex, Image, Td, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
-export function mapCustomerDataToRows(customerData) {
+export function mapCustomerDataToRows(
+  customerData: Array<any>
+): Array<JSX.Element[]> {
   return customerData.map((customer) => [
     <Td key="img" display="flex" alignItems="center" justifyContent="center">
       <Link href="/admin/customers/customer-detail">

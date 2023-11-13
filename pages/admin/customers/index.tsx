@@ -3,10 +3,10 @@ import { Box } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
+import { mapCustomerDataToRows } from '@utils/customerUtils';
 import { useClassContext } from 'context/ClassContext';
 import customerData from 'data/customerTableData';
 import { useEffect, useMemo, useState } from 'react';
-import { mapCustomerDataToRows } from 'utils/customerUtils';
 
 const CustomerPage = () => {
   const [isClient, setIsClient] = useState(false);
@@ -31,6 +31,7 @@ const CustomerPage = () => {
             width={'100%'}
             className={isClassToggled ? 'toggled-class' : 'default-class'}
             position="fixed"
+            zIndex={2}
             pr="2em"
           >
             <FloatingHeader
@@ -74,6 +75,7 @@ const CustomerPage = () => {
             position="relative"
             top="8.5em"
             overflowX="hidden"
+            zIndex={1}
             overflowY="scroll"
             h="60vh"
           >

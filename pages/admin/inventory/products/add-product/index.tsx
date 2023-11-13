@@ -24,8 +24,8 @@ export default function ProductDetail(): React.ReactNode {
           right="0"
           width={'100%'}
           className={isClassToggled ? 'toggled-class' : 'default-class'}
-          position="fixed"
           pr="2em"
+          zIndex={2}
         >
           <FloatingHeader
             title="Inventory"
@@ -57,9 +57,13 @@ export default function ProductDetail(): React.ReactNode {
         <Box
           p="2em 2em 4em 2em"
           position="relative"
-          top="5.5em"
+          top={{
+            base: '0em',
+            md: '5.5em',
+          }}
           overflowX="hidden"
           overflowY="scroll"
+          zIndex={1}
           h="70vh"
         >
           <Box
@@ -84,7 +88,14 @@ export default function ProductDetail(): React.ReactNode {
                 Add Product
               </Label>
             </Flex>
-            <Divider my="15px" mx="30px" borderColor="rgba(18, 23, 30, 0.4)" />
+            <Divider
+              my="15px"
+              mx={{
+                base: '5px',
+                md: '30px',
+              }}
+              borderColor="rgba(18, 23, 30, 0.4)"
+            />
             <Box
               display={{
                 base: 'grid',
@@ -102,7 +113,7 @@ export default function ProductDetail(): React.ReactNode {
                 background="rgba(246, 252, 255, 0.40)"
                 borderRadius="12px"
                 m={{
-                  base: '0em 1000px',
+                  base: '0em 0em',
                   md: '0em 2em',
                 }}
                 p="20px 40px"

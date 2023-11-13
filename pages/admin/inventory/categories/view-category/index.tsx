@@ -19,8 +19,8 @@ export default function ViewCategory(): React.ReactElement {
           right="0"
           width={'100%'}
           className={isClassToggled ? 'toggled-class' : 'default-class'}
-          position="fixed"
           pr="2em"
+          zIndex={2}
         >
           <FloatingHeader
             title="Categories"
@@ -65,9 +65,13 @@ export default function ViewCategory(): React.ReactElement {
         <Box
           p="2em 2em 4em 2em"
           position="relative"
-          top="8.5em"
+          top={{
+            base: '0em',
+            md: '8.5em',
+          }}
           overflowX="hidden"
           overflowY="scroll"
+          zIndex={1}
           h="65vh"
         >
           <Box

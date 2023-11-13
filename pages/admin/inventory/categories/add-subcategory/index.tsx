@@ -30,8 +30,8 @@ export default function AddSubcategory(): React.ReactElement {
         right="0"
         width={'100%'}
         className={isClassToggled ? 'toggled-class' : 'default-class'}
-        position="fixed"
         pr="2em"
+        zIndex={2}
       >
         <FloatingHeader
           title="Categories"
@@ -80,9 +80,13 @@ export default function AddSubcategory(): React.ReactElement {
       <Box
         p="2em 2em 4em 2em"
         position="relative"
-        top="8.5em"
+        top={{
+          base: '0em',
+          md: '8.5em',
+        }}
         overflowX="hidden"
         overflowY="scroll"
+        zIndex={1}
         h="63vh"
       >
         <Box
@@ -116,7 +120,10 @@ export default function AddSubcategory(): React.ReactElement {
             <Divider
               my="15px"
               w="95%"
-              ml="4em"
+              ml={{
+                base: '1em',
+                md: '4em',
+              }}
               borderColor="rgba(18, 23, 30, 0.4)"
             />
           </Box>

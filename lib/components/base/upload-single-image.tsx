@@ -10,6 +10,7 @@ interface UploadSingleImageProps {
   defaultImage?: string;
   widthOfDefaultImage?: string;
   addButton?: boolean;
+  addOrangeButton?: boolean;
 }
 
 const UploadSingleImage: React.FC<UploadSingleImageProps> = ({
@@ -18,6 +19,7 @@ const UploadSingleImage: React.FC<UploadSingleImageProps> = ({
   defaultImage,
   widthOfDefaultImage,
   addButton,
+  addOrangeButton,
 }) => {
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -42,12 +44,12 @@ const UploadSingleImage: React.FC<UploadSingleImageProps> = ({
   return (
     <Box>
       {selectedFile ? (
-        <Flex pl="2em" position="relative">
+        <Flex pl="0em" position="relative">
           <Box
             display="grid"
             position="relative"
+            alignItems="center"
             justifyItems="center"
-            alignItems="start"
           >
             <Img
               src={selectedFile}
@@ -57,6 +59,20 @@ const UploadSingleImage: React.FC<UploadSingleImageProps> = ({
               borderRadius="9px"
               objectFit="cover"
             />
+            {addOrangeButton && (
+              <Button
+                styledVariant="orange"
+                fontSize="12px"
+                w="136px"
+                h="33px"
+                mt="10px"
+                className="primary-font-semibold"
+                onClick={handleAddImageClick}
+              >
+                <Img src="/images/gallery-add.png" w="16px" mr="10px" />
+                Add Image
+              </Button>
+            )}
             {addButton && (
               <Button
                 styledVariant="blue"
@@ -83,7 +99,7 @@ const UploadSingleImage: React.FC<UploadSingleImageProps> = ({
           </Box>
         </Flex>
       ) : (
-        <Flex pl="12px">
+        <Flex>
           <Box
             display="grid"
             justifyItems="center"
@@ -95,6 +111,19 @@ const UploadSingleImage: React.FC<UploadSingleImageProps> = ({
               alt="Uploaded Image"
               w={widthOfDefaultImage}
             />
+            {addOrangeButton && (
+              <Button
+                styledVariant="orange"
+                fontSize="12px"
+                w="136px"
+                h="33px"
+                mt="10px"
+                className="primary-font-semibold"
+              >
+                <Img src="/images/gallery-add.png" w="16px" mr="10px" />
+                Add Image
+              </Button>
+            )}
             {addButton && (
               <Button
                 styledVariant="blue"

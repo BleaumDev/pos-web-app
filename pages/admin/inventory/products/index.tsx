@@ -74,12 +74,11 @@ const Inventory = () => {
     <Box>
       <Sidenav>
         <Box
-          w="auto"
           left="0"
           right="0"
           width={'100%'}
           className={isClassToggled ? 'toggled-class' : 'default-class'}
-          position="fixed"
+          zIndex={2}
           pr="2em"
         >
           <FloatingHeader
@@ -105,6 +104,7 @@ const Inventory = () => {
               },
             ]}
             simpleSearch
+            simplePlaceHolderSearch="search here by SKU or Product Name"
             productFilter
             addNew="Product"
             addBulk="Products"
@@ -115,16 +115,19 @@ const Inventory = () => {
         <Box
           p="2em 2em 4em 2em"
           position="relative"
-          top="8.5em"
+          top={{
+            base: '0em',
+            md: '8.5em',
+          }}
           w="100%"
           overflowX="hidden"
           overflowY="scroll"
+          zIndex={1}
           h="60vh"
         >
           {isClient && (
             <Table
               checkboxes
-              hoverEffect
               headers={[
                 '',
                 'Product Name',
@@ -138,6 +141,7 @@ const Inventory = () => {
                 '',
               ]}
               rows={inventory}
+              hoverEffect={true}
             />
           )}
         </Box>

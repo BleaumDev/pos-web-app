@@ -231,7 +231,7 @@ const TablePage: FC<TableProps> = ({
             borderSpacing: '0 8px',
           }}
         >
-          <Thead borderBottom="2px solid #41454BB2" textTransform="capitalize">
+          <Thead borderBottom="2px solid #41454BB2">
             <Tr>
               {checkboxes && (
                 <Th>
@@ -283,7 +283,7 @@ const TablePage: FC<TableProps> = ({
                 {...(hoverEffect
                   ? {
                       _hover: {
-                        borderLeft: '12px solid #FFA382',
+                        borderRight: '5px solid #FFA382 !important',
                         color: '#000000',
                         bg: '#fff',
                         borderRadius: '12px',

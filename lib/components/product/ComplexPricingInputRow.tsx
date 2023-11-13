@@ -1,9 +1,8 @@
-import { DeleteIcon } from '@chakra-ui/icons';
-import { Box, Flex, IconButton, Stack, Text } from '@chakra-ui/react';
+import { AddIcon, DeleteIcon } from '@chakra-ui/icons';
+import { Box, Flex, IconButton, Stack } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import Input from '../base/input';
 import Label from '../base/label';
-
 export default function ComplexPricingInputRow(): React.ReactElement {
   const [pricingData, setPricingData] = useState([{ weight: '', price: '' }]);
 
@@ -81,15 +80,18 @@ export default function ComplexPricingInputRow(): React.ReactElement {
         </Flex>
       ))}
       <Box mt={4}>
-        <Text
-          h={6}
-          cursor="pointer"
+        <Label
+          fontSize={{ base: '12px', sm: '14px', md: '14px' }}
           className="primary-font-semibold"
-          color="#FFA382"
           onClick={handleAddRow}
+          cursor="pointer"
+          color="#FFA382"
+          display="flex"
+          alignItems="center"
         >
-          + Add more
-        </Text>
+          <AddIcon fontSize="10px" mr={2} />
+          Add more
+        </Label>
       </Box>
     </Box>
   );

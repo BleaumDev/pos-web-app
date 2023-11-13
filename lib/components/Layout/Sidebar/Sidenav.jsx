@@ -6,8 +6,8 @@ import {
   IconButton,
   Image,
   Text,
-  useDisclosure,
   VStack,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { useClassContext } from 'context/ClassContext.tsx';
 import Link from 'next/link';
@@ -19,6 +19,13 @@ const Sidenav = ({ children }) => {
   const { toggleClass } = useClassContext();
   const { isOpen: isInventoryOpen, onToggle: onInventoryToggle } =
     useDisclosure('isInventoryOpen');
+
+  const { isOpen: isEmployeeOpen, onToggle: onEmployeeToggle } =
+    useDisclosure('isEmployeeOpen');
+
+  const { isOpen: isSettingOpen, onToggle: onSettingToggle } =
+    useDisclosure('isSettingOpen');
+
   const router = useRouter();
   const isActive = (path) => {
     return router.pathname === path;
@@ -289,7 +296,7 @@ const Sidenav = ({ children }) => {
                 </Box>
               </Flex>
             </Link>
-            <Link href="/">
+            <Box onClick={onEmployeeToggle} cursor="pointer">
               <Flex alignItems={'center'} width="full">
                 <Box width={'20%'}>
                   <Image
@@ -303,13 +310,59 @@ const Sidenav = ({ children }) => {
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
-                    color="#12171E66"
+                    color={
+                      isActive('/admin/employee/individual-employee') ||
+                      isActive('/admin/employee/employee-groups')
+                        ? '#000000'
+                        : '#12171E66'
+                    }
                   >
                     Employees
                   </Text>
                 </Box>
               </Flex>
-            </Link>
+            </Box>
+            <Collapse in={!isEmployeeOpen}>
+              <Box
+                borderLeft={'1px solid #E69066'}
+                marginLeft={'15px !important'}
+                transition=" 0.3s ease-in-out"
+                pl={'30px'}
+                mt="-5px"
+                mb="12px"
+                zIndex="10"
+                width="208px !important"
+              >
+                <Box
+                  className={
+                    isActive('/admin/employee/individual-employee') ||
+                    isActive('/admin/employee/add-employee')
+                      ? 'active-tab'
+                      : 'inactive-tab'
+                  }
+                >
+                  <Link href="/admin/employee/individual-employee">
+                    <Text className="primary-font-semibold" mt={'10px'}>
+                      Individual Employee
+                    </Text>
+                  </Link>
+                </Box>
+                <Box
+                  mt="-5px"
+                  className={
+                    isActive('/admin/employee/employee-groups')
+                      ? 'active-tab'
+                      : 'inactive-tab'
+                  }
+                >
+                  <Link href="/admin/employee/employee-groups">
+                    <Text className="primary-font-semibold" mt={'10px'}>
+                      Employee Groups
+                    </Text>
+                  </Link>
+                </Box>
+              </Box>
+            </Collapse>
             <Link href="/">
               <Flex alignItems={'center'} width="full">
                 <Box width={'20%'}>
@@ -331,7 +384,7 @@ const Sidenav = ({ children }) => {
                 </Box>
               </Flex>
             </Link>
-            <Link href="/">
+            <Box onClick={onSettingToggle} cursor="pointer">
               <Flex alignItems={'center'} width="full">
                 <Box width={'20%'}>
                   <Image
@@ -345,13 +398,85 @@ const Sidenav = ({ children }) => {
                   <Text
                     className="primary-font-medium"
                     fontSize="16px"
-                    color="#12171E66"
+                    color={
+                      isActive('/admin/settings/general') ||
+                      isActive('/admin/settings/general/add-new-store')
+                        ? '#000000'
+                        : '#12171E66'
+                    }
                   >
                     Settings
                   </Text>
                 </Box>
               </Flex>
-            </Link>
+            </Box>
+            <Collapse in={!isSettingOpen}>
+              <Box
+                borderLeft={'1px solid #E69066'}
+                marginLeft={'15px !important'}
+                transition=" 0.3s ease-in-out"
+                pl={'30px'}
+                mt="-5px"
+                mb="12px"
+                zIndex="10"
+                width="208px !important"
+              >
+                <Box
+                  className={
+                    isActive('/admin/settings/general') ||
+                    isActive('/admin/settings/general/add-new-store')
+                      ? 'active-tab'
+                      : 'inactive-tab'
+                  }
+                >
+                  <Link href="/admin/settings/general">
+                    <Text className="primary-font-semibold" mt={'10px'}>
+                      General
+                    </Text>
+                  </Link>
+                </Box>
+                <Box
+                  mt="-5px"
+                  className={isActive('') ? 'active-tab' : 'inactive-tab'}
+                >
+                  <Link href="/admin/settings/general">
+                    <Text className="primary-font-semibold" mt={'10px'}>
+                      Menus
+                    </Text>
+                  </Link>
+                </Box>
+                <Box
+                  mt="-5px"
+                  className={isActive('') ? 'active-tab' : 'inactive-tab'}
+                >
+                  <Link href="/admin/settings/general">
+                    <Text className="primary-font-semibold" mt={'10px'}>
+                      Taxes
+                    </Text>
+                  </Link>
+                </Box>
+                <Box
+                  mt="-5px"
+                  className={isActive('') ? 'active-tab' : 'inactive-tab'}
+                >
+                  <Link href="/admin/settings/general">
+                    <Text className="primary-font-semibold" mt={'10px'}>
+                      Compliances
+                    </Text>
+                  </Link>
+                </Box>
+                <Box
+                  mt="-5px"
+                  className={isActive('') ? 'active-tab' : 'inactive-tab'}
+                >
+                  <Link href="/admin/settings/general">
+                    <Text className="primary-font-semibold" mt={'10px'}>
+                      Permission
+                    </Text>
+                  </Link>
+                </Box>
+              </Box>
+            </Collapse>
             <Link href="/auth/login">
               <Flex alignItems={'center'} width="full" mb="12px">
                 <Box width={'20%'}>
@@ -373,8 +498,6 @@ const Sidenav = ({ children }) => {
                 </Box>
               </Flex>
             </Link>
-
-            {/* Add more sidebar links as needed */}
           </VStack>
         </Collapse>
         <Collapse in={isOpen}>
@@ -477,6 +600,7 @@ const Sidenav = ({ children }) => {
         pl={{ base: '0', md: !isOpen ? '250px' : '70px' }}
         marginTop={'10em'}
         w="100%"
+        position="fixed"
         transition="0.3s ease-in-out"
       >
         {children}

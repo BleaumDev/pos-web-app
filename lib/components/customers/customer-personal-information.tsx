@@ -187,7 +187,7 @@ const CustomerPersonalInformation = () => {
               md: '35%',
             }}
           >
-            <Stack justifyContent="center">
+            <Stack justifyContent="center" mt="8px">
               <Label
                 fontSize={{ base: '12px', sm: '14px', md: '14px' }}
                 className="primary-font-semibold"
