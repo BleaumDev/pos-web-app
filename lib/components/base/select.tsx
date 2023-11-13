@@ -148,7 +148,6 @@ const Select = (props: Props) => {
             ...baseStyles,
             borderRadius: '8px',
             border: '0.5px solid rgba(65, 69, 75, 0.40)',
-            boxShadow: '0px 2px 6px 0px #13124212',
             boxSizing: 'border-box',
             width: width ?? 'auto',
             height: height ?? '50px',

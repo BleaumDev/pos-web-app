@@ -5,7 +5,7 @@ import PosPhoneInput from '../base/phone-input';
 const StoreDetails = () => {
   return (
     <Box
-      w={{ base: '100%', md: '50%' }}
+      w="300px"
       borderRadius="8px"
       m={{
         base: '0em 0em',

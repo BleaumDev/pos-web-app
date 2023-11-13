@@ -438,3 +438,17 @@ width: 0px !important;
 .css-1xc3v61-indicatorContainer{
   color: rgba(65, 69, 75, 0.8) !important;
 }
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+/* Hide the time picker arrow in Firefox */
+input[type="time"] {
+  -moz-appearance: textfield;
+}
+
+/* Optional: Adjust the padding to make the input visually balanced */
+input[type="time"] {
+  padding-right: 0;
+}

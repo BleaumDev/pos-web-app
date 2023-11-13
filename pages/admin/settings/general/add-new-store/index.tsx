@@ -138,7 +138,10 @@ export default function AddNewStore(): React.ReactNode {
                 md: '4em 1em',
               }}
               w="full"
-              gap="50px"
+              gap={{
+                md: '0px',
+                base: '40px',
+              }}
             >
               <StoreDetails />
               <StoreLocationDetails />

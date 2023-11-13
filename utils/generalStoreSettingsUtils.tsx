@@ -66,7 +66,7 @@ export function mapGenneralStoreSettingDataToRows(
       <Img
         src="/images/down.png"
         alt="down-arrow"
-        mt="4px"
+        mt="8px"
         width="9px"
         height="9px"
       />

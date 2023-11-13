@@ -1,9 +1,18 @@
-import { Box, Input, Select, Stack } from '@chakra-ui/react';
+import { Box, Checkbox, Flex, Stack } from '@chakra-ui/react';
+import { useState } from 'react';
 import Label from '../base/label';
+import AddOpeningHours from './add-opening-hours';
+import OpenAllWeek from './open-all-week';
 
 const states = ['California', 'Texas', 'Florida'];
 
 const OpeningHoursPage = () => {
+  const [openAllWeek, setOpenAllWeek] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setOpenAllWeek((prev) => !prev);
+  };
+
   return (
     <Stack w="100%">
       <Box
@@ -12,6 +21,7 @@ const OpeningHoursPage = () => {
           base: '0em 0em',
           md: '0em 2em',
         }}
+        w="300px"
         p="1em"
         border="0.5px solid rgba(65, 69, 75, 0.30)"
       >
@@ -22,152 +32,45 @@ const OpeningHoursPage = () => {
           Opening Hours
         </Label>
 
-        <Stack w="100%" mt="1em">
+        <Flex justifyContent="end" gap="10px" alignItems="center" mt="8px">
+          <Checkbox
+            size="sm"
+            colorScheme="orange"
+            onChange={handleCheckboxChange}
+          />
           <Label
             fontSize={{ base: '12px', sm: '12px', md: '12px' }}
-            className="primary-font-semibold"
+            className="primary-font-medium"
           >
-            Address
-            <span
-              style={{
-                color: '#FF8A43',
-              }}
-            >
-              *
-            </span>
+            Open 24 hours
           </Label>
-
-          <Box mt="-8px">
-            <Input
-              w={{
-                base: '250px',
-                md: '250px',
-              }}
-              placeholder="Enter Address"
-              background="#fff"
-              className="primary-font-medium"
-              h="33px"
-              fontSize="12px"
-            />
-          </Box>
-        </Stack>
-        <Stack w="100%" mt="8px">
+        </Flex>
+        <Flex justifyContent="end" gap="10px" alignItems="center" mt="8px">
           <Label
             fontSize={{ base: '12px', sm: '12px', md: '12px' }}
-            className="primary-font-semibold"
+            className="primary-font-medium"
           >
-            City
-            <span
-              style={{
-                color: '#FF8A43',
-              }}
-            >
-              *
-            </span>
+            Opens at
           </Label>
-
-          <Box mt="-8px">
-            <Input
-              w={{
-                base: '250px',
-                md: '250px',
-              }}
-              placeholder="Enter City Name"
-              background="#fff"
-              className="primary-font-medium"
-              h="33px"
-              fontSize="12px"
-            />
-          </Box>
-        </Stack>
-        <Stack w="100%" mt="8px">
+          -
           <Label
             fontSize={{ base: '12px', sm: '12px', md: '12px' }}
-            className="primary-font-semibold"
+            className="primary-font-medium"
           >
-            State
-            <span
-              style={{
-                color: '#FF8A43',
-              }}
-            >
-              *
-            </span>
+            Close at
           </Label>
-
-          <Box mt="-8px">
-            <Select
-              color="rgba(65, 69, 75, 0.50)"
-              border="1px solid rgba(18, 23, 30, 0.20)"
-              placeholder="Select State"
-              background="#fff"
-              className="primary-font-medium"
-              h="33px"
-              fontSize="12px"
-            >
-              {states.map((state) => (
-                <option key={state} value={state}>
-                  {state}
-                </option>
-              ))}
-            </Select>
+        </Flex>
+        {openAllWeek ? (
+          <Box mt="8px">
+            <OpenAllWeek />
           </Box>
-        </Stack>
-        <Stack w="100%" mt="8px">
-          <Label
-            fontSize={{ base: '12px', sm: '12px', md: '12px' }}
-            className="primary-font-semibold"
-          >
-            Zip Code
-          </Label>
-
-          <Box mt="-8px">
-            <Input
-              w={{
-                base: '250px',
-                md: '250px',
-              }}
-              placeholder="Type Zip Code"
-              background="#fff"
-              className="primary-font-medium"
-              h="33px"
-              fontSize="12px"
-            />
-          </Box>
-        </Stack>
-        <Stack w="100%" mt="8px">
-          <Label
-            fontSize={{ base: '12px', sm: '12px', md: '12px' }}
-            className="primary-font-semibold"
-          >
-            Time Zone
-            <span
-              style={{
-                color: '#FF8A43',
-              }}
-            >
-              *
-            </span>
-          </Label>
-
-          <Box mt="-8px">
-            <Select
-              color="rgba(65, 69, 75, 0.50)"
-              border="1px solid rgba(18, 23, 30, 0.20)"
-              placeholder="Select Time zone"
-              background="#fff"
-              className="primary-font-medium"
-              h="33px"
-              fontSize="12px"
-            >
-              {states.map((state) => (
-                <option key={state} value={state}>
-                  {state}
-                </option>
-              ))}
-            </Select>
-          </Box>
-        </Stack>
+        ) : (
+          <>
+            <Box mt="8px">
+              <AddOpeningHours />
+            </Box>
+          </>
+        )}
       </Box>
     </Stack>
   );
