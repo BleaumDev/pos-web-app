@@ -572,6 +572,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                     md: 'end',
                   }}
                   mt="2em"
+                  flexWrap="wrap"
                   gap="10px"
                 >
                   {productFilter && (
@@ -658,8 +659,8 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                       </Button>
                     </Flex>
                   )}
-                  <Box position="relative">
-                    {statusFilter && (
+                  {statusFilter && (
+                    <Box position="relative">
                       <Image
                         src="/images/status.png"
                         alt="Status"
@@ -669,75 +670,76 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                         cursor="pointer"
                         h="38px"
                       />
-                    )}
-                    <Collapse in={isOpen}>
-                      <Stack
-                        background={'#FFF6F2'}
-                        w="200px"
-                        mt="3em"
-                        position="absolute"
-                        borderRadius="12px"
-                        left="-1em"
-                        top="5px"
-                        zIndex="1000"
-                      >
-                        <Text
-                          px="15px"
-                          py="10px"
-                          color="#2B86FF"
-                          cursor="pointer"
-                          _hover={{
-                            background: '#2B86FF',
-                            color: '#fff',
-                            transition: '0.3s ease-in-out',
-                          }}
-                        >
-                          New
-                        </Text>
-                        <Text
-                          px="15px"
-                          py="10px"
-                          cursor="pointer"
-                          color="#08754C"
-                          _hover={{
-                            background: '#08754C',
-                            color: '#fff',
-                            transition: '0.3s ease-in-out',
-                          }}
-                        >
-                          Completed
-                        </Text>
-                        <Text
-                          px="15px"
-                          py="10px"
-                          color="#2B86FF"
-                          cursor="pointer"
-                          _hover={{
-                            background: '#2B86FF',
-                            transition: '0.3s ease-in-out',
 
-                            color: '#fff',
-                          }}
+                      <Collapse in={isOpen}>
+                        <Stack
+                          background={'#FFF6F2'}
+                          w="200px"
+                          mt="3em"
+                          position="absolute"
+                          borderRadius="12px"
+                          left="-1em"
+                          top="5px"
+                          zIndex="1000"
                         >
-                          Pending
-                        </Text>
-                        <Text
-                          px="15px"
-                          py="10px"
-                          color="#FF2323"
-                          cursor="pointer"
-                          _hover={{
-                            background: '#FF2323',
-                            transition: '0.3s ease-in-out',
+                          <Text
+                            px="15px"
+                            py="10px"
+                            color="#2B86FF"
+                            cursor="pointer"
+                            _hover={{
+                              background: '#2B86FF',
+                              color: '#fff',
+                              transition: '0.3s ease-in-out',
+                            }}
+                          >
+                            New
+                          </Text>
+                          <Text
+                            px="15px"
+                            py="10px"
+                            cursor="pointer"
+                            color="#08754C"
+                            _hover={{
+                              background: '#08754C',
+                              color: '#fff',
+                              transition: '0.3s ease-in-out',
+                            }}
+                          >
+                            Completed
+                          </Text>
+                          <Text
+                            px="15px"
+                            py="10px"
+                            color="#2B86FF"
+                            cursor="pointer"
+                            _hover={{
+                              background: '#2B86FF',
+                              transition: '0.3s ease-in-out',
 
-                            color: '#fff',
-                          }}
-                        >
-                          Canceled
-                        </Text>
-                      </Stack>
-                    </Collapse>
-                  </Box>
+                              color: '#fff',
+                            }}
+                          >
+                            Pending
+                          </Text>
+                          <Text
+                            px="15px"
+                            py="10px"
+                            color="#FF2323"
+                            cursor="pointer"
+                            _hover={{
+                              background: '#FF2323',
+                              transition: '0.3s ease-in-out',
+
+                              color: '#fff',
+                            }}
+                          >
+                            Canceled
+                          </Text>
+                        </Stack>
+                      </Collapse>
+                    </Box>
+                  )}
                   {sortBy && <FunnelSort />}
                   {primaryButton && (
                     <Link href="/admin/inventory/categories/add-subcategory">
