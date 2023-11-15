@@ -78,33 +78,6 @@ const manufacturers: OptionsType = [
     label: 'MariMed Inc',
   },
 ];
-const priceRanges: OptionsType = [
-  {
-    key: '$0 to $50',
-    value: '$0 to $50',
-    label: '$0 to $50',
-  },
-  {
-    key: '$51 to $100',
-    value: '$51 to $100',
-    label: '$51 to $100',
-  },
-  {
-    key: '$101 to $150',
-    value: '$101 to $150',
-    label: '$101 to $150',
-  },
-  {
-    key: '$151 to $200',
-    value: '$151 to $200',
-    label: '$151 to $200',
-  },
-  {
-    key: '$201 to $250',
-    value: '$201 to $250',
-    label: '$201 to $250',
-  },
-];
 
 interface BreadcrumbItems {
   label: string;
@@ -150,6 +123,9 @@ interface FloatingHeaderProps {
   simplePlaceHolderSearch?: string;
   addNewStore?: boolean;
   addStore?: string;
+  createEmployeeGroup?: boolean;
+  createEmployeeGroupLink?: string;
+  deleteEmployeeGroup?: boolean;
 }
 
 const FloatingHeader: React.FC<FloatingHeaderProps> = ({
@@ -185,12 +161,16 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   simplePlaceHolderSearch,
   addNewStore,
   addStore,
+  createEmployeeGroup,
+  createEmployeeGroupLink,
+  deleteEmployeeGroup,
 }) => {
   const constructedHref = `/${addLink}`;
   const constructedHref1 = `/${editLink}`;
   const constructedHref2 = `/${cancelLink}`;
   const constructedHref3 = `/${confirmLink}`;
   const constructedHref4 = `/${addStore}`;
+  const constructedHref5 = `/${createEmployeeGroupLink}`;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -454,7 +434,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                     base: 'start',
                     md: 'end',
                   }}
-                  gap="5px"
+                  gap="10px"
                 >
                   {addSingleButtons && (
                     <Link href={constructedHref}>
@@ -765,6 +745,42 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                         Add Sub-category
                       </Button>
                     </Link>
+                  )}
+                  {createEmployeeGroup && (
+                    <Link href={constructedHref5}>
+                      <Button
+                        p="10px 18px"
+                        mt="1.5em"
+                        className="primary-font-semibold"
+                        color="#fff"
+                        fontSize="12px"
+                        bg="linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
+                        borderRadius="7px"
+                        _hover={{
+                          bg: 'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+                        }}
+                      >
+                        <Img src="/images/plus-square.png" mr="5px" w="16px" />
+                        Create Employee Group
+                      </Button>
+                    </Link>
+                  )}
+                  {deleteEmployeeGroup && (
+                    <Button
+                      p="10px 18px"
+                      mt="1.5em"
+                      className="primary-font-semibold"
+                      color="#fff"
+                      fontSize="12px"
+                      bg="linear-gradient(238deg, #FF1E1E 23.36%, #FF4040 93.56%)"
+                      borderRadius="7px"
+                      _hover={{
+                        bg: 'linear-gradient(238deg, #FF1E1E 23.36%, #FF4040 93.56%)',
+                      }}
+                    >
+                      <Img src="/images/plus-square.png" mr="5px" w="16px" />
+                      Delete Employee Group
+                    </Button>
                   )}
                 </Flex>
               </Box>

@@ -34,9 +34,7 @@ export function mapIndividualEmployeeDataToRows(
     <Td className="text-center" key="userName">
       {employee.userName}
     </Td>,
-    <Td className="text-center" key="role">
-      {employee.role}
-    </Td>,
+
     <Td className="text-center" key="groupNumber">
       {employee.groupNumber}
     </Td>,

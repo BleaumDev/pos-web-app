@@ -452,3 +452,42 @@ input[type="time"] {
 input[type="time"] {
   padding-right: 0;
 }
+.css-vtg3j9[aria-checked=true], .css-vtg3j9[data-checked] {
+    background: #f2f5f2 !important;
+    border-color: rgba(226, 232, 240, 1) !important;
+    color: #ff8a43 !important;
+    width: 20px !important;
+    border: 1px solid rgba(226, 232, 240, 1) !important;
+    height: 20px !important;
+}
+.css-vtg3j9{
+  width: 19px !important;
+  height: 19px !important;
+}
+.css-14iyyou {
+  font-size: 12px !important;
+  font-family: 'Gilroy-SemiBold' !important;
+  color: rgba(65, 69, 75, 0.50);
+  
+}
+.css-52dxnr[aria-selected=true], .css-52dxnr[data-selected] {
+    --tabs-color: #FF8A43 !important;
+    border-color: currentColor !important;
+  font-family: 'Gilroy-SemiBoldItalic' !important;
+    font-size: 12px !important;
+}
+
+
+.css-1cvfjod[aria-selected=true], .css-1cvfjod[data-selected] {
+   --tabs-color: #FF8A43 !important;
+    border-color: currentColor;
+  font-family: 'Gilroy-SemiBoldItalic' !important;
+
+}
+
+.css-1cvfjod, .css-1cvfjod{
+   --tabs-color: rgba(65, 69, 75, 0.50) !important;
+    border-color: currentColor;
+  font-family: 'Gilroy-SemiBoldItalic' !important;
+
+}

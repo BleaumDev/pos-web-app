@@ -5,11 +5,14 @@ import PosPhoneInput from '../base/phone-input';
 const StoreDetails = () => {
   return (
     <Box
-      w="300px"
       borderRadius="8px"
       m={{
         base: '0em 0em',
         md: '0em 2em',
+      }}
+      w={{
+        base: '100%',
+        md: '80%',
       }}
       p="1em"
       border="0.5px solid rgba(65, 69, 75, 0.30)"
@@ -38,10 +41,6 @@ const StoreDetails = () => {
 
         <Box mt="-8px">
           <Input
-            w={{
-              base: '250px',
-              md: '250px',
-            }}
             placeholder="Name your Employee"
             background="#fff"
             className="primary-font-medium"
@@ -60,10 +59,6 @@ const StoreDetails = () => {
 
         <Box mt="-8px">
           <Input
-            w={{
-              base: '250px',
-              md: '250px',
-            }}
             placeholder="Enter The Manager Name"
             background="#fff"
             className="primary-font-medium"
@@ -82,10 +77,6 @@ const StoreDetails = () => {
 
         <Box mt="-8px">
           <Input
-            w={{
-              base: '250px',
-              md: '250px',
-            }}
             placeholder="Enter The Assistant Manager Name"
             background="#fff"
             className="primary-font-medium"
@@ -104,10 +95,6 @@ const StoreDetails = () => {
 
         <Box mt="-8px">
           <Input
-            w={{
-              base: '250px',
-              md: '250px',
-            }}
             placeholder="Enter The Cannabis Licence No."
             background="#fff"
             className="primary-font-medium"
@@ -126,10 +113,6 @@ const StoreDetails = () => {
 
         <Box mt="-8px">
           <Input
-            w={{
-              base: '250px',
-              md: '250px',
-            }}
             placeholder="Enter The Business Licence No."
             background="#fff"
             className="primary-font-medium"
@@ -160,10 +143,6 @@ const StoreDetails = () => {
 
         <Box mt="-8px">
           <Input
-            w={{
-              base: '250px',
-              md: '250px',
-            }}
             placeholder="Enter Email Id"
             background="#fff"
             className="primary-font-medium"
@@ -182,10 +161,6 @@ const StoreDetails = () => {
 
         <Box mt="-8px">
           <Input
-            w={{
-              base: '250px',
-              md: '250px',
-            }}
             placeholder="Enter Website link"
             background="#fff"
             className="primary-font-medium"

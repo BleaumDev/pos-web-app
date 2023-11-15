@@ -37,7 +37,7 @@ const PricingFilter = () => {
         >
           Price
         </Text>
-        <ChevronDownIcon />
+        <ChevronDownIcon w="25px" color="#777" mt="-2px" h="25px" />
       </Flex>
       <Collapse in={isOpenPricing}>
         <Stack

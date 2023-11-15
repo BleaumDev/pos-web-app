@@ -24,6 +24,7 @@ interface TableProps {
   isLoading?: boolean;
   checkboxes?: boolean;
   hoverEffect?: boolean;
+  backgroundColor?: string;
 }
 
 // the table component will be used in many pages, so we need to make it reusable and dynamic not strict to certain data schema. so we will generate the keys dynamically.
@@ -66,9 +67,9 @@ const PageNumber: FC<{
       bg={tagBg}
       boxShadow={disable ? 'none' : '0px 4px 4px rgba(0, 0, 0, 0.04)'}
       rounded="lg"
-      w="32px"
+      w="20px"
       pt="5px"
-      h="32px"
+      h="20px"
       display="flex"
       justifyContent="center"
       alignItems="center"
@@ -133,6 +134,7 @@ const TablePage: FC<TableProps> = ({
   isLoading,
   checkboxes,
   hoverEffect,
+  backgroundColor,
 }) => {
   const [pageSize, setPageSize] = useState(3);
   const [currentPage, setCurrentPage] = useState(1);
@@ -200,7 +202,7 @@ const TablePage: FC<TableProps> = ({
   return (
     <Box>
       <TableContainer
-        background="#F8FBF8"
+        background={backgroundColor || '#F8FBF8'}
         padding={{ base: '1em', md: '1em' }}
         borderRadius="12px"
         border="0.3px solid rgba(18, 23, 30, 0.30)"

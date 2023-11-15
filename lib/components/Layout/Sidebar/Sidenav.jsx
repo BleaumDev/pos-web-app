@@ -317,7 +317,11 @@ const Sidenav = ({ children }) => {
                       fontSize="16px"
                       color={
                         isActive('/admin/employee/individual-employee') ||
-                        isActive('/admin/employee/employee-groups')
+                        isActive('/admin/employee/employee-groups') ||
+                        isActive('/admin/employee/add-employee-group') ||
+                        isActive('/admin/employee/employee-detail') ||
+                        isActive('/admin/employee/edit-employee') ||
+                        isActive('/admin/employee/add-employee')
                           ? '#000000'
                           : '#12171E66'
                       }
@@ -341,7 +345,9 @@ const Sidenav = ({ children }) => {
                   <Box
                     className={
                       isActive('/admin/employee/individual-employee') ||
-                      isActive('/admin/employee/add-employee')
+                      isActive('/admin/employee/add-employee') ||
+                      isActive('/admin/employee/edit-employee') ||
+                      isActive('/admin/employee/employee-detail')
                         ? 'active-tab'
                         : 'inactive-tab'
                     }
@@ -355,7 +361,8 @@ const Sidenav = ({ children }) => {
                   <Box
                     mt="-5px"
                     className={
-                      isActive('/admin/employee/employee-groups')
+                      isActive('/admin/employee/employee-groups') ||
+                      isActive('/admin/employee/add-employee-group')
                         ? 'active-tab'
                         : 'inactive-tab'
                     }

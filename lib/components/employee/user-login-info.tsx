@@ -1,9 +1,10 @@
-import { Box, Input, Select, Stack, Switch } from '@chakra-ui/react';
+import { Box, Input, Select, Stack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 
 import { useRouter } from 'next/router';
 import Label from '../base/label';
 import PasswordInput from '../inputs/PasswordInput';
+import AccountType from './account-type';
 
 const states = ['California', 'Texas', 'Florida'];
 
@@ -74,53 +75,7 @@ const UserLoginPage = () => {
               )}
             </Box>
           </Stack>
-          <Stack w="100%" mt="12px">
-            <Label
-              fontSize={{ base: '12px', sm: '14px', md: '14px' }}
-              className="primary-font-semibold"
-            >
-              Employee Role
-              <span
-                style={{
-                  color: '#FF8A43',
-                }}
-              >
-                *
-              </span>
-            </Label>
 
-            <Box mt="-5px">
-              {isEmployeeDetailRoute ? (
-                <Input
-                  w={{
-                    base: '250px',
-                    md: '250px',
-                  }}
-                  placeholder="Name your Employee"
-                  background="none"
-                  border="none"
-                  borderBottom="1px solid #c7c7c7"
-                  borderRadius="0px"
-                  readOnly
-                  className="primary-font-regular-italic"
-                  h="33px"
-                  fontSize="12px"
-                />
-              ) : (
-                <Input
-                  w={{
-                    base: '250px',
-                    md: '250px',
-                  }}
-                  placeholder="Name your Employee"
-                  background="#fff"
-                  className="primary-font-regular-italic"
-                  h="33px"
-                  fontSize="12px"
-                />
-              )}
-            </Box>
-          </Stack>
           <Stack w="100%" mt="12px">
             <Label
               fontSize={{ base: '12px', sm: '14px', md: '14px' }}
@@ -154,6 +109,10 @@ const UserLoginPage = () => {
                   background="#fff"
                   className="primary-font-regular-italic"
                   h="33px"
+                  w={{
+                    base: '250px',
+                    md: '250px',
+                  }}
                   fontSize="12px"
                 >
                   {states.map((state) => (
@@ -170,7 +129,7 @@ const UserLoginPage = () => {
               fontSize={{ base: '12px', sm: '14px', md: '14px' }}
               className="primary-font-semibold"
             >
-              Password
+              Password{' '}
               <span
                 style={{
                   color: '#FF8A43',
@@ -190,6 +149,10 @@ const UserLoginPage = () => {
                   borderRadius="0px"
                   className="primary-font-regular-italic"
                   h="33px"
+                  w={{
+                    base: '250px',
+                    md: '250px',
+                  }}
                   isReadOnly
                   fontSize="12px"
                   color="rgba(65, 69, 75, 0.50)"
@@ -199,6 +162,10 @@ const UserLoginPage = () => {
                   placeholder="Enter Password"
                   background="#fff"
                   h="33px"
+                  w={{
+                    base: '250px',
+                    md: '250px',
+                  }}
                   color="rgba(65, 69, 75, 0.50)"
                   fontSize="12px"
                 />
@@ -210,7 +177,7 @@ const UserLoginPage = () => {
               fontSize={{ base: '12px', sm: '14px', md: '14px' }}
               className="primary-font-semibold"
             >
-              Confirm Password
+              Confirm Password{' '}
               <span
                 style={{
                   color: '#FF8A43',
@@ -230,6 +197,10 @@ const UserLoginPage = () => {
                   borderRadius="0px"
                   className="primary-font-regular-italic"
                   h="33px"
+                  w={{
+                    base: '250px',
+                    md: '250px',
+                  }}
                   isReadOnly
                   fontSize="12px"
                   color="rgba(65, 69, 75, 0.50)"
@@ -239,28 +210,17 @@ const UserLoginPage = () => {
                   placeholder="Re-type Password"
                   background="#fff"
                   h="33px"
+                  w={{
+                    base: '250px',
+                    md: '250px',
+                  }}
                   color="rgba(65, 69, 75, 0.50)"
                   fontSize="12px"
                 />
               )}
             </Box>
           </Stack>
-          <Stack w="100%" mt="12px">
-            <Label
-              fontSize={{ base: '12px', sm: '14px', md: '14px' }}
-              className="primary-font-semibold"
-            >
-              Employee Type
-            </Label>
-
-            <Box mt="-5px">
-              <Switch
-                colorScheme="blue"
-                className="primary-font-regular-italic"
-                defaultChecked
-              />
-            </Box>
-          </Stack>
+          <AccountType />
         </Box>
       )}
     </Box>

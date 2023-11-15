@@ -20,6 +20,9 @@ interface Props {
   placeholder?: string;
   height?: string | number;
   width?: string | number;
+  borderRadius?: string | number;
+  fontSize?: string | number;
+  minHeight?: string | number;
 
   field?: FieldInputProps<any>;
   form?: FormikProps<FormikValues>;
@@ -40,6 +43,9 @@ const Select = (props: Props) => {
     isMulti = false,
     height,
     width,
+    borderRadius,
+    fontSize,
+    minHeight,
     inputStyle,
   } = props;
   const fieldName = field?.name ?? name;
@@ -89,7 +95,8 @@ const Select = (props: Props) => {
           placeholder: (baseStyles) => ({
             ...baseStyles,
             color: '#41454B',
-            fontSize: '14px',
+            fontSize: fontSize ?? '14px',
+
             display: 'flex',
             alignItems: 'start',
             justifyContent: 'start',
@@ -146,8 +153,11 @@ const Select = (props: Props) => {
           }),
           control: (baseStyles) => ({
             ...baseStyles,
-            borderRadius: '8px',
-            border: '0.5px solid rgba(65, 69, 75, 0.40)',
+            borderRadius: borderRadius ?? '8px',
+            fontSize: fontSize ?? '14px',
+            minHeight: minHeight ?? '38px',
+
+            border: '0.5px solid rgba(65, 69, 75, 0.30)',
             boxSizing: 'border-box',
             width: width ?? 'auto',
             height: height ?? '50px',

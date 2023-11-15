@@ -1,14 +1,17 @@
 /* eslint-disable unused-imports/no-unused-vars */
-import { Box } from '@chakra-ui/react';
+import { ChevronLeftIcon } from '@chakra-ui/icons';
+import { Box, Divider, Flex, Link } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
-import Table from '@lib/components/base/TablePage';
+import Label from '@lib/components/base/label';
+import EmployeeGroupTabing from '@lib/components/employee/employee-group-tabing';
+import SummaryEmployeeGroup from '@lib/components/employee/summary-employee-group';
 import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { mapEmployeeGroupDataToRows } from '@utils/employeeGroupsUtils';
 import { useClassContext } from 'context/ClassContext';
 import employeeGroupData from 'data/employeeGroupData';
 import { useEffect, useMemo, useState } from 'react';
 
-const EmployeeGroups = () => {
+const AddEmployeeGroups = () => {
   const [isClient, setIsClient] = useState(false);
   const { isClassToggled } = useClassContext();
 
@@ -66,22 +69,41 @@ const EmployeeGroups = () => {
               base: '0em',
               md: '8.5em',
             }}
+            zIndex={1}
             overflowX="hidden"
             overflowY="scroll"
-            h="60vh"
-            zIndex={1}
+            h="70vh"
           >
-            <Table
-              checkboxes
-              hoverEffect
-              headers={[
-                'Group Name',
-                'Employees',
-                'Permissions',
-                'Applicable to',
-              ]}
-              rows={employeeGroupRows}
-            />
+            <Box
+              backgroundColor="#ffffff"
+              p={{
+                base: '40px 12px',
+                md: '40px 36px 40px 36px',
+              }}
+              borderRadius="14px"
+            >
+              <Flex ml="1em">
+                <Link href="/admin/employee/individual-employee">
+                  <ChevronLeftIcon boxSize={30} />
+                </Link>
+
+                <Label
+                  fontSize={{ base: '16px', sm: '18px', md: '20px' }}
+                  ml={2}
+                  className="primary-font-semibold"
+                >
+                  Create Employee Group
+                </Label>
+              </Flex>
+              <Divider
+                className="mx-5 mt-4"
+                borderWidth="1px"
+                background="rgba(65, 69, 75, 0.7)"
+              />
+
+              <SummaryEmployeeGroup />
+              <EmployeeGroupTabing />
+            </Box>
           </Box>
         </Sidenav>
       )}
@@ -89,4 +111,4 @@ const EmployeeGroups = () => {
   );
 };
 
-export default EmployeeGroups;
+export default AddEmployeeGroups;
