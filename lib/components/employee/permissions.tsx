@@ -17,6 +17,7 @@ import {
 import { permissionsData } from 'data/permissionsData';
 import React, { useState } from 'react';
 import PermissionIcon from '../icons/permission-icon';
+
 interface PermissionsPageProps {}
 
 interface SubPermission {
@@ -38,12 +39,14 @@ interface CheckedPermissions {
 
 interface InnerPermissions {
   [key: string]: {
-    [subPermissionName: string]: boolean;
+    [subPermissionName: string]: {
+      isChecked: boolean;
+      selectedValue?: string;
+    };
   };
 }
 
 const PermissionsPage: React.FC<PermissionsPageProps> = () => {
-  const [selectedValue, setSelectedValue] = useState<string>('administrative');
   const [checkedPermissions, setCheckedPermissions] =
     useState<CheckedPermissions>({});
   const [innerPermissions, setInnerPermissions] = useState<InnerPermissions>(
@@ -67,18 +70,29 @@ const PermissionsPage: React.FC<PermissionsPageProps> = () => {
     permissionId: string,
     subPermissionName: string
   ) => {
-    setInnerPermissions((prevInnerPermissions) => ({
+    setInnerPermissions((prevInnerPermissions: any) => ({
       ...prevInnerPermissions,
       [permissionId]: {
         ...prevInnerPermissions[permissionId],
         [subPermissionName]:
           !prevInnerPermissions[permissionId][subPermissionName],
+        selectedValue: undefined, // Reset selectedValue when inner checkbox is toggled
       },
     }));
   };
 
-  const handleRadioChange = (value: string) => {
-    setSelectedValue(value);
+  const handleRadioChange = (
+    permissionId: string,
+    subPermissionName: string,
+    value: string
+  ) => {
+    setInnerPermissions((prevInnerPermissions: any) => ({
+      ...prevInnerPermissions,
+      [permissionId]: {
+        ...prevInnerPermissions[permissionId],
+        selectedValue: value,
+      },
+    }));
   };
 
   return (
@@ -120,14 +134,8 @@ const PermissionsPage: React.FC<PermissionsPageProps> = () => {
         <tbody>
           {permissionsData.map((permission) => (
             <React.Fragment key={permission.id}>
-              <Tr background="#E9F0F8" mb="1em">
-                <Td
-                  display="flex"
-                  gap="0.5em"
-                  mx="1.5em"
-                  my="0em"
-                  borderRadius="8"
-                >
+              <Tr background="#E9F0F8" mb="1em" borderBottom="8px solid #fff">
+                <Td display="flex" gap="0.5em" my="0em" borderRadius="8">
                   <Checkbox
                     w="20px"
                     isChecked={checkedPermissions[permission.id]}
@@ -169,7 +177,9 @@ const PermissionsPage: React.FC<PermissionsPageProps> = () => {
                       <Checkbox
                         w="20px"
                         isChecked={
-                          innerPermissions[permission.id]?.[subPermission.name]
+                          innerPermissions[permission.id]?.[
+                            subPermission.name
+                          ] as any
                         }
                         onChange={() =>
                           handleInnerCheckboxToggle(
@@ -195,10 +205,20 @@ const PermissionsPage: React.FC<PermissionsPageProps> = () => {
                       <Text>{subPermission.name}</Text>
                     </Td>
                     {innerPermissions[permission.id]?.[subPermission.name] && (
-                      <Td>
+                      <Box ml="5em" my="10px">
                         <RadioGroup
-                          onChange={handleRadioChange}
-                          value={selectedValue}
+                          onChange={(value) =>
+                            handleRadioChange(
+                              permission.id,
+                              subPermission.name,
+                              value
+                            )
+                          }
+                          value={
+                            innerPermissions[permission.id]?.[
+                              subPermission.name
+                            ]?.selectedValue
+                          }
                         >
                           <Stack direction="column">
                             {subPermission.types.map((type) => (
@@ -212,7 +232,7 @@ const PermissionsPage: React.FC<PermissionsPageProps> = () => {
                             ))}
                           </Stack>
                         </RadioGroup>
-                      </Td>
+                      </Box>
                     )}
                   </Tr>
                 ))}
