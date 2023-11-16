@@ -20,16 +20,16 @@ export const permissionsData: Permission[] = [
   },
   {
     id: '2',
-    name: 'Another Access',
-    type: 'Another Function',
+    name: 'POS Access',
+    type: 'POS Function',
     description: 'Provide Read & Write',
     subPermissions: [
       {
-        name: 'Another Dashboard Access',
+        name: ' Dashboard Access',
         types: ['Read', 'Write'],
       },
       {
-        name: 'Another POS Access',
+        name: ' POS Access',
         types: ['Read', 'Write'],
       },
       // Add more sub-permissions as needed
@@ -37,16 +37,16 @@ export const permissionsData: Permission[] = [
   },
   {
     id: '3',
-    name: 'Another Access',
-    type: 'Another Function',
+    name: 'Dashboard Access',
+    type: 'Dashboard Function',
     description: 'Provide Read & Write',
     subPermissions: [
       {
-        name: 'Another Dashboard Access',
+        name: ' Dashboard Access',
         types: ['Read', 'Write'],
       },
       {
-        name: 'Another POS Access',
+        name: ' POS Access',
         types: ['Read', 'Write'],
       },
       // Add more sub-permissions as needed
@@ -54,16 +54,16 @@ export const permissionsData: Permission[] = [
   },
   {
     id: '4',
-    name: 'Another Access',
-    type: 'Another Function',
+    name: 'Inventory Access',
+    type: 'Inventory Function',
     description: 'Provide Read & Write',
     subPermissions: [
       {
-        name: 'Another Dashboard Access',
+        name: ' Dashboard Access',
         types: ['Read', 'Write'],
       },
       {
-        name: 'Another POS Access',
+        name: ' POS Access',
         types: ['Read', 'Write'],
       },
       // Add more sub-permissions as needed

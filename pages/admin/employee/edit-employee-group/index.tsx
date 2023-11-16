@@ -9,7 +9,7 @@ import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useClassContext } from 'context/ClassContext';
 import { useEffect, useState } from 'react';
 
-const AddEmployeeGroups = () => {
+const EditEmployeeGroups = () => {
   const [isClient, setIsClient] = useState(false);
   const { isClassToggled } = useClassContext();
 
@@ -87,7 +87,7 @@ const AddEmployeeGroups = () => {
                   ml={2}
                   className="primary-font-semibold"
                 >
-                  Create Employee Group
+                  Edit Adminstrative Group
                 </Label>
               </Flex>
               <Divider
@@ -106,4 +106,4 @@ const AddEmployeeGroups = () => {
   );
 };
 
-export default AddEmployeeGroups;
+export default EditEmployeeGroups;

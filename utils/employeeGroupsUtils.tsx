@@ -1,12 +1,15 @@
 import { Image, Td } from '@chakra-ui/react';
+import Link from 'next/link';
 
 export function mapEmployeeGroupDataToRows(
   employeeGroupData: Array<any>
 ): Array<JSX.Element[]> {
   return employeeGroupData.map((employeeGroup) => [
-    <Td className="text-center" key="userName">
-      {employeeGroup.groupName}
-    </Td>,
+    <Link href="/admin/employee/employee-group-detail">
+      <Td className="text-center" key="userName">
+        {employeeGroup.groupName}
+      </Td>
+    </Link>,
     <Td className="text-center" key="noOfEmployee">
       {employeeGroup.noOfEmployee}
     </Td>,

@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { permissionsData } from 'data/permissionsData';
 import React, { useState } from 'react';
+import LockPermissionIcon from '../icons/lock-permission-icon';
 import PermissionIcon from '../icons/permission-icon';
 
 interface PermissionsPageProps {}
@@ -107,6 +108,7 @@ const PermissionsPage: React.FC<PermissionsPageProps> = () => {
                 className="primary-font-semibold"
                 fontSize="14px"
                 color="#41454B"
+                textTransform="capitalize"
               >
                 Policy Name
               </Text>{' '}
@@ -150,7 +152,11 @@ const PermissionsPage: React.FC<PermissionsPageProps> = () => {
                       handleCheckboxToggle(permission.id);
                     }}
                   >
-                    <PermissionIcon />
+                    {checkedPermissions[permission.id] ? (
+                      <PermissionIcon />
+                    ) : (
+                      <LockPermissionIcon />
+                    )}
                   </Box>
                   <Text>{permission.name}</Text>
                 </Td>
@@ -200,7 +206,13 @@ const PermissionsPage: React.FC<PermissionsPageProps> = () => {
                           );
                         }}
                       >
-                        <PermissionIcon />
+                        {innerPermissions[permission.id]?.[
+                          subPermission.name
+                        ] ? (
+                          <PermissionIcon />
+                        ) : (
+                          <LockPermissionIcon />
+                        )}
                       </Box>
                       <Text>{subPermission.name}</Text>
                     </Td>

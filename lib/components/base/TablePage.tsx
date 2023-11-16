@@ -295,7 +295,7 @@ const TablePage: FC<TableProps> = ({
                 style={{ marginBottom: '16px' }}
               >
                 {checkboxes && (
-                  <Td>
+                  <Td pl="1.4em">
                     <Checkbox
                       isChecked={selectedRows.has(i)}
                       onChange={() => handleRowSelect(i)}

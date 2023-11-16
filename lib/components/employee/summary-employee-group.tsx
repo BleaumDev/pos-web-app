@@ -1,5 +1,7 @@
 import { Box, Divider, Flex, Input, Stack } from '@chakra-ui/react';
 import { Field, Formik } from 'formik';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Button from '../base/button';
 import Label from '../base/label';
 import Select, { OptionsType } from '../base/select';
@@ -26,7 +28,11 @@ const groupSelection: OptionsType = [
     label: 'Sales Manager',
   },
 ];
+
 const SummaryEmployeeGroup = () => {
+  const router = useRouter();
+  const isEmployeeGroupDetailRoute =
+    router.pathname === '/admin/employee/employee-group-detail';
   return (
     <Formik
       initialValues={{
@@ -59,26 +65,43 @@ const SummaryEmployeeGroup = () => {
               Summary
             </Label>
             <Flex gap="12px">
-              <Button
-                styledVariant="delete"
-                className="primary-font-semibold"
-                fontSize="12px"
-                height="23px"
-                w="88px"
-                borderRadius="3px"
-              >
-                Cancel
-              </Button>
-              <Button
-                styledVariant="orange"
-                className="primary-font-semibold"
-                fontSize="12px"
-                height="23px"
-                w="125px"
-                borderRadius="3px"
-              >
-                Create Group
-              </Button>
+              {isEmployeeGroupDetailRoute ? (
+                <Link href="/admin/employee/edit-employee-group">
+                  <Button
+                    styledVariant="orange"
+                    className="primary-font-semibold"
+                    fontSize="12px"
+                    height="23px"
+                    w="auto"
+                    borderRadius="3px"
+                  >
+                    Edit
+                  </Button>
+                </Link>
+              ) : (
+                <>
+                  <Button
+                    styledVariant="delete"
+                    className="primary-font-semibold"
+                    fontSize="12px"
+                    height="23px"
+                    w="88px"
+                    borderRadius="3px"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    styledVariant="orange"
+                    className="primary-font-semibold"
+                    fontSize="12px"
+                    height="23px"
+                    w="125px"
+                    borderRadius="3px"
+                  >
+                    Create Group
+                  </Button>
+                </>
+              )}
             </Flex>
           </Box>
           <Divider className="mx-5" />
@@ -99,13 +122,24 @@ const SummaryEmployeeGroup = () => {
               </Label>
 
               <Box mt="-5px">
-                <Input
-                  placeholder="Enter The Group Name"
-                  background="#fff"
-                  className="primary-font-medium"
-                  h="33px"
-                  fontSize="12px"
-                />
+                {isEmployeeGroupDetailRoute ? (
+                  <Input
+                    placeholder="Enter The Group Name"
+                    background="#fff"
+                    className="primary-font-medium"
+                    h="33px"
+                    readOnly
+                    fontSize="12px"
+                  />
+                ) : (
+                  <Input
+                    placeholder="Enter The Group Name"
+                    background="#fff"
+                    className="primary-font-medium"
+                    h="33px"
+                    fontSize="12px"
+                  />
+                )}
               </Box>
             </Stack>
             <Stack w="100%" mt="8px">
@@ -124,13 +158,24 @@ const SummaryEmployeeGroup = () => {
               </Label>
 
               <Box mt="-5px">
-                <Input
-                  placeholder="Enter The Creation Time"
-                  background="#fff"
-                  className="primary-font-medium"
-                  h="33px"
-                  fontSize="12px"
-                />
+                {isEmployeeGroupDetailRoute ? (
+                  <Input
+                    placeholder="Enter The Creation Time"
+                    background="#fff"
+                    readOnly
+                    className="primary-font-medium"
+                    h="33px"
+                    fontSize="12px"
+                  />
+                ) : (
+                  <Input
+                    placeholder="Enter The Creation Time"
+                    background="#fff"
+                    className="primary-font-medium"
+                    h="33px"
+                    fontSize="12px"
+                  />
+                )}
               </Box>
             </Stack>
             <Stack w="100%" mt="8px">
@@ -149,16 +194,27 @@ const SummaryEmployeeGroup = () => {
               </Label>
 
               <Box mt="-5px">
-                <Field
-                  name="selectedOption"
-                  borderRadius="4px"
-                  component={Select}
-                  fontSize="12px"
-                  minHeight="35px"
-                  height="35px"
-                  options={groupSelection}
-                  placeholder="Select Group’s Applicable Option"
-                />
+                {isEmployeeGroupDetailRoute ? (
+                  <Input
+                    placeholder="Across the platform"
+                    background="#fff"
+                    className="primary-font-medium"
+                    h="33px"
+                    fontSize="12px"
+                    readOnly
+                  />
+                ) : (
+                  <Field
+                    name="selectedOption"
+                    borderRadius="4px"
+                    component={Select}
+                    fontSize="12px"
+                    minHeight="35px"
+                    height="35px"
+                    options={groupSelection}
+                    placeholder="Select Group’s Applicable Option"
+                  />
+                )}
               </Box>
             </Stack>
           </Flex>

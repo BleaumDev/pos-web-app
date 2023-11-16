@@ -9,7 +9,7 @@ import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useClassContext } from 'context/ClassContext';
 import { useEffect, useState } from 'react';
 
-const AddEmployeeGroups = () => {
+const EmployeeGroupDetail = () => {
   const [isClient, setIsClient] = useState(false);
   const { isClassToggled } = useClassContext();
 
@@ -78,7 +78,7 @@ const AddEmployeeGroups = () => {
               borderRadius="14px"
             >
               <Flex ml="1em">
-                <Link href="/admin/employee/individual-employee">
+                <Link href="/admin/employee/employee-groups">
                   <ChevronLeftIcon boxSize={30} />
                 </Link>
 
@@ -87,7 +87,7 @@ const AddEmployeeGroups = () => {
                   ml={2}
                   className="primary-font-semibold"
                 >
-                  Create Employee Group
+                  Administration Group
                 </Label>
               </Flex>
               <Divider
@@ -106,4 +106,4 @@ const AddEmployeeGroups = () => {
   );
 };
 
-export default AddEmployeeGroups;
+export default EmployeeGroupDetail;
