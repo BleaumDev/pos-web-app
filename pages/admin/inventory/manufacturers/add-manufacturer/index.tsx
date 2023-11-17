@@ -14,7 +14,6 @@ import {
 import FloatingHeader from '@lib/components/base/floating-header';
 import Input from '@lib/components/base/input';
 import GalleryAdd from '@lib/components/inputs/GalleyAdd';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
 
@@ -23,7 +22,7 @@ export default function AddManufacturer(): React.ReactElement {
   const { isClassToggled } = useClassContext();
 
   return (
-    <Sidenav>
+    <>
       <Box
         w="auto"
         left="0"
@@ -414,6 +413,6 @@ export default function AddManufacturer(): React.ReactElement {
           </Box>
         </Box>
       </Box>
-    </Sidenav>
+    </>
   );
 }

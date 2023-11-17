@@ -3,7 +3,6 @@
 import { Box, Td } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import TablePage from '@lib/components/base/TablePage';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import DeleteOrderModel from '@lib/components/models/delete-order';
 import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
@@ -55,7 +54,7 @@ export default function ManufacturerList(): React.ReactElement {
   return (
     <Box>
       {isClient && (
-        <Sidenav>
+        <>
           <Box
             w="auto"
             left="0"
@@ -144,7 +143,7 @@ export default function ManufacturerList(): React.ReactElement {
               rows={orders}
             />
           </Box>
-        </Sidenav>
+        </>
       )}
     </Box>
   );

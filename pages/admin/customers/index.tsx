@@ -2,7 +2,6 @@
 import { Box } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { mapCustomerDataToRows } from '@utils/customerUtils';
 import { useClassContext } from 'context/ClassContext';
 import customerData from 'data/customerTableData';
@@ -23,7 +22,7 @@ const CustomerPage = () => {
   return (
     <Box>
       {isClient && (
-        <Sidenav>
+        <>
           <Box
             w="auto"
             left="0"
@@ -94,7 +93,7 @@ const CustomerPage = () => {
               rows={customerRows}
             />
           </Box>
-        </Sidenav>
+        </>
       )}
     </Box>
   );

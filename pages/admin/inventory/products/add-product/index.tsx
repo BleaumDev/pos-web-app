@@ -6,7 +6,6 @@ import { Box, Divider, Flex } from '@chakra-ui/react';
 import Button from '@lib/components/base/button';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import DetailedInformation from '@lib/components/product/detailedInformation';
 import GeneralInformation from '@lib/components/product/generalInformation';
 import { useClassContext } from 'context/ClassContext';
@@ -17,7 +16,7 @@ export default function ProductDetail(): React.ReactNode {
 
   return (
     <div>
-      <Sidenav>
+      <>
         <Box
           w="auto"
           left="0"
@@ -162,7 +161,7 @@ export default function ProductDetail(): React.ReactNode {
             </Flex>
           </Box>
         </Box>
-      </Sidenav>
+      </>
     </div>
   );
 }

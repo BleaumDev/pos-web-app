@@ -15,7 +15,6 @@ import FloatingHeader from '@lib/components/base/floating-header';
 import Input from '@lib/components/base/input';
 import UploadSingleImage from '@lib/components/base/upload-single-image';
 import LabelledSelect from '@lib/components/inputs/LabelledSelect';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useClassContext } from 'context/ClassContext';
 
 export default function AddSubcategory(): React.ReactElement {
@@ -23,7 +22,7 @@ export default function AddSubcategory(): React.ReactElement {
   const { isClassToggled } = useClassContext();
 
   return (
-    <Sidenav>
+    <>
       <Box
         w="auto"
         left="0"
@@ -357,6 +356,6 @@ export default function AddSubcategory(): React.ReactElement {
           </Box>
         </Box>
       </Box>
-    </Sidenav>
+    </>
   );
 }

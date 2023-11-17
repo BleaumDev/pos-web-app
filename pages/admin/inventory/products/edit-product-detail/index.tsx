@@ -4,7 +4,6 @@ import { Box, Divider, Flex, Link } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import UploadMultipleImages from '@lib/components/base/upload-multiple-images';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import EditProductInformation from '@lib/components/product/edit-product-information';
 import { useClassContext } from 'context/ClassContext';
 
@@ -13,7 +12,7 @@ export default function EditProductDetail(): React.ReactNode {
 
   return (
     <div>
-      <Sidenav>
+      <>
         <Box
           w="auto"
           left="0"
@@ -115,7 +114,7 @@ export default function EditProductDetail(): React.ReactNode {
             </Box>
           </Box>
         </Box>
-      </Sidenav>
+      </>
     </div>
   );
 }

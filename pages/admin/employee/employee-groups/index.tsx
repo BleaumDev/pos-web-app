@@ -2,7 +2,6 @@
 import { Box } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { mapEmployeeGroupDataToRows } from '@utils/employeeGroupsUtils';
 import { useClassContext } from 'context/ClassContext';
 import employeeGroupData from 'data/employeeGroupData';
@@ -46,7 +45,7 @@ const EmployeeGroups = () => {
   return (
     <Box>
       {isClient && (
-        <Sidenav>
+        <>
           <Box
             w="auto"
             left="0"
@@ -83,7 +82,7 @@ const EmployeeGroups = () => {
               rows={employeeGroupRows}
             />
           </Box>
-        </Sidenav>
+        </>
       )}
     </Box>
   );

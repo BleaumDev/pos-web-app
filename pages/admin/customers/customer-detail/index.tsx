@@ -7,7 +7,6 @@ import Label from '@lib/components/base/label';
 import CustomerInformationDetail from '@lib/components/customers/customer-info-detail';
 import OrderDetails from '@lib/components/customers/order-details-list';
 import StatsDetail from '@lib/components/customers/stats-details';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import FrequentlyPurchasedProducts from '@lib/components/pos/frequently-purchased';
 import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
@@ -17,7 +16,7 @@ const CustomerDetail = () => {
 
   return (
     <div>
-      <Sidenav>
+      <>
         <Box
           w="auto"
           left="0"
@@ -130,7 +129,7 @@ const CustomerDetail = () => {
             </Box>
           </Box>
         </Box>
-      </Sidenav>
+      </>
     </div>
   );
 };

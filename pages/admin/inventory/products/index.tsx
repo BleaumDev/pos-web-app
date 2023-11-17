@@ -1,7 +1,6 @@
 import { Box, Image, Td } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
@@ -72,7 +71,7 @@ const Inventory = () => {
 
   return (
     <Box>
-      <Sidenav>
+      <>
         <Box
           left="0"
           right="0"
@@ -145,7 +144,7 @@ const Inventory = () => {
             />
           )}
         </Box>
-      </Sidenav>
+      </>
     </Box>
   );
 };

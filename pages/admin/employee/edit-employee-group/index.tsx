@@ -5,7 +5,6 @@ import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import EmployeeGroupTabing from '@lib/components/employee/employee-group-tabing';
 import SummaryEmployeeGroup from '@lib/components/employee/summary-employee-group';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useClassContext } from 'context/ClassContext';
 import { useEffect, useState } from 'react';
 
@@ -44,7 +43,7 @@ const EditEmployeeGroups = () => {
   return (
     <Box>
       {isClient && (
-        <Sidenav>
+        <>
           <Box
             w="auto"
             left="0"
@@ -100,7 +99,7 @@ const EditEmployeeGroups = () => {
               <EmployeeGroupTabing />
             </Box>
           </Box>
-        </Sidenav>
+        </>
       )}
     </Box>
   );

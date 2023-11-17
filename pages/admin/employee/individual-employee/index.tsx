@@ -1,6 +1,5 @@
 /* eslint-disable unused-imports/no-unused-vars */
 import { Box } from '@chakra-ui/react';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import Table from '@lib/components/base/TablePage';
 import FloatingHeader from '@lib/components/base/floating-header';
 import { mapIndividualEmployeeDataToRows } from '@utils/individualEmployeeUtils';
@@ -43,7 +42,7 @@ const IndividualEmployee = () => {
   return (
     <Box>
       {isClient && (
-        <Sidenav>
+        <>
           <Box
             w="auto"
             left="0"
@@ -79,7 +78,7 @@ const IndividualEmployee = () => {
               rows={employeeRows}
             />
           </Box>
-        </Sidenav>
+        </>
       )}
     </Box>
   );

@@ -9,7 +9,6 @@ import Label from '@lib/components/base/label';
 import UserDetailsPage from '@lib/components/employee/user-details';
 import UserLoginPage from '@lib/components/employee/user-login-info';
 import UserMediaPage from '@lib/components/employee/user-media';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
 
@@ -18,7 +17,7 @@ const AddEmployee = () => {
 
   return (
     <div>
-      <Sidenav>
+      <>
         <Box
           w="auto"
           left="0"
@@ -133,7 +132,7 @@ const AddEmployee = () => {
             </Flex>
           </Box>
         </Box>
-      </Sidenav>
+      </>
     </div>
   );
 };

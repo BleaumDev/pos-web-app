@@ -3,7 +3,6 @@
 import { Box, Image, Td, Text } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useClassContext } from 'context/ClassContext';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -70,7 +69,7 @@ const CategoriesPage = () => {
   }, [inventoryItem]);
 
   return (
-    <Sidenav>
+    <>
       {isClient && (
         <>
           <Box
@@ -153,7 +152,7 @@ const CategoriesPage = () => {
           </Box>
         </>
       )}
-    </Sidenav>
+    </>
   );
 };
 
