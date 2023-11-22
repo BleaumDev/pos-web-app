@@ -48,17 +48,18 @@ const AddOpeningHours: React.FC<WeeklyScheduleProps> = ({
           <Flex
             key={day}
             mb={4}
+            gap="2em"
             alignItems="center"
             justifyContent="space-between"
           >
-            <Box flex="0 0 100px">
+            <Flex>
               <Label
                 fontSize={{ base: '12px', sm: '14px', md: '14px' }}
                 className="primary-font-semibold"
               >
                 {day}
               </Label>
-            </Box>
+            </Flex>
 
             <TimeRangeInput
               startTime={startTime}

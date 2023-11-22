@@ -81,7 +81,7 @@ const UserDetailsPage = () => {
               fontSize={{ base: '12px', sm: '14px', md: '14px' }}
               className="primary-font-semibold"
             >
-              Email Address
+              Email Address{' '}
               <span
                 style={{
                   color: '#FF8A43',
@@ -196,7 +196,7 @@ const UserDetailsPage = () => {
               fontSize={{ base: '12px', sm: '14px', md: '14px' }}
               className="primary-font-semibold"
             >
-              New Pin
+              New Pin{' '}
               <span
                 style={{
                   color: '#FF8A43',
@@ -236,7 +236,7 @@ const UserDetailsPage = () => {
               fontSize={{ base: '12px', sm: '14px', md: '14px' }}
               className="primary-font-semibold"
             >
-              Confirm New Pin
+              Confirm New Pin{' '}
               <span
                 style={{
                   color: '#FF8A43',

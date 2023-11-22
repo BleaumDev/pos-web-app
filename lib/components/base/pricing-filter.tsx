@@ -17,37 +17,38 @@ const PricingFilter = () => {
   const toggleOptionsPricing = () => {
     setIsOpenPricing(!isOpenPricing);
   };
+
+  const closeOptionsPricing = () => {
+    setIsOpenPricing(false);
+  };
+
   return (
-    <Box position="relative">
+    <Box position="relative" onBlur={closeOptionsPricing} tabIndex={0}>
       <Flex
         onClick={toggleOptionsPricing}
         justifyContent="space-between"
         cursor="pointer"
         p="7px 10px"
         h="37px"
-        border="0.5px solid rgba(65, 69, 75, 0.40)"
+        border="0.5px solid rgba(18, 23, 30, 0.10)"
         borderRadius="8px"
         w="140px"
         zIndex="1000"
       >
-        <Text
-          color="rgba(18, 23, 30, 0.70)"
-          fontSize="12px"
-          className="primary-font-medium"
-        >
+        <Text color="#777a" fontSize="12px" className="primary-font-medium">
           Price
         </Text>
-        <ChevronDownIcon />
+        <ChevronDownIcon w="25px" color="#777" mt="-2px" h="25px" />
       </Flex>
-      <Collapse in={isOpenPricing}>
+      <Collapse in={isOpenPricing} animateOpacity>
         <Stack
           background={'#FFF'}
           w="200px"
           mt="3em"
           p="16px"
           position="absolute"
-          left="-1em"
-          top="5px"
+          left="-4em"
+          top="-10px"
           boxShadow="11px 0px 23px 0px rgba(0, 0, 0, 0.13)"
           borderRadius="10px 0px 10px 10px"
         >
@@ -102,6 +103,9 @@ const PricingFilter = () => {
             borderRadius="4px"
             color="rgba(18, 23, 30, 0.30)"
             fontSize="12px"
+            _hover={{
+              background: '#FF8A43',
+            }}
             mt="10px"
             className="primary-font-medium"
             w="full"
@@ -116,6 +120,9 @@ const PricingFilter = () => {
             color="rgba(18, 23, 30, 0.30)"
             fontSize="12px"
             mt="10px"
+            _hover={{
+              background: '#FF8A43',
+            }}
             className="primary-font-medium"
             w="full"
             h="24px"
@@ -129,6 +136,9 @@ const PricingFilter = () => {
             color="rgba(18, 23, 30, 0.30)"
             fontSize="12px"
             mt="10px"
+            _hover={{
+              background: '#FF8A43',
+            }}
             className="primary-font-medium"
             w="full"
             h="24px"

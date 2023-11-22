@@ -57,18 +57,18 @@ const UploadMultipleImages: React.FC<UploadMultipleImagesProps> = ({
   const renderAddImageButton = () => {
     if (addButton) {
       return (
-        <Button
-          styledVariant="blue"
-          fontSize="12px"
-          w="136px"
-          h="33px"
-          position="relative"
-          top="2em"
-          className="primary-font-semibold"
-        >
-          <Img src="/images/gallery-add.png" w="16px" mr="10px" />
-          Add Images
-        </Button>
+        <Flex justifyContent="center" alignItems="center" mt="1em">
+          <Button
+            styledVariant="blue"
+            fontSize="12px"
+            w="136px"
+            h="33px"
+            className="primary-font-semibold"
+          >
+            <Img src="/images/gallery-add.png" w="16px" mr="10px" />
+            Add Images
+          </Button>
+        </Flex>
       );
     }
     return null;
@@ -95,8 +95,16 @@ const UploadMultipleImages: React.FC<UploadMultipleImagesProps> = ({
             }}
           >
             {selectedFiles.map((imageUrl, index) => (
-              <SwiperSlide key={nanoid()}>
-                <Box position="relative" left="30%">
+              <SwiperSlide
+                key={nanoid()}
+                style={{
+                  transform:
+                    index === selectedFiles.length - 1
+                      ? 'translate(0%, 0px)'
+                      : 'translate(30%, 0px)',
+                }}
+              >
+                <Box position="relative">
                   <Img
                     src={
                       typeof imageUrl === 'string'
@@ -112,8 +120,8 @@ const UploadMultipleImages: React.FC<UploadMultipleImagesProps> = ({
                   <Box
                     className="remove-image-button"
                     position="absolute"
-                    top="8px"
-                    left="7em"
+                    top="4px"
+                    left="8.3em"
                     cursor="pointer"
                     onClick={() => handleRemoveImage(index)}
                   >
@@ -143,23 +151,8 @@ const UploadMultipleImages: React.FC<UploadMultipleImagesProps> = ({
           </div>
         </Flex>
       ) : (
-        <Flex
-          pl={{
-            base: '0em',
-            md: '6em',
-          }}
-          pr={{
-            base: '0em',
-            md: '4em',
-          }}
-          mt="6em"
-        >
-          <Box
-            display="grid"
-            justifyItems="center"
-            alignItems="center"
-            {...getRootProps()}
-          >
+        <Flex justifyContent="center" alignItems="center" mt="6em">
+          <Box display="grid" {...getRootProps()}>
             <Img
               src="/images/multiple-upload.png"
               alt="Uploaded Image"

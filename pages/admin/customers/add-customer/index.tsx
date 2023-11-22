@@ -8,7 +8,6 @@ import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import ContactInformation from '@lib/components/customers/contact-information';
 import CustomerPersonalInformation from '@lib/components/customers/customer-personal-information';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -25,7 +24,7 @@ const AddCustomer = () => {
   return (
     <div>
       {isClient && (
-        <Sidenav>
+        <>
           <Box
             w="auto"
             left="0"
@@ -136,7 +135,7 @@ const AddCustomer = () => {
               </Box>
             </Box>
           </Box>
-        </Sidenav>
+        </>
       )}
     </div>
   );

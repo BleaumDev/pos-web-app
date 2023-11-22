@@ -30,6 +30,12 @@ const Sidenav = ({ children }) => {
   const isActive = (path) => {
     return router.pathname === path;
   };
+
+  const isRouteInventory = router.pathname.startsWith('/admin/inventory');
+  const isRouteAccessManagement = router.pathname.startsWith('/admin/employee');
+  const isRouteSettings = router.pathname.startsWith('/admin/settings');
+  const isRouteCustomers = router.pathname.startsWith('/admin/customers');
+
   return (
     <Flex>
       <Box position={'fixed'} w={'full'} top={'0px'} zIndex={9999}>
@@ -84,7 +90,7 @@ const Sidenav = ({ children }) => {
         <Box overflow="auto" height="100vh">
           <Collapse in={!isOpen}>
             <VStack spacing="4" mt={'3em'} align="stretch">
-              <Link href="/">
+              <Link href="/admin/dashboard">
                 <Flex alignItems={'center'} width="full" mb="12px">
                   <Box width={'20%'}>
                     <Image
@@ -116,26 +122,28 @@ const Sidenav = ({ children }) => {
                     />
                   </Box>
                   <Box width={'80%'}>
-                    <Text
-                      className="primary-font-medium"
-                      fontSize="16px"
-                      color={
-                        isActive('/admin/inventory/products') ||
-                        isActive('/admin/inventory/categories') ||
-                        isActive('/admin/inventory/manufacturers') ||
-                        isActive('/admin/inventory/print-labels') ||
-                        isActive('/admin/inventory/products/add-product') ||
-                        isActive('/admin/inventory/transfers')
-                          ? '#000000'
-                          : '#12171E66'
-                      }
-                    >
-                      Inventory
-                    </Text>
+                    <Link href="/admin/inventory/products">
+                      <Text
+                        className="primary-font-medium"
+                        fontSize="16px"
+                        color={
+                          isActive('/admin/inventory/products') ||
+                          isActive('/admin/inventory/categories') ||
+                          isActive('/admin/inventory/manufacturers') ||
+                          isActive('/admin/inventory/print-labels') ||
+                          isActive('/admin/inventory/products/add-product') ||
+                          isActive('/admin/inventory/transfers')
+                            ? '#000000'
+                            : '#12171E66'
+                        }
+                      >
+                        Inventory
+                      </Text>
+                    </Link>
                   </Box>
                 </Flex>
               </Box>
-              <Collapse in={!isInventoryOpen}>
+              <Collapse in={!isInventoryOpen && isRouteInventory}>
                 <Box
                   borderLeft={'1px solid #E69066'}
                   marginLeft={'15px !important'}
@@ -228,7 +236,7 @@ const Sidenav = ({ children }) => {
                 </Box>
               </Collapse>
               <Link href="/admin/customers">
-                <Flex alignItems={'center'} width="full">
+                <Flex alignItems={'center'} mt="-10px" width="full">
                   <Box width={'20%'}>
                     <Image
                       src={'/images/User.png'}
@@ -241,13 +249,7 @@ const Sidenav = ({ children }) => {
                     <Text
                       className="primary-font-medium"
                       fontSize="16px"
-                      color={
-                        isActive('/admin/customers') ||
-                        isActive('/admin/customers/add-customer') ||
-                        isActive('/admin/customers/customer-detail')
-                          ? '#000000'
-                          : '#12171E66'
-                      }
+                      color={isRouteCustomers ? '#000000' : '#12171E66'}
                     >
                       Customers
                     </Text>
@@ -265,13 +267,17 @@ const Sidenav = ({ children }) => {
                     />
                   </Box>
                   <Box width={'80%'}>
-                    <Text
-                      className="primary-font-medium"
-                      fontSize="16px"
-                      color="#12171E66"
-                    >
-                      Rewards
-                    </Text>
+                    <Link href="/admin/rewards">
+                      <Text
+                        className="primary-font-medium"
+                        fontSize="16px"
+                        color={
+                          isActive('/admin/rewards') ? '#000000' : '#12171E66'
+                        }
+                      >
+                        Rewards
+                      </Text>
+                    </Link>
                   </Box>
                 </Flex>
               </Link>
@@ -312,22 +318,28 @@ const Sidenav = ({ children }) => {
                     />
                   </Box>
                   <Box width={'80%'}>
-                    <Text
-                      className="primary-font-medium"
-                      fontSize="16px"
-                      color={
-                        isActive('/admin/employee/individual-employee') ||
-                        isActive('/admin/employee/employee-groups')
-                          ? '#000000'
-                          : '#12171E66'
-                      }
-                    >
-                      Access Management
-                    </Text>
+                    <Link href="/admin/employee/individual-employee">
+                      <Text
+                        className="primary-font-medium"
+                        fontSize="16px"
+                        color={
+                          isActive('/admin/employee/individual-employee') ||
+                          isActive('/admin/employee/employee-groups') ||
+                          isActive('/admin/employee/add-employee-group') ||
+                          isActive('/admin/employee/employee-detail') ||
+                          isActive('/admin/employee/edit-employee') ||
+                          isActive('/admin/employee/add-employee')
+                            ? '#000000'
+                            : '#12171E66'
+                        }
+                      >
+                        Access Management
+                      </Text>
+                    </Link>
                   </Box>
                 </Flex>
               </Box>
-              <Collapse in={!isEmployeeOpen}>
+              <Collapse in={isEmployeeOpen && isRouteAccessManagement}>
                 <Box
                   borderLeft={'1px solid #E69066'}
                   marginLeft={'15px !important'}
@@ -341,7 +353,9 @@ const Sidenav = ({ children }) => {
                   <Box
                     className={
                       isActive('/admin/employee/individual-employee') ||
-                      isActive('/admin/employee/add-employee')
+                      isActive('/admin/employee/add-employee') ||
+                      isActive('/admin/employee/edit-employee') ||
+                      isActive('/admin/employee/employee-detail')
                         ? 'active-tab'
                         : 'inactive-tab'
                     }
@@ -355,7 +369,8 @@ const Sidenav = ({ children }) => {
                   <Box
                     mt="-5px"
                     className={
-                      isActive('/admin/employee/employee-groups')
+                      isActive('/admin/employee/employee-groups') ||
+                      isActive('/admin/employee/add-employee-group')
                         ? 'active-tab'
                         : 'inactive-tab'
                     }
@@ -379,13 +394,17 @@ const Sidenav = ({ children }) => {
                     />
                   </Box>
                   <Box width={'80%'}>
-                    <Text
-                      className="primary-font-medium"
-                      fontSize="16px"
-                      color="#12171E66"
-                    >
-                      Labels
-                    </Text>
+                    <Link href="/admin/labels">
+                      <Text
+                        className="primary-font-medium"
+                        fontSize="16px"
+                        color={
+                          isActive('/admin/labels') ? '#000000' : '#12171E66'
+                        }
+                      >
+                        Labels
+                      </Text>
+                    </Link>
                   </Box>
                 </Flex>
               </Link>
@@ -400,22 +419,24 @@ const Sidenav = ({ children }) => {
                     />
                   </Box>
                   <Box width={'80%'}>
-                    <Text
-                      className="primary-font-medium"
-                      fontSize="16px"
-                      color={
-                        isActive('/admin/settings/general') ||
-                        isActive('/admin/settings/general/add-new-store')
-                          ? '#000000'
-                          : '#12171E66'
-                      }
-                    >
-                      Settings
-                    </Text>
+                    <Link href="/admin/settings/general">
+                      <Text
+                        className="primary-font-medium"
+                        fontSize="16px"
+                        color={
+                          isActive('/admin/settings/general') ||
+                          isActive('/admin/settings/general/add-new-store')
+                            ? '#000000'
+                            : '#12171E66'
+                        }
+                      >
+                        Settings
+                      </Text>
+                    </Link>
                   </Box>
                 </Flex>
               </Box>
-              <Collapse in={!isSettingOpen}>
+              <Collapse in={isSettingOpen && isRouteSettings}>
                 <Box
                   borderLeft={'1px solid #E69066'}
                   marginLeft={'15px !important'}
@@ -503,105 +524,109 @@ const Sidenav = ({ children }) => {
                   </Box>
                 </Flex>
               </Link>
-              <Box h="200px" />
             </VStack>
           </Collapse>
+          <Collapse in={isOpen}>
+            <Box
+              w={isOpen ? '250px' : '70px'} // Adjust the width based on the sidebar state
+              bg="white" // Adjust the margin as needed
+              minH={'100vh'}
+              mt={'3em'}
+              zIndex="20"
+            >
+              <Link href="/">
+                <Flex>
+                  <Image
+                    src={'/images/dashboard.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/inventory.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/User.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/rewards.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/order.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/employee.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/label.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/Setting.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/auth/login">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/Logout.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+            </Box>
+          </Collapse>
         </Box>
-        <Collapse in={isOpen}>
-          <Box
-            w={isOpen ? '250px' : '70px'} // Adjust the width based on the sidebar state
-            bg="white" // Adjust the margin as needed
-            minH={'100vh'}
-            mt={'3em'}
-            zIndex="20"
-          >
-            <Link href="/">
-              <Flex>
-                <Image
-                  src={'/images/dashboard.png'}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
-              </Flex>
-            </Link>
-            <Link href="/">
-              <Flex mt={'1em'}>
-                <Image
-                  src={'/images/inventory.png'}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
-              </Flex>
-            </Link>
-            <Link href="/">
-              <Flex mt={'1em'}>
-                <Image src={'/images/User.png'} width={25} height={25} alt="" />
-              </Flex>
-            </Link>
-            <Link href="/">
-              <Flex mt={'1em'}>
-                <Image
-                  src={'/images/rewards.png'}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
-              </Flex>
-            </Link>
-            <Link href="/">
-              <Flex mt={'1em'}>
-                <Image
-                  src={'/images/order.png'}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
-              </Flex>
-            </Link>
-            <Link href="/">
-              <Flex mt={'1em'}>
-                <Image
-                  src={'/images/employee.png'}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
-              </Flex>
-            </Link>
-            <Link href="/">
-              <Flex mt={'1em'}>
-                <Image
-                  src={'/images/label.png'}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
-              </Flex>
-            </Link>
-            <Link href="/">
-              <Flex mt={'1em'}>
-                <Image
-                  src={'/images/Setting.png'}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
-              </Flex>
-            </Link>
-            <Link href="/auth/login">
-              <Flex mt={'1em'}>
-                <Image
-                  src={'/images/Logout.png'}
-                  width={25}
-                  height={25}
-                  alt=""
-                />
-              </Flex>
-            </Link>
-          </Box>
-        </Collapse>
       </Box>
       <Box
         pl={{ base: '0', md: !isOpen ? '250px' : '70px' }}

@@ -4,7 +4,6 @@ import { Box, Divider, Flex, Link } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import UploadMultipleImages from '@lib/components/base/upload-multiple-images';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import EditProductInformation from '@lib/components/product/edit-product-information';
 import { useClassContext } from 'context/ClassContext';
 
@@ -13,7 +12,7 @@ export default function EditProductDetail(): React.ReactNode {
 
   return (
     <div>
-      <Sidenav>
+      <>
         <Box
           w="auto"
           left="0"
@@ -97,7 +96,15 @@ export default function EditProductDetail(): React.ReactNode {
               <Box w={{ base: '100%', md: '70%' }} ml="1em" mt="1em" px="2em">
                 <EditProductInformation />
               </Box>
-              <Box w={{ base: '500px', md: '30%' }}>
+              <Box
+                background="rgba(255, 255, 255, 0.80)"
+                height="500px"
+                display="flex"
+                mt="1.5em"
+                border="0.2px solid rgba(18, 23, 30, 0.40)"
+                borderRadius="24px"
+                w={{ base: '500px', md: '30%' }}
+              >
                 <Box
                   w={{
                     base: '100%',
@@ -107,7 +114,7 @@ export default function EditProductDetail(): React.ReactNode {
                   <UploadMultipleImages
                     widthSelectedImage="164px"
                     heightSelectedImage="136px"
-                    widthOfDefaultImage="800px"
+                    widthOfDefaultImage="300px"
                     addButton
                   />
                 </Box>
@@ -115,7 +122,7 @@ export default function EditProductDetail(): React.ReactNode {
             </Box>
           </Box>
         </Box>
-      </Sidenav>
+      </>
     </div>
   );
 }

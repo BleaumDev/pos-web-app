@@ -2,7 +2,6 @@
 import { Box } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { mapGenneralStoreSettingDataToRows } from '@utils/generalStoreSettingsUtils';
 import { useClassContext } from 'context/ClassContext';
 import generatStoreSettingData from 'data/generalStoreSettingData';
@@ -23,7 +22,7 @@ const GeneralPage = () => {
   return (
     <Box>
       {isClient && (
-        <Sidenav>
+        <>
           <Box
             w="auto"
             left="0"
@@ -84,7 +83,7 @@ const GeneralPage = () => {
               rows={storeRows}
             />
           </Box>
-        </Sidenav>
+        </>
       )}
     </Box>
   );

@@ -2,7 +2,6 @@
 import { Box } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Table from '@lib/components/base/TablePage';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { mapEmployeeGroupDataToRows } from '@utils/employeeGroupsUtils';
 import { useClassContext } from 'context/ClassContext';
 import employeeGroupData from 'data/employeeGroupData';
@@ -19,11 +18,34 @@ const EmployeeGroups = () => {
   const employeeGroupRows = useMemo(() => {
     return mapEmployeeGroupDataToRows(employeeGroupData);
   }, [employeeGroupData]);
-
+  const floatingHeaderProps = {
+    title: 'Employees',
+    itemCount: '102+ Customers',
+    csvImage: true,
+    refreshImage: true,
+    lastBreadcrumbColor: '#FF8A43',
+    breadcrumbs: [
+      {
+        label: 'Home',
+        breadcrumLink: '/admin/inventory/products',
+      },
+      {
+        label: 'Employees',
+        breadcrumLink: '/admin/employee/individual-employee',
+      },
+    ],
+    simpleSearch: true,
+    createEmployeeGroup: true,
+    deleteEmployeeGroup: true,
+    createEmployeeGroupLink: '/admin/employee/add-employee-group',
+    simplePlaceHolderSearch: 'Search here...',
+    addNew: 'Group',
+    addLink: '/admin/customers/add-customer',
+  };
   return (
     <Box>
       {isClient && (
-        <Sidenav>
+        <>
           <Box
             w="auto"
             left="0"
@@ -33,28 +55,7 @@ const EmployeeGroups = () => {
             pr="2em"
             zIndex={2}
           >
-            <FloatingHeader
-              title="Employees"
-              itemCount="102+ Customers"
-              csvImage
-              refreshImage
-              addSingleButtons
-              lastBreadcrumbColor="#FF8A43"
-              breadcrumbs={[
-                {
-                  label: 'Home',
-                  breadcrumLink: '/admin/inventory/products',
-                },
-                {
-                  label: 'Employees',
-                  breadcrumLink: '/admin/employee/individual-employee',
-                },
-              ]}
-              simpleSearch
-              simplePlaceHolderSearch="Search here..."
-              addNew="Group"
-              addLink="/admin/customers/add-customer"
-            />
+            <FloatingHeader {...floatingHeaderProps} />
           </Box>
 
           <Box
@@ -70,17 +71,18 @@ const EmployeeGroups = () => {
             zIndex={1}
           >
             <Table
+              checkboxes
               hoverEffect
               headers={[
                 'Group Name',
-                'Department Name',
-                'No. of Members',
+                'Employees',
                 'Permissions',
+                'Applicable to',
               ]}
               rows={employeeGroupRows}
             />
           </Box>
-        </Sidenav>
+        </>
       )}
     </Box>
   );

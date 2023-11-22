@@ -4,7 +4,6 @@ import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import Text from '@lib/components/base/text';
 import CategoryDetail from '@lib/components/category/category-detail';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useClassContext } from 'context/ClassContext';
 
 export default function ViewCategory(): React.ReactElement {
@@ -12,7 +11,7 @@ export default function ViewCategory(): React.ReactElement {
 
   return (
     <div>
-      <Sidenav>
+      <>
         <Box
           w="auto"
           left="0"
@@ -331,7 +330,7 @@ export default function ViewCategory(): React.ReactElement {
             </Box>
           </Box>
         </Box>
-      </Sidenav>
+      </>
     </div>
   );
 }

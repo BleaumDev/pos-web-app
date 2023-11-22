@@ -6,7 +6,6 @@ import { Box, Divider, Flex } from '@chakra-ui/react';
 import Button from '@lib/components/base/button';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import OpeningHoursPage from '@lib/components/settings/opening-hours';
 import StoreDetails from '@lib/components/settings/store-details';
 import StoreLocationDetails from '@lib/components/settings/store-location-details';
@@ -18,7 +17,7 @@ export default function AddNewStore(): React.ReactNode {
 
   return (
     <div>
-      <Sidenav>
+      <>
         <Box
           w="auto"
           left="0"
@@ -150,7 +149,7 @@ export default function AddNewStore(): React.ReactNode {
             </Box>
           </Box>
         </Box>
-      </Sidenav>
+      </>
     </div>
   );
 }

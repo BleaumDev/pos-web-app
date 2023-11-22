@@ -12,10 +12,11 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 
-import Select from '../base/select';
+import { Field, Formik } from 'formik';
+import Select, { OptionsType } from '../base/select';
 import MedicalSelect from '../pos/medical-select';
 
-const recreationalData = [
+const medicalData: OptionsType = [
   {
     key: 'Wade Warren',
     value: 'Wade Warren',
@@ -93,103 +94,123 @@ const RecreationalModel = () => {
           p="60px 10px"
         >
           <ModalBody>
-            <a href="/pos">
-              <Img
-                src="/images/arrow-square.png"
-                alt="arrow-square"
-                width="32px"
-                height="32px"
-                position="relative"
-                top="-3em"
-              />
-            </a>
-            <Flex justifyContent="center" alignItems="center">
-              <Text
-                color="#000"
-                className="primary-font-medium"
-                fontSize="16px"
-              >
-                Welcome back to
-              </Text>
-            </Flex>
-            <Flex justifyContent="center" alignItems="center">
-              <Text
-                color="#000"
-                className="primary-font-extraBold"
-                fontSize="30px"
-              >
-                Bleaum POS
-              </Text>
-            </Flex>
-            <Text
-              mt="20px"
-              color="#41454B"
-              className="primary-font-medium"
-              fontSize="14px"
+            <Formik
+              initialValues={{
+                selectedOption: '',
+              }}
+              onSubmit={(values) => {
+                console.log(values);
+              }}
             >
-              Driving Licence No.
-            </Text>
-            <Select
-              name="sort"
-              height="38px"
-              placeholder="Type Driving Licence No."
-              options={recreationalData}
-            />
-            <Text
-              color="#41454B"
-              my="5px"
-              fontSize="14px"
-              className="primary-font-semibold"
-              textAlign="center"
-            >
-              or
-            </Text>
-            <Text
-              color="#41454B"
-              fontSize="14px"
-              my="5px"
-              className="primary-font-semi-bold-italic"
-              textAlign="center"
-            >
-              Simply Scan your Licence
-            </Text>
-            <Box textAlign="center">
-              <Button
-                w="124px"
-                h="45px"
-                borderRadius="8px"
-                color="#fff"
-                border="1px solid #fff"
-                bg="#FF8A43"
-                mt="10px"
-                _hover={{
-                  background: '#FF8A43',
-                  color: '#fff',
-                }}
-                className="primary-font-medium"
-                fontSize="14px"
-              >
-                Scan
-              </Button>
-            </Box>
-            <Flex justifyContent="center" textAlign="center" mt="1em" gap="1em">
-              <Text
-                fontSize="14px"
-                color="#41454B"
-                className="primary-font-semibold"
-              >
-                Don’t have an account?
-              </Text>
-              <Link href="/admin/customers/add-customer">
-                <Text
-                  fontSize="14px"
-                  color="#1098FF"
-                  className="primary-font-semibold"
-                >
-                  Create new account
-                </Text>
-              </Link>
-            </Flex>
+              {() => (
+                <form>
+                  <Link href="/pos">
+                    <Img
+                      src="/images/arrow-square.png"
+                      alt="arrow-square"
+                      width="32px"
+                      height="32px"
+                      position="relative"
+                      top="-3em"
+                    />
+                  </Link>
+                  <Flex justifyContent="center" alignItems="center">
+                    <Text
+                      color="#000"
+                      className="primary-font-medium"
+                      fontSize="16px"
+                    >
+                      Welcome back to
+                    </Text>
+                  </Flex>
+                  <Flex justifyContent="center" alignItems="center">
+                    <Text
+                      color="#000"
+                      className="primary-font-extraBold"
+                      fontSize="30px"
+                    >
+                      Bleaum POS
+                    </Text>
+                  </Flex>
+                  <Text
+                    mt="20px"
+                    color="#41454B"
+                    className="primary-font-medium"
+                    fontSize="14px"
+                    mb="1em"
+                  >
+                    Driving License No.
+                  </Text>
+                  <Field
+                    name="selectedOption"
+                    component={Select}
+                    height="auto"
+                    options={medicalData}
+                    placeholder="Enter your Medical ID here"
+                  />
+                  <Text
+                    color="#41454B"
+                    my="5px"
+                    fontSize="14px"
+                    className="primary-font-semibold"
+                    textAlign="center"
+                  >
+                    or
+                  </Text>
+                  <Text
+                    color="#41454B"
+                    fontSize="14px"
+                    my="5px"
+                    className="primary-font-semi-bold-italic"
+                    textAlign="center"
+                  >
+                    Simply Scan your Licence
+                  </Text>
+                  <Box textAlign="center">
+                    <Button
+                      w="124px"
+                      h="45px"
+                      borderRadius="8px"
+                      color="#fff"
+                      border="1px solid #fff"
+                      bg="#FF8A43"
+                      mt="10px"
+                      _hover={{
+                        background: '#FF8A43',
+                        color: '#fff',
+                      }}
+                      className="primary-font-medium"
+                      fontSize="14px"
+                    >
+                      Scan
+                    </Button>
+                  </Box>
+                  <Flex
+                    justifyContent="center"
+                    textAlign="center"
+                    mt="1em"
+                    gap="1em"
+                  >
+                    <Text
+                      fontSize="14px"
+                      color="#41454B"
+                      className="primary-font-semibold"
+                    >
+                      Don’t have an account?
+                    </Text>
+                    <Link href="/admin/customers/add-customer">
+                      <Text
+                        fontSize="14px"
+                        color="#1098FF"
+                        className="primary-font-semibold"
+                      >
+                        Create new account
+                      </Text>
+                    </Link>
+                  </Flex>
+                </form>
+              )}
+            </Formik>
           </ModalBody>
         </ModalContent>
       </Modal>

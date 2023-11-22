@@ -3,7 +3,6 @@ import { ChevronLeftIcon } from '@chakra-ui/icons';
 import { Box, Divider, Flex, Img } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import DetailProductInformation from '@lib/components/product/detail-product-information';
 import { useClassContext } from 'context/ClassContext';
 import Link from 'next/link';
@@ -13,7 +12,7 @@ export default function ProductDetail(): React.ReactNode {
 
   return (
     <div>
-      <Sidenav>
+      <>
         <Box
           w="auto"
           left="0"
@@ -119,7 +118,7 @@ export default function ProductDetail(): React.ReactNode {
             </Box>
           </Box>
         </Box>
-      </Sidenav>
+      </>
     </div>
   );
 }

@@ -14,7 +14,6 @@ import {
 import FloatingHeader from '@lib/components/base/floating-header';
 import Input from '@lib/components/base/input';
 import UploadSingleImage from '@lib/components/base/upload-single-image';
-import Sidenav from '@lib/components/Layout/Sidebar/Sidenav';
 import { useClassContext } from 'context/ClassContext';
 
 export default function AddCategory(): React.ReactElement {
@@ -22,7 +21,7 @@ export default function AddCategory(): React.ReactElement {
   const { isClassToggled } = useClassContext();
 
   return (
-    <Sidenav>
+    <>
       <Box
         w="auto"
         left="0"
@@ -68,7 +67,6 @@ export default function AddCategory(): React.ReactElement {
             },
           ]}
           filterButton
-          primaryButton
           addNew="Category"
           addBulk="Categories"
           addButtons
@@ -342,6 +340,6 @@ export default function AddCategory(): React.ReactElement {
           </Box>
         </Box>
       </Box>
-    </Sidenav>
+    </>
   );
 }

@@ -3,6 +3,7 @@ import {
   Button,
   Flex,
   Img,
+  Link,
   Modal,
   ModalBody,
   ModalContent,
@@ -11,7 +12,6 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { Field, Formik } from 'formik';
-import Link from 'next/link';
 
 import Select, { OptionsType } from '../base/select';
 
@@ -107,7 +107,12 @@ const MedicalModel = () => {
             >
               {() => (
                 <form>
-                  <a href="/pos">
+                  <Link
+                    style={{
+                      zIndex: 9999,
+                    }}
+                    href="/pos"
+                  >
                     <Img
                       src="/images/arrow-square.png"
                       alt="arrow-square"
@@ -116,7 +121,7 @@ const MedicalModel = () => {
                       position="relative"
                       top="-3em"
                     />
-                  </a>
+                  </Link>
                   <Flex justifyContent="center" alignItems="center">
                     <Text
                       color="#000"

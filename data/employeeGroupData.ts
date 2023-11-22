@@ -1,39 +1,39 @@
 const employeeGroupData = [
   {
     groupName: 'Purchasing Manager',
-    deptName: 'Accounting and Finance',
+    applicableTo: 'Across the platform',
     noOfEmployee: '02',
-    permission: 'Dashboard, Inventory',
+    permission: 'Defined',
   },
   {
     groupName: 'Sales Manager',
-    deptName: 'Accounting and Finance',
+    applicableTo: 'Across the platform',
     noOfEmployee: '03',
-    permission: 'Dashboard, Inventory',
+    permission: 'Defined',
   },
   {
     groupName: 'Store Manager',
-    deptName: 'Accounting and Finance',
+    applicableTo: 'Particular store',
     noOfEmployee: '04',
-    permission: 'Dashboard, Inventory',
+    permission: 'Undefined',
   },
   {
     groupName: 'Admin Manager',
-    deptName: 'Human Resource Management',
+    applicableTo: 'Particular store',
     noOfEmployee: '03',
-    permission: 'Dashboard',
+    permission: 'Undefined',
   },
   {
     groupName: 'Marketing Manager',
-    deptName: 'Accounting and Finance',
+    applicableTo: 'Across the platform',
     noOfEmployee: '02',
-    permission: 'Dashboard, Inventory',
+    permission: 'Undefined',
   },
   {
     groupName: 'Store Officer',
-    deptName: 'Accounting and Finance',
+    applicableTo: 'Across the platform',
     noOfEmployee: '03',
-    permission: 'Dashboard, Inventory',
+    permission: 'Defined',
   },
 ];
 
