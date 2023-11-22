@@ -4,7 +4,8 @@ import {
   AuthCard,
   AuthCardBody,
   AuthCardHeader,
-} from '@lib/components/Auth/card';
+} from '@lib/components/Auth/Card';
+
 import Button from '@lib/components/base/button';
 import Heading from '@lib/components/base/heading';
 import Input from '@lib/components/base/input';
