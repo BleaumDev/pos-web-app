@@ -282,16 +282,16 @@ const TablePage: FC<TableProps> = ({
                 borderRadius="12px !important"
                 h="46px"
                 cursor="pointer"
-                {...(hoverEffect
-                  ? {
-                      _hover: {
-                        borderRight: '5px solid #FFA382 !important',
+                _hover={
+                  hoverEffect
+                    ? {
+                        borderLeft: '5px solid red',
                         color: '#000000',
                         bg: '#fff',
                         borderRadius: '12px',
-                      },
-                    }
-                  : {})}
+                      }
+                    : {}
+                }
                 style={{ marginBottom: '16px' }}
               >
                 {checkboxes && (

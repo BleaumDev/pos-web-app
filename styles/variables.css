@@ -163,7 +163,7 @@ body{
     color: #fff;
     border-radius: 7px;
     margin-left: -1px;
-    transform: rotate(270deg);
+    transform: rotate(0deg) !important;
 }
 .small-table-text{
   font-size: 11px !important;

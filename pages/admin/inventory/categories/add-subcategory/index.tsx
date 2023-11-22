@@ -68,7 +68,6 @@ export default function AddSubcategory(): React.ReactElement {
             },
           ]}
           filterButton
-          primaryButton
           addNew="Category"
           addBulk="Categories"
           addButtons

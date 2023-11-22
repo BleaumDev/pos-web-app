@@ -236,7 +236,7 @@ const Sidenav = ({ children }) => {
                 </Box>
               </Collapse>
               <Link href="/admin/customers">
-                <Flex alignItems={'center'} width="full">
+                <Flex alignItems={'center'} mt="-10px" width="full">
                   <Box width={'20%'}>
                     <Image
                       src={'/images/User.png'}
@@ -524,8 +524,107 @@ const Sidenav = ({ children }) => {
                   </Box>
                 </Flex>
               </Link>
-              <Box h="200px" />
             </VStack>
+          </Collapse>
+          <Collapse in={isOpen}>
+            <Box
+              w={isOpen ? '250px' : '70px'} // Adjust the width based on the sidebar state
+              bg="white" // Adjust the margin as needed
+              minH={'100vh'}
+              mt={'3em'}
+              zIndex="20"
+            >
+              <Link href="/">
+                <Flex>
+                  <Image
+                    src={'/images/dashboard.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/inventory.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/User.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/rewards.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/order.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/employee.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/label.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/Setting.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+              <Link href="/auth/login">
+                <Flex mt={'1em'}>
+                  <Image
+                    src={'/images/Logout.png'}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                </Flex>
+              </Link>
+            </Box>
           </Collapse>
         </Box>
       </Box>

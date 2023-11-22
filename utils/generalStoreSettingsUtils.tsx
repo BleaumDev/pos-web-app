@@ -1,5 +1,4 @@
 import { Box, Flex, Image, Img, Td, Text } from '@chakra-ui/react';
-import Link from 'next/link';
 
 export function mapGenneralStoreSettingDataToRows(
   generatStoreSettingData: Array<any>
@@ -9,29 +8,22 @@ export function mapGenneralStoreSettingDataToRows(
       {store.startedAt}
     </Td>,
     <Td key="img" display="flex" alignItems="center" justifyContent="center">
-      <Link href="/admin/store/store-detail">
-        <Flex
-          justifyContent="center"
-          alignItems="center"
-          id="img_col"
-          gap="10px"
-        >
-          <Image
-            src={store.imgSrc}
-            width={{
-              base: 'auto',
-              md: '100%',
-            }}
-            height="40px"
-            alt=""
-          />
-          <Text
-            color="rgba(65, 69, 75, 0.70)"
-            className="primary-font-semibold"
-            dangerouslySetInnerHTML={{ __html: store.storeName }}
-          />
-        </Flex>
-      </Link>
+      <Flex justifyContent="center" alignItems="center" id="img_col" gap="10px">
+        <Image
+          src={store.imgSrc}
+          width={{
+            base: 'auto',
+            md: '100%',
+          }}
+          height="40px"
+          alt=""
+        />
+        <Text
+          color="rgba(65, 69, 75, 0.70)"
+          className="primary-font-semibold"
+          dangerouslySetInnerHTML={{ __html: store.storeName }}
+        />
+      </Flex>
     </Td>,
     <Td className="text-center" key="storeLocation">
       <Text

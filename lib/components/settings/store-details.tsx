@@ -12,7 +12,8 @@ const StoreDetails = () => {
       }}
       w={{
         base: '100%',
-        md: '80%',
+        sm: '100%',
+        md: '27.3%',
       }}
       p="1em"
       border="0.5px solid rgba(65, 69, 75, 0.30)"

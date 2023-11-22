@@ -182,6 +182,26 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   const isActive = (path: string) => {
     return router.pathname === path;
   };
+
+  const [isAllActive, setAllActive] = useState(false);
+  const [isFilter1Active, setFilter1Active] = useState(false);
+  const [isFilter2Active, setFilter2Active] = useState(false);
+
+  const toggleButton = (button: any) => {
+    switch (button) {
+      case 'all':
+        setAllActive(!isAllActive);
+        break;
+      case 'filter1':
+        setFilter1Active(!isFilter1Active);
+        break;
+      case 'filter2':
+        setFilter2Active(!isFilter2Active);
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <Box
       background="#ffffff"
@@ -434,6 +454,8 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                     base: 'start',
                     md: 'end',
                   }}
+                  flexWrap={'wrap'}
+                  mt="0.8em"
                   gap="10px"
                 >
                   {addSingleButtons && (
@@ -470,7 +492,6 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                         borderRadius="4px"
                         border="1px solid #41454B"
                         color="#41454B"
-                        w="auto"
                         fontSize="12px"
                         className="primary-font-medium"
                         _hover={{
@@ -581,56 +602,99 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                     <Flex textAlign="center" alignItems="center" gap="10px">
                       <Button
                         display="flex"
-                        background="#E9F0F8"
+                        background={
+                          isAllActive
+                            ? 'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)'
+                            : '#E9F0F8'
+                        }
                         borderRadius="4px"
+                        _hover={{
+                          background:
+                            'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+                          color: '#fff',
+                        }}
                         height="24px"
-                        color="#41454B"
+                        color={isAllActive ? '#fff' : '#41454B'}
                         fontSize="12px"
                         gap="5px"
                         className="primary-font-regular-italic"
+                        onClick={() => toggleButton('all')}
                       >
                         All
                         <Image
-                          src="/images/close-circle.png"
+                          src={
+                            isAllActive
+                              ? '/images/close-circle-white.png'
+                              : '/images/close-circle.png'
+                          }
                           alt="refresh-circle"
                           w="12px"
                           cursor="pointer"
                           h="12px"
                         />
                       </Button>
+
                       <Button
                         display="flex"
-                        background="#E9F0F8"
+                        background={
+                          isFilter1Active
+                            ? 'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)'
+                            : '#E9F0F8'
+                        }
                         borderRadius="4px"
+                        _hover={{
+                          background:
+                            'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+                          color: '#fff',
+                        }}
                         height="24px"
-                        color="#41454B"
+                        color={isFilter1Active ? '#fff' : '#41454B'}
                         fontSize="12px"
                         gap="5px"
                         className="primary-font-regular-italic"
+                        onClick={() => toggleButton('filter1')}
                       >
                         {filter1}
                         <Image
-                          src="/images/close-circle.png"
+                          src={
+                            isFilter1Active
+                              ? '/images/close-circle-white.png'
+                              : '/images/close-circle.png'
+                          }
                           alt="refresh-circle"
                           w="12px"
                           cursor="pointer"
                           h="12px"
                         />
                       </Button>
+
                       <Button
                         display="flex"
-                        background="#E9F0F8"
+                        background={
+                          isFilter2Active
+                            ? 'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)'
+                            : '#E9F0F8'
+                        }
                         borderRadius="4px"
                         height="24px"
-                        color="#41454B"
+                        _hover={{
+                          background:
+                            'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
+                          color: '#fff',
+                        }}
+                        color={isFilter2Active ? '#fff' : '#41454B'}
                         fontSize="12px"
                         gap="5px"
                         className="primary-font-regular-italic"
+                        onClick={() => toggleButton('filter2')}
                       >
                         {filter2}
-
                         <Image
-                          src="/images/close-circle.png"
+                          src={
+                            isFilter2Active
+                              ? '/images/close-circle-white.png'
+                              : '/images/close-circle.png'
+                          }
                           alt="refresh-circle"
                           w="12px"
                           cursor="pointer"

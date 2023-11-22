@@ -14,7 +14,13 @@ const OpeningHoursPage = () => {
   };
 
   return (
-    <Stack w="100%">
+    <Stack
+      w={{
+        base: '100%',
+        sm: '100%',
+        md: '33.3%',
+      }}
+    >
       <Box
         borderRadius="8px"
         m={{

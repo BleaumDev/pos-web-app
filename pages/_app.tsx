@@ -4,7 +4,7 @@ import type { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -28,34 +28,40 @@ const App = ({
 }>): React.ReactNode => {
   const isAuthScreen = router.pathname.startsWith('/auth/');
   const isPosScreen = router.pathname.startsWith('/pos');
+  const [isClient, setIsClient] = useState(false);
 
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   return (
     <ClassProvider>
-      <ChakraProvider theme={theme}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <SessionProvider session={session}>
-            <Provider store={store}>
-              {isAuthScreen || isPosScreen ? (
-                // If it's an auth or pos screen, render without Sidenav
-                <>
-                  <Head>
-                    <title>POS</title>
-                  </Head>
-                  <Component {...pageProps} />
-                </>
-              ) : (
-                // If it's not an auth or pos screen, render with Sidenav
-                <Sidenav>
-                  <Head>
-                    <title>POS</title>
-                  </Head>
-                  <Component {...pageProps} />
-                </Sidenav>
-              )}
-            </Provider>
-          </SessionProvider>
-        </Suspense>
-      </ChakraProvider>
+      {isClient && (
+        <ChakraProvider theme={theme}>
+          <Suspense fallback={<div>Loading...</div>}>
+            <SessionProvider session={session}>
+              <Provider store={store}>
+                {isAuthScreen || isPosScreen ? (
+                  // If it's an auth or pos screen, render without Sidenav
+                  <>
+                    <Head>
+                      <title>POS</title>
+                    </Head>
+                    <Component {...pageProps} />
+                  </>
+                ) : (
+                  // If it's not an auth or pos screen, render with Sidenav
+                  <Sidenav>
+                    <Head>
+                      <title>POS</title>
+                    </Head>
+                    <Component {...pageProps} />
+                  </Sidenav>
+                )}
+              </Provider>
+            </SessionProvider>
+          </Suspense>
+        </ChakraProvider>
+      )}
     </ClassProvider>
   );
 };

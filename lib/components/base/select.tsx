@@ -94,9 +94,8 @@ const Select = (props: Props) => {
         styles={{
           placeholder: (baseStyles) => ({
             ...baseStyles,
-            color: '#41454B',
+            color: '#777a !important',
             fontSize: fontSize ?? '14px',
-
             display: 'flex',
             alignItems: 'start',
             justifyContent: 'start',
@@ -129,16 +128,20 @@ const Select = (props: Props) => {
             border: 'none !important',
 
             boxShadow: 'none !important',
-
+            marginTop: '0px',
             zIndex: 9999,
           }),
           option: (baseStyles, state) => ({
             ...baseStyles,
             '&:hover': {
-              background: '#FFA382',
-              color: '#fff',
+              background: '#FF8A43',
             },
-            backgroundColor: state.isSelected ? '#FFA382' : '#fff',
+            color: state.isSelected
+              ? 'rgba(65, 69, 75, 1)'
+              : 'rgba(65, 69, 75, 0.50)',
+            backgroundColor: state.isSelected ? '#FFE8DF' : '#fff',
+            fontWeight: '500',
+            borderLeft: state.isSelected ? '3px solid #FFA382' : 'none',
           }),
           input: (baseStyles) => ({
             ...baseStyles,
@@ -157,7 +160,7 @@ const Select = (props: Props) => {
             fontSize: fontSize ?? '14px',
             minHeight: minHeight ?? '38px',
 
-            border: '0.5px solid rgba(65, 69, 75, 0.30)',
+            border: '0.5px solid rgba(18, 23, 30, 0.10)',
             boxSizing: 'border-box',
             width: width ?? 'auto',
             height: height ?? '50px',
@@ -167,7 +170,11 @@ const Select = (props: Props) => {
 
             ...inputStyle,
           }),
-
+          // Style for the clear indicator (cross icon)
+          clearIndicator: (provided) => ({
+            ...provided,
+            display: 'none', // Hide the clear indicator
+          }),
           container: (baseStyles) => ({
             ...baseStyles,
             input: {

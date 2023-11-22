@@ -36,10 +36,10 @@ const Inventory = () => {
       Herb, dried
     </Td>,
     <Td className="text-center" key="messagesCount">
-      complex
+      $30.00
     </Td>,
     <Td className="text-center" key="createdAt">
-      250g
+      Complex
     </Td>,
     <Td className="text-center" key="status">
       Cat Enterprise
@@ -103,7 +103,7 @@ const Inventory = () => {
               },
             ]}
             simpleSearch
-            simplePlaceHolderSearch="search here by SKU or Product Name"
+            simplePlaceHolderSearch="Search here by SKU or Product Name"
             productFilter
             addNew="Product"
             addBulk="Products"
