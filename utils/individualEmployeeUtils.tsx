@@ -5,7 +5,13 @@ export function mapIndividualEmployeeDataToRows(
   individualEmployeeData: Array<any>
 ): Array<JSX.Element[]> {
   return individualEmployeeData.map((employee) => [
-    <Td key="img" display="flex" alignItems="center" justifyContent="center">
+    <Td
+      key="img"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      border="none !important"
+    >
       <Link href="/admin/employee/employee-detail">
         <Flex
           justifyContent="center"
@@ -41,7 +47,7 @@ export function mapIndividualEmployeeDataToRows(
     <Td className="text-center" key="email">
       {employee.email}
     </Td>,
-    <Td className="text-center" color="#08754C" key="phone">
+    <Td className="text-center" color="#08754C" border="none" key="phone">
       {employee.phone}
     </Td>,
     <Td className="text-center" key="permission">

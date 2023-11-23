@@ -1,22 +1,17 @@
 /* eslint-disable unused-imports/no-unused-vars */
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/button-has-type */
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Divider, Flex } from '@chakra-ui/react';
+import { Box, Divider, Flex, Link } from '@chakra-ui/react';
 import Button from '@lib/components/base/button';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
-import OpeningHoursPage from '@lib/components/settings/opening-hours';
-import StoreDetails from '@lib/components/settings/store-details';
-import StoreLocationDetails from '@lib/components/settings/store-location-details';
+import AddTax from '@lib/components/settings/add-taxes';
 import { useClassContext } from 'context/ClassContext';
-import Link from 'next/link';
 
-export default function AddNewStore(): React.ReactNode {
+const AddTaxPage = () => {
   const { isClassToggled } = useClassContext();
 
   return (
-    <div>
+    <Box>
       <>
         <Box
           w="auto"
@@ -24,8 +19,8 @@ export default function AddNewStore(): React.ReactNode {
           right="0"
           width={'100%'}
           className={isClassToggled ? 'toggled-class' : 'default-class'}
-          pr="2em"
           zIndex={2}
+          pr="2em"
         >
           <FloatingHeader
             title="Settings"
@@ -43,19 +38,18 @@ export default function AddNewStore(): React.ReactNode {
                 breadcrumLink: '/admin/settings/general',
               },
               {
-                label: 'General',
-                breadcrumLink: '/admin/settings/general',
+                label: 'Taxes',
+                breadcrumLink: '/admin/settings/taxes',
               },
             ]}
           />
         </Box>
-
         <Box
           p="2em 2em 4em 2em"
           position="relative"
           top={{
             base: '0em',
-            md: '7.5em',
+            md: '6.5em',
           }}
           overflowX="hidden"
           overflowY="scroll"
@@ -73,7 +67,7 @@ export default function AddNewStore(): React.ReactNode {
           >
             <Flex justifyContent="space-between">
               <Flex ml="1em">
-                <Link href="/admin/settings/general">
+                <Link href="/admin/settings/taxes">
                   <ChevronLeftIcon boxSize={30} />
                 </Link>
 
@@ -82,7 +76,7 @@ export default function AddNewStore(): React.ReactNode {
                   ml={2}
                   className="primary-font-semibold"
                 >
-                  Add Details
+                  Add New Tax
                 </Label>
               </Flex>
               <Flex
@@ -91,7 +85,7 @@ export default function AddNewStore(): React.ReactNode {
                 mt="-3.6em"
                 alignItems="end"
               >
-                <Link href="/admin/settings/general">
+                <Link href="/admin/settings/taxes">
                   <Button
                     className="primary-font-semibold"
                     border=" 0.3px solid rgba(18, 23, 30, 0.50)"
@@ -113,7 +107,7 @@ export default function AddNewStore(): React.ReactNode {
                   }}
                   background="#FF8A43"
                 >
-                  Create Store
+                  Create Tax
                 </Button>
               </Flex>
             </Flex>
@@ -126,20 +120,25 @@ export default function AddNewStore(): React.ReactNode {
               borderColor="rgba(18, 23, 30, 0.4)"
             />
             <Box
-              className="store-details-container"
+              display="flex"
+              justifyContent="center"
               m={{
                 base: '0em 0px',
                 md: '4em 1em',
               }}
               w="full"
+              gap={{
+                md: '0px',
+                base: '40px',
+              }}
             >
-              <StoreDetails />
-              <StoreLocationDetails />
-              <OpeningHoursPage />
+              <AddTax />
             </Box>
           </Box>
         </Box>
       </>
-    </div>
+    </Box>
   );
-}
+};
+
+export default AddTaxPage;

@@ -52,8 +52,9 @@ const GeneralPage = () => {
                   breadcrumLink: '/admin/settings/general',
                 },
               ]}
-              addNewStore
-              addStore="/admin/settings/general/add-new-store"
+              addNewSettingButton
+              addNewSettingProp="Store"
+              addNewSettingLink="/admin/settings/general/add-new-store"
             />
           </Box>
 

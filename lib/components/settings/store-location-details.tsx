@@ -23,13 +23,7 @@ const states: OptionsType = [
 ];
 const StoreLocationDetails = () => {
   return (
-    <Box
-      w={{
-        base: '100%',
-        sm: '100%',
-        md: '33.3%',
-      }}
-    >
+    <Box className="store-box">
       <Formik
         initialValues={{
           selectedOption: '',

@@ -14,13 +14,7 @@ const OpeningHoursPage = () => {
   };
 
   return (
-    <Stack
-      w={{
-        base: '100%',
-        sm: '100%',
-        md: '33.3%',
-      }}
-    >
+    <Stack className="store-box">
       <Box
         borderRadius="8px"
         m={{

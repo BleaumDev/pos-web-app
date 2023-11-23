@@ -286,8 +286,8 @@ const TablePage: FC<TableProps> = ({
                   hoverEffect
                     ? {
                         borderLeft: '5px solid red',
-                        color: '#000000',
-                        bg: '#fff',
+                        color: '#fff',
+                        bg: '#E69066',
                         borderRadius: '12px',
                       }
                     : {}

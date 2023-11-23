@@ -10,11 +10,7 @@ const StoreDetails = () => {
         base: '0em 0em',
         md: '0em 2em',
       }}
-      w={{
-        base: '100%',
-        sm: '100%',
-        md: '27.3%',
-      }}
+      className="store-box"
       p="1em"
       border="0.5px solid rgba(65, 69, 75, 0.30)"
     >

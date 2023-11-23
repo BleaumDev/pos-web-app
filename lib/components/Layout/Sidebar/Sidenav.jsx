@@ -463,9 +463,13 @@ const Sidenav = ({ children }) => {
                   </Box>
                   <Box
                     mt="-5px"
-                    className={isActive('') ? 'active-tab' : 'inactive-tab'}
+                    className={
+                      isActive('/admin/settings/menus')
+                        ? 'active-tab'
+                        : 'inactive-tab'
+                    }
                   >
-                    <Link href="/admin/settings/general">
+                    <Link href="/admin/settings/menus">
                       <Text className="primary-font-semibold" mt={'10px'}>
                         Menus
                       </Text>
@@ -473,9 +477,14 @@ const Sidenav = ({ children }) => {
                   </Box>
                   <Box
                     mt="-5px"
-                    className={isActive('') ? 'active-tab' : 'inactive-tab'}
+                    className={
+                      isActive('/admin/settings/taxes') ||
+                      isActive('/admin/settings/taxes/add-new-tax')
+                        ? 'active-tab'
+                        : 'inactive-tab'
+                    }
                   >
-                    <Link href="/admin/settings/general">
+                    <Link href="/admin/settings/taxes">
                       <Text className="primary-font-semibold" mt={'10px'}>
                         Taxes
                       </Text>
@@ -524,6 +533,7 @@ const Sidenav = ({ children }) => {
                   </Box>
                 </Flex>
               </Link>
+              {isRouteInventory ? ' ' : <Box mt="10em" h="200px"></Box>}
             </VStack>
           </Collapse>
           <Collapse in={isOpen}>

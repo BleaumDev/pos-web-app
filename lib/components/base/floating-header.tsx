@@ -121,8 +121,9 @@ interface FloatingHeaderProps {
   secondaryLabel?: string;
   statusFilter?: boolean;
   simplePlaceHolderSearch?: string;
-  addNewStore?: boolean;
-  addStore?: string;
+  addNewSettingButton?: boolean;
+  addNewSettingLink?: string;
+  addNewSettingProp?: string;
   createEmployeeGroup?: boolean;
   createEmployeeGroupLink?: string;
   deleteEmployeeGroup?: boolean;
@@ -159,17 +160,18 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   cancelLink,
   primaryButton,
   simplePlaceHolderSearch,
-  addNewStore,
-  addStore,
+  addNewSettingButton,
+  addNewSettingLink,
   createEmployeeGroup,
   createEmployeeGroupLink,
   deleteEmployeeGroup,
+  addNewSettingProp,
 }) => {
   const constructedHref = `/${addLink}`;
   const constructedHref1 = `/${editLink}`;
   const constructedHref2 = `/${cancelLink}`;
   const constructedHref3 = `/${confirmLink}`;
-  const constructedHref4 = `/${addStore}`;
+  const constructedHref4 = `/${addNewSettingLink}`;
   const constructedHref5 = `/${createEmployeeGroupLink}`;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -273,13 +275,16 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                 >
                   {breadcrumbs?.map((breadcrumb, index) => (
                     <BreadcrumbItem key={index}>
-                      <Link href={breadcrumb.breadcrumLink}>
+                      <Link
+                        className="primary-font-semi-bold-italic"
+                        style={{
+                          fontSize: '12px',
+                          color: 'rgba(65, 69, 75, 0.60)',
+                        }}
+                        href={breadcrumb.breadcrumLink}
+                      >
                         {index === breadcrumbs.length - 1 ? (
-                          <Text
-                            color={lastBreadcrumbColor}
-                            fontSize="13px"
-                            className="primary-font-semi-bold-italic"
-                          >
+                          <Text color={lastBreadcrumbColor} fontSize="12px">
                             {breadcrumb.label}
                           </Text>
                         ) : (
@@ -289,7 +294,7 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                     </BreadcrumbItem>
                   ))}
                 </Breadcrumb>
-                {addNewStore && (
+                {addNewSettingButton && (
                   <Link href={constructedHref4}>
                     <Button
                       p="10px 18px"
@@ -303,8 +308,16 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                         bg: 'linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)',
                       }}
                     >
-                      <Img src="/images/shop-add.png" mr="5px" w="16px" />
-                      Add New Store
+                      <Img
+                        src={
+                          router.pathname === '/admin/settings/general'
+                            ? '/images/shop-add.png'
+                            : '/images/receipt-edit.png'
+                        }
+                        mr="5px"
+                        w="16px"
+                      />
+                      Add New {addNewSettingProp}
                     </Button>
                   </Link>
                 )}
