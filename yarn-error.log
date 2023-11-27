@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\AB\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+  C:\Program Files\nodejs\node.exe C:\Users\AB\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add styled-components @types/styled-components
 
 PATH: 
   C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files\Git\cmd;C:\Users\AB\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\AB\AppData\Local\Programs\Python\Python312\;C:\Users\AB\AppData\Local\Programs\Python\Launcher\;C:\Users\AB\AppData\Local\Microsoft\WindowsApps;C:\Users\AB\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\AB\AppData\Roaming\npm;C:\Users\AB\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\AB\AppData\Local\GitHubDesktop\bin;C:\Program Files\Java\jdk-20\bin;
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: ENOENT: no such file or directory, lstat 'E:\Alagzoo\POS\pos-web-app\node_modules\semantic-release\node_modules\execa\node_modules'
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\AB\AppData\Local\Yarn\Cache\v6\npm-estraverse-4.3.0-398ad3f3c5a24948be7725e83d11a7de28cdbd1d-integrity\node_modules\estraverse\.jshintrc' -> 'E:\Alagzoo\POS-Latest-Vercel\pos-web-app\node_modules\@typescript-eslint\utils\node_modules\estraverse\.jshintrc'
 
 npm manifest: 
   {

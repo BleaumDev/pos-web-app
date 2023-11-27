@@ -492,9 +492,13 @@ const Sidenav = ({ children }) => {
                   </Box>
                   <Box
                     mt="-5px"
-                    className={isActive('') ? 'active-tab' : 'inactive-tab'}
+                    className={
+                      isActive('/admin/settings/compliances')
+                        ? 'active-tab'
+                        : 'inactive-tab'
+                    }
                   >
-                    <Link href="/admin/settings/general">
+                    <Link href="/admin/settings/compliances">
                       <Text className="primary-font-semibold" mt={'10px'}>
                         Compliances
                       </Text>

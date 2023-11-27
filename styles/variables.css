@@ -539,3 +539,25 @@ background-clip: text !important;
 -webkit-text-fill-color: transparent !important;
 
 }
+/* styles.css */
+/* Override the track background color */
+[data-chakra-component="CSwitch"] [data-chakra-component="CBox"][data-chakra-component="CSwitchTrack"] {
+  background-color: rgba(8, 117, 76, 0.5) !important;
+}
+
+/* Override the thumb background color */
+[data-chakra-component="CSwitch"] [data-chakra-component="CBox"][data-chakra-component="CSwitchThumb"] {
+  background-color: rgba(8, 117, 76, 1) !important;
+}
+
+.css-p27qcy[aria-checked=true], .css-p27qcy[data-checked] {
+    --switch-bg: #cbd5e0 !important;
+}
+
+.css-7roig[aria-checked=true], .css-7roig[data-checked] {
+    -webkit-transform: translateX(var(--switch-thumb-x));
+    -moz-transform: translateX(var(--switch-thumb-x));
+    -ms-transform: translateX(var(--switch-thumb-x));
+    transform: translateX(var(--switch-thumb-x));
+    background: rgba(8, 117, 76, 1) !important;
+}

@@ -221,21 +221,12 @@ const AddTax = () => {
                     >
                       Select taxes to include when
                     </Text>
-                    <Checkbox
-                      mt="10px"
-                      size={'sm'}
-                      className="primary-font-medium"
-                      fontSize="10px"
-                    >
+                    <Checkbox mt="10px" size={'sm'} fontSize="10px">
                       OMMA Tax
                     </Checkbox>
                   </Box>
                   <Box transition="0.3s ease-in-out">
-                    <Checkbox
-                      size={'sm'}
-                      className="primary-font-medium"
-                      fontSize="10px"
-                    >
+                    <Checkbox size={'sm'} fontSize="10px">
                       Sales Tax(VERIFY)
                     </Checkbox>
                   </Box>
@@ -250,7 +241,7 @@ const AddTax = () => {
               >
                 Exclude From Recreational Customers
               </Text>
-              <Switch colorScheme="blue" size="sm" />
+              <Switch size="sm" />
             </Stack>
             <Stack gap="10px" mt="1em">
               <Text
@@ -260,7 +251,7 @@ const AddTax = () => {
               >
                 Exclude From Tax Exempt Customers
               </Text>
-              <Switch colorScheme="blue" size="sm" />
+              <Switch size="sm" />
             </Stack>
           </form>
         )}
