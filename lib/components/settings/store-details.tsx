@@ -38,7 +38,7 @@ const StoreDetails = () => {
 
         <Box mt="-8px">
           <Input
-            placeholder="Name your Employee"
+            placeholder="Name your Store"
             background="#fff"
             className="primary-font-medium"
             h="33px"
@@ -158,7 +158,7 @@ const StoreDetails = () => {
 
         <Box mt="-8px">
           <Input
-            placeholder="Enter Website link"
+            placeholder="Enter Website Link"
             background="#fff"
             className="primary-font-medium"
             h="33px"

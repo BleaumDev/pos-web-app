@@ -19,6 +19,7 @@ function PasswordInput({ helpText, ...props }: BaseInputProps) {
         <Input
           {...baseInputStyles}
           {...props}
+          className="primary-font-regular-italic"
           type={view ? 'text' : 'password'}
         />
         <IconButton

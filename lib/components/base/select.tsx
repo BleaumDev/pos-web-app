@@ -126,6 +126,7 @@ const Select = (props: Props) => {
             ...baseStyles,
             outline: 'none !important',
             border: 'none !important',
+            width: '200px',
 
             boxShadow: 'none !important',
             marginTop: '0px',
@@ -136,6 +137,7 @@ const Select = (props: Props) => {
             '&:hover': {
               background: '#FF8A43',
             },
+            width: '200px',
             color: state.isSelected
               ? 'rgba(65, 69, 75, 1)'
               : 'rgba(65, 69, 75, 0.50)',

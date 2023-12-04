@@ -16,7 +16,7 @@ const UserMediaPage = () => {
     <Box>
       {isClient && (
         <Box>
-          <Stack w="400px" mt="8px">
+          <Stack mt="1em">
             <Label
               fontSize={{ base: '12px', sm: '14px', md: '14px' }}
               className="primary-font-semibold"
@@ -24,11 +24,11 @@ const UserMediaPage = () => {
               Profile Image
             </Label>
 
-            <Box ml="-3em">
+            <Box ml="0em">
               <UploadSingleImage
                 widthSelectedImage="164px"
                 heightSelectedImage="136px"
-                widthOfDefaultImage="200px"
+                widthOfDefaultImage="164px"
                 defaultImage="/images/upload-Image.png"
                 addButton
               />
@@ -42,12 +42,13 @@ const UserMediaPage = () => {
               Identification Document
             </Label>
 
-            <Box ml="-3em">
+            <Box ml="0em">
               <UploadSingleImage
                 widthSelectedImage="246px"
                 heightSelectedImage="168px"
                 widthOfDefaultImage="246px"
                 defaultImage="/images/upload-license.png"
+                addButton
               />
             </Box>
           </Stack>

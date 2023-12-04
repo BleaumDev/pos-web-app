@@ -94,7 +94,7 @@ const DetailedInformation = () => {
         <UploadSingleImage
           widthSelectedImage="164px"
           heightSelectedImage="136px"
-          widthOfDefaultImage="200px"
+          widthOfDefaultImage="164px"
           defaultImage="/images/upload-Image.png"
           addButton
         />

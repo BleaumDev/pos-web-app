@@ -29,7 +29,7 @@ const AddEmployee = () => {
         >
           <FloatingHeader
             title="Employees"
-            itemCount="102+ Customers"
+            itemCount="102+ Employees"
             csvImage
             refreshImage
             addSingleButtons
@@ -38,6 +38,10 @@ const AddEmployee = () => {
               {
                 label: 'Home',
                 breadcrumLink: '/admin/inventory/products',
+              },
+              {
+                label: 'Access Management',
+                breadcrumLink: '/admin/employee/individual-employee',
               },
               {
                 label: 'Individual Employee',

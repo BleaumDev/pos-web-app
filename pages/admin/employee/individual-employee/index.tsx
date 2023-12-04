@@ -17,13 +17,17 @@ const IndividualEmployee = () => {
 
   const floatingHeaderProps = {
     title: 'Employees',
-    itemCount: '102+ Customers',
+    itemCount: '102+ Employees',
     csvImage: true,
     refreshImage: true,
     addSingleButtons: true,
     lastBreadcrumbColor: '#FF8A43',
     breadcrumbs: [
       { label: 'Home', breadcrumLink: '/admin/inventory/products' },
+      {
+        label: 'Access Management',
+        breadcrumLink: '/admin/employee/individual-employee',
+      },
       {
         label: 'Individual Employee',
         breadcrumLink: '/admin/employee/individual-employee',

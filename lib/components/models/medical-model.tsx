@@ -3,7 +3,6 @@ import {
   Button,
   Flex,
   Img,
-  Link,
   Modal,
   ModalBody,
   ModalContent,
@@ -15,6 +14,7 @@ import { Field, Formik } from 'formik';
 
 import Select, { OptionsType } from '../base/select';
 
+import Link from 'next/link';
 import MedicalSelect from '../pos/medical-select';
 
 const medicalData: OptionsType = [

@@ -98,7 +98,7 @@ const SummaryEmployeeGroup = () => {
                     w="125px"
                     borderRadius="3px"
                   >
-                    Create Group
+                    Confirm Edit
                   </Button>
                 </>
               )}
@@ -126,6 +126,9 @@ const SummaryEmployeeGroup = () => {
                   <Input
                     placeholder="Enter The Group Name"
                     background="#fff"
+                    border="none"
+                    borderBottom="1px solid #c7c7c7"
+                    borderRadius="0px"
                     className="primary-font-medium"
                     h="33px"
                     readOnly
@@ -162,6 +165,9 @@ const SummaryEmployeeGroup = () => {
                   <Input
                     placeholder="Enter The Creation Time"
                     background="#fff"
+                    border="none"
+                    borderBottom="1px solid #c7c7c7"
+                    borderRadius="0px"
                     readOnly
                     className="primary-font-medium"
                     h="33px"
@@ -198,6 +204,9 @@ const SummaryEmployeeGroup = () => {
                   <Input
                     placeholder="Across the platform"
                     background="#fff"
+                    border="none"
+                    borderBottom="1px solid #c7c7c7"
+                    borderRadius="0px"
                     className="primary-font-medium"
                     h="33px"
                     fontSize="12px"

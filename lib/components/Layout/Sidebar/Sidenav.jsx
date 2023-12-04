@@ -12,6 +12,7 @@ import {
 import { useClassContext } from 'context/ClassContext.tsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import Navbar from './Navbar';
 
 const Sidenav = ({ children }) => {
@@ -35,6 +36,27 @@ const Sidenav = ({ children }) => {
   const isRouteAccessManagement = router.pathname.startsWith('/admin/employee');
   const isRouteSettings = router.pathname.startsWith('/admin/settings');
   const isRouteCustomers = router.pathname.startsWith('/admin/customers');
+  useEffect(() => {
+    if (isRouteInventory) {
+      if (isInventoryOpen) {
+        onInventoryToggle();
+      }
+    }
+  }, [isRouteInventory, isInventoryOpen, onInventoryToggle]);
+  useEffect(() => {
+    if (isRouteAccessManagement) {
+      if (!isEmployeeOpen) {
+        onEmployeeToggle();
+      }
+    }
+  }, [isRouteAccessManagement, isEmployeeOpen, onEmployeeToggle]);
+  useEffect(() => {
+    if (isRouteSettings) {
+      if (!isSettingOpen) {
+        onSettingToggle();
+      }
+    }
+  }, [isRouteSettings, isSettingOpen, onSettingToggle]);
 
   return (
     <Flex>
@@ -124,6 +146,7 @@ const Sidenav = ({ children }) => {
                   <Box width={'80%'}>
                     <Link href="/admin/inventory/products">
                       <Text
+                        onClick={onInventoryToggle}
                         className="primary-font-medium"
                         fontSize="16px"
                         color={
@@ -325,6 +348,10 @@ const Sidenav = ({ children }) => {
                         color={
                           isActive('/admin/employee/individual-employee') ||
                           isActive('/admin/employee/employee-groups') ||
+                          isActive('/admin/employee/employee-group-detail') ||
+                          isActive(
+                            '/admin/employee/employee-groups/add-employee'
+                          ) ||
                           isActive('/admin/employee/add-employee-group') ||
                           isActive('/admin/employee/employee-detail') ||
                           isActive('/admin/employee/edit-employee') ||
@@ -370,6 +397,10 @@ const Sidenav = ({ children }) => {
                     mt="-5px"
                     className={
                       isActive('/admin/employee/employee-groups') ||
+                      isActive('/admin/employee/employee-group-detail') ||
+                      isActive(
+                        '/admin/employee/employee-groups/add-employee'
+                      ) ||
                       isActive('/admin/employee/add-employee-group')
                         ? 'active-tab'
                         : 'inactive-tab'

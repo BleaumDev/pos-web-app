@@ -1,11 +1,12 @@
 /* eslint-disable unused-imports/no-unused-vars */
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Divider, Flex, Link } from '@chakra-ui/react';
+import { Box, Divider, Flex } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import EmployeeGroupTabing from '@lib/components/employee/employee-group-tabing';
 import SummaryEmployeeGroup from '@lib/components/employee/summary-employee-group';
 import { useClassContext } from 'context/ClassContext';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const AddEmployeeGroups = () => {
@@ -18,7 +19,7 @@ const AddEmployeeGroups = () => {
 
   const floatingHeaderProps = {
     title: 'Employees',
-    itemCount: '102+ Customers',
+    itemCount: '102+ Employees',
     csvImage: true,
     refreshImage: true,
     lastBreadcrumbColor: '#FF8A43',
@@ -28,8 +29,12 @@ const AddEmployeeGroups = () => {
         breadcrumLink: '/admin/inventory/products',
       },
       {
-        label: 'Employees',
+        label: 'Access Management',
         breadcrumLink: '/admin/employee/individual-employee',
+      },
+      {
+        label: 'Add Employee Group',
+        breadcrumLink: '/admin/employee/add-employee-group',
       },
     ],
     simpleSearch: true,
@@ -77,7 +82,7 @@ const AddEmployeeGroups = () => {
               borderRadius="14px"
             >
               <Flex ml="1em">
-                <Link href="/admin/employee/individual-employee">
+                <Link href="/admin/employee/employee-groups">
                   <ChevronLeftIcon boxSize={30} />
                 </Link>
 

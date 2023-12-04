@@ -44,7 +44,7 @@ const UploadSingleImage: React.FC<UploadSingleImageProps> = ({
   return (
     <Box>
       {selectedFile ? (
-        <Flex pl="0em" position="relative">
+        <Flex position="relative">
           <Box
             display="grid"
             position="relative"

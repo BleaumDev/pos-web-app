@@ -3,7 +3,6 @@ import {
   Button,
   Flex,
   Img,
-  Link,
   Modal,
   ModalBody,
   ModalContent,
@@ -13,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 
 import { Field, Formik } from 'formik';
+import Link from 'next/link';
 import Select, { OptionsType } from '../base/select';
 import MedicalSelect from '../pos/medical-select';
 

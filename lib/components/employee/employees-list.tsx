@@ -18,7 +18,7 @@ const EmployeesList = () => {
           'Role',
           'Groups',
           'Email Address',
-          'Phone No',
+          'Phone No.',
         ]}
         rows={employeeGroupRows}
       />

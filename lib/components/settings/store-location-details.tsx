@@ -171,7 +171,7 @@ const StoreLocationDetails = () => {
                       minHeight="33px"
                       height="33px"
                       options={states}
-                      placeholder="Select State"
+                      placeholder="Select Time Zone"
                     />
                   </Box>
                 </Stack>
@@ -189,7 +189,7 @@ const StoreLocationDetails = () => {
                 <UploadSingleImage
                   widthSelectedImage="164px"
                   heightSelectedImage="136px"
-                  widthOfDefaultImage="200px"
+                  widthOfDefaultImage="164px"
                   defaultImage="/images/upload-Image.png"
                   addOrangeButton
                 />

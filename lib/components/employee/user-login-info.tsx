@@ -8,21 +8,21 @@ import Select, { OptionsType } from '../base/select';
 import PasswordInput from '../inputs/PasswordInput';
 import AccountType from './account-type';
 
-const states: OptionsType = [
+const employeeGroup: OptionsType = [
   {
-    key: 'California',
-    value: 'California',
-    label: 'California',
+    key: 'Admin Manager',
+    value: 'Admin Manager',
+    label: 'Admin Manager',
   },
   {
-    key: 'Texas',
-    value: 'Texas',
-    label: 'Texas',
+    key: 'Purchasing Manager',
+    value: 'Purchasing Manager',
+    label: 'Purchasing Manager',
   },
   {
-    key: 'Florida',
-    value: 'Florida',
-    label: 'Florida',
+    key: 'Store Manager',
+    value: 'Store Manager',
+    label: 'Store Manager',
   },
 ];
 const UserLoginPage = () => {
@@ -38,7 +38,7 @@ const UserLoginPage = () => {
   return (
     <Formik
       initialValues={{
-        states: '',
+        employeeGroup: '',
       }}
       onSubmit={(values) => {
         console.log(values);
@@ -47,7 +47,7 @@ const UserLoginPage = () => {
       {() => (
         <form>
           {' '}
-          <Box>
+          <Box mt={isEmployeeDetailRoute ? '0px' : '-3.5em'}>
             {isClient && (
               <Box>
                 <Label
@@ -131,14 +131,14 @@ const UserLoginPage = () => {
                       />
                     ) : (
                       <Field
-                        name="states"
+                        name="employeeGroup"
                         borderRadius="4px"
                         component={Select}
                         fontSize="14px"
                         minHeight="33px"
                         height="33px"
-                        options={states}
-                        placeholder="Select State"
+                        options={employeeGroup}
+                        placeholder="Select Employee Group"
                       />
                     )}
                   </Box>

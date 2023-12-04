@@ -82,7 +82,7 @@ export default function AddNewStore(): React.ReactNode {
                   ml={2}
                   className="primary-font-semibold"
                 >
-                  Add Details
+                  Add New Store
                 </Label>
               </Flex>
               <Flex

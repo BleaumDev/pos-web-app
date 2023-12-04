@@ -561,3 +561,14 @@ background-clip: text !important;
     transform: translateX(var(--switch-thumb-x));
     background: rgba(8, 117, 76, 1) !important;
 }
+.css-qel3vt-control {
+  z-index: 10000 !important;
+}
+
+.flex-item{
+  display: flex;
+align-items: center;
+justify-content: center;
+flex-grow: 1;
+flex-basis: 200px;
+}

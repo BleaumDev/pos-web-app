@@ -4,8 +4,7 @@ const PosPhoneInput = () => {
   return (
     <PhoneInput
       inputStyle={{ width: '100%' }}
-      country="us"
-      value="1425652"
+      placeholder="Enter Phone No."
       onChange={(phone) => ({ phone })}
     />
   );

@@ -149,10 +149,12 @@ const Compliances = () => {
                   *
                 </span>
               </Label>
-              <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              <Box zIndex={1000}>
+                <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              </Box>
             </Flex>
           </Flex>
-          <Flex alignItems="center" gap="10px" w="50%" justifyContent="start">
+          <Flex alignItems="center" gap="10px" w="50%" justifyContent="center">
             <RadioGroup onChange={setValue} value={value}>
               <Stack direction="row">
                 <Radio value="UnitWeight">
@@ -196,10 +198,12 @@ const Compliances = () => {
                   *
                 </span>
               </Label>
-              <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              <Box zIndex={999}>
+                <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              </Box>
             </Flex>
           </Flex>
-          <Flex alignItems="center" gap="10px" w="50%" justifyContent="start">
+          <Flex alignItems="center" gap="10px" w="50%" justifyContent="center">
             <RadioGroup onChange={setValue1} value={value1}>
               <Stack direction="row">
                 <Radio value="UnitWeight1">
@@ -243,10 +247,12 @@ const Compliances = () => {
                   *
                 </span>
               </Label>
-              <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              <Box zIndex={888}>
+                <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              </Box>
             </Flex>
           </Flex>
-          <Flex alignItems="center" gap="10px" w="50%" justifyContent="start">
+          <Flex alignItems="center" gap="10px" w="50%" justifyContent="center">
             <RadioGroup onChange={setValue2} value={value2}>
               <Stack direction="row">
                 <Radio value="UnitWeight2">
@@ -290,10 +296,12 @@ const Compliances = () => {
                   *
                 </span>
               </Label>
-              <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              <Box zIndex={777}>
+                <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              </Box>
             </Flex>
           </Flex>
-          <Flex alignItems="center" gap="10px" w="50%" justifyContent="start">
+          <Flex alignItems="center" gap="10px" w="50%" justifyContent="center">
             <RadioGroup onChange={setValue3} value={value3}>
               <Stack direction="row">
                 <Radio value="UnitWeight3">
@@ -337,10 +345,12 @@ const Compliances = () => {
                   *
                 </span>
               </Label>
-              <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              <Box zIndex={666}>
+                <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              </Box>
             </Flex>
           </Flex>
-          <Flex alignItems="center" gap="10px" w="50%" justifyContent="start">
+          <Flex alignItems="center" gap="10px" w="50%" justifyContent="center">
             <RadioGroup onChange={setValue4} value={value4}>
               <Stack direction="row">
                 <Radio value="UnitWeight4">
@@ -384,10 +394,12 @@ const Compliances = () => {
                   *
                 </span>
               </Label>
-              <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              <Box zIndex={555}>
+                <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              </Box>
             </Flex>
           </Flex>
-          <Flex alignItems="center" gap="10px" w="50%" justifyContent="start">
+          <Flex alignItems="center" gap="10px" w="50%" justifyContent="center">
             <RadioGroup onChange={setValue5} value={value5}>
               <Stack direction="row">
                 <Radio value="UnitWeight5">
@@ -431,10 +443,12 @@ const Compliances = () => {
                   *
                 </span>
               </Label>
-              <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              <Box zIndex={444}>
+                <QuantitySelectInput inputPlaceholder="Enter The Amount" />
+              </Box>
             </Flex>
           </Flex>
-          <Flex alignItems="center" gap="10px" w="50%" justifyContent="start">
+          <Flex alignItems="center" gap="10px" w="50%" justifyContent="center">
             <RadioGroup onChange={setValue6} value={value6}>
               <Stack direction="row">
                 <Radio value="UnitWeight6">

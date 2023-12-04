@@ -831,6 +831,12 @@ const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                         className="primary-font-semibold"
                         color="#fff"
                         fontSize="12px"
+                        disabled={
+                          true
+                            ? router.pathname ===
+                              '/admin/employee/add-employee-group'
+                            : false
+                        }
                         bg="linear-gradient(244deg, #192837 4.52%, #274D5C 83.76%)"
                         borderRadius="7px"
                         _hover={{

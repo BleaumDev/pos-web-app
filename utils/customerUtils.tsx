@@ -40,7 +40,7 @@ export function mapCustomerDataToRows(
     <Td className="text-center" key="DOB">
       {customer.DOB}
     </Td>,
-    <Td className="text-center" key="phone">
+    <Td className="text-center" border="none" key="phone">
       {customer.phone}
     </Td>,
     <Td className="text-center" key="email">

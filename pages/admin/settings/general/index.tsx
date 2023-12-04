@@ -77,7 +77,7 @@ const GeneralPage = () => {
                 'Store Name',
                 'Store Location',
                 'Store Manager',
-                'Phone No',
+                'Phone No.',
                 'Email ID',
                 'Opening Status',
               ]}

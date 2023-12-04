@@ -36,7 +36,7 @@ export function mapGenneralStoreSettingDataToRows(
       {store.storeManager}
     </Td>,
 
-    <Td className="text-center" key="phone">
+    <Td border="none" className="text-center phone-field-width" key="phone">
       {store.phone}
     </Td>,
     <Td className="text-center" key="email">

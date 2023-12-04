@@ -1,11 +1,12 @@
 /* eslint-disable */
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Divider, Flex, Link } from '@chakra-ui/react';
+import { Box, Divider, Flex } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import UploadMultipleImages from '@lib/components/base/upload-multiple-images';
 import EditProductInformation from '@lib/components/product/edit-product-information';
 import { useClassContext } from 'context/ClassContext';
+import Link from 'next/link';
 
 export default function EditProductDetail(): React.ReactNode {
   const { isClassToggled } = useClassContext();

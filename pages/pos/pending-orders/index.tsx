@@ -74,6 +74,7 @@ const PendingOrders = () => {
       justifyContent="center"
       gap="10px"
       alignItems="center"
+      border="none"
     >
       <Link href="/pos/payments">
         <Button
@@ -171,7 +172,14 @@ const PendingOrders = () => {
             mb="2em"
             zIndex={1000}
           >
-            <PosSearch />
+            <Box
+              ml={{
+                base: '0em',
+                md: '-20em',
+              }}
+            >
+              <PosSearch />
+            </Box>
             <PsoHeading
               fontSize1="20px"
               fontSize2="12px"

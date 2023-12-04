@@ -1,10 +1,11 @@
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Flex, Img, Link, Stack } from '@chakra-ui/react';
+import { Box, Flex, Img, Stack } from '@chakra-ui/react';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import Text from '@lib/components/base/text';
 import CategoryDetail from '@lib/components/category/category-detail';
 import { useClassContext } from 'context/ClassContext';
+import Link from 'next/link';
 
 export default function ViewCategory(): React.ReactElement {
   const { isClassToggled } = useClassContext();

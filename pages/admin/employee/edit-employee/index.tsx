@@ -29,7 +29,7 @@ const EditEmployee = () => {
         >
           <FloatingHeader
             title="Employees"
-            itemCount="102+ Customers"
+            itemCount="102+ Employees"
             csvImage
             refreshImage
             addSingleButtons
@@ -38,6 +38,10 @@ const EditEmployee = () => {
               {
                 label: 'Home',
                 breadcrumLink: '/admin/inventory/products',
+              },
+              {
+                label: 'Access Management',
+                breadcrumLink: '/admin/employee/individual-employee',
               },
               {
                 label: 'Individual Employee',
@@ -99,14 +103,21 @@ const EditEmployee = () => {
                 base: '0em 0px',
                 md: '0em 1em',
               }}
+              gap="100px"
               w="100%"
               flexWrap={'wrap'}
               justifyContent={'space-between'}
               p="12px"
             >
-              <UserLoginPage />
-              <UserDetailsPage />
-              <UserMediaPage />
+              <Box className="flex-item">
+                <UserLoginPage />
+              </Box>
+              <Box className="flex-item">
+                <UserDetailsPage />
+              </Box>
+              <Box className="flex-item">
+                <UserMediaPage />
+              </Box>
             </Box>
             <Flex
               justifyContent={'start !important'}

@@ -20,7 +20,7 @@ const EmployeeGroups = () => {
   }, [employeeGroupData]);
   const floatingHeaderProps = {
     title: 'Employees',
-    itemCount: '102+ Customers',
+    itemCount: '102+ Employees',
     csvImage: true,
     refreshImage: true,
     lastBreadcrumbColor: '#FF8A43',
@@ -30,8 +30,12 @@ const EmployeeGroups = () => {
         breadcrumLink: '/admin/inventory/products',
       },
       {
-        label: 'Employees',
+        label: 'Access Management',
         breadcrumLink: '/admin/employee/individual-employee',
+      },
+      {
+        label: 'Employee Groups',
+        breadcrumLink: '/admin/employee/employee-groups',
       },
     ],
     simpleSearch: true,

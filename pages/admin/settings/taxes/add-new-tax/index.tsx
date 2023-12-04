@@ -1,11 +1,12 @@
 /* eslint-disable unused-imports/no-unused-vars */
 import { ChevronLeftIcon } from '@chakra-ui/icons';
-import { Box, Divider, Flex, Link } from '@chakra-ui/react';
+import { Box, Divider, Flex } from '@chakra-ui/react';
 import Button from '@lib/components/base/button';
 import FloatingHeader from '@lib/components/base/floating-header';
 import Label from '@lib/components/base/label';
 import AddTax from '@lib/components/settings/add-taxes';
 import { useClassContext } from 'context/ClassContext';
+import Link from 'next/link';
 
 const AddTaxPage = () => {
   const { isClassToggled } = useClassContext();
