@@ -27,6 +27,9 @@ const Sidenav = ({ children }) => {
   const { isOpen: isSettingOpen, onToggle: onSettingToggle } =
     useDisclosure('isSettingOpen');
 
+  const { isOpen: isRewardOpen, onToggle: onRewardToggle } =
+    useDisclosure('isRewardOpen');
+
   const router = useRouter();
   const isActive = (path) => {
     return router.pathname === path;
@@ -36,6 +39,7 @@ const Sidenav = ({ children }) => {
   const isRouteAccessManagement = router.pathname.startsWith('/admin/employee');
   const isRouteSettings = router.pathname.startsWith('/admin/settings');
   const isRouteCustomers = router.pathname.startsWith('/admin/customers');
+  const isRouteReward = router.pathname.startsWith('/admin/rewards');
   useEffect(() => {
     if (isRouteInventory) {
       if (isInventoryOpen) {
@@ -57,6 +61,13 @@ const Sidenav = ({ children }) => {
       }
     }
   }, [isRouteSettings, isSettingOpen, onSettingToggle]);
+  useEffect(() => {
+    if (isRouteReward) {
+      if (isRewardOpen) {
+        onRewardToggle();
+      }
+    }
+  }, [isRouteReward, isRewardOpen, onRewardToggle]);
 
   return (
     <Flex>
@@ -279,8 +290,8 @@ const Sidenav = ({ children }) => {
                   </Box>
                 </Flex>
               </Link>
-              <Link href="/">
-                <Flex alignItems={'center'} width="full">
+              <Box cursor={'pointer'} mt="0px" onClick={onRewardToggle}>
+                <Flex alignItems={'center'} width="full" mb="12px">
                   <Box width={'20%'}>
                     <Image
                       src={'/images/rewards.png'}
@@ -289,13 +300,15 @@ const Sidenav = ({ children }) => {
                       alt=""
                     />
                   </Box>
-                  <Box width={'80%'}>
-                    <Link href="/admin/rewards">
+                  <Box width={'80%'} onClick={onRewardToggle}>
+                    <Link href="/admin/rewards/coupons">
                       <Text
                         className="primary-font-medium"
                         fontSize="16px"
                         color={
-                          isActive('/admin/rewards') ? '#000000' : '#12171E66'
+                          isActive('/admin/rewards/coupons')
+                            ? '#000000'
+                            : '#12171E66'
                         }
                       >
                         Rewards
@@ -303,7 +316,61 @@ const Sidenav = ({ children }) => {
                     </Link>
                   </Box>
                 </Flex>
-              </Link>
+              </Box>
+              <Collapse in={!isRewardOpen && isRouteReward}>
+                <Box
+                  borderLeft={'1px solid #E69066'}
+                  marginLeft={'15px !important'}
+                  transition=" 0.3s ease-in-out"
+                  pl={'30px'}
+                  mt="-1em"
+                  mb="12px"
+                  zIndex="10"
+                  width="208px !important"
+                >
+                  <Box
+                    className={
+                      isActive('/admin/rewards/coupons')
+                        ? 'active-tab'
+                        : 'inactive-tab'
+                    }
+                  >
+                    <Link href="/admin/inventory/products">
+                      <Text className="primary-font-semibold" mt={'10px'}>
+                        Coupons
+                      </Text>
+                    </Link>
+                  </Box>
+                  <Box
+                    mt="-5px"
+                    className={
+                      isActive('/admin/rewards/deals')
+                        ? 'active-tab'
+                        : 'inactive-tab'
+                    }
+                  >
+                    <Link href="/admin/rewards/deals">
+                      <Text className="primary-font-semibold" mt={'10px'}>
+                        Deals
+                      </Text>
+                    </Link>
+                  </Box>
+                  <Box
+                    mt="-5px"
+                    className={
+                      isActive('/admin/rewards/loyalty-points')
+                        ? 'active-tab'
+                        : 'inactive-tab'
+                    }
+                  >
+                    <Link href="/admin/rewards/loyalty-points">
+                      <Text className="primary-font-semibold" mt={'10px'}>
+                        Loyalty Points
+                      </Text>
+                    </Link>
+                  </Box>
+                </Box>
+              </Collapse>
               <Link href="/admin/orders">
                 <Flex alignItems={'center'} width="full">
                   <Box width={'20%'}>
